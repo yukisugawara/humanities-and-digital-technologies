@@ -3,104 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第8回 質的データ分析の基礎：コーディングと「発酵思考」 | 人文学とデジタル技術（2026）</title>
+  <title>第8回 質的データ分析の基礎 | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +48,15 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-amber-100 text-amber-700 mb-4 inline-block">質的分析</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">08</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">質的データ分析の基礎：コーディングと「発酵思考」</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第8回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">08</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">質的データ分析の基礎</span></h1>
+        <p class="text-lg text-gray-600 font-medium mb-1">コーディングと発酵思考</p>
+        <p class="text-base text-gray-500 font-light">第8回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-amber-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,93 +64,182 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><span>質的データ分析の目的と特徴</span></li>
-        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><span>コーディングの概念と実践</span></li>
-        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><span>「発酵思考」の比喩による分析姿勢</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span>質的データ分析の目的・特徴・意義（スローサイエンスとしての位置づけ）</li>
+        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span>質的分析と量的分析の比較（NLP等による架橋可能性を含む）</li>
+        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span>質的分析のワークフローと「発酵思考」によるプロセスの比喩</li>
+        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span>コーディングの概念と実践（コードの種類・視点・コードブック）</li>
+        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span>コーディング作業を支援するツール（手作業〜CAQDAS）</li>
+        <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span>人文学テキストへの応用可能性</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">質的データ分析とは何か</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">数値化できないデータ（インタビュー逐語録、観察メモ、日記、写真・映像など）から意味を読み解く方法。文脈に基づく深い洞察、「なぜ／どのように」の探究、スローサイエンス。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">質的分析と量的分析の比較</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">データの性質、問いの立て方、研究デザイン、結果の形式、一般化の扱いを整理。NLP・トピックモデリング等による質的／量的の架橋可能性にも触れます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">質的分析のワークフロー</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">研究計画・収集 → 逐語録作成 → 精読 → 分割 → コード化 → カテゴリー化 → 解釈 → 報告。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">「発酵思考」によるプロセスの比喩</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">材料を集める → こねる → 寝かす → 発酵させる → 焼き上げる。時間をかけてデータと向き合い解釈を成熟させる姿勢。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">コーディングとは何か</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">コードの種類と視点（記述的／解釈的、インヴィボ、帰納／演繹、多段階コーディング、コードブック）。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">コーディング作業を支援するツール</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">手作業（付箋・KJ法）、Google ドキュメント（ハイライト＋コメント）、スプレッドシート（断片—コード対応表）、CAQDAS（MAXQDA等）、マインドマップ（概念の可視化）。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">人文学への応用可能性</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">質的分析・コード化のロジックを、文学・哲学・歴史資料の伝統的テキスト読解にも応用できます。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 8.1 質的データ分析とは何か -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">質的データ分析とは何か（目的・特徴・意義）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">質的データ分析とは、インタビュー記録や観察メモなど、<strong class="text-gray-800">数値化できないデータに対してその意味を読み解く手法</strong>です。収集した文章や会話、画像などのデータを精読し、共通するテーマやパターンを見出したうえで<strong class="text-gray-800">コード化（ラベル付け）</strong>などを行い、人々の関係性や価値観・概念を深く理解していきます。質的分析の成果は統計的な数値ではなく、データに潜む<strong class="text-gray-800">意味や物語</strong>として表現される点に特徴があります。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">質的データ分析を行う意義の一つは、数値では捉えきれない文脈に基づいた深い洞察を得ることにあります。人間の行動や語りには複雑な背景や意味が込められており、質的手法によってそれら「なぜ」「どのように」を解明することが可能です。</p>
+          <p class="text-sm text-gray-600 leading-relaxed">また、人文学の研究伝統では、時間をかけてゆっくりと考察を深める<strong class="text-gray-800">スローサイエンス的な姿勢</strong>を重視します。データにじっくりと向き合い解釈を練り上げるこの反復的・内省的プロセスは、まるで<strong class="text-gray-800">発酵</strong>させるように時間の経過が思考を成熟させる効果があると例えられます。実際、質的分析ではデータを丁寧に読み込み、思考の「醸成」を経て深い洞察に到達することがしばしばです。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8.2 質的分析と量的分析の比較 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">質的分析と量的分析の比較</h3>
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead><tr class="border-b border-gray-200">
+                <th class="py-2 pr-3 font-bold text-gray-500 w-28">観点</th>
+                <th class="py-2 pr-3 font-bold text-amber-600">質的分析</th>
+                <th class="py-2 font-bold text-indigo-600">量的分析</th>
+              </tr></thead>
+              <tbody class="text-gray-600">
+                <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">データの性質</td><td class="py-2 pr-3">テキスト・映像・音声データ（内容や意味に焦点）</td><td class="py-2">アンケート集計や実験の測定値などの数値データ（数値の関係や差異に着目）</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">目的と問いの立て方</td><td class="py-2 pr-3">「何が起きているか」「なぜそうなっているのか」「どのように進行しているのか」（帰納的アプローチが多い）</td><td class="py-2">「どの程度か」「違いは有意か」（演繹的アプローチが中心）</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">研究デザイン</td><td class="py-2 pr-3">調査デザインが柔軟で、状況に応じて方法を変更・調整できる</td><td class="py-2">質問紙調査や実験など手順が厳密に定型化された方法で進められる</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">データ量と結果の形式</td><td class="py-2 pr-3">比較的少数のケースを深く掘り下げ、文章による記述や概念モデル、事例のナラティブ（物語）として提示</td><td class="py-2">多数のサンプルから普遍的傾向を導き出し、数表やグラフなど統計的指標で報告</td></tr>
+                <tr><td class="py-2 pr-3 font-semibold text-gray-700">知見の一般化範囲</td><td class="py-2 pr-3">特定の状況や文脈に密着しており、豊かな詳細を含むが、一般化には慎重さが求められる</td><td class="py-2">広範な対象に当てはまる一般法則を示す傾向があるが、個々の文脈差異は捉えにくくなる</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">質的・量的の架橋：混合手法の可能性</p>
+            <p class="text-sm text-gray-600">以上のように質的・量的にはそれぞれに強みがありますが、近年では両者を橋渡しするデータサイエンスの技法も登場しています。例えば、<strong class="text-gray-800">トピックモデリング</strong>や<strong class="text-gray-800">自然言語処理（NLP）</strong>といった計算手法により、大量のテキストデータからパターンや潜在的テーマを自動抽出することが可能です。こうして得られたトピックやパターンに対し、研究者がその意味や文脈を解釈・考察を加えることで、新たな質的洞察に結びつけるアプローチも生まれています。実際、インタビュー分析にテキストマイニングを併用したり、大量の文書を機械学習で分類した上で重要な事例を深掘りするといった<strong class="text-gray-800">混合手法</strong>も広まりつつあります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8.3 質的分析のワークフロー -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">質的分析のワークフロー</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">質的データを分析する基本的な流れ（ワークフロー）は、一連のステップとして次のように整理できます。質的分析はしばしば探索的かつ<strong class="text-gray-800">反復的なプロセス</strong>となり、各段階を行きつ戻りつしながら進められます。</p>
+
+          <div class="space-y-3 mb-4">
+            <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">1</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">研究計画とデータ収集</strong>：まず研究の目的や問いを設定し、それに沿ってデータを収集します。インタビュー、フィールドワーク（観察）、アンケートの自由記述、日記、文書資料、ネット上の投稿など、さまざまな質的データが対象になります。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">2</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">データの準備（逐語録の作成等）</strong>：音声データの場合は録音から逐語録（トランスクリプト）を作成します。話し言葉を逐一文字に書き起こし、躊躇や沈黙も分析上意味がある場合はそのまま記録します。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">3</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">データの精読・全体把握</strong>：集めたデータ全体に繰り返し目を通し、内容と雰囲気をつかみます。この段階では分析を急がず先入観をできるだけ排して生データを丹念に読み込むことが重要です。まずはデータに潜むパターンを直感的に感じ取ることを心がけます。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">4</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">データの分割とコード化</strong>：テキストデータを意味のある小さな単位に区切っていきます。それぞれの断片（意味単位）について、含まれる重要な内容や特徴に着目してラベル（コード）を付与します。この作業を<strong class="text-gray-800">コード化（コーディング）</strong>と言います。一つの断片に複数のコードを付けても構いません。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">5</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">コードのグループ化とカテゴリー化</strong>：全ての断片にコードを付与したら、似た内容のコード同士をまとめて上位の<strong class="text-gray-800">カテゴリー</strong>を作成します。例えば複数の発言に「不安」「心配」といったコードを付けていた場合、それらをまとめて「ネガティブな感情」というカテゴリーにグループ化する、といった具合です（日本では<strong class="text-gray-800">KJ法</strong>と呼ばれるカード分類の手法でコードをグルーピングすることもあります）。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">6</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">解釈と結論の導出</strong>：グループ化したカテゴリーやテーマをもとに、データが示す意味合いを総合的に<strong class="text-gray-800">解釈</strong>します。カテゴリー間の関係性を考え、データが語る物語（<strong class="text-gray-800">ストーリーライン</strong>）や理論モデルを構築していきます。質的分析ではこの解釈の部分が最も創造的で重要です。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">7</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">結果の報告と検証</strong>：最後に分析結果をまとめ、レポートや論文として文章化します。質的研究の報告では、読者がデータを追体験できるよう<strong class="text-gray-800">具体的なデータの引用</strong>を示しながら論じることが重要です。さらに、分析結果の信頼性を補強するために<strong class="text-gray-800">トライアンギュレーション</strong>（多角的検証）を行うことも有用です。</p></div></div>
+          </div>
+
+          <!-- 発酵思考の比喩 -->
+          <div class="info-box">
+            <p class="text-xs font-bold text-amber-600 mb-2">8.3.1 「発酵思考」によるプロセスの比喩</p>
+            <p class="text-sm text-gray-600 mb-3">質的分析のプロセスは、パン作りにおける<strong class="text-gray-800">発酵</strong>の過程に喩えられることがあります。時間をかけて材料を醸すことで美味しいパンができるように、データにも時間を与えて熟考することで深い解釈が得られるという比喩です。</p>
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              <div class="bg-amber-50 rounded-xl p-3 text-center"><p class="text-[10px] font-black text-amber-600 mb-0.5">1. 材料を集める</p><p class="text-[9px] text-gray-500">データ収集（インタビュー、観察等）</p></div>
+              <div class="bg-amber-50 rounded-xl p-3 text-center"><p class="text-[10px] font-black text-amber-600 mb-0.5">2. 生地をこねる</p><p class="text-[9px] text-gray-500">データ整理・一次分析（コード化開始）</p></div>
+              <div class="bg-amber-50 rounded-xl p-3 text-center"><p class="text-[10px] font-black text-amber-600 mb-0.5">3. 生地を寝かす</p><p class="text-[9px] text-gray-500">熟考とメモ（間をとってデータを振り返る）</p></div>
+              <div class="bg-amber-50 rounded-xl p-3 text-center"><p class="text-[10px] font-black text-amber-600 mb-0.5">4. 発酵させる</p><p class="text-[9px] text-gray-500">解釈・テーマ抽出（カテゴリー→理論構築）</p></div>
+              <div class="bg-amber-50 rounded-xl p-3 text-center"><p class="text-[10px] font-black text-amber-600 mb-0.5">5. 焼き上げる</p><p class="text-[9px] text-gray-500">執筆・報告（論文やレポートとして完成）</p></div>
+            </div>
+            <p class="text-xs text-gray-500 mt-3">これら5つのステップは一度ずつ順番に行えば完了するわけではなく、実際にはステップ1〜4を行きつ戻りつ何度も反復しながら進めていく点がポイントです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8.4 コーディングとは何か -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">コーディングとは何か</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">質的データ分析における核心的な作業が<strong class="text-gray-800">コーディング（コード化）</strong>です。コーディングとは、質的データの一部分（テキスト断片など）に対してその内容を端的に表す<strong class="text-gray-800">ラベル（コード）を付与する</strong>作業を指します。コードは通常、データ中のテーマや特徴を表現した短い言葉やフレーズです。コーディングには分析者の解釈が少なからず入ります。しかし、コーディングを通じてデータを再構造化することで、それまで隠れていたパターンや意味が見えるようになります。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">8.4.1 コードの種類と視点</p>
+            <ul class="text-sm text-gray-600 space-y-3">
+              <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">記述的コード（descriptive）と解釈的コード（interpretive）</strong>：データの表面的な内容をそのまま表す記述的コードと、データの背後に潜む意味を読み取って付ける解釈的コードがあります。例えばある発言に対し「仕事の不満」というコードを付けるのは記述的ですが、「アイデンティティの危機」という深読みしたコードを付けるのは解釈的と言えます。初心者はまず記述的コードから始め、データを忠実にラベル化する方が無難です。</div></li>
+              <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">インヴィボ・コード（in vivo code）</strong>：コード名に参加者自身の語りの中の表現をそのまま使う手法です。たとえばインタビュー対象者が「心が折れた」と表現したなら、その言葉をそのままコード名「心が折れた」として用いる方法です。参加者の生の声を尊重できる反面、そのままでは抽象化が不足する場合もあります。</div></li>
+              <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">帰納的コード化と演繹的コード化</strong>：データから直接コードを生み出す<strong class="text-gray-800">帰納的</strong>（inductive）な方法と、既存の理論や枠組みに基づいてコードを当てはめる<strong class="text-gray-800">演繹的</strong>（deductive）な方法があります。前者は事前の枠組みにとらわれずボトムアップにコードを生成するため、新奇性の高い発見につながります。一方、後者は先行研究で用いられた概念カテゴリをあらかじめ用意し、それに沿ってデータにコード付けしていくやり方です。実際の研究では両者を組み合わせ、まず帰納的にオープンコードを多数生成してから、後で理論を参照してコードを洗練させる、といった手順をとることも多いです。</div></li>
+              <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">多段階のコード化</strong>：方法論によってはコード化を複数の段階で行うこともあります。代表例がグラウンデッド・セオリー・アプローチにおける<strong class="text-gray-800">オープン・コーディング</strong>→<strong class="text-gray-800">アクシアル・コーディング</strong>→<strong class="text-gray-800">セレクティブ・コーディング</strong>という三段階です。まずデータから多様な概念を抽出し（オープン）、次にコード間の関係性を分析し（アクシアル）、最後に中核となる概念を抽出して理論化する（セレクティブ）という流れになります。</div></li>
+              <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">コードブックの活用</strong>：コードが増えてきたら<strong class="text-gray-800">コードブック</strong>（コード一覧表）を作っておくと便利です。コード名とその定義、具体例を書き留めておくことで、時間が経っても一貫した基準でコードを適用できます。またチームで共同分析する場合も、コードブックを共有することでメンバー間でコードの解釈を揃えることができます。</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8.5 コーディング作業を支援するツール -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">コーディング作業を支援するツール</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">質的データのコーディングは、紙とペンを使ったアナログな方法から専用ソフトウェアまで、様々な手法・ツールで行うことができます。</p>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-4">
+            <div class="info-box">
+              <p class="text-xs font-bold text-amber-600 mb-1">8.5.1 アナログな方法（付箋・KJ法）</p>
+              <p class="text-xs text-gray-600">最も手軽な方法は紙とペン、付箋などを使ったアナログなコーディングです。プリントアウトした逐語録にマーカーでハイライトしたり、重要な箇所に直接書き込みをしてコード化することができます。多数の付箋紙に発言断片を書き出し、テーブル上で似たもの同士をグループ化する方法も有効でしょう（KJ法）。データに直接触れながら考えられる利点がありますが、データ量が多くなると物理的な管理が難しくなります。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-amber-600 mb-1">8.5.2 身近なデジタルツール</p>
+              <p class="text-xs text-gray-600">特別なソフトがなくても、身近な汎用ツールで質的分析を行うことは可能です。例えば Google ドキュメントや Microsoft Word などのワープロソフトで逐語録テキストを表示し、重要部分をハイライトしてコメント機能でコードを書き込む方法でも十分に分析できます。また、Excel や Google スプレッドシートに発言断片を一覧化し、「発言内容」「コード」「メモ」といった列を設けて管理する方法もシンプルながら有効です。<strong class="text-gray-700">特別なソフトウェアがなくても身近なデジタルツールで質的分析の基本作業は実施できる</strong>ということです。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-amber-600 mb-1">8.5.3 専用ソフトウェア（CAQDAS）</p>
+              <p class="text-xs text-gray-600">本格的な研究を進める段階では、コンピュータ支援質的データ分析ソフト（<strong class="text-gray-700">CAQDAS</strong>: Computer Assisted Qualitative Data Analysis Software）の利用も検討されます。代表的なものに NVivo や MaxQDA、ATLAS.ti などがあります。これらは大量のテキストや画像・動画データをデータベースに読み込み、マウス操作でテキストをハイライトしてコードを付与し、コードで検索・絞り込みをするなど高度な分析機能を備えた強力なツールです。ただし NVivo や MaxQDA はいずれも有料ソフトであり、まずは Excel や Google ドキュメントなどの汎用ソフトで十分に練習し、より高度な分析の必要性が出てきてから本格ソフトの導入を検討しても遅くはありません。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-amber-600 mb-1">8.5.4 マインドマップの活用</p>
+              <p class="text-xs text-gray-600">コードからカテゴリーへの体系化や概念同士の関係整理には、マインドマップ・ツールも有用です。カテゴリー間の関係や階層構造を二次元空間にマッピングすることで、リスト表示では見えにくい概念間のつながりを直感的に把握できます。特にインタビュー調査などで得られた多数のコードをカテゴリーにまとめ上げ、そのカテゴリー間の関係（因果関係や対立関係）を検討する際、マインドマップ上で試行錯誤すると新たな発見が生まれることがあります。</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500">重要なのは、自分のプロジェクトに合ったツールを選び、「発酵思考」のプロセスを支えてくれる形で活用することです。たとえ手作業でもデジタルでも、ツールはあくまで補助に過ぎません。最終的にデータの意味を読み解くのは研究者自身の洞察力と、時間をかけて熟考する姿勢（発酵）である点は変わらないことを念頭に置きましょう。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8.6 人文学への応用可能性 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8.6</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">人文学への応用可能性</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">ここまで紹介してきた質的分析・コーディングの考え方は、社会調査のインタビュー記録やフィールドノートだけでなく、<strong class="text-gray-800">人文学の伝統的テキスト</strong>にも応用可能です。文学作品や哲学・歴史の文献などを読む際にも、質的分析の手法を応用することで新たな発見や体系的な理解が得られることがあります。</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">まずはオープンコーディングから</strong>：テキストを読みながら気付いた点を自由にコード化してみます。文学・思想的なテキストでも先入観を持たず、興味深い表現や重要そうな部分に次々とラベルを貼っていきます。最初は細かいことを気にせずオープンに（開かれた姿勢で）コードを付け、テキストの特徴を幅広く捉えることが大切です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">コードのカテゴリー化</strong>：コードを一通り付け終えたら、それらを見直して似通ったものや関連し合うものをグルーピングし、上位のカテゴリーやテーマに発展させます。例えば小説の例で多くのコードが「家族」に関するものであれば、「家族関係」という上位カテゴリにまとめる、といった具合です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">テキスト全体との往復読解</strong>：コード付けの作業と並行して、元のテキスト全体も何度か読み返します。部分（断片）にコードを当てて分析することで細部の特徴は捉えられますが、同時にテキスト全体の文脈や流れの中でそのコードが持つ意味合いを考察することも重要です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">解釈の深化とモデル化</strong>：コード化によって炙り出されたテーマやパターンをもとに、テキスト全体の解釈をさらに深めます。コードはあくまで手段ですが、最終的にはそれらを組み合わせて<strong class="text-gray-800">解釈モデル</strong>を構築し、人文学的な問い（テーマ性、美的価値、歴史的意義など）に答えていくことを目指します。</div></li>
+          </ul>
+          <p class="text-sm text-gray-600 leading-relaxed mt-3">このように、質的分析とコード化のロジックは人文学のテキスト読解にも有効です。コード化はテキストを「分解」しつつ「再構成」する作業と言えます。コード化を通じてテキストを丁寧に読み解くことで、従来の読解では見落としがちだったパターンに気づいたり、解釈に一貫性と根拠を持たせたりすることができます。</p>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">インタビュー逐語録等を用いて小規模なコーディング演習を行う。記述的コードを中心に10件以上のコードを付与。2〜3個のカテゴリーにまとめ、仮のストーリーラインを記述。分析対象・コード例・カテゴリー化の方針・解釈上の迷いを記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>インタビュー逐語録等を用いて小規模なコーディング演習を行う</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>記述的コードを中心に10件以上のコードを付与する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span>2〜3個のカテゴリーにまとめ、仮のストーリーラインを記述する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">4</span><span><strong class="text-gray-800">分析対象・コード例・カテゴリー化の方針・解釈上の迷い</strong>を記述する</span></li>
+      </ul>
     </div>
   </section>
 
@@ -231,12 +252,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
