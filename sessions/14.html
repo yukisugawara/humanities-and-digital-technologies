@@ -11,35 +11,35 @@
   <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
     *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
-    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    .gradient-bg{background:linear-gradient(-45deg,#dcfce7,#d1fae5,#ecfdf5,#f0fdf4,#dcfce7);background-size:400% 400%;animation:gradientShift 20s ease infinite}
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
     .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
-    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text{background:linear-gradient(135deg,#059669,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
     .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
-    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(16,185,129,.3);border-radius:4px}
     .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
-    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
+  <div class="blob w-96 h-96 bg-emerald-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-teal-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-green-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
-        <a href="../#sessions" class="hover:text-indigo-600 transition-colors hidden sm:block">授業一覧</a>
-        <a href="15.html" class="bg-gradient-to-r from-indigo-500 to-violet-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all">次の授業 →</a>
+        <a href="../#sessions" class="hover:text-emerald-600 transition-colors hidden sm:block">授業一覧</a>
+        <a href="15.html" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-emerald-200 transition-all">次の授業 →</a>
       </div>
     </div>
   </nav>
@@ -48,7 +48,7 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-fuchsia-100 text-fuchsia-700 mb-4 inline-block">生成AI</span>
-        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">14</span></div>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-emerald-200">14</span></div>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">生成AI活用の可能性と限界</span></h1>
         <p class="text-lg text-gray-600 font-medium mb-1">使いどころの設計</p>
         <p class="text-base text-gray-500 font-light">第14回　人文学とデジタル技術（2026）</p>
@@ -81,7 +81,7 @@
     <!-- 14.1 生成AIの基礎 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">生成AIの基礎</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-3">「生成AI（ジェネレーティブAI）」と総称される技術が注目を集めています。生成AIとは、大規模なデータから学習し、新しいコンテンツ（文章・画像・音声・コードなど）を自律的に作り出せる革新的なAI技術のことです。従来の分析型AIが既存データの分類や予測を行うのに対し、生成AIは訓練データに含まれないまったく新しい成果物を創造できる点が特徴です。</p>
@@ -94,7 +94,7 @@
     <!-- 14.2 基本的立場 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">人文学研究における基本的立場</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-3">人文学の研究者・院生にとって、研究における創造性や洞察の源泉を人間自身に置くことは極めて重要です。AIの進化によって文章生成や分析の一部を自動化できる時代になりましたが、だからといって研究上の発想や解釈まで AI に任せてしまうことには注意が必要です。</p>
@@ -107,7 +107,7 @@
     <!-- 14.3 活用可能な場面 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.3</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.3</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">活用可能な場面</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">以上の前提を踏まえつつ、生成AIを適切に活用できる場面も存在します。ポイントは、研究者の創造的思考を妨げず補助となる範囲で、ルーチン的な作業や発想の一助としてAIを使うことです。</p>
@@ -126,7 +126,7 @@
     <!-- 14.4 使用上の注意点 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.4</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.4</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">使用上の注意点</h3>
           <div class="space-y-3">
@@ -143,7 +143,7 @@
     <!-- 14.5 利用指針 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.5</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.5</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">利用指針</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">生成AIを研究に取り入れる際の基本的なスタンスとして、「<strong class="text-gray-800">頭を使わなくてもよい作業に限って自動化する</strong>」という心得が挙げられます。すなわち、単純作業や定型的処理など、人間がやらなくても結果が大きく変わらない部分にはAIを活用しつつ、創造性や判断が要求される中核部分は人間が担うという役割分担です。</p>
@@ -161,7 +161,7 @@
     <!-- 14.6 「使うルール」の設計方法 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.6</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.6</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">「使うルール」の設計方法</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">前節で述べた指針を実際の研究生活で徹底するには、日頃から<strong class="text-gray-800">AI利用のガバナンス（統制）</strong>を意識しておく必要があります。ここでは、研究者自身が生成AIを使う上でのルールを設計し、トレース可能かつ倫理的に問題のない形で活用するための具体策を示します。</p>
@@ -179,7 +179,7 @@
     <!-- 14.7 国際的な倫理動向・出版方針 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.7</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.7</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">国際的な倫理動向・出版方針</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、生成AIの研究利用に関する国際的な倫理基準や学術出版の動向について整理します。2023年以降、各国の学会や主要学術誌が次々と方針を発表し、AI利用に関するガイドラインを明文化しています。</p>
@@ -207,24 +207,24 @@
 
   <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
+    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
       <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>ChatGPT / Gemini を対象に、自分の研究で役立ちそうな用途を2〜3つ試す</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>うまくいった点／うまくいかなかった点を記録する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">AI利用方針（やる／やらない／注意点）を明文化する</strong></span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">1</span><span>ChatGPT / Gemini を対象に、自分の研究で役立ちそうな用途を2〜3つ試す</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">2</span><span>うまくいった点／うまくいかなかった点を記録する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">AI利用方針（やる／やらない／注意点）を明文化する</strong></span></li>
       </ul>
     </div>
   </section>
 
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
-      <a href="13.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">← 第13回</a>
-      <a href="../#sessions" class="text-sm text-gray-400 hover:text-indigo-600 transition-colors">授業一覧</a>
-      <a href="15.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">第15回 →</a>
+      <a href="13.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">← 第13回</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-emerald-600 transition-colors">授業一覧</a>
+      <a href="15.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">第15回 →</a>
     </div>
   </footer>
 

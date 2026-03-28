@@ -11,36 +11,36 @@
   <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
     *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
-    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    .gradient-bg{background:linear-gradient(-45deg,#dcfce7,#d1fae5,#ecfdf5,#f0fdf4,#dcfce7);background-size:400% 400%;animation:gradientShift 20s ease infinite}
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
     .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
-    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text{background:linear-gradient(135deg,#059669,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
     .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
-    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(16,185,129,.3);border-radius:4px}
     .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
-    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
-    code{background:rgba(99,102,241,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#4f46e5}
+    code{background:rgba(16,185,129,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#059669}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
+  <div class="blob w-96 h-96 bg-emerald-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-teal-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-green-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
-        <a href="../#sessions" class="hover:text-indigo-600 transition-colors hidden sm:block">授業一覧</a>
-        <a href="6.html" class="bg-gradient-to-r from-indigo-500 to-violet-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all">次の授業 →</a>
+        <a href="../#sessions" class="hover:text-emerald-600 transition-colors hidden sm:block">授業一覧</a>
+        <a href="6.html" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-emerald-200 transition-all">次の授業 →</a>
       </div>
     </div>
   </nav>
@@ -49,7 +49,7 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-orange-100 text-orange-700 mb-4 inline-block">書く</span>
-        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">05</span></div>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-emerald-200">05</span></div>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">書くためのデジタルツール</span></h1>
         <p class="text-lg text-gray-600 font-medium mb-1">断片からドキュメントへ</p>
         <p class="text-base text-gray-500 font-light">第5回　人文学とデジタル技術（2026）</p>
@@ -104,7 +104,7 @@
     <!-- 5.1 断片をつくる -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">断片をつくる</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">文章執筆の第一歩は<strong class="text-gray-800">アイデアの断片を記録する</strong>ことです。思いついたアイデア、調べた情報のメモ、引用したい文章の抜粋など、後で執筆するときの材料になる「断片」を日頃から蓄えておきます。断片を記録する手段にはアナログ（紙）とデジタル（アプリ）の両方があり、それぞれ利点があります。</p>
@@ -139,7 +139,7 @@
     <!-- 5.2 断片を整理する -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">断片を整理する（Obsidian）</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">集めた断片メモをそのまま放置すると宝の持ち腐れです。ステップ2では、<strong class="text-gray-800">断片を整理し知識の関連付けを行う</strong>方法を学びます。ここで活用するのが Obsidian というデジタルツールです。</p>
@@ -162,7 +162,7 @@
     <!-- 5.3 断片を統合する -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.3</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.3</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">断片を統合する（Scrivener）</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ1で収集した断片をステップ2で整理したら、いよいよそれらを組み合わせて一つの文章の骨子を作る段階です。ここでは長文執筆に威力を発揮する <strong class="text-gray-800">Scrivener</strong> というライティングソフトを紹介します。Scrivener は小説家や脚本家にも愛用者が多い<strong class="text-gray-800">プロジェクト指向のエディタ</strong>で、論文・レポート執筆にも有用です。言わば<strong class="text-gray-800">デジタルな原稿バインダー</strong>のように使えるツールです。</p>
@@ -194,7 +194,7 @@
     <!-- 5.4 ドキュメントをつくる -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.4</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.4</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">ドキュメントをつくる</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ3までで文章のドラフトや構成が出来上がったら、ステップ4では<strong class="text-gray-800">正式なドキュメント（文書）として仕上げる作業</strong>に入ります。ここでは主に Notion / Word / Google ドキュメント / LaTeX（Overleaf）といったドキュメント作成ツールについて、それぞれの特徴と使い分けを説明します。</p>
@@ -235,7 +235,7 @@
     <!-- 5.5 ファイルを共有する -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.5</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.5</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">ファイルを共有する</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">執筆が完了した文書は、<strong class="text-gray-800">適切な形式で出力・共有</strong>して初めて役に立ちます。一般的に他者に配布したり提出したりする際は <strong class="text-gray-800">PDF 形式</strong>で保存するのがおすすめです。PDF は<strong class="text-gray-800">閲覧環境によらずレイアウトが崩れない</strong>電子文書フォーマットで、事実上の標準となっています。</p>
@@ -267,26 +267,26 @@
 
   <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
+    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
       <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>研究テーマに関する「断片」を最低5件作成し、出典・日付を添えて整理する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>Obsidian でノート2〜3件作成しリンク付け（[[…]]）を行う</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span>文章の骨子をアウトラインで作成する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">4</span><span>Notion / Word / Google Docs / LaTeX のうち1つで短い文書を作り PDF 化する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">5</span><span><strong class="text-gray-800">今後の執筆フローに取り入れる点と注意点を記述する</strong></span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">1</span><span>研究テーマに関する「断片」を最低5件作成し、出典・日付を添えて整理する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">2</span><span>Obsidian でノート2〜3件作成しリンク付け（[[…]]）を行う</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">3</span><span>文章の骨子をアウトラインで作成する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">4</span><span>Notion / Word / Google Docs / LaTeX のうち1つで短い文書を作り PDF 化する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">5</span><span><strong class="text-gray-800">今後の執筆フローに取り入れる点と注意点を記述する</strong></span></li>
       </ul>
     </div>
   </section>
 
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
-      <a href="4.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">← 第4回</a>
-      <a href="../#sessions" class="text-sm text-gray-400 hover:text-indigo-600 transition-colors">授業一覧</a>
-      <a href="6.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">第6回 →</a>
+      <a href="4.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">← 第4回</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-emerald-600 transition-colors">授業一覧</a>
+      <a href="6.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">第6回 →</a>
     </div>
   </footer>
 
