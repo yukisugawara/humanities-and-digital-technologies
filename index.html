@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人文学とデジタル技術（2026） | 大阪大学大学院人文学研究科</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
+
+    /* Splash screen */
+    .splash {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .splash.done {
+      opacity: 0;
+      transform: scale(1.1);
+      pointer-events: none;
+    }
+    .splash-logo {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: splashIn 0.6s ease forwards 0.2s;
+    }
+    @keyframes splashIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+    .splash-text {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: splashTextIn 0.5s ease forwards 0.6s;
+    }
+    @keyframes splashTextIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animated gradient background */
+    .gradient-bg {
+      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .session-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .session-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger > *:nth-child(3) { transition-delay: 0.15s; }
+    .stagger > *:nth-child(4) { transition-delay: 0.2s; }
+    .stagger > *:nth-child(5) { transition-delay: 0.25s; }
+    .stagger > *:nth-child(6) { transition-delay: 0.3s; }
+    .stagger > *:nth-child(7) { transition-delay: 0.35s; }
+    .stagger > *:nth-child(8) { transition-delay: 0.4s; }
+    .stagger > *:nth-child(9) { transition-delay: 0.45s; }
+    .stagger > *:nth-child(10) { transition-delay: 0.5s; }
+    .stagger > *:nth-child(11) { transition-delay: 0.55s; }
+    .stagger > *:nth-child(12) { transition-delay: 0.6s; }
+    .stagger > *:nth-child(13) { transition-delay: 0.65s; }
+    .stagger > *:nth-child(14) { transition-delay: 0.7s; }
+    .stagger > *:nth-child(15) { transition-delay: 0.75s; }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
+
+    .number-badge {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: white;
+      width: 3rem; height: 3rem;
+      border-radius: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem; flex-shrink: 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .logo-bubble {
+      position: relative;
+    }
+    .logo-bubble svg {
+      filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.3));
+      transition: transform 0.3s ease;
+    }
+    .logo-bubble:hover svg {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    .goal-card {
+      transition: all 0.3s ease;
+    }
+    .goal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen relative overflow-x-hidden">
+
+  <!-- Splash Screen -->
+  <div class="splash" id="splash">
+    <div class="text-center text-white">
+      <div class="splash-logo mb-6">
+        <svg width="120" height="120" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Book + Circuit icon -->
+          <rect x="25" y="30" width="70" height="90" rx="8" fill="white" opacity="0.3"/>
+          <rect x="30" y="35" width="60" height="80" rx="6" fill="white" opacity="0.5"/>
+          <line x1="45" y1="50" x2="75" y2="50" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+          <line x1="45" y1="60" x2="70" y2="60" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+          <line x1="45" y1="70" x2="65" y2="70" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+          <!-- Circuit nodes -->
+          <circle cx="110" cy="45" r="8" fill="#67e8f9" opacity="0.8"/>
+          <circle cx="130" cy="75" r="6" fill="#a78bfa" opacity="0.8"/>
+          <circle cx="105" cy="100" r="7" fill="#38bdf8" opacity="0.8"/>
+          <line x1="110" y1="53" x2="130" y2="69" stroke="#67e8f9" stroke-width="2" opacity="0.6"/>
+          <line x1="130" y1="81" x2="105" y2="93" stroke="#a78bfa" stroke-width="2" opacity="0.6"/>
+          <line x1="90" y1="65" x2="110" y2="45" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+          <line x1="90" y1="85" x2="105" y2="100" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+        </svg>
+      </div>
+      <p class="splash-text text-2xl font-black tracking-wider">人文学とデジタル技術</p>
+      <p class="splash-text text-sm font-light mt-2 opacity-80">Humanities & Digital Technologies</p>
+    </div>
+  </div>
+
+  <!-- Floating decorative blobs -->
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base group">
+        <div class="logo-bubble w-8 h-8">
+          <svg width="32" height="32" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="25" y="30" width="70" height="90" rx="8" fill="#6366f1" opacity="0.2"/>
+            <rect x="30" y="35" width="60" height="80" rx="6" fill="#6366f1" opacity="0.3"/>
+            <circle cx="110" cy="45" r="8" fill="#0ea5e9" opacity="0.6"/>
+            <circle cx="130" cy="75" r="6" fill="#8b5cf6" opacity="0.6"/>
+            <circle cx="105" cy="100" r="7" fill="#0ea5e9" opacity="0.6"/>
+            <line x1="110" y1="53" x2="130" y2="69" stroke="#6366f1" stroke-width="2" opacity="0.4"/>
+            <line x1="130" y1="81" x2="105" y2="93" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
+          </svg>
+        </div>
+        <span data-i18n="nav_title">人文学とデジタル技術</span>
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
+        <a href="#about" class="hover:text-indigo-600 transition-colors hidden sm:block" data-i18n="nav_about">概要</a>
+        <a href="#goals" class="hover:text-indigo-600 transition-colors hidden sm:block" data-i18n="nav_goals">学習目標</a>
+        <a href="#sessions" class="hover:text-indigo-600 transition-colors hidden sm:block" data-i18n="nav_sessions">授業一覧</a>
+        <a href="#grading" class="hover:text-indigo-600 transition-colors hidden sm:block" data-i18n="nav_grading">評価</a>
+        <button id="lang-toggle" onclick="toggleLang()" class="px-3 py-1.5 rounded-full text-xs font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative pt-32 pb-20 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="fade-in">
+        <div class="mb-6 flex justify-center">
+          <svg width="140" height="140" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-xl" style="animation: heroFloat 4s ease-in-out infinite;">
+            <rect x="20" y="25" width="75" height="95" rx="10" fill="url(#heroBookGrad)" opacity="0.25"/>
+            <rect x="26" y="31" width="63" height="83" rx="7" fill="url(#heroBookGrad)" opacity="0.4"/>
+            <line x1="40" y1="48" x2="72" y2="48" stroke="#6366f1" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+            <line x1="40" y1="58" x2="68" y2="58" stroke="#6366f1" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+            <line x1="40" y1="68" x2="63" y2="68" stroke="#6366f1" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+            <line x1="40" y1="78" x2="58" y2="78" stroke="#6366f1" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
+            <!-- Nodes -->
+            <circle cx="115" cy="40" r="10" fill="url(#heroNode1)"/>
+            <circle cx="138" cy="72" r="8" fill="url(#heroNode2)"/>
+            <circle cx="110" cy="105" r="9" fill="url(#heroNode3)"/>
+            <circle cx="132" cy="115" r="6" fill="url(#heroNode4)"/>
+            <!-- Connections -->
+            <line x1="115" y1="50" x2="138" y2="64" stroke="#6366f1" stroke-width="2" opacity="0.3"/>
+            <line x1="138" y1="80" x2="110" y2="96" stroke="#8b5cf6" stroke-width="2" opacity="0.3"/>
+            <line x1="110" y1="114" x2="132" y2="115" stroke="#0ea5e9" stroke-width="2" opacity="0.3"/>
+            <line x1="89" y1="60" x2="115" y2="40" stroke="#0ea5e9" stroke-width="2" opacity="0.2"/>
+            <line x1="89" y1="85" x2="110" y2="105" stroke="#0ea5e9" stroke-width="2" opacity="0.2"/>
+            <defs>
+              <linearGradient id="heroBookGrad" x1="20" y1="25" x2="95" y2="120"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+              <linearGradient id="heroNode1" x1="105" y1="30" x2="125" y2="50"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+              <linearGradient id="heroNode2" x1="130" y1="64" x2="146" y2="80"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+              <linearGradient id="heroNode3" x1="101" y1="96" x2="119" y2="114"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+              <linearGradient id="heroNode4" x1="126" y1="109" x2="138" y2="121"><stop stop-color="#c4b5fd"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <p class="text-sm font-semibold text-indigo-600 tracking-widest uppercase mb-4" data-i18n="hero_univ">
+          大阪大学大学院 人文学研究科
+        </p>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-black leading-tight mb-4">
+          <span class="gradient-text" data-i18n="hero_title">人文学とデジタル技術</span>
+        </h1>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-600 mb-2" data-i18n="hero_subtitle">デジタル技術が拓く人文学の新しい地平</h2>
+        <p class="text-lg sm:text-xl text-gray-400 font-light mb-8" data-i18n="hero_year">令和8年度（2026）春〜夏学期</p>
+      </div>
+
+      <div class="fade-in flex flex-wrap justify-center gap-3 mb-12">
+        <span class="pill bg-sky-100 text-sky-700" data-i18n="pill_sessions">全15回</span>
+        <span class="pill bg-indigo-100 text-indigo-700" data-i18n="pill_format">オンデマンド</span>
+        <span class="pill bg-violet-100 text-violet-700" data-i18n="pill_credits">2単位</span>
+        <span class="pill bg-cyan-100 text-cyan-700" data-i18n="pill_portfolio">ポートフォリオ</span>
+      </div>
+
+      <div class="fade-in">
+        <a href="#sessions" class="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-gray-800 transition-all hover:shadow-xl hover:shadow-gray-900/20 hover:-translate-y-1">
+          <span data-i18n="hero_cta">授業一覧をみる</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+    <div class="text-center mb-10 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-800 mb-3" data-i18n="about_title">授業概要</h2>
+      <p class="text-gray-500" data-i18n="about_subtitle">Course Overview</p>
+    </div>
+
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4" data-i18n="about_p1">
+        本授業は、人文学研究における「調査・読解・思考・執筆・発信」という研究活動の流れを、デジタル技術を用いてどのように設計し、運用し、発展させるかを体系的に学ぶことを目的とします。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4" data-i18n="about_p2">
+        単なるツールの操作習得に留まらず、研究目的や関心に応じてツールを選択し、組み合わせ、研究プロセスの中に位置づける判断力を養います。コーパス、質的分析支援、テキスト／画像のデータ処理など、人文学的な問いを保持したままデータを扱う基礎に触れます。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed" data-i18n="about_p3">
+        生成AIを含む新技術については、有効性だけでなく、誤りや偏り、出典の不透明性、著作権、研究倫理といった観点から責任ある利用条件を批判的に検討します。
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <!-- Basic Info -->
+      <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-sky-100 rounded-xl flex items-center justify-center text-xl">📋</div>
+          <h3 class="font-bold text-lg text-gray-800" data-i18n="basic_title">基本情報</h3>
+        </div>
+        <div class="space-y-3 text-sm text-gray-600">
+          <div class="flex justify-between items-center py-1 border-b border-gray-100">
+            <span class="text-gray-500" data-i18n="basic_code">時間割コード</span>
+            <span class="font-mono font-semibold text-gray-800">450241</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-gray-100">
+            <span class="text-gray-500" data-i18n="basic_semester">開講学期</span>
+            <span class="font-semibold text-gray-800" data-i18n="basic_semester_val">春〜夏学期</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-gray-100">
+            <span class="text-gray-500" data-i18n="basic_format">授業形態</span>
+            <span class="font-semibold text-gray-800" data-i18n="basic_format_val">オンデマンド（メディア授業）</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-gray-100">
+            <span class="text-gray-500" data-i18n="basic_credits">単位数</span>
+            <span class="font-semibold text-gray-800">2.0</span>
+          </div>
+          <div class="flex justify-between items-center py-1 border-b border-gray-100">
+            <span class="text-gray-500" data-i18n="basic_year">対象年次</span>
+            <span class="font-semibold text-gray-800" data-i18n="basic_year_val">1・2年</span>
+          </div>
+          <div class="flex justify-between items-center py-1">
+            <span class="text-gray-500" data-i18n="basic_capacity">定員</span>
+            <span class="font-semibold text-gray-800" data-i18n="basic_capacity_val">180名</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Requirements -->
+      <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">💻</div>
+          <h3 class="font-bold text-lg text-gray-800" data-i18n="req_title">履修条件</h3>
+        </div>
+        <div class="space-y-3 text-sm text-gray-600">
+          <div class="flex items-start gap-2">
+            <span class="text-indigo-400 mt-0.5">&#9679;</span>
+            <span data-i18n="req_1">人文学研究科の大学院生を主対象（他研究科の履修も可）</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-indigo-400 mt-0.5">&#9679;</span>
+            <span data-i18n="req_2">オンデマンド（非同期）で学習（定期的な視聴・作業・提出が必要）</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-indigo-400 mt-0.5">&#9679;</span>
+            <span data-i18n="req_3">PC と安定したネット環境を推奨</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-indigo-400 mt-0.5">&#9679;</span>
+            <span data-i18n="req_4">Notion／Slack 等を利用するため、アカウント作成ができること</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Goals Section -->
+  <section id="goals" class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+    <div class="text-center mb-10 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-800 mb-3" data-i18n="goals_title">学習目標</h2>
+      <p class="text-gray-500" data-i18n="goals_subtitle">Learning Goals</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="fade-in goal-card glass rounded-3xl p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-sky-400 to-blue-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">1</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_1_title">研究ワークフローの設計・運用</h3>
+            <p class="text-sm text-gray-500" data-i18n="goal_1_desc">調査、読解、メモ、執筆、データ整理、発信の各段階で適切なツールと手順を選択・統合し、継続可能な研究環境を構築できるようになる。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in goal-card glass rounded-3xl p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-violet-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">2</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_2_title">データリテラシーの獲得</h3>
+            <p class="text-sm text-gray-500" data-i18n="goal_2_desc">コーパス検索、質的分析支援、文字起こし、テキスト前処理、IIIFによる画像収集などを通じ、人文学的解釈に接続できる形でデータを扱う基礎を身につける。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in goal-card glass rounded-3xl p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">3</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_3_title">批判的実践力</h3>
+            <p class="text-sm text-gray-500" data-i18n="goal_3_desc">生成AI等について、利便性だけでなく誤り・偏り・出典・著作権・研究倫理の観点から検討し、責任ある利用方針を自ら設計できるようになる。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in goal-card glass rounded-3xl p-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">4</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_4_title">ポートフォリオの整理・発信</h3>
+            <p class="text-sm text-gray-500" data-i18n="goal_4_desc">ツールや手法による成果物を構造化し、他者に説明可能な形で提示できるようになる。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessions Section -->
+  <section id="sessions" class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-800 mb-3" data-i18n="sessions_title">授業一覧</h2>
+      <p class="text-gray-500" data-i18n="sessions_desc">全15回の授業プログラム</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5 stagger">
+
+      <!-- Session 1 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">1</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-emerald-100 text-emerald-700" data-i18n="s1_tag">導入</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s1_title">導入：授業設計とポートフォリオの見取り図</h3>
+            <p class="text-sm text-gray-500" data-i18n="s1_desc">Notion の基本操作、Markdown記法、学習環境の整備</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 2 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">2</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-blue-100 text-blue-700" data-i18n="s2_tag">管理</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s2_title">社会人基礎としてのデジタルツール</h3>
+            <p class="text-sm text-gray-500" data-i18n="s2_desc">Trello、Google Calendar、Drive、Spreadsheet、Forms</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 3 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">3</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-violet-100 text-violet-700" data-i18n="s3_tag">読む</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s3_title">読むためのデジタルツール</h3>
+            <p class="text-sm text-gray-500" data-i18n="s3_desc">Google Scholar、文献検索、Zotero による文献管理</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 4 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">4</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-purple-100 text-purple-700" data-i18n="s4_tag">ノート</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s4_title">研究のためのノート術</h3>
+            <p class="text-sm text-gray-500" data-i18n="s4_desc">ツェッテルカステン（Zettelkasten）と Obsidian</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 5 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">5</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-orange-100 text-orange-700" data-i18n="s5_tag">書く</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s5_title">書くためのデジタルツール</h3>
+            <p class="text-sm text-gray-500" data-i18n="s5_desc">Scrivener、Notion、Word、Google Docs、LaTeX (Overleaf)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 6 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">6</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-teal-100 text-teal-700" data-i18n="s6_tag">コーパス</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s6_title">デジタルツールとしてのコーパス</h3>
+            <p class="text-sm text-gray-500" data-i18n="s6_desc">Sketch Engine、中納言、KWIC、コロケーション分析</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 7 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">7</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-rose-100 text-rose-700" data-i18n="s7_tag">聴く</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s7_title">聴くためのデジタルツール</h3>
+            <p class="text-sm text-gray-500" data-i18n="s7_desc">インタビュー調査法、Whisper による音声文字起こし</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 8 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">8</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-amber-100 text-amber-700" data-i18n="s8_tag">質的分析</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s8_title">質的データ分析の基礎</h3>
+            <p class="text-sm text-gray-500" data-i18n="s8_desc">コーディング、「発酵思考」、MAXQDA</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 9 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">9</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-lime-100 text-lime-700" data-i18n="s9_tag">整理</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s9_title">デジタルデータの片づけ</h3>
+            <p class="text-sm text-gray-500" data-i18n="s9_desc">研究生活の整理術、Notion DB、命名規則、ミニマリズム</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 10 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">10</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-sky-100 text-sky-700" data-i18n="s10_tag">ウェブ</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s10_title">ウェブページの構造・分析・構築</h3>
+            <p class="text-sm text-gray-500" data-i18n="s10_desc">Hyphe によるウェブ分析、WordPress によるページ制作</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 11 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">11</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-pink-100 text-pink-700" data-i18n="s11_tag">SNS</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s11_title">ソーシャルメディアの言説と実践の分析</h3>
+            <p class="text-sm text-gray-500" data-i18n="s11_desc">Instagram、YouTube の質的分析、自己呈示と社会的情動</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 12 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">12</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-cyan-100 text-cyan-700" data-i18n="s12_tag">テキスト</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s12_title">テキストデータの収集・前処理・分析</h3>
+            <p class="text-sm text-gray-500" data-i18n="s12_desc">Google Colab、正規表現、テキスト前処理、可視化</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 13 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">13</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-indigo-100 text-indigo-700" data-i18n="s13_tag">画像</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s13_title">画像データの収集と分析</h3>
+            <p class="text-sm text-gray-500" data-i18n="s13_desc">IIIF による画像取得、メタデータ整理、Colab での分析</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 14 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">14</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-fuchsia-100 text-fuchsia-700" data-i18n="s14_tag">生成AI</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s14_title">生成AI活用の可能性と限界</h3>
+            <p class="text-sm text-gray-500" data-i18n="s14_desc">ChatGPT / Gemini、プロンプト設計、研究倫理と利用方針</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 15 -->
+      <div class="fade-in session-card glass rounded-3xl p-6 block">
+        <div class="flex items-start gap-4">
+          <div class="number-badge">15</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-gray-100 text-gray-700" data-i18n="s15_tag">まとめ</span></div>
+            <h3 class="font-bold text-gray-800 mb-1" data-i18n="s15_title">まとめ</h3>
+            <p class="text-sm text-gray-500" data-i18n="s15_desc">授業の振り返り、発展ルート、ポートフォリオ最終確認</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Grading Section -->
+  <section id="grading" class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
+    <div class="text-center mb-10 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-800 mb-3" data-i18n="grading_title">成績評価</h2>
+      <p class="text-gray-500" data-i18n="grading_subtitle">Grading Policy</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 bg-sky-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+          <div>
+            <h3 class="font-bold text-lg text-gray-800" data-i18n="grade_check_title">成績評価チェックポイント</h3>
+            <p class="text-2xl font-black text-sky-600">60<span class="text-base font-bold text-gray-400" data-i18n="grade_points">点</span></p>
+          </div>
+        </div>
+        <div class="space-y-2 text-sm text-gray-600">
+          <p data-i18n="grade_check_desc1">15回 x 4点。各回の学習後に提出。</p>
+          <p data-i18n="grade_check_desc2">自由記述欄に感想やコメントを「きちんと」書いていれば、原則として満点（4点）。</p>
+          <div class="mt-3 p-3 bg-amber-50 rounded-xl text-xs text-amber-700 space-y-1">
+            <p data-i18n="grade_check_late">締切より遅れて提出：1点減点</p>
+            <p data-i18n="grade_check_empty">学習が確認できない形：3点減点</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">🎨</div>
+          <div>
+            <h3 class="font-bold text-lg text-gray-800" data-i18n="grade_portfolio_title">デジタルポートフォリオ（Notion）</h3>
+            <p class="text-2xl font-black text-violet-600">40<span class="text-base font-bold text-gray-400" data-i18n="grade_points2">点</span></p>
+          </div>
+        </div>
+        <div class="space-y-2 text-sm text-gray-600">
+          <p data-i18n="grade_portfolio_desc">以下の5つの観点（各8点）で総合評価：</p>
+          <div class="grid grid-cols-1 gap-1.5 mt-3">
+            <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+              <span class="text-xs" data-i18n="grade_p1">内容の適切さ・充実度（8点）</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
+              <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+              <span class="text-xs" data-i18n="grade_p2">価値観・ビジョンの明確さ（8点）</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
+              <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+              <span class="text-xs" data-i18n="grade_p3">構成とわかりやすさ（8点）</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span class="text-xs" data-i18n="grade_p4">Notion機能の活用（8点）</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
+              <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+              <span class="text-xs" data-i18n="grade_p5">創意工夫・オリジナリティ（8点）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="max-w-6xl mx-auto px-4 sm:px-6 pb-12 pt-4">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">🎓</div>
+        <h3 class="font-bold text-lg text-gray-800" data-i18n="footer_instructor">担当教員</h3>
+      </div>
+      <div class="bg-white/50 rounded-2xl p-5">
+        <a href="https://yukisugawara.github.io" target="_blank" class="font-bold text-gray-800 text-base hover:text-indigo-600 hover:underline transition-colors" data-i18n="footer_name">菅原 裕輝</a>
+        <p class="text-sm text-gray-500 mt-1" data-i18n="footer_aff">人文学研究科 人文学林・講師</p>
+        <div class="mt-3 space-y-1 text-sm text-gray-500">
+          <p data-i18n="footer_office">居室：言語文化学専攻棟205</p>
+          <p>E-mail: <a href="mailto:ysugawara.hmt@osaka-u.ac.jp" class="text-indigo-500 hover:underline">ysugawara.hmt@osaka-u.ac.jp</a></p>
+          <p data-i18n="footer_oh">オフィスアワー：木曜日 15:00〜16:00（事前にSlack等で連絡・予約）</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">⚠️</div>
+        <h3 class="font-bold text-lg text-gray-800" data-i18n="footer_note_title">特記事項</h3>
+      </div>
+      <div class="space-y-2 text-sm text-gray-600">
+        <p data-i18n="footer_note_1">人文社会科学系の学生を主対象とします。情報系の学生には「デジタルヒューマニティーズ基礎」「デジタルヒューマニティーズ演習」等を推奨します。</p>
+        <p data-i18n="footer_note_2">外部サービスに個人情報・機微情報を入力／アップロードしないでください。</p>
+        <p data-i18n="footer_note_3">生成AIや翻訳ツールを利用する場合は、利用範囲・目的を明示し、プロンプトや出力、採用／不採用の判断を記録してください。</p>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-gray-300" data-i18n="footer_copy">人文学とデジタル技術 2026 | 大阪大学大学院人文学研究科</p>
+  </footer>
+
+  <script>
+    // Splash screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('splash').classList.add('done');
+      }, 1500);
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // i18n
+    const i18n = {
+      en: {
+        nav_title: 'Humanities & Digital Technologies',
+        nav_about: 'Overview',
+        nav_goals: 'Goals',
+        nav_sessions: 'Sessions',
+        nav_grading: 'Grading',
+        hero_univ: 'Graduate School of Humanities, The University of Osaka',
+        hero_title: 'Humanities & Digital Technologies',
+        hero_subtitle: 'New Horizons in the Humanities through Digital Technologies',
+        hero_year: 'Spring–Summer Semester 2026',
+        pill_sessions: '15 Sessions',
+        pill_format: 'On-demand',
+        pill_credits: '2 Credits',
+        pill_portfolio: 'Portfolio',
+        hero_cta: 'View Sessions',
+        about_title: 'Course Overview',
+        about_subtitle: 'Course Overview',
+        about_p1: 'This course systematically explores how to design, implement, and develop research workflows in the humanities — covering investigation, reading, thinking, writing, and dissemination — using digital technologies.',
+        about_p2: 'Beyond mere tool operation, students develop the judgment to select, combine, and position tools within research processes according to their research purposes. The course covers corpus analysis, qualitative analysis support, and text/image data processing while maintaining humanistic inquiry.',
+        about_p3: 'New technologies including generative AI are critically examined not only for their effectiveness but also for errors, biases, source opacity, copyright, and research ethics.',
+        basic_title: 'Basic Information',
+        basic_code: 'Course Code',
+        basic_semester: 'Semester',
+        basic_semester_val: 'Spring–Summer',
+        basic_format: 'Format',
+        basic_format_val: 'On-demand (Media Class)',
+        basic_credits: 'Credits',
+        basic_year: 'Year',
+        basic_year_val: '1st & 2nd year',
+        basic_capacity: 'Capacity',
+        basic_capacity_val: '180 students',
+        req_title: 'Requirements',
+        req_1: 'Primarily for graduate students in the Graduate School of Humanities (open to other departments)',
+        req_2: 'On-demand (asynchronous) learning with regular viewing, work, and submissions',
+        req_3: 'PC and stable internet recommended',
+        req_4: 'Ability to create accounts for Notion/Slack etc.',
+        goals_title: 'Learning Goals',
+        goals_subtitle: 'Learning Goals',
+        goal_1_title: 'Design & Operate Research Workflows',
+        goal_1_desc: 'Select and integrate appropriate tools and procedures at each stage of research — investigation, reading, note-taking, writing, data management, and dissemination — to build sustainable research environments.',
+        goal_2_title: 'Data Literacy',
+        goal_2_desc: 'Acquire foundational skills in corpus search, qualitative analysis support, transcription, text preprocessing, and IIIF image collection, connecting data handling to humanistic interpretation.',
+        goal_3_title: 'Critical Practice',
+        goal_3_desc: 'Examine generative AI and other technologies critically — considering errors, biases, sources, copyright, and research ethics — to design responsible usage policies.',
+        goal_4_title: 'Portfolio Organization & Communication',
+        goal_4_desc: 'Structure and present research outputs and methodological artifacts in ways that are explainable to others.',
+        sessions_title: 'Sessions',
+        sessions_desc: '15-Session Program',
+        s1_tag: 'Intro', s1_title: 'Introduction: Course Design & Portfolio Overview', s1_desc: 'Notion basics, Markdown, setting up the learning environment',
+        s2_tag: 'Mgmt', s2_title: 'Digital Tools for Professional Life', s2_desc: 'Trello, Google Calendar, Drive, Spreadsheet, Forms',
+        s3_tag: 'Read', s3_title: 'Digital Tools for Reading', s3_desc: 'Google Scholar, literature search, Zotero reference management',
+        s4_tag: 'Notes', s4_title: 'Note-taking for Research', s4_desc: 'Zettelkasten method with Obsidian',
+        s5_tag: 'Write', s5_title: 'Digital Tools for Writing', s5_desc: 'Scrivener, Notion, Word, Google Docs, LaTeX (Overleaf)',
+        s6_tag: 'Corpus', s6_title: 'Corpus as a Digital Tool', s6_desc: 'Sketch Engine, NINJAL, KWIC, collocation analysis',
+        s7_tag: 'Listen', s7_title: 'Digital Tools for Listening', s7_desc: 'Interview methods, Whisper speech-to-text',
+        s8_tag: 'Qual.', s8_title: 'Foundations of Qualitative Data Analysis', s8_desc: 'Coding, "fermentation thinking", MAXQDA',
+        s9_tag: 'Organize', s9_title: 'Digital Data Organization', s9_desc: 'Research life management, Notion DB, naming conventions, minimalism',
+        s10_tag: 'Web', s10_title: 'Web Page Structure, Analysis & Construction', s10_desc: 'Hyphe web analysis, WordPress page creation',
+        s11_tag: 'Social', s11_title: 'Analyzing Social Media Discourse & Practice', s11_desc: 'Qualitative analysis of Instagram & YouTube',
+        s12_tag: 'Text', s12_title: 'Text Data Collection, Preprocessing & Analysis', s12_desc: 'Google Colab, regex, text preprocessing, visualization',
+        s13_tag: 'Image', s13_title: 'Image Data Collection & Analysis', s13_desc: 'IIIF image retrieval, metadata management, Colab analysis',
+        s14_tag: 'Gen AI', s14_title: 'Possibilities & Limits of Generative AI', s14_desc: 'ChatGPT / Gemini, prompt design, research ethics & usage policy',
+        s15_tag: 'Summary', s15_title: 'Summary', s15_desc: 'Course review, pathways for continued learning, final portfolio check',
+        grading_title: 'Grading',
+        grading_subtitle: 'Grading Policy',
+        grade_check_title: 'Checkpoints',
+        grade_points: 'pts',
+        grade_check_desc1: '15 sessions x 4 points. Submit after each session.',
+        grade_check_desc2: 'Full marks (4 pts) for substantive written reflections.',
+        grade_check_late: 'Late submission: -1 point',
+        grade_check_empty: 'Insufficient learning evidence: -3 points',
+        grade_portfolio_title: 'Digital Portfolio (Notion)',
+        grade_points2: 'pts',
+        grade_portfolio_desc: 'Evaluated on 5 criteria (8 pts each):',
+        grade_p1: 'Content quality & depth (8 pts)',
+        grade_p2: 'Clarity of values & vision (8 pts)',
+        grade_p3: 'Structure & readability (8 pts)',
+        grade_p4: 'Effective use of Notion features (8 pts)',
+        grade_p5: 'Creativity & originality (8 pts)',
+        footer_instructor: 'Instructor',
+        footer_name: 'Yuki Sugawara',
+        footer_aff: 'Lecturer, Interdisciplinary Network in the Humanities',
+        footer_office: 'Office: Bldg. of Language & Culture Studies, Room 205',
+        footer_oh: 'Office Hours: Thursdays 15:00–16:00 (Contact via Slack to reserve)',
+        footer_note_title: 'Special Notes',
+        footer_note_1: 'Primarily for students in the humanities and social sciences. Students in information sciences may find the content introductory — consider "Digital Humanities Fundamentals" or "Digital Humanities Workshop" instead.',
+        footer_note_2: 'Do not enter or upload personal/sensitive information to external services.',
+        footer_note_3: 'When using generative AI or translation tools, specify the scope and purpose, and record prompts, outputs, and adoption/rejection decisions.',
+        footer_copy: 'Humanities & Digital Technologies 2026 | Graduate School of Humanities, The University of Osaka',
+      }
+    };
+    let currentLang = sessionStorage.getItem('hdt_lang') || 'ja';
+    const jaTexts = {};
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      jaTexts[el.getAttribute('data-i18n')] = el.innerHTML;
+    });
+
+    function applyLang() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (currentLang === 'en' && i18n.en[key]) {
+          el.innerHTML = i18n.en[key];
+        } else if (jaTexts[key]) {
+          el.innerHTML = jaTexts[key];
+        }
+      });
+      const btn = document.getElementById('lang-toggle');
+      if (btn) btn.textContent = currentLang === 'ja' ? 'EN' : 'JP';
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'ja' ? 'en' : 'ja';
+      sessionStorage.setItem('hdt_lang', currentLang);
+      applyLang();
+    }
+    applyLang();
+  </script>
+</body>
+</html>
