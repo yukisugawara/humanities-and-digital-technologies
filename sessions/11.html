@@ -8,99 +8,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +48,21 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-pink-100 text-pink-700 mb-4 inline-block">SNS</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">11</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">ソーシャルメディアの言説と実践の分析</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第11回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">11</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">ソーシャルメディアの言説と実践の分析</span></h1>
+        <p class="text-base text-gray-500 font-light">第11回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 導入 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">ソーシャルメディアは、単なる「情報の掲示板」ではありません。そこでは、人々が自分をどう見せたいかを演出し（自己呈示）、感情を表現し合い（社会的情動）、日常の実践を共有し（社会的実践の可視化）、ときに社会の規範や価値観を更新していきます。つまり、ソーシャルメディアは、研究者にとって<strong class="text-gray-800">現代の文化が日々生成される現場</strong>でもあります。本章では、ソーシャルメディアを「現実社会から切り離された仮想空間」としてではなく、<strong class="text-gray-800">生活世界と連続した実践として捉え直し、質的な方法で読み解く</strong>ための考え方と手順を整理します。</p>
+    </div>
+  </section>
+
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-pink-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,84 +70,144 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><span>ソーシャルメディアを質的に分析する視点の獲得</span></li>
-        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><span>プラットフォームごとの文化的特徴の理解</span></li>
-        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><span>Instagram・YouTube の投稿分析の実践</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>ソーシャルメディアの定義と歴史的背景の理解</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>ソーシャルメディアの主な特徴（双方向性・即時性・拡散性・アルゴリズム・視覚性）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>主要プラットフォーム（Instagram・X・Facebook・YouTube）の特徴比較</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>社会学・人類学的に分析する視点（自己表現・共同体・文化の再生産・権力構造）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>ソーシャルメディアの観察・記録の技法</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>実習への導入（フィールドワーク課題案と倫理的配慮）</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ソーシャルメディアの定義と歴史的背景</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">オンライン上の活動を日常生活や社会関係と連続した実践として理解する視点を導入します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ソーシャルメディアの主な特徴</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">自己表現や感情の共有、社会的実践が可視化される場としての特性。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">主要なプラットフォームの特徴比較</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Instagram、YouTube、Facebook 等の差異。同一テーマであってもプラットフォームによって語られ方や意味づけが異なる点に注目します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">社会学・人類学的に分析する視点</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">自己呈示（プロフィール、投稿内容、映像表現）、社会的情動（共感、称賛、不安、怒りの表出と拡散）。利用者の立場や閲覧環境によって見え方が異なるという前提。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ソーシャルメディアの観察・記録の技法</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">数量的指標ではなく、具体的な投稿や映像の細部に基づく記述と解釈。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">実習への導入と倫理的配慮</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Instagram のハッシュタグ投稿や YouTube の動画を対象とした分析。公開情報であっても個人が特定されないよう配慮する倫理的観点。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 11.1 定義と歴史 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">11.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ソーシャルメディアの定義と歴史的背景</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">ソーシャルメディアとは、一言で言えば「誰もが参加できるインターネット上の情報発信プラットフォーム」であり、ユーザー同士の社会的な相互作用を通じて情報が広がっていくよう設計されたメディアです。具体的には、ブログや SNS（ソーシャル・ネットワーキング・サービス）、動画共有サイトなど、ユーザーがコンテンツを生成し共有できるサービス全般を指します。学術的な定義では「Web 2.0 の技術基盤上に構築され、利用者が <strong class="text-gray-800">UGC（User Generated Content：ユーザー生成コンテンツ）</strong>を創出・交換できる一群のインターネットアプリケーション」であるともされています。<strong class="text-gray-800">双方向のコミュニケーション</strong>が可能である点が特徴であり、この点で従来の一方向的なマスメディアと異なります。</p>
+          <p class="text-sm text-gray-600 leading-relaxed">1997年に世界で最初期の SNS とされる「SixDegrees.com」が登場し、2000年代前半には米国で Friendster（2002年）や MySpace（2003年）がサービスを開始しました。日本では 2004年に開始した「mixi（ミクシィ）」が爆発的な人気を博し、その後 2004年にハーバード大学発の Facebook が登場、2006年には Twitter（現 X）が140文字の短文を投稿できるリアルタイム性の高い SNS として普及しました。2010年代にはスマートフォンの普及とともに Instagram（2010年）や YouTube、LINE（2011年）などサービスの多様化が進みました。2023年時点で世界のユーザー数は約49億人、日本国内でも約1億580万人にのぼります。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11.2 主な特徴 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">11.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ソーシャルメディアの主な特徴</h3>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">双方向性</p><p class="text-xs text-gray-600">ソーシャルメディア最大の特徴の一つは、ユーザー同士が双方向にやりとりできる点です。従来のテレビや新聞のような発信者から受け手への一方通行の情報伝達ではなく、誰もが情報の発信者にも受信者にもなり得ます。SNS 上では投稿に対して他のユーザーがコメントや「いいね！」で反応でき、投稿者もそれに返信するといった相互作用的なコミュニケーションが日常的に行われます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">即時性</p><p class="text-xs text-gray-600">ソーシャルメディア上の情報伝達は非常にリアルタイム性が高いです。ユーザーが投稿すると、ほぼ瞬時にフォロワーや友人に届きます。特に X（旧 Twitter）は「タイムラグがほぼない」リアルタイム更新性ゆえに、天気予報や地震速報、電車の遅延情報など緊急の通知手段として多くのユーザーに利用されています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">拡散性</p><p class="text-xs text-gray-600">ソーシャルメディア上の情報は一度投稿されると、ユーザー間で爆発的に拡散する可能性があります。共感を呼ぶ投稿があれば、他のユーザーがシェアしたりリポスト（リツイート）したりすることで、瞬く間に当初のフォロワー以外の何万人、何十万人という人々に情報が届き得ます。いわゆる「バズる」現象が起きれば、個人の発信した情報がマスメディア以上のリーチを持つこともさえあります。この拡散力はソーシャルメディアの強みである一方、誤情報やデマも同様に拡がり得るため社会的混乱を招くリスクも指摘されています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">アルゴリズム</p><p class="text-xs text-gray-600">現代の主要なソーシャルメディアでは、タイムラインに表示される情報は単純な時系列順ではなく、プラットフォーム独自のアルゴリズム（投稿表示の自動最適化システム）によって選別・並べ替えされています。アルゴリズムは各ユーザーの興味関心や過去の閲覧・反応履歴を分析し、そのユーザーにとって「最適だ」と判断した投稿を優先的に表示します。その結果、同じ時間に同じプラットフォームを見ていても、人それぞれで表示される内容が異なります。利用者が興味を持ちやすい情報ばかりが強調されることで視野が狭くなる（いわゆる<strong class="text-gray-700">フィルターバブル</strong>）傾向も生まれています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">視覚性</p><p class="text-xs text-gray-600">スマートフォンの高性能カメラや高速通信の普及も相まって、ソーシャルメディア上では画像や動画といった視覚的コンテンツが非常に重視されます。特に Instagram は写真・動画のシェアに特化したサービスであり、文章よりもビジュアルで語る文化が根付いています。YouTube も動画プラットフォームとして、視覚と音声を駆使したコンテンツで人々の興味を引きつけています。視覚性の高さは情報伝達のリッチさをもたらし、言語の壁を越えて共有・理解される文化現象（例：ミーム的な画像の流行）も生み出しています。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11.3 プラットフォーム比較 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">11.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">主要なプラットフォームの特徴比較</h3>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">Instagram（インスタグラム）</p><p class="text-xs text-gray-600">2010年に誕生した写真・動画共有に特化した SNS。最大の特徴は画像中心のビジュアル・コミュニケーションに重点を置いている点で、撮影した写真を手軽に美しく加工し、ハッシュタグを添えて世界中に公開できます。ストーリーズ機能による日常の即時共有や、リール（Reels）による短尺動画の流行もあり、視覚メディアならではの文化圏が形成されています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">X（旧 Twitter）</p><p class="text-xs text-gray-600">2006年にサービス開始した、短文投稿型（いわゆる「つぶやき」）の SNS。この簡潔さとタイムライン形式の設計により、速報性のある情報やトレンドをいち早く共有できることが X の持ち味です。リポスト機能やハッシュタグ機能によって、情報が瞬時に広がりやすく話題になりやすい点も特徴です。ニュース・災害情報のリアルタイム収集に適しており、一方で短文ゆえの誤解や炎上、フェイクニュースの拡散といった課題も抱えています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">Facebook（フェイスブック）</p><p class="text-xs text-gray-600">2004年に米国で誕生し、実名登録を基本とする SNS の代表格です。現実の知り合い同士をオンラインで結びつけることを目的に設計されており、プロフィールに本名や所属を登録して友人を探す仕組みになっています。グループ機能によって趣味や地域コミュニティごとの交流、イベント機能によるイベント案内や出欠管理など、多機能で汎用的なプラットフォームです。日本では特に30代以上のビジネスパーソンや地域コミュニティでの利用が目立ちます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">YouTube（ユーチューブ）</p><p class="text-xs text-gray-600">2005年に開始した世界最大の動画共有プラットフォーム。ユーザーは動画コンテンツをアップロードし、視聴者はそれを自由に視聴・コメントできます。数分程度の短い動画から1時間を超える長編コンテンツまで多様な動画があり、エンターテインメント・音楽・教育（チュートリアル）・商品レビュー・ブログ（Vlog）などジャンルも極めて幅広いです。いわば「動画による検索エンジン」としての側面も持ち、調べものや学習のために YouTube で検索するユーザーも多くいます。</p></div>
+          </div>
+          <p class="text-xs text-gray-500 mt-3">以上のように、主要なプラットフォームそれぞれに独自の文化と強みがあります。Instagram は視覚的体験と流行発信、X は速報性と拡散力、Facebook は実名ネットワークによる深い繋がり、YouTube はリッチな情報提供と蓄積性。同一テーマであってもプラットフォームによって語られ方が異なる点が重要です。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11.4 社会学・人類学的に分析する視点 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">11.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ソーシャルメディアを社会学・人類学的に分析する視点</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ソーシャルメディアは現代社会に深く組み込まれており、社会学や人類学の観点から多角的な分析対象となり得ます。ここでは、自己表現、共同体、文化の再生産、権力構造という切り口で、ソーシャルメディアを批判的に読み解くための視点を概説します。</p>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">自己表現（アイデンティティの表現）</p><p class="text-xs text-gray-600">ソーシャルメディア上ではユーザー各自がプロフィールや投稿内容を通じて自分を表現し、いわば「自分という存在」を演出しています。エルヴィン・ゴフマンの提唱した「印象操作（印象管理）」の概念になぞらえて、ソーシャルメディア上ではユーザーが他者からどう見られるかを意識しながら投稿内容や自己イメージを細かく調整していると考えられます。自己表現の自由度が高い一方、「いいね！」の数やフォロワー数が自己評価に影響するなど、自己アイデンティティの形成にポジティブにもネガティブにも作用しうる点が研究者によって指摘されています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">共同体（コミュニティ）</p><p class="text-xs text-gray-600">ソーシャルメディアは物理的な距離を超えて、人々に新たなコミュニティ形成の場を提供しました。オンライン上では、趣味嗜好や関心、属性を共有して投稿することで、ゆるやかな共同体を作り出しています。例えば特定のハッシュタグを掲げて投稿することで、同じ話題について語り合う「ハッシュタグ共同体」が生まれたり、Facebook のグループ機能で地域の子育て親同士が情報交換の場ができたりします。一方で、ネット上の居心地のよいコミュニティに閉じこもってしまう現象も見られます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">文化の再生産</p><p class="text-xs text-gray-600">文化社会学的に見ると、ソーシャルメディアは新しい文化現象を次々と生み出す一方で、既存の文化や社会規範を再生産・強化する装置としての側面も持ちます。例えば SNS 発の流行語や<strong class="text-gray-700">ミーム（ネットミーム）</strong>と呼ばれる流行ネタは、インターネットを介して人から人へと広がっていく文化的要素であり、従来のメディア以上のスピードで大衆文化を再生産しています。一方で、学術研究では「SNS 上でも人々は現実の人種や階層による分断に沿って交流する傾向が強く、結果的に既存社会の区分をソーシャルメディアが再生産している」という指摘もあります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">権力構造</p><p class="text-xs text-gray-600">ソーシャルメディアは情報発信のハードルを下げ、「誰でも声を上げられる民主化ツール」として期待される一方で、新たな権力関係や不平等も生み出しています。ポジティブな側面では、一般市民がスマホ片手に不正を告発したり重要な瞬間を記録・拡散したりすることで、従来は見過ごされがちだった権力の乱用を暴き社会正義に資する事例も出てきました。一方でネガティブな側面として、ソーシャルメディア企業自体が巨大なプラットフォーム権力を握り、アルゴリズムの設定次第で特定の情報を目立たせたり隠したりできる状況があります。また各国政府や政治家が SNS を世論操作やプロパガンダに利用するケースも増えています。いわゆる<strong class="text-gray-700">「アテンション経済」</strong>の中でユーザーの個人情報や行動データが商品化されている現実もあります。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11.5 観察・記録の技法 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">11.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ソーシャルメディアの観察・記録の技法</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ソーシャルメディアを研究対象とする際には、現場の観察方法やデータの記録方法にも工夫が必要です。人類学や社会学の伝統的なフィールドワーク手法をデジタル空間に応用しつつ、オンライン特有のデータを適切に収集・保存する技術が求められます。</p>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">エスノグラフィー（民族誌）</p><p class="text-xs text-gray-600">エスノグラフィーとは本来、研究者がフィールド（現地社会）に長期間入り込み、参与観察やインタビューを通じて文化や生活世界を記述する手法です。これをソーシャルメディア研究に応用したものが<strong class="text-gray-700">デジタル・エスノグラフィー</strong>やオンライン・エスノグラフィーと呼ばれます。具体的には、調査者がある SNS 上のコミュニティに参加または閲覧し、その中で人々がどのように交流し文化を形作っているかを観察する方法です。従来のエスノグラフィー同様に継続的な没入と<strong class="text-gray-700">厚い記述</strong>（thick description）によってオンライン文化の深層に迫ることを目指します。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">スクリーンショットによる記録</p><p class="text-xs text-gray-600">オンライン観察では、目にした画面をスクリーンショット（画面キャプチャ）として画像で保存しておく手法も有効です。SNS 上の投稿やコメントは後で削除されたり編集されたりする可能性がありますが、調査時点の画面をスクリーンショットで残しておけば、不変の証拠として後から検証できます。記録した画像には日時や出典（どのアカウントの何という投稿か）といったメタデータを添えて整理し、後で分析しやすい形で保管します。ただし他人の投稿を勝手に撮影・保存することにはプライバシーや著作権の問題も絡みますので注意が必要です。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">ハッシュタグの追跡</p><p class="text-xs text-gray-600">ソーシャルメディアならではの観察手法として、ハッシュタグを起点としたデータ収集があります。ハッシュタグ（#○○）は特定の話題を示すメタデータで、同じタグを付けた投稿を検索すればその話題に関する人々の声を一覧できます。研究者は関心あるテーマや事件に紐づくハッシュタグを決めて、そのタグの付いた投稿を定期的にウォッチするのです。ハッシュタグ追跡は定量的分析とも親和性が高く、ツイート件数の推移をグラフ化したり、頻出語をテキストマイニングしたりすることで、ソーシャルメディア上の話題の盛り上がりや内容傾向を可視化できます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-600 mb-1">デジタル・フィールドノート</p><p class="text-xs text-gray-600">オンライン調査でもフィールドノート（調査メモ）の作成は欠かせません。日々の観察で気づいたこと、驚いたこと、仮説や疑問点などを逐次書き留めておくことで、データに文脈と解釈の跡を残すことができます。フィールドノートには客観的記述と主観的解釈の双方を書くのが望ましく、後から見返したとき何が事実で何が自分の推測か区別がつくよう工夫します。重要なのは、データを集めっぱなしにせず日々言語化・整理することで、調査者自身の理解を深めると同時に後の分析に資する記録を蓄積することです。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11.6 実習への導入 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">11.6</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">実習への導入（フィールドワーク課題案と倫理的配慮）</h3>
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-pink-600 mb-1">フィールドワーク課題例</p>
+            <p class="text-xs text-gray-600 mb-2">身近なソーシャルメディア上の現象を一つ選び、ミニ調査を行ってみましょう。例えば「X 上の地域コミュニティの観察」「Instagram で流行しているハッシュタグの分析」「YouTube の特定ジャンル（料理動画など）のコメント欄の雰囲気調査」等、関心のあるテーマを決めます。期間を決め（1週間から1か月程度）、毎日または定期的に関連する投稿や反応を観察・記録してください。方法としてはエスノグラフィー的にコミュニティの空気を読み取りつつ、特徴的な投稿はスクリーンショットで保存し、ハッシュタグの動向も追いかけます。</p>
+            <p class="text-xs text-gray-600">テーマ選定にあたっては、あまり広すぎず適度に絞り込むこと（漫然と「Instagram を調査」ではなく「Instagram における大学生カフェ巡り投稿の実態」のように具体化する）がポイントです。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-pink-600 mb-1">注意点と倫理的配慮</p>
+            <ul class="text-xs text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">公開情報とプライバシー</strong>：調査対象とする投稿やコミュニティが「公開」であるか「非公開」であるかを確認しましょう。基本的に誰でも見られる公開情報を扱うのが望ましく、クローズドな空間を勝手にのぞき見して記録するのは倫理的問題があります。公開された SNS 上の発言であっても、レポート等で引用する際は個人が特定されないようユーザー名を伏せる、投稿内容を要約するに留めるなどの配慮をしてください。</div></li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">介入と観察</strong>：基本的には調査者は観察者に徹し、対象コミュニティに不要な介入をしないようにします。他者を不安にさせたり議論を攪乱したりしないよう、マナーを守って静かにフィールドワークを行いましょう。</div></li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">データ管理</strong>：収集したスクリーンショット画像やメモは適切に整理・保管し、第三者に漏れないよう注意しましょう。調査が終わったら不要な個人情報データは削除するのが望ましいです。</div></li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">心身への配慮</strong>：ソーシャルメディア調査では、大量の情報や刺激的な言説に触れることでストレスを感じることもあります。フィールドワーク中は自分の心の状態にも目を配り、無理のない範囲で進めてください。必要に応じて指導教員や仲間と議論し、視野が偏らないようにすることも大切です。</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- まとめ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-2xl p-6 border-l-4 border-pink-300">
+      <p class="text-sm text-gray-600 leading-relaxed">本章全体を通して強調したいのは、ソーシャルメディアは単なる流行りの通信手段ではなく、<strong class="text-gray-800">現代社会を映し出す鏡</strong>であり、我々自身の生活文化や人間関係を深く考察するための「テキスト」でもあるということです。ぜひ批判的な目と探究心をもって SNS というフィールドに向き合い、自らの研究対象としうるものだという認識を深めてください。</p>
+    </div>
+  </section>
+
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">Instagram（ハッシュタグ投稿を観察・分析）または YouTube（動画の語り・映像表現・コメント欄を分析）のいずれかを実施。匿名化・転載回避に配慮する。分析対象・着目点・得られた気づき・今後検討したい論点を記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>Instagram（ハッシュタグ投稿を観察・分析）または YouTube（動画の語り・映像表現・コメント欄を分析）のいずれかを実施する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>公開情報でも匿名化・転載回避に配慮する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">分析対象・着目点・得られた気づき・今後検討したい論点</strong>を記述する</span></li>
+      </ul>
     </div>
   </section>
 
@@ -222,12 +220,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
