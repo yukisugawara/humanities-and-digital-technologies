@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>はじめに：デジタル時代における発酵思考 | 人文学とデジタル技術（2026）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
+    .gradient-bg {
+      background: linear-gradient(-45deg, #fef3c7, #fde68a, #fef9c3, #fef3c7, #fde68a);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #d97706, #b45309, #92400e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-text-blue {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(180, 83, 9, 0.3); border-radius: 4px; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .section-card {
+      transition: all 0.3s ease;
+    }
+    .section-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(180, 83, 9, 0.1);
+    }
+    html { scroll-behavior: smooth; }
+    .quote-block {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 3px solid #d97706;
+    }
+    .quote-block::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 0;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #d97706;
+    }
+    .ferment-step {
+      position: relative;
+      padding-left: 3.5rem;
+    }
+    .ferment-step::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d97706, #b45309);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen relative overflow-x-hidden">
+  <div class="blob w-96 h-96 bg-amber-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-yellow-200 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
+  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-amber-700 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        人文学とデジタル技術
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
+        <a href="../#sessions" class="hover:text-amber-700 transition-colors hidden sm:block">授業一覧</a>
+        <a href="1.html" class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-amber-200 transition-all">第1回へ →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative pt-32 pb-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="fade-in">
+        <span class="pill bg-amber-100 text-amber-700 mb-4 inline-block">はじめに</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-4">
+          <span class="gradient-text">デジタル時代における発酵思考</span>
+        </h1>
+        <p class="text-base sm:text-lg text-amber-800/60 font-light mb-2">人文学におけるデジタルツール活用の手引き</p>
+        <p class="text-sm text-amber-700/40">菅原 裕輝｜大阪大学 大学院人文学研究科</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Lead: この手引きの目的 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-amber-400">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">📖</div>
+        <h2 class="font-bold text-lg text-gray-800">本書の目的</h2>
+      </div>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        人文学の世界では、いまだにアナログな手法を好む研究者が多く存在します。紙の書籍や手書きのノート、カードを用いた伝統的な調査・思索方法に慣れ親しんだ人にとって、コンピュータやインターネットといったデジタル技術はどうにも自分には合わない、あるいは苦手だと感じられることが少なくありません。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        実際、デジタル技術の活用は人文学分野では他の領域に比べてゆるやかな進展にとどまり、多くの研究者にとって十分に身近なものとはなっていないのが現状です。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+        本書はこうした状況を踏まえ、デジタル技術を人文学研究にまだ取り入れたことのない方や、これから取り入れてみようかと考えている方に向けて、<strong class="text-amber-800">その第一歩となる入門的な情報を提供すること</strong>を目的としています。
+      </p>
+    </div>
+  </section>
+
+  <!-- 人文学の研究スタイル vs デジタル技術 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">二つのアプローチ</h2>
+      <p class="text-gray-500 text-sm">「スローペースで深く考える」と「大量の情報を素早く処理する」</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="fade-in section-card glass rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📜</div>
+          <h3 class="font-bold text-gray-800">人文学の伝統的アプローチ</h3>
+        </div>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          一度に扱う対象（テキストや史料など）の数は決して多くなくとも、それらに長い時間をかけて向き合い、じっくりと考察する姿勢が重視されます。限られた素材を精読し、歴史的文脈や背景を踏まえて深く読み解く——このように<strong class="text-gray-800">「少ない対象に時間をかけて繰り返し考える」</strong>ことが、人文学における基本的なアプローチです。
+        </p>
+      </div>
+
+      <div class="fade-in section-card glass rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-xl">💻</div>
+          <h3 class="font-bold text-gray-800">デジタル技術の得意分野</h3>
+        </div>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          大量の情報を高速に処理し、短時間で全体像を把握したりパターンを抽出したりすることにあります。コンピュータは数百万件にも及ぶ文献データから関連情報を瞬時に検索したり、膨大なテキストデータを統計的に分析して特徴を可視化したりすることが可能であり、<strong class="text-gray-800">人間では到底追いつけないスピードで情報を整理</strong>できます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 発酵思考 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">「発酵思考」とは</h2>
+      <p class="text-gray-500 text-sm">速さと深さを統合する新しい知のプロセス</p>
+    </div>
+
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        この文脈で鍵となるコンセプトが<strong class="text-amber-800">「デジタル時代における発酵思考」</strong>です。発酵とは微生物の働きによって素材の風味や価値を時間とともに高めていくプロセスです。ここでは比喩的に、知識や思考を時間をかけてゆっくりと熟成させることを意味します。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        情報過多で結果を急ぎがちな現代だからこそ、発酵になぞらえて「あえて待つ」ことに価値を見出す姿勢が重要です。歴史学者の藤原辰史氏も、発酵文化は「何かを決めつける前にじっくり考える」ことや、情報を時間をかけて知恵へと醸成することの大切さを教えてくれると指摘しています。
+      </p>
+
+      <div class="quote-block my-6 py-3">
+        <p class="text-sm text-gray-600 italic leading-relaxed">
+          ネット上で瞬時に得た知識は消費されやすく寿命も短いかもしれません。しかし、本や論文を読んで得た情報を何日も頭の中で寝かせ、何度も噛みしめることで、それは私たちの中でより深い意味を持つ知恵へと変わっていくのです。
+        </p>
+      </div>
+
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+        発酵に時間が必要なように、人文学の思考にも時間という熟成の過程が欠かせません。そしてデジタル時代における発酵思考とは、まさにその<strong class="text-amber-800">熟成の過程とデジタル技術の利活用を両立させるアプローチ</strong>なのです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 発酵思考の具体的プロセス -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">発酵思考の実践</h2>
+      <p class="text-gray-500 text-sm">デジタル技術で得た材料を、人文学の視点でゆっくり「発酵」させる</p>
+    </div>
+
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <p class="text-sm text-gray-600 leading-relaxed mb-6">
+        具体的には、デジタル技術で得られた大量のデータや分析結果をただ速やかに消費するのではなく、一度立ち止まって吟味し、自分の中で咀嚼してから活用することが重要になります。
+      </p>
+
+      <div class="space-y-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">材料を集める</h4>
+            <p class="text-sm text-gray-500">デジタル技術を活用してデータや資料を効率的に収集・整理する</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">こねる</h4>
+            <p class="text-sm text-gray-500">集めた情報を自分の言葉で整理し、関連付ける</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">寝かす</h4>
+            <p class="text-sm text-gray-500">すぐに表面的な解釈に飛びつかず、時間をかけて考えを熟成させる</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">発酵させる</h4>
+            <p class="text-sm text-gray-500">人文学者ならではの視点でゆっくりと「発酵」させ、文脈や価値をじっくりと与える</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm mb-1">焼き上げる</h4>
+            <p class="text-sm text-gray-500">熟成した思考をアウトプットとして形にする——論文、発表、作品として世に送り出す</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 本書の提案 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-amber-400">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">🔑</div>
+        <h2 class="font-bold text-lg text-gray-800">本書の提案</h2>
+      </div>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        本書で提案したいのは、こうした一見相反する要素を両立させることで人文学の研究手法をアップデートできるという展望です。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        デジタル技術は私たち研究者に、これまで手作業では膨大な時間を要したルーチン作業——資料の収集・整理、大量データの検索や集計など——を飛躍的に効率化する手段を提供してくれます。その結果、研究者はより多くの時間とエネルギーを、本来注力すべき<strong class="text-amber-800">「考えること」や「解釈を深めること」</strong>に振り向けることが可能になるでしょう。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+        デジタル技術を賢く利用すれば、「速さ」と「深さ」は互いに排他的なものではなく、<strong class="text-amber-800">双方の長所を活かして研究プロセスを革新できる</strong>のです。
+      </p>
+    </div>
+  </section>
+
+  <!-- 全体の見取り図 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">授業の全体像</h2>
+      <p class="text-gray-500 text-sm">全15章の学習内容</p>
+    </div>
+
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <p class="text-sm text-gray-600 leading-relaxed mb-6">
+        本手引き全体を通じて、デジタル時代に適応した人文学研究のワークフローを考え直していただく機会を提供します。社会人基礎としてのタスク管理や情報整理から、文献探索・管理、デジタルノート術、さらにはテキストや画像データの分析、インタビューの文字起こし、コーパスの活用、生成 AI との付き合い方に至るまで、段階的にデジタルツールの具体的な活用法を紹介していきます。
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="bg-white/50 rounded-2xl p-4">
+          <p class="text-xs font-bold text-amber-600 mb-2">基盤を整える（第1〜5章）</p>
+          <ul class="space-y-1 text-xs text-gray-500">
+            <li>1. 導入：デジタルツール活用の下準備</li>
+            <li>2. タスク・予定・情報の管理</li>
+            <li>3. 読むためのデジタルツール</li>
+            <li>4. 研究のためのノート術</li>
+            <li>5. 書くためのデジタルツール</li>
+          </ul>
+        </div>
+        <div class="bg-white/50 rounded-2xl p-4">
+          <p class="text-xs font-bold text-amber-600 mb-2">データと向き合う（第6〜10章）</p>
+          <ul class="space-y-1 text-xs text-gray-500">
+            <li>6. コーパス研究の基礎と検索</li>
+            <li>7. インタビュー調査と文字起こし</li>
+            <li>8. 質的データ分析の基礎</li>
+            <li>9. デジタルデータの片づけ</li>
+            <li>10. ウェブページの構造・分析・構築</li>
+          </ul>
+        </div>
+        <div class="bg-white/50 rounded-2xl p-4">
+          <p class="text-xs font-bold text-amber-600 mb-2">発展と統合（第11〜15章）</p>
+          <ul class="space-y-1 text-xs text-gray-500">
+            <li>11. ソーシャルメディアの分析</li>
+            <li>12. テキストデータの収集・前処理・分析</li>
+            <li>13. 画像データの収集と分析</li>
+            <li>14. 生成AI活用の可能性と限界</li>
+            <li>15. まとめ：研究ワークフローの再設計</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- メッセージ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 text-center">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        これらのツールは単なる作業効率化の道具ではなく、先に述べた<strong class="text-amber-800">「発酵思考」を支えるためのパートナー</strong>です。
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        デジタル技術の力を借りて反復と熟考を重ねることで、人文学の研究プロセスに新たな深みと広がりをもたらすこと——それが本書の狙いです。
+      </p>
+      <p class="text-sm text-gray-500 leading-relaxed">
+        デジタルは苦手だと感じている方にも、本書が新しい一歩を踏み出す助けとなり、デジタル時代にふさわしい人文学研究の地平を切り拓く一助となれば幸いです。
+      </p>
+    </div>
+  </section>
+
+  <!-- Navigation Footer -->
+  <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
+    <div class="fade-in flex items-center justify-between">
+      <a href="../" class="text-sm text-gray-500 hover:text-amber-700 transition-colors">← トップ</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-amber-700 transition-colors">授業一覧</a>
+      <a href="1.html" class="text-sm text-gray-500 hover:text-amber-700 transition-colors">第1回 →</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
