@@ -3,104 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第5回 書くためのデジタルツール：断片からドキュメントへ | 人文学とデジタル技術（2026）</title>
+  <title>第5回 書くためのデジタルツール | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
+    code{background:rgba(99,102,241,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#4f46e5}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +49,23 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-orange-100 text-orange-700 mb-4 inline-block">書く</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">05</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">書くためのデジタルツール：断片からドキュメントへ</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第5回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">05</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">書くためのデジタルツール</span></h1>
+        <p class="text-lg text-gray-600 font-medium mb-1">断片からドキュメントへ</p>
+        <p class="text-base text-gray-500 font-light">第5回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 導入 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">本章では、人文学系の大学院生を対象に、デジタル技術を活用した「書く」プロセスを5つのステップに沿って解説します。紙のメモやカードといったアナログ手法と、Obsidian や Scrivener など多機能なデジタルツールを組み合わせ、Notion や Word 等で読みやすいドキュメントを作成して PDF で共有するまでの一連の流れを説明します。</p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">なお、<strong class="text-gray-800">デジタル技術の活用は目的ではなく手段</strong>です。道具に振り回されず、あくまで自分自身の思考と言葉が主役であることを忘れないようにしましょう。</p>
+    </div>
+  </section>
+
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-orange-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,74 +73,212 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><span>学術的文章作成の5ステップ（断片→整理→統合→ドキュメント化→共有）</span></li>
-        <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><span>各ステップで活用するツールの使い分け</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span>学術的文章作成の5ステップ（断片→整理→統合→ドキュメント化→共有）の理解</li>
+        <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span>各ステップで活用するツール（メモ・Obsidian・Scrivener・Notion/Word/Docs/LaTeX）の使い分け</li>
+        <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span>読みやすいドキュメント作成のポイントと PDF での共有方法</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">断片をつくる</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">紙のメモ・ノート・カード、Evernote 等。アイデアの種を集める段階。</p>
-          </div>
-        </div>
+  <!-- 5ステップの全体像 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-2xl p-6">
+      <p class="text-xs font-bold text-gray-500 mb-3 text-center">5つのステップ</p>
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <div class="bg-orange-50 rounded-xl px-3 py-2 text-center"><p class="text-xs font-bold text-orange-600">1. 断片をつくる</p></div>
+        <span class="text-orange-300">→</span>
+        <div class="bg-orange-50 rounded-xl px-3 py-2 text-center"><p class="text-xs font-bold text-orange-600">2. 断片を整理する</p></div>
+        <span class="text-orange-300">→</span>
+        <div class="bg-orange-50 rounded-xl px-3 py-2 text-center"><p class="text-xs font-bold text-orange-600">3. 断片を統合する</p></div>
+        <span class="text-orange-300">→</span>
+        <div class="bg-orange-50 rounded-xl px-3 py-2 text-center"><p class="text-xs font-bold text-orange-600">4. ドキュメントをつくる</p></div>
+        <span class="text-orange-300">→</span>
+        <div class="bg-orange-50 rounded-xl px-3 py-2 text-center"><p class="text-xs font-bold text-orange-600">5. ファイルを共有する</p></div>
       </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">断片を整理する</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Obsidian：Markdown、リンク・バックリンク、タグ、MOC、Evergreen Notes によるネットワーク的整理。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">断片を統合する</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Scrivener：アウトライン管理、コルクボード、資料参照、分割ビュー、コンパイル機能による長文執筆支援。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ドキュメントをつくる</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">主なドキュメント作成ツールの比較（Notion / Word / Google Docs / LaTeX（Overleaf）の特徴と使い分け）。読みやすいドキュメント作成のポイント（見出し・段落・箇条書き・スタイル・保守性）。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ファイルを共有する</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">PDF 化と命名規則、体裁確認（見出し、段落、箇条書き、余白、統一感）。道具に振り回されず、思考と言葉を主役として執筆環境を設計する。</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
+
+    <!-- 5.1 断片をつくる -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">断片をつくる</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">文章執筆の第一歩は<strong class="text-gray-800">アイデアの断片を記録する</strong>ことです。思いついたアイデア、調べた情報のメモ、引用したい文章の抜粋など、後で執筆するときの材料になる「断片」を日頃から蓄えておきます。断片を記録する手段にはアナログ（紙）とデジタル（アプリ）の両方があり、それぞれ利点があります。</p>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-4">
+            <div class="info-box">
+              <p class="text-xs font-bold text-gray-700 mb-2">紙のメモ</p>
+              <p class="text-xs text-gray-600">ポケットに入るメモ帳や付箋紙は、ひらめいたことを瞬時に書き留めるのに最適です。紙とペンは起動時間ゼロで、図や矢印も自由に描けるため、創造的なブレインストーミングに向いています。ただし散逸しやすいので、重要なメモは後でノートやデジタルに書き写しておくと良いでしょう。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-gray-700 mb-2">紙のノート</p>
+              <p class="text-xs text-gray-600">日記帳や大学ノートなど1冊のノートに断片を書き留める方法です。時系列で記録が蓄積するためログ的な利用に向いており、後で見返すと発想の経緯が追えます。ページを区切って章ごとに使う、索引を自分で付けるなど工夫しましょう。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-gray-700 mb-2">紙のカード（インデックスカード）</p>
+              <p class="text-xs text-gray-600">1枚のカードに1つのアイデアや引用を書き、カード同士に番号や記号で関連を記します。ツェッテルカステンの手法が有名で、「一枚のカードに一つの概念を書く」「自分の考えを自分の言葉で書く」「関連するカードにリンクする」というルールで知的生産を支えます。カードは並べ替え可能なので<strong class="text-gray-700">構成を練る際に便利</strong>です。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-gray-700 mb-2">Evernote</p>
+              <p class="text-xs text-gray-600">パソコンやスマホで使える代表的なデジタルノートアプリです。テキストだけでなく音声や画像、Webクリップなど<strong class="text-gray-700">文章・音声・ビジュアルいずれの形のアイデアでも問わず捕捉できる</strong>優れたツールです。クラウド経由で自動同期されるため、どのデバイスからでもシームレスに利用できます。また強力な検索機能があり、<strong class="text-gray-700">画像内の文字まで OCR で検索可能</strong>です。</p>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-orange-600 mb-1">ワンポイントアドバイス</p>
+            <p class="text-xs text-gray-600">アイデアの断片は大小様々で構いません。大事なのは「すぐ書き留める」習慣をつけることです。後で見返したときに内容が分かるよう、その場で少し詳しく書いておく、出典や日付もメモしておくことを心がけましょう。また、一度書いたメモも放置せず、<strong class="text-gray-700">定期的に見直して追記・更新することで「Evergreen Notes」化する</strong>発想もあります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.2 断片を整理する -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">断片を整理する（Obsidian）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">集めた断片メモをそのまま放置すると宝の持ち腐れです。ステップ2では、<strong class="text-gray-800">断片を整理し知識の関連付けを行う</strong>方法を学びます。ここで活用するのが Obsidian というデジタルツールです。</p>
+
+          <ul class="text-sm text-gray-600 space-y-3">
+            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ローカルファースト・Markdown ベース</strong>：Obsidian はノートデータを自分の PC やスマホのローカルフォルダに Markdown 形式のテキストファイルで保存します。ネット接続が無くても安心感があります。テキストはシンプルな Markdown 記法で記述するため、基本的な書式はソフト間の互換性が高く保たれます。</div></li>
+            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">リンクとバックリンクによるネットワーク</strong>：Obsidian 最大の特徴は、ノート同士を<strong class="text-gray-800">双方向リンク</strong>で結べることです。ノート内で他のノート名を <code>[[…]]</code> と記述するとハイパーリンクが張られ、リンク先のノートに飛べます。さらに<strong class="text-gray-800">バックリンク</strong>機能により、どのノートから参照されているかも自動で一覧表示されます。リンク構造は<strong class="text-gray-800">グラフビュー</strong>でも視覚化でき、ノート間の繋がりをネットワーク図で確認することもできます。</div></li>
+            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">タグと MOC で体系化</strong>：ノートにはハッシュ記号（#タグ名）でタグ付けすることもできます。また、ノート自体を目次ページとして使う <strong class="text-gray-800">MOC（Map of Content）</strong>という手法も有効です。例えば「文学研究」という MOC ノートを作り、その中に関連ノートへのリンク集を作成します。MOC はいわばカスタム目次であり、特定テーマのノート群を俯瞰・整理するのに役立ちます。</div></li>
+            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">Evergreen Notes（永続的ノート）の推奨</strong>：Obsidian コミュニティでは Evergreen Notes という考え方も広まっています。これは一度書いたメモを定期的に読み返し、追記・リファクタリングして育てていくノートです。テーマごとに内容を洗練させ続けるノート群を作ることで、時間が経つほど知識が蓄積されます。</div></li>
+          </ul>
+
+          <div class="info-box mt-4">
+            <p class="text-xs font-bold text-orange-600 mb-1">ワンポイントアドバイス</p>
+            <p class="text-xs text-gray-600">Obsidian を使い始めたら、まずは小さなノートをどんどん作ってみましょう。1ノート1トピック（カード1枚1概念の発想）の粒度で書き、関連しそうな言葉が出てきたら気軽に他のノートへリンクを張ります。最初はノートがバラバラに増えますが、後から MOC ノートでまとめたりタグで分類できます。操作に慣れたら自分なりの運用ルール（命名規則やタグ体系）を整備すると良いでしょう。まずは基本機能で十分なので、焦らず徐々に活用範囲を広げてください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.3 断片を統合する -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">断片を統合する（Scrivener）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ1で収集した断片をステップ2で整理したら、いよいよそれらを組み合わせて一つの文章の骨子を作る段階です。ここでは長文執筆に威力を発揮する <strong class="text-gray-800">Scrivener</strong> というライティングソフトを紹介します。Scrivener は小説家や脚本家にも愛用者が多い<strong class="text-gray-800">プロジェクト指向のエディタ</strong>で、論文・レポート執筆にも有用です。言わば<strong class="text-gray-800">デジタルな原稿バインダー</strong>のように使えるツールです。</p>
+
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">バインダーによるアウトライン管理</p>
+            <p class="text-xs text-gray-600">Scrivener では執筆プロジェクト全体が一つの「プロジェクトファイル」として扱われ、その中に章やセクションごとのテキスト、参考資料など複数のドキュメントを含められます。画面左側のバインダーにはフォルダとファイルのツリー構造が表示され、これがそのまま文章のアウトライン（構成）になります。Word のように一つの長大なファイルに全文を書くのではなく、<strong class="text-gray-700">段落やセクション単位で細切れのファイルにして</strong>おき、バインダー上でドラッグ＆ドロップすることで順序を入れ替えたりネスト構造を変えたりできます。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">コルクボードとカード</p>
+            <p class="text-xs text-gray-600">Scrivener のユニークな点として、任意のフォルダ内のテキスト群を<strong class="text-gray-700">カード形式</strong>で表示する「コルクボード」機能があります。各テキストには要約やコメントを記した付箋カードを対応付けられ、コルクボード上でカードを並べ替えると対応する本文の順序も自動的に入れ替わります。まるで物理的なカードを並べて構成を考えるような感覚で編集でき、<strong class="text-gray-700">コピペで文章の断片を移動する必要がなくなる</strong>のは大きな利点です。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">リファレンス機能と分割ビュー</p>
+            <p class="text-xs text-gray-600">Scrivener プロジェクトには「Research（資料）」フォルダが用意されており、下調べした PDF 論文や画像、Web ページの抜粋などを取り込んでおくことができます。執筆中に資料を参照したくなったら画面を<strong class="text-gray-700">上下または左右に分割表示</strong>し、片方に資料 PDF や以前書いた章のドラフトを開き、もう片方で本文を書くことも可能です。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">集中執筆モード</p>
+            <p class="text-xs text-gray-600">Scrivener には余計なメニューや他のアプリを隠して全文書を画面いっぱいに表示する<strong class="text-gray-700">コンポジションモード（全画面モード）</strong>も備わっています。また各セクションごとに目標字数を設定し、進捗バーで執筆量を可視化する機能もあります。</p>
+          </div>
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-1">コンパイル（書き出し）機能</p>
+            <p class="text-xs text-gray-600">書き上げた原稿は、Scrivener から直接 Word や PDF、プレーンテキスト等に<strong class="text-gray-700">エクスポート（コンパイル）</strong>できます。フォントや用紙サイズ、余白なども書式も指定可能で、所定の投稿規定やテンプレートに合わせて体裁を一括整形できます。Scrivener 自体は共同執筆機能を持たず基本は<strong class="text-gray-700">単著向けのツール</strong>である点も留意しましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.4 ドキュメントをつくる -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ドキュメントをつくる</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ3までで文章のドラフトや構成が出来上がったら、ステップ4では<strong class="text-gray-800">正式なドキュメント（文書）として仕上げる作業</strong>に入ります。ここでは主に Notion / Word / Google ドキュメント / LaTeX（Overleaf）といったドキュメント作成ツールについて、それぞれの特徴と使い分けを説明します。</p>
+
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-2">主なドキュメント作成ツールの比較</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left border-collapse">
+                <thead><tr class="border-b border-gray-200">
+                  <th class="py-2 pr-3 font-bold text-gray-500 w-24">ツール</th>
+                  <th class="py-2 pr-3 font-bold text-gray-500">特徴</th>
+                  <th class="py-2 font-bold text-gray-500">向き不向き</th>
+                </tr></thead>
+                <tbody class="text-gray-600">
+                  <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">Notion</td><td class="py-2 pr-3">オールインワンの情報管理ツール。ブロック単位でコンテンツを配置できる柔軟性。共同編集もリアルタイムで可能。</td><td class="py-2"><strong class="text-orange-600">○</strong> アイデアの下書きや共同ノート作成。<strong class="text-gray-400">×</strong> 正式な論文原稿（引用管理機能なし）。</td></tr>
+                  <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">Word</td><td class="py-2 pr-3">標準的なワープロソフト。豊富な機能と互換性。Zotero 連携、脚注、目次自動生成、変更履歴機能。オフラインでも快適に動作。</td><td class="py-2"><strong class="text-orange-600">○</strong> <strong class="text-gray-700">人文系の個人執筆には最も無難な選択肢</strong>。ファイル破損リスクには定期的バックアップで対策。</td></tr>
+                  <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">Google Docs</td><td class="py-2 pr-3">ブラウザ上で動くクラウドベースのワープロ。リアルタイム共同編集で、複数人が同じ文書を同時に編集・コメントできる。</td><td class="py-2"><strong class="text-orange-600">○</strong> <strong class="text-gray-700">共同編集のしやすさでは現状トップクラス</strong>。共同研究やグループ課題に最適。インターネット接続が必須（限定的）。</td></tr>
+                  <tr><td class="py-2 pr-3 font-semibold text-gray-700">LaTeX (Overleaf)</td><td class="py-2 pr-3">組版専用の言語・システム。美しい数式や専門書並みの版面を自動で実現。文献リストや引用もスタイルファイル一つで一括整形。</td><td class="py-2"><strong class="text-orange-600">○</strong> 数式を多用する文章、厳密な版面指定が必要な場合、国際誌への投稿。<strong class="text-gray-400">×</strong> 初心者にはハードルが高い。</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">読みやすいドキュメント作成のポイント</p>
+            <p class="text-sm text-gray-600 mb-2">どのツールで文書を作成する場合でも、読者にとって読みやすく、管理しやすいドキュメントを心がける必要があります。</p>
+            <ul class="text-xs text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">読みやすい</strong>：文書の構造が明確で、必要な情報がどこに書かれているか一目で分かること。見出しや段落が論理的に整理され、長すぎる段落や冗長な表現を避ける配慮が必要です。</div></li>
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">体裁が整っている</strong>：強調や箇条書きの使い方、フォントや余白の統一など、見た目の整合性が取れていること。Word 等のワープロには<strong class="text-gray-700">スタイル機能やテンプレート</strong>がありますので活用しましょう。これにより自動的に目次を作成したり、後から全体の書式を一括変更することも可能です。</div></li>
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">メンテナンス性が高い</strong>：文書を後から更新・修正しやすいこと。適切に段落やセクション分けされていれば、必要な箇所だけ差し替えるのも容易です。段落は Enter キーで改行して区切り、段落間の余白調整はツールの段落設定機能で行いましょう。図表番号を本文中で言及する際は、手打ちではなく参照挿入機能を使えば、番号が自動更新され常に整合性が保てます。</div></li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">さらに、読者に文章を読んでもらう際には<strong class="text-gray-600">親切な表現</strong>を心がけましょう。例えば専門用語には簡単な説明を添える、長い文章は適宜改行して視認性を高める、図や表を活用して直感的に伝えるなどです。きちんと構成されたドキュメントは、読み手にとっても情報を探しやすく、書き手自身にとっても保守しやすい、いわば「コストの低い」ドキュメントになります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.5 ファイルを共有する -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ファイルを共有する</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">執筆が完了した文書は、<strong class="text-gray-800">適切な形式で出力・共有</strong>して初めて役に立ちます。一般的に他者に配布したり提出したりする際は <strong class="text-gray-800">PDF 形式</strong>で保存するのがおすすめです。PDF は<strong class="text-gray-800">閲覧環境によらずレイアウトが崩れない</strong>電子文書フォーマットで、事実上の標準となっています。</p>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-4">
+            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Word / Google Docs</p><p class="text-xs text-gray-600">「名前を付けて保存」や「エクスポート」のメニューから PDF 形式を選択します。Google ドキュメントの場合はメニューから「ダウンロード」→「PDF ドキュメント」を選択すれば OK です。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Notion</p><p class="text-xs text-gray-600">共有したいページを開き、右上のメニュー（…）から「Export」→「PDF」を選択します。ページ全体が1つの PDF ファイルとして出力されます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Scrivener</p><p class="text-xs text-gray-600">「コンパイル」機能を使い、出力フォーマットに PDF を指定してコンパイルします。あらかじめページ設定や用紙サイズを調整しておきましょう。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">LaTeX / Overleaf</p><p class="text-xs text-gray-600">Overleaf では右側のプレビュー画面から「Download PDF」ボタンをクリックすれば、生成された PDF をダウンロードできます。</p></div>
+          </div>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">出力した PDF は必ず自分でも開いてみて、意図した体裁になっているか確認しましょう。特に図や特殊フォントを使用している場合、それらが正しく埋め込まれているか注意が必要です。また、共有時にはファイル名にも気を配ります（例：<code>20251022_人文学とデジタル技術_レポート.pdf</code> のように内容と日付が分かる名前にする）。</p>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-orange-600 mb-1">ワンポイントアドバイス</p>
+            <p class="text-xs text-gray-600">完成した文書を他人と共有する前に、最終チェックとして<strong class="text-gray-700">自分以外の目で見てもらう</strong>ことをおすすめします。PDF にして周りの人に読んでもらいフィードバックをもらうと、思わぬ誤字や分かりにくい箇所を気づけるものです。また、自分でも PDF を読み返してみると、編集画面で見ていたときとは違う視点で内容を客観視できます。共有はゴールであると同時に次へのスタートでもあります。PDF で共有→フィードバック→改訂というサイクルを通じて、より良い文章を書けるようになっていきましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- まとめ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-2xl p-6 border-l-4 border-orange-300">
+      <p class="text-sm text-gray-600 leading-relaxed">本章では、以上の5つのステップに沿ってデジタルツールの活用法を解説してきました。断片をつくり（メモ・カード・Evernote）、整理し（Obsidian）、統合し（Scrivener）、ドキュメント化して（Notion や Word など）、共有する（PDF）という一連のプロセスは、皆さんの学術的な文章作成を強力に支援してくれるはずです。それぞれのツールの特徴を理解し、自分のスタイルに合った執筆フローを築いてください。最後に強調しておきたいのは、<strong class="text-gray-800">デジタル技術の活用は目的ではなく手段</strong>だということです。道具に振り回されず、常に皆さん自身の思考と言葉が主役です。デジタルツールはそれを支える脇役として賢く活用し、より豊かな文章表現にぜひ挑戦していってください。</p>
+    </div>
+  </section>
+
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">研究テーマに関する「断片」を最低5件作成し、出典・日付を添えて整理する。Obsidian でノート2〜3件作成しリンク付け。文章の骨子をアウトラインで作成。Notion / Word / Google Docs / LaTeX のうち1つで短い文書を作り PDF 化。今後の執筆フローに取り入れる点と注意点を記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>研究テーマに関する「断片」を最低5件作成し、出典・日付を添えて整理する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>Obsidian でノート2〜3件作成しリンク付け（[[…]]）を行う</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span>文章の骨子をアウトラインで作成する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">4</span><span>Notion / Word / Google Docs / LaTeX のうち1つで短い文書を作り PDF 化する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">5</span><span><strong class="text-gray-800">今後の執筆フローに取り入れる点と注意点を記述する</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -212,12 +291,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
