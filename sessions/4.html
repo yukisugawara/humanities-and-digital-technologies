@@ -3,104 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第4回 研究のためのノート術：Obsidian で実践するツェッテルカステン | 人文学とデジタル技術（2026）</title>
+  <title>第4回 研究のためのノート術 | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
+    code{background:rgba(99,102,241,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#4f46e5}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +49,23 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-purple-100 text-purple-700 mb-4 inline-block">ノート</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">04</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">研究のためのノート術：Obsidian で実践するツェッテルカステン</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第4回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">04</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">研究のためのノート術</span></h1>
+        <p class="text-lg text-gray-600 font-medium mb-1">Obsidian で実践するツェッテルカステン</p>
+        <p class="text-base text-gray-500 font-light">第4回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 導入 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">本章では、ツェッテルカステン（Zettelkasten）と呼ばれるノート術を、人気のノートアプリ Obsidian を使って実践する方法について解説します。ツェッテルカステンはドイツの社会学者ニクラス・ルーマンが膨大な執筆成果を上げるために用いたことで知られるノート管理術であり、その手法を踏まえた知的生産の手引きとしてズンク・アーレンス（Sonke Ahrens）の著書『How to Take Smart Notes』があります。</p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">研究や論文執筆においては、単に思いつきを記録したり文献情報をメモするだけでなく、それらを自分の言葉で整理し、関連付け、新たな発想につなげることが重要です。ツェッテルカステンはまさに、日々のメモを書き溜めて知識同士をリンクすることで、時間をかけて<strong class="text-gray-800">知識のネットワークを育て、そこから新しい発見やアイデアを生み出すための方法</strong>です。</p>
+    </div>
+  </section>
+
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-purple-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,94 +73,233 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><span>ツェッテルカステンの基本概念（ルーマンの手法と現代的展開）</span></li>
-        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><span>メモの4種類と使い分け</span></li>
-        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><span>批判的読解と思考のポイント</span></li>
-        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><span>Obsidian での実装と運用ワークフロー</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span>ツェッテルカステンの基本概念（ルーマンの手法とアーレンスの現代的展開）</li>
+        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span>メモの4種類（走り書き・文献メモ・永久保存メモ・プロジェクトメモ）と使い分け</li>
+        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span>批判的読解と思考のためのメモ取り</li>
+        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span>アウトプットを見据えた情報整理（ボトムアップ型の構成形成）</li>
+        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span>Obsidian での実装（Vault設計・Daily Notes・リンク・タグ・MOC・グラフビュー）</li>
+        <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span>運用ワークフロー（8つのステップ）と習慣化のコツ</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ツェッテルカステンの基本概念</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">ルーマンのカード式ノート術。メインの箱／文献の箱／索引。蓄積ではなく「自分の言葉で整理し、関連付け、発想を生むネットワークとして育てる」ことを目標とします。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">メモの4種類</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">走り書きメモ・文献メモ・永久保存メモ・プロジェクトメモ。それぞれの役割と使い分けを学びます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">批判的読解と思考のポイント</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">論の枠組みを問い直す、枠を超えて考える、書きながら考える。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">アウトプットを見据えた情報整理</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">ボトムアップ型の構成形成。断片から全体像を組み立てる発想。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Obsidian での実装</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Vault 設計、Daily Notes、リンク・バックリンク、タグ、MOC（Map of Content）、グラフビュー、プロジェクトフォルダ運用。Markdown ベースのローカルファイル管理。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">運用ワークフロー</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">走り書き → 文献メモ → 熟考 → 永久保存メモ → リンク → 索引／構造化ノート → アウトプット → 推敲の循環。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">習慣化と継続のコツ</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">集中環境づくり、定期的見直し、複利効果の実感、ツールに振り回されないこと、第二の脳としての活用。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 4.1 基本概念 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ツェッテルカステンの基本概念（ルーマンの手法とアーレンスの現代的展開）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">「ツェッテルカステン」は、カードと箱を意味するドイツ語で、紙のカードに書いたメモを箱に整理して蓄積するアナログなノート術が元になっています。ニクラス・ルーマンは紙のカードにアイデアを書き込み、それらに体系的な番号を振って相互に参照（リンク）させることで、生涯にわたり90,000枚以上のメモを蓄積し、そこから70冊以上の著作と数百本の論文を生み出したと言われます。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">ツェッテルカステンの肝は、単なるメモの蓄積ではなく、<strong class="text-gray-800">メモ同士を有機的に結びつけて知識のネットワークを形成する</strong>ことにあります。現代ではアーレンスがこの方法論を研究者向けに整理し直し、効果的なノート術として紹介しています。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">それによれば、ツェッテルカステンには主に以下の3つの要素があります。</p>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <div class="info-box"><p class="text-xs font-bold text-purple-600 mb-1">(a) メインの箱（本箱）</p><p class="text-xs text-gray-600">自分の発想や考察を書き留めたメモを蓄積するメインのノート群。日々の思考や読書から得た洞察を、自分の言葉で書いた「永久保存版のメモ」として格納していきます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-purple-600 mb-1">(b) 文献の箱</p><p class="text-xs text-gray-600">書籍や論文などの出典情報や引用を管理するための箱。参考文献のメモや引用の原文など、他者のアイデアの記録はこちらに。ツェッテルカステン本体には自分自身の考えだけを入れ、他者から得た知識は文献管理用の箱やツール（Zotero など）に分けておきます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-purple-600 mb-1">(c) 索引</p><p class="text-xs text-gray-600">メモ群の中から主要なトピックやテーマへの入口となる「索引カード（索引メモ）」。関心分野やキーワードが一覧化され、それぞれに対応するメモの番号やタイトルが記されています。デジタルの場合はタグや検索機能、あるいは後述する「構造化ノート」に相当します。</p></div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mt-3">ツェッテルカステンの目的は、こうした仕組みを通じて自分の考えを深め、新しい発見を促すことにあります。情報を単に並べて保管するのではなく、異なる文脈のアイデア同士を結びつけることで、自分だけのユニークな視点や議論を生み出すのです。また、このノート体系はしばしば<strong class="text-gray-800">第二の脳</strong>とも呼ばれ、頭の中だけでは管理しきれない知識を外部化し、思考の負担を軽減する効果もあります。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.2 メモの4種類 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">メモの4種類と使い分け</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ツェッテルカステンの実践では、目的に応じていくつか種類の異なるメモを使い分けます。</p>
+
+          <div class="space-y-4">
+            <div class="info-box">
+              <p class="text-xs font-bold text-purple-600 mb-1">(i) 走り書きメモ（Fleeting Notes）</p>
+              <p class="text-sm text-gray-600">アイデアのひらめきやその場で覚えておきたい事柄を、とりあえず書き留めたメモです。紙の切れ端やメモ帳、スマートフォンのメモアプリなど何でも構いません。数秒で消えてしまう思考を逃さず捉えることが目的なので、文法や形式は気にせず、キーワードや断片的なフレーズでも大丈夫です。走り書きメモはあくまで一時的なメモであり、後で永久保存メモに育てる価値があるものだけ清書し、不要になったものは捨てるという取捨選択を行います。</p>
+            </div>
+
+            <div class="info-box">
+              <p class="text-xs font-bold text-purple-600 mb-1">(ii) 文献メモ（Literature Notes）</p>
+              <p class="text-sm text-gray-600">本や論文、記事など特定の文献から得た知識を記録するためのメモです。読書中に心に残ったポイントや重要な論点を、自分の言葉で簡潔に要約して書き留めます。ここで大事なのは、<strong class="text-gray-800">元の文章をそのまま写さないこと</strong>です。アーレンスも「読んだものをコピーするのではなく、読者はテキストと意味のある対話をすべきだ」と述べています。自分の言葉で書くことで、著者との対話を行い、内容の理解もより深まり、後で自分のアイデアとして扱いやすい形で知識が蓄積できます。文献メモは自分以外の誰かの主張を扱うものなので、それ自体は最終的な「自分の知識」にはなりませんが、後に重要な役割を果たします。</p>
+            </div>
+
+            <div class="info-box">
+              <p class="text-xs font-bold text-purple-600 mb-1">(iii) 永久保存メモ（Permanent Notes）</p>
+              <p class="text-sm text-gray-600">ツェッテルカステンの中心となるメモで、最終的にこの箱に蓄積された内容があなたの知的財産となります。永久保存メモは、一つひとつが独立した知的トピックを表しており、それぞれが<strong class="text-gray-800">自己完結的に意味が通じるように書かれています</strong>。具体的には、ある一つのアイデア・事実・考察について自分の言葉で文章化したものです。一つのメモには基本的に一つの論点だけを含め、複数の話題を詰め込まないようにします。それぞれのメモが小さな文章（ミニエッセイ）のようなイメージです。アーレンスは物理学者ファインマンの言葉を引用し、「本当に理解しているかどうかは、それを初心者向けに教えられるかで分かる」と述べています。永久保存メモを書く際も同様に、その内容について予備知識がない人に説明するつもりで書くと良いでしょう。</p>
+            </div>
+
+            <div class="info-box">
+              <p class="text-xs font-bold text-purple-600 mb-1">(iv) プロジェクト・メモ</p>
+              <p class="text-sm text-gray-600">特定の執筆プロジェクト（論文や本など）に関するメモで、仮のアウトラインや ToDo リスト、草稿の断片、引用リストなど、そのプロジェクトに固有の情報をまとめたものです。プロジェクトメモは一時的な性質が強く、そのプロジェクトが終われば不要になる可能性が高いでしょう。ツェッテルカステンのメインとは別にプロジェクト専用のフォルダやノートブックを作り、そこで管理します。</p>
+            </div>
+          </div>
+
+          <div class="info-box mt-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">4種類のメモの連携</p>
+            <p class="text-sm text-gray-600">これら4種類のメモは互いに連携して働きます。日常的には走り書きメモでアイデアを捕捉し、読書を通じて文献メモで知識を整理し、そこから自分なりの考察を永久保存メモとして蓄積する、という流れです。ポイントは、<strong class="text-gray-800">文献から得た知識を必ず自分の思考の文脈に翻訳してから永久メモにする</strong>ことです。アーレンスも「本から得たアイデアは、自分自身の思考に組み込む前に、必ず自分自身の言葉に翻訳しなければならない」と強調しています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.3 批判的読解と思考 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">批判的読解と思考のためのメモ取り</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">質の高いメモを書くためには、読書の段階で考えながら読むことが欠かせません。やみくもに情報を書き写すのではなく、批判的に内容を咀嚼し、自分の中で再構成していく姿勢が大事です。以下のポイントを意識して読むことで、単なる受け身のインプットではなく、思考を深める読書ノートが取れるようになります。</p>
+          <ul class="text-sm text-gray-600 space-y-3">
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">論の枠組みを問い直す</strong>：テキストに書かれている主張や問いが前提としている枠組みは何かを考え、それ自体を疑ってみます。著者が当然のものとしている分類や前提を、あえて別の視点から見たらどうなるかと自問してみるのです。</div></li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">テキストの枠を超えて考える</strong>：著者が文章中で述べていること「だけ」に集中するのではなく、その周辺や背景にも目を向けてみます。言及されていない論点はないか、反対の立場から見たらどうか、関連する他のテーマは浮かばないか——といった具合に、与えられた文脈を超えて自分なりの疑問やアイデアを派生させることが重要です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">メモを書きながら考える</strong>：読んだ内容について、頭の中だけで考えるよりも、実際に書き出して説明してみる方が理解が深まります。手を動かし自分の考えを文章化すること自体が、考えるプロセスでもあります。ツェッテルカステンの永久メモを書くことはまさに、自分の理解したことを自分の言葉で説明する行為です。メモを書くこととと考えることは切り離せず、<strong class="text-gray-800">むしろ書くことが考えること</strong>なのです。</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.4 アウトプットを見据えた情報整理 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">アウトプットを見据えた情報整理（ボトムアップ型の構成形成）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">ツェッテルカステン法は最終的に説得力のあるアウトプットを生み出すことを目指しています。説得力のある論文や文章とは、筋道が通っていて事実に裏付けられたものです。そのような文章を書くためには、実は書き始める前の準備段階に多くの作業が必要です。情報収集、読解、熟考、発想、概念の整理、関連づけ、専門用語の定義づけ、構造の工夫、そして推敲と編集……これらはすべて執筆プロセスの一部と言えます。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">ツェッテルカステンを継続的に運用していくと、日々の読書ノートやアイデアメモが自然と蓄積され、それらが見えない下書きのような役割を果たすようになります。日頃からメモを蓄積・整理・連携させておけば、いざ論文やレポートを書こうという段になって、「何を書くべきか」「どんな切り口で論じるか」がすでに明確になっているからです。</p>
+          <p class="text-sm text-gray-600 leading-relaxed">さらに、ツェッテルカステンではアウトプットに直結する形で<strong class="text-gray-800">ボトムアップに構成を組み立てて</strong>いきます。メモ同士の繋がりを辿りながら全体像を俯瞰すると、自然にいくつかのテーマやセクションが浮かび上がってきます。トップダウンで厳密なアウトラインを最初から決めるのではなく、メモを集めていく中で構成が自然に決まるというのが、この方法の面白いところです。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.5 Obsidian での実装 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Obsidian での実装</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Obsidian は Markdown ファイルを用いたノートアプリであり、リンク機能や検索機能が充実しています。ここではツェッテルカステンの精神を活かすためのシンプルな運用例を紹介します。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">基本のノート構成</p>
+            <p class="text-sm text-gray-600 mb-2">まず「Vault（ボルト）」と呼ばれるノート保管庫を用意します。一つの Vault があなたの知的貯蔵庫（ツェッテルカステン本体）になります。ノートのフォルダ分けは最小限に留めると良いでしょう。</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div class="bg-white/50 rounded-xl p-3 text-center"><p class="text-xs font-bold text-purple-600">Literature</p><p class="text-[10px] text-gray-500">文献メモ用</p></div>
+              <div class="bg-white/50 rounded-xl p-3 text-center"><p class="text-xs font-bold text-purple-600">Permanent</p><p class="text-[10px] text-gray-500">永久メモ用</p></div>
+              <div class="bg-white/50 rounded-xl p-3 text-center"><p class="text-xs font-bold text-purple-600">Project</p><p class="text-[10px] text-gray-500">プロジェクト用</p></div>
+              <div class="bg-white/50 rounded-xl p-3 text-center"><p class="text-xs font-bold text-purple-600">Daily Notes</p><p class="text-[10px] text-gray-500">走り書きメモ</p></div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">あまり細かく分類しすぎると、かえってノート同士の横断的な繋がりが見えにくくなるので注意。ツェッテルカステン法では体系のシンプルさが重視されます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">走り書きメモの記録</p>
+            <p class="text-sm text-gray-600">日々の走り書きは、Obsidian の日記（Daily Notes）機能を使うと便利です。日付ごとのノートに簡条書きでその日の思考の断片を書いていけば、時系列でログが残ります。あるいは「Inbox」と名付けた1枚のノートに思いつきをどんどん追記し、定期的に仕分けるという方法でも構いません。大事なのは、素早く書ける環境を整えておくことです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">文献メモの作成と管理</p>
+            <p class="text-sm text-gray-600">文献ごとに1ノートを割り当ててメモを取ります。冒頭にその書誌情報（著者名、論文タイトル、出版年、参照ページなど）を書きます。その下に読み進めながら得たポイントを箇条書きや短い段落で追記していきます。メモの内容は先述のとおり自分の言葉で記録し、必要に応じて「重要」「要確認」といったマークやハイライトを付けます。また、文献メモから永久メモを作成したら、文献メモ側に「→ [[関連する永久メモ名]]」という風にリンクを書き込んでおくのも有効です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">永久保存メモの作成とリンク</p>
+            <p class="text-sm text-gray-600 mb-2">永久メモは先に述べたルールに沿って、一つのファイルに一つのアイデアを書きます。ファイル名は内容を端的に表すものにしましょう（例：「社会的証明効果.md」「二重過程理論.md」）。Obsidian 上で新規ノートを作り、自分の言葉で1段落から数段落の本文を書きます。本文中で他の概念や関連トピックに触れたら、その都度既存のノートへのリンクを張ります。</p>
+            <p class="text-sm text-gray-600">Obsidian のリンクは双方向に繋がるので、リンクを張るだけで元のノートからのバックリンクが自動生成されます。こうして張り巡らされたリンクによって、Obsidian 上であなたの知識がどんどん<strong class="text-gray-800">ネットワーク化</strong>されていきます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">索引・タグ・構造化ノート（MOC）</p>
+            <p class="text-sm text-gray-600 mb-2">Obsidian では、索引の機能を自分で工夫して持たせることが可能です。シンプルな方法はタグ（#）を活用することです。ただしタグはあくまで大まかな分類なので、細かい整理には向きません。</p>
+            <p class="text-sm text-gray-600 mb-2">そこでおすすめなのが構造化ノート（<strong class="text-gray-800">MOC: Map of Content</strong>）を作る方法です。Obsidian で新たにノートを作り、あるテーマについてその下位概念や関連項目を箇条書きで並べ、それぞれに該当するノートへのリンクを貼っていきます。例えば「研究方法」という構造化ノートを作り、「定性的アプローチ：[[質的調査]]、[[インタビュー手法]]…」「定量的アプローチ：[[統計分析]]、[[実験法]]…」のように書いていきます。</p>
+            <p class="text-sm text-gray-600">Obsidian 上ではこれが一種の目次ページとなり、自分のノート群の中でそのテーマに関する知識の構造が一目で分かる目次ページが出来上がります。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">グラフビュー</p>
+            <p class="text-sm text-gray-600">Obsidian のグラフビューを見ると、構造化ノートがハブ（結節点）として可視化され、多くのノートがそこから繋がっている様子が確認できます。グラフビューではノート同士の関係性が星座のように表示され、ノート数が増えるほど複雑なネットワークが現れます。たまに全体のグラフを眺めることで「あ、このノートは直接リンクしていないけれど、関連があるかもしれない」と新たな発見が生まれることもあります。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">ツールに振り回されない</p>
+            <p class="text-sm text-gray-600">Obsidian は多数のプラグインやカスタマイズオプションがあり魅力的ですが、設定に凝りすぎると本末転倒になります。重要なのは、常にアウトプットを意識してメモを取る習慣であり、ツールはそれを補助するものに過ぎません。基本は<strong class="text-gray-800">「メモを書く」「リンクする」</strong>というシンプルな行為に集中しましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.6 運用ワークフロー -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4.6</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">運用ワークフロー（8つのステップ）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">実際にツェッテルカステンを運用していく具体的なワークフローを、8つのステップに沿って説明します。このプロセスは日々のメモ作成から最終的な原稿執筆までの道筋を示したものです。</p>
+
+          <div class="space-y-3">
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">1</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">走り書きメモを書く</strong>：日常生活や研究活動の中で、何かアイデアや疑問が浮かんだら即座にメモします。「後で書こう」は厳禁です。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">2</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">文献メモを取る</strong>：本格的に文献を読んだときには、その内容を自分なりに整理した文献メモを作成します。批判的かつ対話的に読み進め、できるだけ自分の言葉で要約しましょう。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">3</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">アイデアを発展させる</strong>：文献メモや走り書きメモを書き終えたら、少し時間を取ってそれらを振り返りながら熟考します。一呼吸おいてメモの内容を自分の頭で展開させる時間を持つことです。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">4</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">永久保存メモを作成する</strong>：熟考の結果、「これは重要だ」「将来的に使えそうだ」と判断したアイデアは、忘れないうちに永久保存版のメモとして書き起こします。「ひとつのメモにひとつのアイデア」の原則を守り、自分の言葉でリライトしてください。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">5</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">メモ同士をリンクする</strong>：新しく作成した永久保存メモは、既存のメモと関連付けてネットワークに組み込みます。Obsidian なら <code>[[メモ名]]</code> と記述してリンクを張ります。バックリンク機能により、どのメモから参照されているかが自動的に一覧表示されます。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">6</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">索引や構造化ノートを整備する</strong>：特に主要なテーマについては索引メモや構造化ノート（MOC）を用意すると全体像を把握しやすくなります。グラフビューも活用できます。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">7</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">アウトプット（原稿）にまとめる</strong>：十分なメモが蓄積されたら、リンクを辿ったり索引ノートを眺めたりする中で、論じたい切り口や章立ての候補が浮かんでくるでしょう。関連メモ同士の組み合わせからアウトラインが形成されます。既にメモという形で材料は揃っているので、一から文章をひねり出す必要はありません。</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-black flex-shrink-0">8</div><div><p class="text-sm text-gray-600"><strong class="text-gray-700">推敲・編集する</strong>：下書きができたら、最後に推敲と編集によって完成度を高めます。全体を通して読み直し、一貫した流れになっているかチェックしましょう。ツェッテルカステンで構成を組み立てた原稿は、基本的には論旨がぶれにくいと期待できますが、それでも論文として体裁を整えるための言葉や背景説明の補足が必要になることがあります。</p></div></div>
+          </div>
+
+          <p class="text-sm text-gray-600 mt-4">以上のステップ1〜8は、直線的に一度ずつ行えば終わりというものではなく、研究活動における<strong class="text-gray-800">サイクルとして繰り返し回していくもの</strong>です。このサイクルが回れば回るほど、あなたの知識基盤はより充実したものになっていくでしょう。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.7 習慣化と継続のコツ -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4.7</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">習慣化と継続のコツ</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ツェッテルカステン法と Obsidian というツールを最大限に活かすには、日々の習慣と環境づくりが重要になります。</p>
+
+          <ul class="text-sm text-gray-600 space-y-3">
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">コツコツ継続し「複利」を得る</strong>：メモ書きは毎日の地道な作業ですが、その蓄積はやがて指数関数的な威力を発揮します。アーレンスは、ツェッテルカステンでメモを継続的に蓄積していくことを「複利での投資」に例えています。毎日1枚でも自分の考えをメモに書き溜めていけば、1年後には驚くほど多くの知的資産が手元に残っているでしょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">環境を整える</strong>：集中できる環境づくりは生産性向上の鍵です。Obsidian で作業する際は、余計な通知やSNSをオフにし、一度に複数のことをしないよう心がけます。<strong class="text-gray-800">ポモドーロ・テクニック</strong>（25分集中＋5分休憩のサイクル）なども活用して適度に休憩を挟むのもお勧めです。</div></li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">定期的な見直し</strong>：ツェッテルカステンは一度作ったら終わりではなく、生きたシステムです。定期的にノートを振り返り、古いメモに新しい視点から追記したり、繋がりを再評価してみましょう。時には「あのときは関連が分からなかったメモ同士が、今読むと深い繋がりがある」と気づくこともあります。それこそが知識が有機的に成長している証です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">自分なりのアレンジ</strong>：基本原則（自分の言葉で書く、リンクする、見直す）を守りつつも、使いやすいテンプレートを作ったり、自分だけのタグ運用ルールを決めたりしてOKです。大事なのは、システムが自分の頭の延長として機能することです。</div></li>
+            <li class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">第二の脳として活用する</strong>：ツェッテルカステンのノート体系は、よく<strong class="text-gray-800">「第二の脳」</strong>とも称されます。自分の頭の中に収まりきらない知識を外部に預け、長期間にわたって蓄積・連携させていくことで、システム自体があなたの思考パートナーとして機能するのです。自分だけの強力な「第二の脳」を育てているつもりで、日々メモを書き続けてください。</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.8 まとめ -->
+    <div class="fade-in glass rounded-2xl p-6 mb-5 border-l-4 border-purple-300">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">📌</div>
+        <h3 class="font-bold text-gray-800">まとめ：3つの要点</h3>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-3">
+        <div class="info-box text-center"><p class="text-xs font-bold text-purple-600 mb-1">第一</p><p class="text-xs text-gray-600"><strong class="text-gray-700">自分の言葉で書くこと</strong>。これは理解の深化とアイデア創出の源泉となります。</p></div>
+        <div class="info-box text-center"><p class="text-xs font-bold text-purple-600 mb-1">第二</p><p class="text-xs text-gray-600"><strong class="text-gray-700">メモを繋げること</strong>。アイデアは組み合わせることで新たな価値を生み、知識はネットワーク化することで真価を発揮します。</p></div>
+        <div class="info-box text-center"><p class="text-xs font-bold text-purple-600 mb-1">第三</p><p class="text-xs text-gray-600"><strong class="text-gray-700">アウトプット志向であること</strong>。最終的に論文や著作といった形で世に出すことを見据えて情報を整理すれば、メモの質も上がり、書くべき内容が明確になります。</p></div>
+      </div>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">Obsidian で Vault を用意し、最小限のノート構成を作る。走り書きメモ3件以上、文献メモ1件、永久保存メモ1件を作成。リンクを2本以上張る。作成したメモの例を示し、研究テーマへの効き方と運用上の課題を記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>Obsidian で Vault を用意し、最小限のノート構成（Literature／Permanent／Project など）を作る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>走り書きメモを3件以上作成する（Daily Notes または Inbox 方式）</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span>文献メモを1件作成する（書誌情報を明記し、内容を自分の言葉で要約）</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">4</span><span>永久保存メモ（Permanent Note）を最低1件作成する（「1メモ1アイデア」で自己完結的に）</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">5</span><span>既存メモと新規メモの間にリンク（[[…]]）を2本以上張る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">6</span><span><strong class="text-gray-800">今回作成したメモの例を示し、「自分の研究テーマにどう効きそうか」「運用上の課題（続かなさそうな点／改善案）」を具体的に記述する</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -232,12 +312,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
