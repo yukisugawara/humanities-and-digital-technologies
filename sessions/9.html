@@ -3,104 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第9回 デジタルデータの片づけ：研究生活の整理術 | 人文学とデジタル技術（2026）</title>
+  <title>第9回 デジタルデータの片づけ | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +48,15 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-lime-100 text-lime-700 mb-4 inline-block">整理</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">09</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">デジタルデータの片づけ：研究生活の整理術</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第9回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">09</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">デジタルデータの片づけ</span></h1>
+        <p class="text-lg text-gray-600 font-medium mb-1">研究生活の整理術</p>
+        <p class="text-base text-gray-500 font-light">第9回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-lime-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,102 +64,192 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-lime-400 mt-0.5">&#9679;</span><span>片付けの理論と技術（整理→収納→整頓）</span></li>
-        <li class="flex items-start gap-2"><span class="text-lime-400 mt-0.5">&#9679;</span><span>デジタルデータ整理の実践原則</span></li>
-        <li class="flex items-start gap-2"><span class="text-lime-400 mt-0.5">&#9679;</span><span>Notion DB による情報の一元化</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span>片付けの理論と技術（「整理→収納→整頓」の正しい順序）</li>
+        <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span>ステージ理論によるリバウンド防止</li>
+        <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span>企業の5Sの発想をデータ管理に応用する</li>
+        <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span>文化的含意（禅・ミニマリズム・こんまりメソッド）</li>
+        <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span>デジタルデータ整理の実践原則</li>
+        <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span>デジタル・ノイズの削減と認知負荷の軽減</li>
+        <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span>Notion を使った情報の一元管理</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">片づけは「センス」ではなく再現可能な技術</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">「整理・収納・整頓」の違いと正しい順序（整理 → 収納 → 整頓）を確認し、リバウンドしにくい仕組みづくりを学びます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">片付けの進捗を可視化する「ステージ理論」</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">進捗を捉えるステージ理論を通じて、リバウンド防止の考え方を理解します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">物理空間の整理実践</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">使用頻度に応じた配置、ゾーニングと動線、ラベリングによる属人化の解消。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">企業の5Sの発想をデータ管理に応用</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">整理・整頓・清掃・清潔・躾のフレームワークをデジタル環境に適用します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">文化的含意：禅・ミニマリズム・こんまりメソッド</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">「余計なものを削ぎ落とす」美学、「ときめき」に基づく選別の心理的・文化的含意を扱い、片付けを生活文化として位置づけます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">デジタルデータ整理の実践原則</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">削除・アーカイブの習慣化、シンプルなフォルダ設計、命名規則（YYYYMMDD＋内容）、保存場所の一元化、バックアップと整理のセット化。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">デジタル・ノイズの削減と認知負荷の軽減</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">通知・アプリ・ブラウザタブ等のノイズを減らし、集中できる環境を整備します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Notion を使った情報の一元化</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">「資料DB（文献・PDF・URL）」「タスクDB（締切・優先度）」「進捗DB（学習ログ・研究ログ）」をリレーションで接続し、「探さずに見つかる」研究環境を構築します。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 9.1 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">片づけは「センス」ではなく再現可能な技術</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">片付けは「センス」の問題だと思われがちですが、実際には正しい理論と技術に基づけば誰でも身につけられる<strong class="text-gray-800">再現可能なスキル</strong>です。散らかった環境を整えることは単なる美観の追求ではなく、日々の生活や研究活動の効率向上、さらには精神面の安定にも大きな影響を与えます。本章では、人文学の視点から生活文化としての「片付け」に注目し、その理論と方法を解説します。日常空間から職場、そしてデジタル空間まで、片付けの原理と実践知を基礎から具体例まで包括的に紹介していきます。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.2 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">整理・収納・整頓の定義と順序</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">片付けには「整理」「収納」「整頓」という3つの基本概念があります。それぞれ意味と役割が異なり、また片付けを進める正しい順番を示しています。</p>
+          <div class="grid sm:grid-cols-3 gap-3 mb-4">
+            <div class="info-box text-center"><p class="text-xs font-black text-lime-600 mb-1">整理（Seiri）</p><p class="text-xs text-gray-600">不要なモノを取り除くこと。いわゆる「いらないモノを捨てる」作業で、持ち物を必要か不要か区別するプロセスを指します。</p></div>
+            <div class="info-box text-center"><p class="text-xs font-black text-lime-600 mb-1">収納（Shuno）</p><p class="text-xs text-gray-600">必要なモノを使いやすいよう収めること。物の定位置を決め、誰でも取り出しやすい状態に収容します。</p></div>
+            <div class="info-box text-center"><p class="text-xs font-black text-lime-600 mb-1">整頓（Seiton）</p><p class="text-xs text-gray-600">モノを定位置に整えること、すなわち使ったら元に戻す習慣のこと。一度整った状態を維持し、常に必要な物が定位置に収まっている状態を保つことを意味します。</p></div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed">正しい片付けの順番は<strong class="text-gray-800">「整理→収納→整頓」</strong>です。つまりまず徹底的に不要物を<strong class="text-gray-800">整理</strong>し、その後残した物を分類して<strong class="text-gray-800">収納</strong>し、最後に使ったものを元に戻す<strong class="text-gray-800">整頓</strong>の習慣を定着させます。注意すべき点として、多くの人は片付けというといきなり整頓（見た目を整えること）から始めてしまいがちですが、不要品の整理をせずに配置換え（整頓）だけしても、一時的に綺麗に見えるだけで根本的な解決にはなりません。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.3 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">片付けの進捗を可視化する「ステージ理論」とリバウンド防止</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">整理収納の理論には、片付けの進行度合いを3段階で捉える「ステージ理論」があります。片付けを段階的に進めてステージ3まで達成することで、リバウンドしない状態を目指します。</p>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-lime-600 mb-1">ステージ1</p><p class="text-xs text-gray-600">必要な物と不必要な物が混在している段階です。まずここから整理を実行し、不必要な物を徹底的に取り除くことから始めます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-lime-600 mb-1">ステージ2</p><p class="text-xs text-gray-600">必要な物だけの状態になり、持ち物の総量を把握できた段階です。不要品が無くなったことで、自分が何をどれだけ持っているか全体像が見えるようになります。この時点で初めて「適切な収納量」が明確になります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-lime-600 mb-1">ステージ3</p><p class="text-xs text-gray-600">必要な物がさらに使用頻度や目的ごとに区別・分類され、ラベリングも行われている段階です。季節別・用途別に物がグルーピングされ、家中の書類から目当ての一枚を一目で探し出せるような、見やすく使いやすい完成形と言えます。ステージ3まで達すると、異なる種類の物が紛れ込んでもすぐに気付き排除できるため、美しい状態を維持しやすくなります。</p></div>
+          </div>
+          <p class="text-sm text-gray-600 mt-3">ステージ3が片付けの理想的な完成形であり、この状態を保つことで「二度と元の散らかった状態に戻らない」暮らしが実現できます。リバウンド防止には、<strong class="text-gray-800">ステージ1から3まで順を追って整理をやり切ること</strong>が重要なのです。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.4 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">物理空間の整理実践（机・研究室・自室・衣類など）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">整理収納の理論を踏まえ、身近な物理空間で片付けを実践するコツを見ていきましょう。仕事机や研究室、自室やクローゼットなどを整える際のポイントは、<strong class="text-gray-800">頻度に応じた配置</strong>、<strong class="text-gray-800">ゾーニング（空間分け）と動線設計</strong>、そして<strong class="text-gray-800">ラベリングによる共有化</strong>です。</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">使用頻度に応じた配置</strong>：机の上や引き出しには必要な物だけを残し、それ以外は整理して減らします。毎日使う文具や機器は一番手の届きやすい場所に配置し、使用頻度が低い資料や備品は棚の上段や離れた場所に収納します。よく使う物を近くに、あまり使わない物を遠くに置くことでムダな動きを減らせて作業効率が向上します。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ゾーニングと動線</strong>：部屋全体を見渡し、日常的によく使うエリアと滅多に使わないエリアに分けて配置を考えます。生活動線（人が通る経路）上に物を置かないようにし、<strong class="text-gray-800">「床に物を置かない」</strong>ことを徹底しましょう。こうしたゾーニングによって、動きやすく安全で掃除もしやすい空間が生まれます。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ラベリングで属人化を防ぐ</strong>：複数人で共有する研究室やオフィスでは、誰が見ても分かるように収納することが大切です。キャビネットやファイルにはラベルを貼り、中身が一目で分かるようにしましょう。定位置管理とラベリングによって、誰でも必要な物をすぐ取り出せる共有スペースが実現します。</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.5 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">企業の5Sの発想をデータ管理に応用する</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">日本の製造業で生まれた職場環境改善のスローガンに「5S（ファイブエス）」があります。5つのSは整理・整頓・清掃・清潔・躾を指し、現在ではオフィスやデジタル環境での情報整理にも応用されています。</p>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            <div class="info-box text-center"><p class="text-[10px] font-black text-lime-600 mb-0.5">整理（Seiri）</p><p class="text-[9px] text-gray-500">不要なものを捨てる。データ管理でも不要ファイルを定期的に削除。</p></div>
+            <div class="info-box text-center"><p class="text-[10px] font-black text-lime-600 mb-0.5">整頓（Seiton）</p><p class="text-[9px] text-gray-500">必要なものを使いやすく配置。フォルダ構成や命名ルールを整える。</p></div>
+            <div class="info-box text-center"><p class="text-[10px] font-black text-lime-600 mb-0.5">清掃（Seiso）</p><p class="text-[9px] text-gray-500">清潔に保つ。キャッシュや一時ファイルを削除しシステムを健全に保つ。</p></div>
+            <div class="info-box text-center"><p class="text-[10px] font-black text-lime-600 mb-0.5">清潔（Seiketsu）</p><p class="text-[9px] text-gray-500">清潔な状態を標準化して維持。定期的なメンテナンスを習慣化。</p></div>
+            <div class="info-box text-center"><p class="text-[10px] font-black text-lime-600 mb-0.5">躾（Shitsuke）</p><p class="text-[9px] text-gray-500">決めたルールを守り習慣づけること。定期的に振り返り確認し合う。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.6 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.6</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">文化的含意：禅・ミニマリズム・こんまりメソッド</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">片付けの技術的な面だけでなく、文化的・精神的な側面にも目を向けてみます。日本文化に根付く禅の思想や現代のミニマリズム、そして近藤麻理恵さん（こんまり）の「ときめき」片付け術には、物の整理を通じて心や価値観を見つめ直す示唆があります。</p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="info-box">
+              <p class="text-xs font-bold text-lime-600 mb-2">9.6.1 禅の思想とミニマリズム</p>
+              <p class="text-xs text-gray-600 mb-2">禅（Zen）の思想には「不必要なものを削ぎ落とす」美学があります。禅寺に足を踏み入れると感じる静謐で簡素な空間——これは本質的なものだけを残した結果生まれる美と言えます。禅の教えでは過剰な持ち物や装飾にとらわれず、必要最低限のものだけで豊かに生きる境地を重視します。</p>
+              <p class="text-xs text-gray-600">禅宗の寺では掃除が修行の一環として重視され、「一掃除、二信心（掃除を第一とせよ）」という言葉もあります。掃除によって空間が清められることに価値があるとされ、禅ではこれを「掃除＝心の塵を払うこと」と捉えます。実際、「部屋が整えば心も整う」という言葉があるように、外側（空間）を整えることは内側（心）を整えることにつながるとされています。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-lime-600 mb-2">9.6.2 近藤麻理恵（こんまり）メソッドと「ときめき」</p>
+              <p class="text-xs text-gray-600 mb-2">2010年代に世界的なブームを巻き起こした日本発の片付け術に、近藤麻理恵さん考案の「こんまりメソッド」があります。『人生がときめく片づけの魔法』で提唱された<strong class="text-gray-700">「ときめき」</strong>を基準とする片付け法は、「Spark Joy（ときめき）」という英語表現とともに各国で広く知られるようになりました。</p>
+              <p class="text-xs text-gray-600">「ときめき」とは、自分の心がときめく（嬉しくて心が跳ねる）かどうか、つまり持っていて幸せになれるかという感覚です。片付けたい物を一つひとつ手に取り、その物が自分にとって<strong class="text-gray-700">「ときめくか？」</strong>を問いかけます。ときめく物＝大好きな物だけを残し、ときめかない物は感謝して手放すのです。こんまりメソッドの特徴は、場所別ではなくカテゴリ別に一気に片付ける点にもあります。推奨される順序は「衣類→本→書類→小物類（Komono）→思い出品」で、カテゴリごとにすべて集めて山積みにし、一つ一つときめきチェックを行います。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.7 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.7</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">デジタルデータ整理の実践原則</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、デジタル環境における片付けの原則を整理しておきましょう。基本はアナログと同じく「不要なものを捨て、必要なものを分かりやすく収納する」ことに尽きますが、デジタルならではの注意点もあります。</p>
+          <ul class="text-sm text-gray-600 space-y-3">
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">削除・アーカイブの習慣化</strong>：使っていない古いファイルやアプリケーションは定期的に思い切って削除しましょう。1年以上開いていない書類データは不要になっている可能性が高いです。必要かもしれないが今すぐ使わないものは外部ストレージにアーカイブ（退避）しておき、普段使うストレージは軽く保ちます。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">シンプルなフォルダ構成</strong>：フォルダは用途やプロジェクト単位で大まかに分け、深すぎる入れ子構造は避けます。例えば「授業」「研究プロジェクトA」「プライベート」など大きなカテゴリを作り、その中で詳細に分類する程度に留めます。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">命名規則の統一</strong>：ファイル名に日付（YYYYMMDD 形式）や内容を示すキーワードを含め、あとから検索しやすい名前を付けます。統一的な命名ルールを決めておくと、複数人で作業する際も混乱が減ります。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">保存場所の一元化</strong>：ファイルの保存場所をあちこちに散在させず、どこに何を置いたか常に把握できる状態にします。複数のクラウドサービスを併用する場合は、用途に応じて役割分担を決めましょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">「後で整理」は厳禁</strong>：ファイルを一時的にデスクトップやダウンロードフォルダに置きっぱなしにしない習慣をつけます。デスクトップは部屋の床と同じで、物を置き続けると忘却と混乱の元です。基本的にデスクトップは空の状態を維持しましょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">整理とバックアップのセット運用</strong>：データのバックアップを取る際には、事前に不要ファイルの削除やフォルダ構成の見直しを行いましょう。古いプロジェクトが終わったタイミングで「アーカイブ化の儀式」としてファイル整理・最終版の確定・旧版の削除などを行えば、その後のバックアップにも無駄がありません。</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.8 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.8</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">デジタル・ノイズの削減と認知負荷の軽減</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">デジタルの片付けはファイル整理だけではありません。日々使うパソコンやスマートフォン自体の情報環境を整えることも重要です。過剰な通知や常駐アプリ、ブラウザの大量のタブは、物理空間でいえば「常に話しかけてくる家電」や「机の上に積まれた未処理書類」のようなもので、知らないうちに集中力や思考力を奪います。</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">使っていないアプリは削除</strong>：年単位で起動していないアプリケーションは思い切ってアンインストールしましょう。デバイスの容量を圧迫するだけでなく、バックグラウンドで動いてメモリを消費しているものもあります。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">通知を必要最小限に絞る</strong>：スマホやPCのプッシュ通知は、生産性を阻害する最大の敵です。メール、カレンダー、連絡ツールなど本当に必要なもの以外は通知をオフにすることを検討しましょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">自動起動アプリを減らす</strong>：パソコン起動時に自動で立ち上がる常駐アプリは、電源投入直後の集中モードを乱します。必ずしも必要ないソフトは自動起動をオフに設定しましょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-lime-500 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ブラウザのタブを整理する</strong>：ブラウザで何十ものタブを開きっぱなしにするのは、デジタル上の「散らかった机」と言えます。気になる記事はブックマークに保存し、読み終えたタブはすぐ閉じる習慣をつけましょう。</div></li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-3">このようにデジタル環境をミニマルに保つことは、メモリ節約などシステム面の利点だけでなく、自分自身の認知負荷の解放や作業への集中、ひいてはデジタル疲れの軽減にも直結します。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9.9 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">9.9</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Notion を使った情報の一元管理</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">近年、Notion のようなオールインワンの情報管理ツールが人気を集めています。Notion を使うと、メモ、ToDo リスト、プロジェクト管理、データベースなど様々な情報を一箇所にまとめて管理できます。いわば「デジタル上の整理収納庫」として活用でき、散逸しがちな情報を集約し必要な情報に素早くアクセスできるようになります。自分専用の知識データベース（いわゆる<strong class="text-gray-800">"第二の脳"</strong>）を構築することがデジタル時代の新たな整理術と言えるでしょう。</p>
+
+          <div class="grid sm:grid-cols-3 gap-3 mb-4">
+            <div class="info-box"><p class="text-xs font-bold text-lime-600 mb-1">資料データベース</p><p class="text-[10px] text-gray-500">文献のメモや PDF、関連 URL などを蓄積するデータベース。論文や書籍の情報をまとめて管理し、必要に応じてキーワード検索やタグで素早く探せるようにします。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-lime-600 mb-1">タスク管理データベース</p><p class="text-[10px] text-gray-500">締切や優先度付きのタスクを管理します。研究の締切、発表準備、日々の ToDo などを一覧でき、日付順や優先度順にソートして進捗を把握できます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-lime-600 mb-1">進捗ログデータベース</p><p class="text-[10px] text-gray-500">日々の学習記録や研究活動のログを残します。実験の経過や読書ノート、思索のメモなどを日時とともに記録しておき、あとから振り返って自己分析したり成果を確認したりできます。</p></div>
+          </div>
+
+          <p class="text-sm text-gray-600 leading-relaxed">Notion ではこれら各 DB を相互に<strong class="text-gray-800">リレーション（関連付け）</strong>することが可能です。例えばタスクと資料を紐付ければ「この課題に関連する文献」が一目で分かり、進捗ログから関連する資料やタスクにジャンプするといった具合に、情報同士を横断的に行き来できます。その結果、<strong class="text-gray-800">「探さずに見つかる」</strong>情報管理が実現します。いちいちフォルダ階層を掘り下げて目当てのファイルを探すのではなく、関連項目から必要な情報に辿り着ける設計思想です。</p>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">自分のデジタル環境で小規模な片付けを実施。フォルダ構成の見直しと命名規則の策定。デジタル・ノイズ対策を1つ実行。Notion DB の設計と片付け前後の変化を記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>自分のデジタル環境で小規模な片付けを実施する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>フォルダ構成の見直しと命名規則の策定</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span>デジタル・ノイズ対策を1つ実行する（通知オフ、不要アプリ削除など）</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">4</span><span><strong class="text-gray-800">Notion DB の設計と片付け前後の変化を記述する</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -240,12 +262,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
