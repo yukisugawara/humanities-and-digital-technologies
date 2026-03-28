@@ -3,104 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第7回 聴くためのデジタルツール：インタビュー調査と文字起こし | 人文学とデジタル技術（2026）</title>
+  <title>第7回 聴くためのデジタルツール | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
+    code{background:rgba(99,102,241,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#4f46e5}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +49,15 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-rose-100 text-rose-700 mb-4 inline-block">聴く</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">07</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">聴くためのデジタルツール：インタビュー調査と文字起こし</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第7回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">07</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">聴くためのデジタルツール</span></h1>
+        <p class="text-lg text-gray-600 font-medium mb-1">インタビュー調査と文字起こし</p>
+        <p class="text-base text-gray-500 font-light">第7回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-rose-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,92 +65,178 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><span>インタビュー調査法の基本（設計・実施・データ化）</span></li>
-        <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><span>音声の自動文字起こし（Whisper）と逐語録の補正</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span>インタビュー調査法の基本（定義・形式・アプローチ・8つのステップ）</li>
+        <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span>逐語録作成の意義と基本方針</li>
+        <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span>Whisper による自動文字起こし（Google Colab での実践）</li>
+        <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span>自動文字起こしの限界と逐語録の補正</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">インタビュー調査とは</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">目的と構造をもった計画的対話。ラポール形成と対話の舵取り（聞き漏らさないためのコントロール）の両立を確認します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">インタビューの形式</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">構造化／半構造化／非構造化の3つの形式を整理し、研究目的に応じた使い分けを理解します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">インタビューのアプローチ</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">仮説検証型／仮説発見型のアプローチを整理します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">インタビュー調査のプロセス：8つのステップ</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">テーマ設定 → 先行研究レビュー → リサーチクエスチョン → 倫理審査（インフォームド・コンセント、匿名化、データ管理）→ 対象者選定 → ガイド作成 → 実施（質問技法）→ 分析。「短い質問・長い回答」を基本とする聞き方。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">逐語録作成の意義と基本方針</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">インタビュー音声を分析可能なデータに変換するプロセス。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Whisper による自動文字起こし</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Google Colab を用いて音声ファイルを文字起こしする実践。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">自動文字起こしの限界と逐語録の補正</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">誤認識、話者区別ができない、沈黙や「間」など文脈情報が欠落しやすい限界を踏まえ、「分析用逐語録の下書き」として校正・補正する発想を学びます。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 7.1 インタビュー調査 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">インタビュー調査</h3>
+
+          <!-- 7.1.1 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">7.1.1 インタビュー調査とは</p>
+            <p class="text-sm text-gray-600 mb-2">インタビュー調査とは、研究対象となる人に直接話を聞き、質問への回答を通じて情報を収集する質的調査手法です。文献や統計では得られない<strong class="text-gray-800">「生の声」</strong>を引き出し、個人の考え方や経験、価値観を深く掘り下げることで、人間の行動や文化・社会の諸側面を包括的に理解することができます。Kvale (2016) もインタビューを「<em>inter-view</em>」、すなわち共通の関心事について二人の見解（view）をやりとりすることだと述べています。</p>
+            <p class="text-sm text-gray-600">インタビューは一見すると日常会話に似ていますが、一定の構造と目的をもった<strong class="text-gray-800">計画的な対話</strong>です。調査者（インタビュアー）はあらかじめ調査目的に沿った質問項目を準備し、相手の話に注意深く耳を傾けながらデータを体系的に引き出します。この過程では相手との信頼関係（<strong class="text-gray-800">ラポール</strong>）を築くことが重要ですが、同時にインタビュアー側で対話の舵取りも行い、必要な情報を聞き漏らさないようコントロールします。</p>
+          </div>
+
+          <!-- 7.1.2 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">7.1.2 インタビューの形式</p>
+            <div class="space-y-3">
+              <div class="bg-white/40 rounded-xl p-3">
+                <p class="text-xs font-bold text-rose-600 mb-1">構造化インタビュー（Structured Interview）</p>
+                <p class="text-xs text-gray-600">あらかじめ用意した質問リストに従い、決まった順序と言い回しで全員に同一の質問をしていく方法です。データの一貫性が高く、比較分析や集計が容易になります。一方で質問や回答の自由度が低く、想定外の深掘りや新たな発見は生じにくいというデメリットがあります。主に明確な仮説を検証する場合や、結果を数量的に比較したい場合に適した手法と言えます。</p>
+              </div>
+              <div class="bg-white/40 rounded-xl p-3">
+                <p class="text-xs font-bold text-rose-600 mb-1">半構造化インタビュー（Semi-Structured Interview）</p>
+                <p class="text-xs text-gray-600">事前に基本的な質問項目やテーマを用意しつつ、インタビュー中は相手の回答に応じて順序や表現を柔軟に変えたり、適宜追加質問をして深掘りする方法です。対話の流れに沿って思いがけないエピソードや本音を引き出せるため、<strong class="text-gray-700">豊かで深みのあるデータを得やすい</strong>点が強みです。質的研究では最も広く用いられる手法ですが、その柔軟性ゆえの難しさも認識しておく必要があります。</p>
+              </div>
+              <div class="bg-white/40 rounded-xl p-3">
+                <p class="text-xs font-bold text-rose-600 mb-1">非構造化インタビュー / グループインタビュー</p>
+                <p class="text-xs text-gray-600">質問項目を定めず自由な会話で進める非構造化インタビュー（Unstructured Interview）や、複数の対象者に同時に話を聞くグループインタビュー（フォーカス・グループ）などの方法もあります。初心者にはまず構造化もしくは半構造化から始めるのが一般的です。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7.1.3 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">7.1.3 インタビューのアプローチ</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="bg-white/40 rounded-xl p-3">
+                <p class="text-xs font-bold text-rose-600 mb-1">仮説検証型アプローチ</p>
+                <p class="text-xs text-gray-600">あらかじめ明確な仮説や調査仮定を立て、その真偽を確かめることを目的にインタビューを実施する方法です。先行研究や予備調査から「おそらくこうではないか」という予想を立て、それを裏付ける証拠を集めるように質問項目を設計します。仮説が明確である分、調査の目的や分析の見通しが立てやすい利点があります。</p>
+              </div>
+              <div class="bg-white/40 rounded-xl p-3">
+                <p class="text-xs font-bold text-rose-600 mb-1">仮説発見型アプローチ</p>
+                <p class="text-xs text-gray-600">明確な仮説を設定せず、データから新たな洞察や仮説を生み出すことを目的とする方法です。探索的インタビューとも呼ばれ、研究の初期段階や未知の現象を扱うときに有効です。インタビュアーは広範でオープンな質問を用意し、対象者の語りに耳を傾けながら手がかりを探っていきます。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7.1.4 -->
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">7.1.4 インタビュー調査のプロセス：8つのステップ</p>
+            <p class="text-sm text-gray-600 mb-3">インタビュー調査を「準備開始から、分析直前まで」の流れとして8つのステップに整理します。各段階で「何のために、何を決め、何を残すか」を明確にすると、調査の質が安定し、後の分析も進めやすくなります。</p>
+
+            <div class="space-y-3">
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">1</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">調査テーマの決定</strong>：何を明らかにしたいのかという調査テーマを定めます。(1) 社会的に意味があるか、(2) 学術的に前進させるか、(3) 実際にデータへアクセスできるか、(4) 限られた期間で到達できるスコープか、の4点を同時に点検するとよいです。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">2</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">先行研究レビュー（文献検討）</strong>：先行研究をレビューして「既に分かっていること／まだ分かっていないこと」を区別します。文献レビューは単なる下調べではなく、自分の研究を知識体系の中に位置づける作業です。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">3</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">リサーチクエスチョン（RQ）の設定</strong>：「まだ明らかでない点」を問いの形にしてRQを定めます。RQは研究の羅針盤であり、良いRQは先行研究の知識ギャップと論理的につながっており、かつ答えるための手段（対象者・方法・時間）が見えている問いです。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">4</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">研究倫理の検討と倫理審査手続き</strong>：インタビューは人を対象にするため、倫理的配慮が調査の土台になります。(1) プライバシー保護と匿名化、(2) インフォームド・コンセント（説明と同意）、(3) 心理的・社会的リスクへの配慮、(4) 学協会等の倫理綱領の遵守を押さえます。とりわけ、<strong class="text-gray-700">データ管理（保存場所・共有範囲・削除方針）を曖昧にしないこと</strong>が重要です。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">5</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">調査対象者の決定（サンプリング）</strong>：RQに答えるために「誰に話を聞くべきか」を設計します。質的調査では無作為抽出よりも、目的に沿ったサンプリング（目的抽出）が基本になります。修士研究の目安としては5〜15名程度が一つの基準になり、加えて「新しい情報が増えにくくなる（飽和）」も判断材料になります。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">6</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">インタビュー・ガイドの作成（質問設計）</strong>：対象者像が見えたら、当日の道しるべとしてインタビュー・ガイド（質問項目リスト）を作ります。ガイドは「台本」ではなく「聞き漏らし防止の地図」です。RQを情報要件へ分解し、経験・意見・感情・知識・感覚・背景といった複数タイプの質問を混ぜると、語りの厚みが出やすくなります。質問の順序は、答えやすい導入から入り、核心へ進み、最後はクールダウンする流れが基本です。また、<strong class="text-gray-700">誘導的な聞き方を避け、平易で短い質問</strong>を心がけます。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">7</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">インタビューの実施（データ収集）</strong>：本番では、録音機材と環境（静かさ・プライバシー）を事前に確認し、時間配分と質問の優先順位を頭に入れて臨みます。対話中は、<strong class="text-gray-700">フォローアップ</strong>（「それで？」）、<strong class="text-gray-700">深掘り</strong>（「もう少し詳しく」）、<strong class="text-gray-700">特定化</strong>（「具体的には？」）、<strong class="text-gray-700">沈黙の活用</strong>、<strong class="text-gray-700">解釈確認</strong>（「つまり〜という理解でよいですか」）などを組み合わせると、語りの精度が上がります。基本姿勢は<strong class="text-gray-800">「短い質問・長い回答」</strong>です。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">8</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">トランスクリプトの作成（音声の文字起こし）</strong>：収集した音声は、逐語録（トランスクリプト）としてテキスト化します。逐語録は、後のコーディングや解釈の「材料」になるため、手間がかかっても省略しにくい工程です。ここまで整うと、次の段階として質的データ分析（コード化・カテゴリー化・解釈）へ進めます。</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7.2 音声の文字起こし -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">音声の文字起こし</h3>
+
+          <!-- 7.2.1 逐語録の意義と基本方針 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">7.2.1 逐語録作成の意義と基本方針</p>
+            <p class="text-sm text-gray-600 mb-3">インタビュー音声を文字起こしして逐語録を作成することには大きな意義があります。逐語録という形でデータをテキスト化することで、音声だけでは分析しにくかった内容を細部まで検討できるようになります。また、研究者自身が音声を丁寧に聞き取り文字に書き起こす過程で、データ内容への理解が一層深まります。</p>
+            <p class="text-xs font-bold text-gray-500 mb-2">基本方針</p>
+            <ul class="text-xs text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><strong class="text-gray-700">できるだけ早く着手する</strong>：インタビュー後、可能な限り早く（理想的には24時間以内に）文字起こしを始めます。記憶が新しいうちに作業することで、その場の雰囲気や自分が感じた着眼点も反映しやすくなります。</li>
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><strong class="text-gray-700">発言を忠実に再現する</strong>：逐語録では話し言葉を可能な限りそのまま文字に移します。話の途中の「えーと」「あのー」といったつなぎ言葉や長い沈黙も、意味があると判断できる場合は省略せず記録します。</li>
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><strong class="text-gray-700">同時進行でメモを活用する</strong>：音声を再生しながら書き起こす中で、重要だと感じた箇所には印を付けたりメモを書き込みましょう。例えば特に核心的な発言に★マークを付ける、後で分析したいアイデアが浮かんだら括弧書きで「（○○について後で検討）」と注記するなど。</li>
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><strong class="text-gray-700">完成後に何度も読み返す</strong>：一通り逐語録が完成したら、分析に入る前に繰り返し通読します。発言内容がいくつかのトピックやエピソードの塊に分けられることに気づくでしょう。</li>
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><strong class="text-gray-700">バックアップの徹底</strong>：完成した逐語録データは必ず複数箇所にバックアップを取ります。パソコン上のデータだけでなく外部メディア（USBメモリやクラウドストレージ）にも保存し、一方が消失しても他方から復元できるようにします。</li>
+            </ul>
+          </div>
+
+          <!-- 7.2.2 Whisper -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">7.2.2 Whisper による自動文字起こし</p>
+            <p class="text-sm text-gray-600 mb-3">近年は音声認識 AI の発達により、インタビュー音声の文字起こし作業を自動化することも可能になっています。ここでは、OpenAI が開発した高精度の音声認識モデル <strong class="text-gray-800">Whisper</strong> を使い、Python 環境（例えば Google Colab 上）で音声ファイルを文字起こしする方法を紹介します。プログラミングに不慣れな人でも、Colab 上でコードを上から順に実行するだけで自動文字起こしを体験できます。</p>
+
+            <div class="bg-gray-800 rounded-xl p-4 text-xs text-gray-200 font-mono space-y-0.5 leading-relaxed overflow-x-auto mb-3">
+              <p class="text-gray-500"># 1) 必要ツールの準備（初回のみ）</p>
+              <p>!sudo apt update && sudo apt install ffmpeg -y</p>
+              <p>!pip install -q git+https://github.com/openai/whisper.git</p>
+              <p></p>
+              <p class="text-gray-500"># 2) 音声ファイルのアップロード</p>
+              <p><span class="text-sky-400">from</span> google.colab <span class="text-sky-400">import</span> files</p>
+              <p>uploaded = files.upload()</p>
+              <p>audio_m4a = next(iter(uploaded))</p>
+              <p></p>
+              <p class="text-gray-500"># 3) m4a → mp3 へ変換</p>
+              <p>audio_mp3 = <span class="text-amber-300">"audio.mp3"</span></p>
+              <p>!ffmpeg -i <span class="text-amber-300">"{audio_m4a}"</span> -codec:a libmp3lame -qscale:a 2 <span class="text-amber-300">"{audio_mp3}"</span></p>
+              <p></p>
+              <p class="text-gray-500"># 4) Whisper モデルの読み込み</p>
+              <p><span class="text-sky-400">import</span> whisper</p>
+              <p>model = whisper.load_model(<span class="text-amber-300">"small"</span>)</p>
+              <p></p>
+              <p class="text-gray-500"># 5) 文字起こしの実行（日本語指定）</p>
+              <p>result = model.transcribe(audio_mp3, language=<span class="text-amber-300">"ja"</span>)</p>
+              <p>print(result[<span class="text-amber-300">"text"</span>])</p>
+              <p></p>
+              <p class="text-gray-500"># 6) 結果をテキストファイルに保存してダウンロード</p>
+              <p><span class="text-sky-400">with</span> open(<span class="text-amber-300">"transcript.txt"</span>, <span class="text-amber-300">"w"</span>, encoding=<span class="text-amber-300">"utf-8"</span>) <span class="text-sky-400">as</span> f:</p>
+              <p>    f.write(result[<span class="text-amber-300">"text"</span>])</p>
+              <p>files.download(<span class="text-amber-300">"transcript.txt"</span>)</p>
+            </div>
+            <p class="text-xs text-gray-500">上のコードは (1) 変換ツールと Whisper の導入 → (2) 音声ファイルのアップロード → (3) mp3 への変換 → (4) モデル読み込み → (5) 文字起こし → (6) 結果保存 という流れで構成されています。特に重要なのは、<strong class="text-gray-600">アップロードしたファイル名を自動で拾う</strong>点です。なお、モデルを大きくするほど精度は上がりやすい一方で、計算資源も多く消費します。まずは small 程度で試し、必要に応じて medium 等へ切り替えるのが実務的です。</p>
+          </div>
+
+          <!-- 7.2.3 限界と補正 -->
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">7.2.3 自動文字起こしの限界と逐語録の補正</p>
+            <p class="text-sm text-gray-600 mb-3">Whisper 等の自動文字起こしツールは非常に便利ですが、得られた結果をそのまま最終的な逐語録データとして使うことはできません。いくつかの限界があるため、人手による補正・校正を行い、分析に適した形に仕上げる必要があります。Whisper などで生成された文字起こし結果はあくまで<strong class="text-gray-800">「下書き」</strong>と捉え、分析に耐えうる逐語録に仕上げるための素材と考えるのが良いでしょう。</p>
+
+            <ul class="text-xs text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">話者の区別を明示する</strong>：自動文字起こし結果には話者情報がないため、発言ごとに誰の発言か分かるように書き直します。話者名や仮名を各発言行の先頭に付し、インタビュアーと対象者の発言が区別できるよう体裁を整えます。</div></li>
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">重要箇所の聞き直しと誤り修正</strong>：出力されたテキストの中で誤変換が疑われる語句や聞き取り損ねによる不明箇所については、必ず元の音声を再生して確認します。特に分析上重要になりそうな発言については一言一句正確に起こせているかチェックし、誤字や聞き違いを修正します。聞き取れなかった部分は「（聞き取り不明）」「（笑）」などの注記を加えます。</div></li>
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ノイズや不要部分の処理</strong>：録音中に混入した雑音や、インタビューと直接関係ない世間話的なやりとりなど、逐語録として残す必要が低い部分もあります。そうした箇所は無理に全文を書き起こす必要はありません。例えばドアの開閉音や電話の着信音が入っている場合は「[ノイズ]」と記述するに留めるなどの判断もあり得ます。</div></li>
+              <li class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">間（沈黙）や非言語情報の補足</strong>：質的分析ではしばしば発話と発話のあいだの<strong class="text-gray-700">「間（沈黙）」</strong>や話し方のニュアンスといった文脈情報が重要な手がかりとなります。しかし自動文字起こしは、そうした非言語情報をほとんど反映できません。したがって、自動文字起こしの結果を鵜呑みにするのではなく、必要に応じて逐語録上に「（沈黙5秒）」のような注記を入れたり、強調して話した言葉があれば記号を用いて示すなど、文脈や話者の態度が分かる情報を補足追記することも大切です。</div></li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-3">言い換えれば、Whisper による文字起こしは荒削りな原石であり、研究者自身がそれを丁念に研磨して質的分析に耐えうるデータに仕上げるイメージです。最終的に完成した逐語録を何度も通読し、自分が扱うデータ内容を頭に入れておくことも忘れないようにしましょう。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- まとめ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-2xl p-6 border-l-4 border-rose-300">
+      <p class="text-sm text-gray-600 leading-relaxed">本章で述べたインタビュー調査の実施と逐語録の作成までが整えば、質的データ分析の準備は万全です。適切な倫理配慮のもとにインタビューを行い、その結果を忠実かつ丁寧にテキスト化できれば、あとはそのデータをいかに読み解くかという分析段階に進むのみです。ぜひ倫理的かつ実践的にインタビュー調査と文字起こしに取り組んでいただきたいと思います。</p>
+    </div>
+  </section>
+
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">短い音声を Whisper（Google Colab）で文字起こしし、誤認識箇所を音声で確認して修正する。インタビュー設計上の工夫点／倫理上の注意点／文字起こしの限界と対策を記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>短い音声を Whisper（Google Colab）で文字起こしする</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>誤認識箇所を元の音声で確認して修正する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">インタビュー設計上の工夫点／倫理上の注意点／文字起こしの限界と対策</strong>を記述する</span></li>
+      </ul>
     </div>
   </section>
 
@@ -230,12 +249,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
