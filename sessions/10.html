@@ -8,99 +8,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
+    code{background:rgba(99,102,241,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#4f46e5}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +49,14 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-sky-100 text-sky-700 mb-4 inline-block">ウェブ</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">10</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">ウェブページの構造・分析・構築</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第10回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">10</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">ウェブページの構造・分析・構築</span></h1>
+        <p class="text-base text-gray-500 font-light">第10回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-sky-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,76 +64,204 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><span>ウェブの基本構造（URL・HTML・リンク）の理解</span></li>
-        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><span>Hyphe によるウェブ分析</span></li>
-        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><span>WordPress によるウェブページ制作</span></li>
-        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><span>Notion でポートフォリオを公開する方法</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span>ウェブの基本構造（URL・HTML・リンクとネットワーク性）</li>
+        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span>Hyphe によるウェブ分析（キュレーション指向のウェブコーパス構築）</li>
+        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span>WordPress によるウェブページ制作（WordPress.com と .org の違い・構築手順・コンテンツ設計・デザイン原則）</li>
+        <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span>Notion でポートフォリオを公開する方法（構造化・データベース活用・Web公開手順）</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ウェブの基本構造</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">URL とドメイン名の構造。HTML ページの構造。リンク構造とネットワーク性。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Hyphe の紹介</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">ウェブの収集・可視化の考え方に触れます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">WordPress によるウェブページ制作</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">WordPress.com（クラウド型）の利点と限界。WordPress.org（自前設置型）の構築手順。コンテンツ設計。最低限のデザイン原則（配色・タイポグラフィ・モバイル対応・テーマ選定）。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Notion でポートフォリオを公開する</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">ポートフォリオを作成する意義と基本操作。コンテンツ構造化の実践方法。データベース機能の紹介（研究・業績・活動履歴の整理術）。Web 公開の設定方法と検索インデックス除外。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Notion ポートフォリオの設計と制作</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">実際にポートフォリオの構成を設計し、制作に取り組みます。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 10.1 ウェブの基本構造 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">10.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ウェブの基本構造</h3>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.1.1 URL とドメイン名の構造</p>
+            <p class="text-sm text-gray-600 mb-2">ウェブ上の資源にはそれぞれ <strong class="text-gray-800">URL</strong>（Uniform Resource Locator）が割り当てられており、いわば「インターネット上の住所」の役割を果たしています。典型的な URL は <code>https://www.example.com/info/page1</code> のような形式で、<strong class="text-gray-800">プロトコル</strong>（https）、<strong class="text-gray-800">ドメイン名</strong>（www.example.com）、<strong class="text-gray-800">パス</strong>（/info/page1）から構成されます。ドメイン名は <strong class="text-gray-800">DNS</strong>（ドメインネームシステム）によって IP アドレスと結び付けられています。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.1.2 HTML ページの構造</p>
+            <p class="text-sm text-gray-600 mb-2">ウェブページは通常 <strong class="text-gray-800">HTML</strong>（HyperText Markup Language）というマークアップ言語で記述されています。HTML ではタグ（要素）を用いて文書の構造をマークアップし、見出しや段落、リンク、画像などの要素を階層的に配置します。HTML 文書は基本的に <code>&lt;html&gt;</code> 要素で囲まれ、その内部は大きく<strong class="text-gray-800">ヘッド部</strong>と<strong class="text-gray-800">ボディ部</strong>に分かれます。</p>
+            <p class="text-sm text-gray-600 mb-2">ヘッド部にはページのタイトル（<code>&lt;title&gt;</code>タグ）や文字エンコーディングの指定、メタデータ、スタイルシート（CSS）やスクリプト（JavaScript）へのリンクが置かれます。ボディ部（<code>&lt;body&gt;</code>）が実際にユーザーに表示されるコンテンツです。</p>
+            <p class="text-sm text-gray-600">HTML5 以降では、ページの論理的な領域を示す<strong class="text-gray-800">セマンティック要素</strong>も導入されました。例えばヘッダーに <code>&lt;header&gt;</code>、ナビゲーションメニューに <code>&lt;nav&gt;</code>、主要コンテンツ部分に <code>&lt;main&gt;</code>、各記事に <code>&lt;article&gt;</code>、フッターに <code>&lt;footer&gt;</code> といった具合に、意味を持ったブロック要素を使ってマークアップできます。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.1.3 リンク構造とネットワーク性</p>
+            <p class="text-sm text-gray-600 mb-2">HTML でもっとも特徴的な要素の一つが<strong class="text-gray-800">ハイパーリンク</strong>（<code>&lt;a href="..."&gt;</code>タグ）です。リンクをクリックすると別のページに移動でき、ウェブの文書同士を結びつける役割を果たします。リンクには大きく分けて<strong class="text-gray-800">内部リンク</strong>（同じサイト内）と<strong class="text-gray-800">外部リンク</strong>（別のサイトへ）の2種類があります。</p>
+            <p class="text-sm text-gray-600 mb-2">このようにリンクによってウェブ上のページは相互に繋がっており、その集合体は巨大な<strong class="text-gray-800">ネットワーク（グラフ）</strong>を形成しています。各ウェブページが<strong class="text-gray-800">ノード（頂点）</strong>に相当し、リンクがノード同士を結ぶ<strong class="text-gray-800">エッジ（辺）</strong>として機能する構造で、これを特に<strong class="text-gray-800">ウェブグラフ</strong>と呼びます。</p>
+            <p class="text-sm text-gray-600">リンク構造はウェブの「つながり」を定義する重要な要素であり、その解析から多くの知見が得られています。有名な <strong class="text-gray-800">PageRank</strong> に代表されるアルゴリズムでは「多くの他ページからリンクされているページほど重要である」という考え方に基づきページの重要度を推定しています。ウェブにおけるリンク構造は単なるナビゲーション手段に留まらず、<strong class="text-gray-800">ウェブ全体を一つのネットワークとして機能させる根幹</strong>であり、その分析には社会ネットワーク論的なアプローチも有効です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10.2 Hyphe -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">10.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Hyphe の紹介</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">ウェブ上の情報を収集・解析する専門的なツールの一つに <strong class="text-gray-800">Hyphe（イフ）</strong>があります。Hyphe はフランスの Sciences Po（シアンスポ）大学メディアラボによって開発されたオープンソースのウェブクローラで、社会科学や人文学の研究者がウェブ上のコーパスを構築・分析するために設計されています。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">一般的なクローラが自動で大量のページを巡回する「ブラックボックス」的な動作をするのに対し、Hyphe は研究者が主導して<strong class="text-gray-800">キュレーション指向</strong>のアプローチを採用している点が理論的特徴です。具体的には、ユーザーが関心のあるウェブページやサイトを少しずつ指定し、それらを起点に関連ページをクロールし、得られたリンク先をまた取捨選択し……というように、ステップバイステップで<strong class="text-gray-800">質的調査の試行錯誤を組み込んだウェブ収集</strong>ができるのです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-sky-600 mb-1">ウェブエンティティ（web entity）</p>
+            <p class="text-xs text-gray-600">Hyphe でもう一つ重要な概念が<strong class="text-gray-700">ウェブエンティティ</strong>です。通常のクローラでは各 URL（ページ）ごとにデータを扱いますが、Hyphe では研究の都合に合わせて複数のページを一つの「エンティティ」として束ねて扱うことができます。例えば「同じドメイン内のページはまとめて1エンティティ（＝サイト単位）」としたり、あるいはサブドメインごとに分けたり、特定の複数サイトをまとめて一つのエンティティとみなす、といった柔軟な単位設定が可能です。収集が完了すると、ウェブエンティティ同士のハイパーリンクネットワークが構築されます。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-sky-600 mb-1">活用の可能性</p>
+            <p class="text-xs text-gray-600">Hyphe は人文学・社会科学の研究において様々な活用可能性を持ちます。例えばある社会問題についてウェブ上でどのような議論が交わされ、どの団体・個人・メディアが関与しているかを把握するには、関連するウェブサイト群を網羅的に集めて相互のリンク関係を見るのが有効です。Hyphe で得たネットワーク図からは、議論に参加するコミュニティの構造（クラスターの分布や相互の分断・結び付き）が視覚的に読み取れます。さらに Hyphe は近年ウェブアーカイブ（Internet Archive の Wayback Machine やフランス国立図書館のウェブ保存）にも対応しつつあり、過去のある時点でのウェブの状態を再現し、その当時の議論やネットワーク構造を分析する、といった時系列比較にも道を開いています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10.3 WordPress -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">10.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">WordPress によるウェブページ制作</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ウェブページを実際に構築・公開する方法はいくつかありますが、本節では現在広く普及している WordPress を用いたサイト制作について説明します。WordPress はブログやサイトを構築・運用できるオープンソースの CMS（コンテンツ管理システム）で、全世界のウェブサイトのかなりの割合で採用されています。</p>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-4">
+            <div class="info-box">
+              <p class="text-xs font-bold text-sky-600 mb-1">WordPress.com（クラウド型）</p>
+              <p class="text-xs text-gray-600">サーバーやソフトウェアを自分で用意しなくても、ウェブ上のアカウント登録だけで WordPress サイトを開設できるクラウドサービスです。初心者にとって手軽に始められる利点がありますが、無料プランではテーマやプラグインに制限があり、カスタマイズの自由度は高くありません。<strong class="text-gray-700">「手軽さ」と「カスタマイズ自由度」のトレードオフ</strong>があります。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-sky-600 mb-1">WordPress.org（自前設置型）</p>
+              <p class="text-xs text-gray-600">自分で用意したサーバー環境に WordPress のソフトウェア一式をインストールしてサイトを構築します。初期設定の手間はかかりますが、サイトの構成や機能を自由にカスタマイズできるのが大きな魅力です。研究プロジェクトの特設サイトなどで凝ったデザインや特殊な機能を実装したい場合に望ましいでしょう。</p>
+            </div>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">WordPress.org での構築手順</p>
+            <div class="space-y-2">
+              <div class="flex items-start gap-2 text-xs text-gray-600"><span class="text-sky-400 mt-0.5 font-bold">1.</span><div><strong class="text-gray-700">サーバー契約</strong>：レンタルサーバー会社と契約。日本国内ではロリポップ!やさくらインターネット、エックスサーバー、ConoHa WING 等が WordPress 利用に適しています。PHP とデータベース（MySQL 等）の利用可能を確認します。</div></div>
+              <div class="flex items-start gap-2 text-xs text-gray-600"><span class="text-sky-400 mt-0.5 font-bold">2.</span><div><strong class="text-gray-700">ドメイン取得と SSL 設定</strong>：サイトの URL となる独自ドメインを取得します。SSL（HTTPS）の設定も行い、通信を暗号化してセキュリティを確保します。</div></div>
+              <div class="flex items-start gap-2 text-xs text-gray-600"><span class="text-sky-400 mt-0.5 font-bold">3.</span><div><strong class="text-gray-700">WordPress のインストールと初期設定</strong>：管理画面で「WordPress インストール」を選び、サイトタイトルや管理者ユーザー名・パスワード、使用する独自ドメイン等の必要事項を入力するだけで自動でセットアップが完了します。</div></div>
+            </div>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.3.3 コンテンツ設計</p>
+            <p class="text-sm text-gray-600 mb-2">良いウェブサイトを作るには、闇雲にページを作り始める前にサイト全体の構成（情報設計）をしっかり考えることが大切です。人文学系の研究者が自身のサイトを作る際によくある目的として、(a) 自身の研究や業績を紹介する個人サイト、(b) 特定の研究プロジェクトの公式サイト（ポータル）、(c) 論文や資料のアーカイブサイト、などが挙げられます。</p>
+            <div class="grid sm:grid-cols-3 gap-2">
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-sky-600 mb-0.5">研究紹介サイト（個人サイト）</p><p class="text-[9px] text-gray-500">研究テーマ、業績一覧（論文PDF・DOI付き）、プロフィール（写真・略歴・所属学会）、連絡先。自分の専門分野や関心を外部の人に伝える名刺代わりとなるサイト。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-sky-600 mb-0.5">プロジェクトポータルサイト</p><p class="text-[9px] text-gray-500">プロジェクトの背景・目的、メンバー一覧、活動報告（ブログ形式）、成果物公開ページ、イベント告知ページ。SNSアカウントへのリンクも設置。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-sky-600 mb-0.5">論文アーカイブサイト</p><p class="text-[9px] text-gray-500">論文や記事の一覧（発表年度別・テーマ別・著者別など複数の切り口で誘導）。各論文の個別ページにタイトル、著者、掲載誌、要旨、参考文献リスト、PDF フルテキストへのリンクを掲載。</p></div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">重要なのは、ユーザー（訪問者）が求める情報にできるだけ少ないクリックで到達できるようにすることです。一般に<strong class="text-gray-600">「3クリック以内で目的の内容にアクセスできる」</strong>ことが望ましいとされます。ナビゲーション設計や内部リンクの配置、モバイル対応（レスポンシブデザイン）なども重要なポイントです。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.3.4 最低限のデザイン原則</p>
+            <ul class="text-xs text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">配色（カラーリング）</strong>：背景色と文字色のコントラストに注意。研究内容を伝えるサイトでは落ち着いたトーンで信頼感を与える配色が適しています。アクセントカラーは1色程度に絞ると統一感が出ます。色覚多様性への配慮も念頭に置くとベターです。</div></li>
+              <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">タイポグラフィ（字体・文字組み）</strong>：日本語であればゴシック体（サンセリフ系）か明朝体（セリフ系）の Web フォントを利用。本文サイズはPC表示なら16px程度を下回らないようにし、行間（ラインハイト）も十分取り、詰まり過ぎない段落のバランスも大事です。</div></li>
+              <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">モバイル対応</strong>：レスポンシブデザインは現代のウェブ制作で不可欠です。スマートフォンでの見え方・操作感をテストしましょう。Google の検索順位決定もモバイル版サイトの出来を重視するモバイルファーストインデックスに移行しています。</div></li>
+              <li class="flex items-start gap-2"><span class="text-sky-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">テーマの選定</strong>：WordPress の強みの一つがテーマを適用できることです。サイトの目的と求めるデザイン・機能に合ったテーマを選ぶことが重要です。モバイル対応や表示速度もテーマ選びの重要な観点です。</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10.4 Notion でポートフォリオを公開する -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">10.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Notion でポートフォリオを公開する</h3>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.4.1 Notion でポートフォリオを作成する意義</p>
+            <p class="text-sm text-gray-600 mb-2">Notion はドキュメント作成やタスク管理、データベース管理など多機能な「オールインワン」ワークスペースですが、そのページはワンクリックで魅力的な Web サイトに変換できる点が大きな特徴です。<strong class="text-gray-800">ポートフォリオ</strong>とは、自分のこれまでの研究・学習・活動やスキルなどをまとめた<strong class="text-gray-800">自己紹介・業績集</strong>のことです。大学院生にとってのポートフォリオは、自身の歩んできた道のりや将来のビジョンを整理し、第三者に伝える自己PRツールであり、同時に自己省察の機会にもなります。</p>
+            <p class="text-sm text-gray-600">Notion を使うメリットは、<strong class="text-gray-800">手軽さと自由度の高さ</strong>（テンプレートを活用したスピーディーなページ制作）、<strong class="text-gray-800">更新・編集のしやすさ</strong>（Web 上でそのまま編集可能）、<strong class="text-gray-800">コンテンツの一元化</strong>（散らばっている成果物や情報を1つのページにまとめて表示・管理できる）、<strong class="text-gray-800">公開・共有の容易さ</strong>（ワンクリックで Web 公開可能）、そして<strong class="text-gray-800">無料で使える</strong>ことです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.4.2 コンテンツ構造化の実践方法</p>
+            <p class="text-sm text-gray-600 mb-2">Notion ではコンテンツをブロックと呼ばれる単位で管理します。ポートフォリオに載せる内容は大きく<strong class="text-gray-800">5つ</strong>に分けて考えると整理しやすいです。</p>
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3">
+              <div class="bg-white/40 rounded-xl p-2 text-center"><p class="text-[10px] font-bold text-sky-600">1. プロフィール</p><p class="text-[8px] text-gray-500">氏名・所属、自己紹介文</p></div>
+              <div class="bg-white/40 rounded-xl p-2 text-center"><p class="text-[10px] font-bold text-sky-600">2. キャリア</p><p class="text-[8px] text-gray-500">過去〜現在〜未来の歩み</p></div>
+              <div class="bg-white/40 rounded-xl p-2 text-center"><p class="text-[10px] font-bold text-sky-600">3. 研究</p><p class="text-[8px] text-gray-500">テーマ・概要・プロセス</p></div>
+              <div class="bg-white/40 rounded-xl p-2 text-center"><p class="text-[10px] font-bold text-sky-600">4. スキル・実績</p><p class="text-[8px] text-gray-500">学歴・スキル・業績</p></div>
+              <div class="bg-white/40 rounded-xl p-2 text-center"><p class="text-[10px] font-bold text-sky-600">5. 私生活・趣味</p><p class="text-[8px] text-gray-500">パーソナルな側面</p></div>
+            </div>
+            <p class="text-xs text-gray-500">ページとサブページによる構成、テキストの装飾とレイアウト（見出し・箇条書き・番号付きリスト）、視覚要素の活用（画像や図表、引用ブロック、コールアウトブロック）、リンクや埋め込み（YouTube 動画、Google マップ等のプレビュー埋め込み）、テンプレートの活用などが実践のポイントです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.4.3 Notion データベース機能の紹介と応用</p>
+            <p class="text-sm text-gray-600 mb-2">Notion の強力な機能の一つにデータベースがあります。用途に応じて以下のような表示形式があります。</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-1 text-[10px] text-gray-600 mb-2">
+              <span class="bg-white/40 rounded-lg px-2 py-1"><strong class="text-gray-700">テーブルビュー</strong>：表形式</span>
+              <span class="bg-white/40 rounded-lg px-2 py-1"><strong class="text-gray-700">リストビュー</strong>：縦長リスト</span>
+              <span class="bg-white/40 rounded-lg px-2 py-1"><strong class="text-gray-700">ボードビュー</strong>：カンバン方式</span>
+              <span class="bg-white/40 rounded-lg px-2 py-1"><strong class="text-gray-700">カレンダービュー</strong>：日付基準</span>
+              <span class="bg-white/40 rounded-lg px-2 py-1"><strong class="text-gray-700">ギャラリービュー</strong>：カード形式（サムネイル画像付き）</span>
+              <span class="bg-white/40 rounded-lg px-2 py-1"><strong class="text-gray-700">タイムラインビュー</strong>：ガントチャート風</span>
+            </div>
+            <p class="text-xs text-gray-600">例えば論文一覧データベースなら、「タイトル」「掲載年（日付）」「学会名/誌名（テキスト）」「分類（選択肢あるいはタグ）」などのプロパティを設定しておけば、後から発表年順やカテゴリ別にソート・フィルタして表示するといった操作も簡単です。ギャラリービューは特にポートフォリオで視覚的に訴えたい場合におすすめです。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">10.4.4 Notion ページを Web 上に公開する手順</p>
+            <p class="text-sm text-gray-600 mb-2">完成した Notion ページは、設定を変更することでウェブ上に公開できます。手順は非常に簡単です。</p>
+            <div class="space-y-2 text-xs text-gray-600">
+              <div class="flex items-start gap-2"><span class="text-sky-400 mt-0.5 font-bold">1.</span><span>公開したい Notion ページを開き、画面右上にある<strong class="text-gray-700">「共有」</strong>ボタンをクリックします。</span></div>
+              <div class="flex items-start gap-2"><span class="text-sky-400 mt-0.5 font-bold">2.</span><span>共有メニュー内で<strong class="text-gray-700">「Web 公開」</strong>タブに切り替え、<strong class="text-gray-700">「Web で公開」</strong>スイッチをオンにします。公開用の URL が自動生成されます。</span></div>
+              <div class="flex items-start gap-2"><span class="text-sky-400 mt-0.5 font-bold">3.</span><span>表示された公開 URL をコピーし、閲覧を許可したい相手にそのリンクを共有します。リンクを知っている人であれば、Notion アカウントを持っていなくてもブラウザ経由でページを閲覧可能です。</span></div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">各種公開設定として、<strong class="text-gray-600">検索エンジンでの表示可否</strong>（「ネット検索を許可」オプション）、<strong class="text-gray-600">編集・コメント権限</strong>、<strong class="text-gray-600">複製の許可</strong>があります。限定公開にしたい場合は「ネット検索を許可」をオフにしておくのが基本です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10.5 Notion ポートフォリオ -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">10.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Notion ポートフォリオ：実際の設計と制作</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">ポートフォリオの5つのセクション（プロフィール、キャリアとビジョン、研究、スキル・実績、私生活・趣味）それぞれについて、何を書くべきかを具体的にイメージできるよう質問形式のガイドと例を交えながら解説しています。</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="info-box"><p class="text-xs font-bold text-sky-600 mb-1">プロフィール</p><p class="text-[10px] text-gray-500">氏名・所属・専門分野を簡潔に。1〜3行程度の自己紹介文。可能であれば顔写真やイメージ画像も配置。ビジュアルとテキストを組み合わせることで第一印象を強め、印象付ける効果があります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-sky-600 mb-1">キャリアとビジョン</p><p class="text-[10px] text-gray-500">【過去】【現在】【未来】の三つの観点から整理。「なぜ大学院に進学したのか？」「現在取り組んでいることや直近の目標」「5年後、10年後のビジョン」。自分の考えや感情を織り交ぜることが大切。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-sky-600 mb-1">研究</p><p class="text-[10px] text-gray-500">研究テーマ・概要（専門用語を避け平易な言葉で説明）、研究の意義・面白さ（自分なりの視点で語る）、これまでの成果、研究プロセス・スタイル（カバンの中身、お気に入りの研究道具、デジタルツール活用、作業場所・環境など）。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-sky-600 mb-1">スキル・実績</p><p class="text-[10px] text-gray-500">学歴・経歴、専門スキル（言語・データ分析・資料調査など）、資格・免許、研究業績、受賞歴・表彰、その他の活動実績。カテゴリ分けして整理すると見やすくなります。</p></div>
+            <div class="info-box sm:col-span-2"><p class="text-xs font-bold text-sky-600 mb-1">私生活・趣味</p><p class="text-[10px] text-gray-500">パーソナルな側面を見せるセクション。食事スタイル、リフレッシュ方法、一日のルーティン、作業効率アップの工夫、おすすめの本・映画・動画、アルバイト経験、お気に入りの場所など。「等身大の自分」を見せましょう。ただしプライバシーには注意。</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">研究紹介ページの構成案（誰に何を見せるか）を作る。構成案と意図を説明する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>研究紹介ページの構成案（誰に何を見せるか）を作る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span><strong class="text-gray-800">構成案と意図を説明する</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -214,12 +274,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
