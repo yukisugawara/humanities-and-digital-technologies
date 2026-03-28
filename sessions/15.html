@@ -8,99 +8,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text-amber{background:linear-gradient(135deg,#d97706,#b45309,#92400e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +49,14 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-gray-100 text-gray-700 mb-4 inline-block">まとめ</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">15</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">まとめ：研究ワークフローの再設計</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第15回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">15</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">まとめ：研究ワークフローの再設計</span></h1>
+        <p class="text-base text-gray-500 font-light">第15回（最終回）　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-gray-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,102 +64,219 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span><span>授業全体の振り返り</span></li>
-        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span><span>継続学習・ツール選択・研究計画への接続</span></li>
-        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span><span>ポートフォリオの最終確認</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span>本手引き全体（第1〜14章）の振り返り</li>
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span>発酵思考の視点から人文学研究におけるデジタルツール活用を読み直す</li>
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span>学習継続・習慣化のコツ</li>
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span>関心別の発展ルート</li>
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span>卒論・修士論文・博士論文のための研究ロードマップ</li>
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span>日本学術振興会特別研究員への道</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">本手引き全体の振り返り</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">15回の授業で扱ったツールと考え方の整理。デジタルツール活用の全体像を俯瞰します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">発酵思考の視点からの読み直し</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">人文学の「スローペースで深く考える」アプローチとデジタル技術の「大量の情報を素早く処理する」能力を両立させるという本授業のコンセプトを振り返ります。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">学習継続・習慣化のコツ</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">授業終了後も継続的にデジタルスキルを磨くための方法論。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">関心別の発展ルート</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">テキスト分析、画像分析、質的研究、ウェブ分析、デジタルヒューマニティーズ等、各自の関心に応じた発展の方向性。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">卒論・修士論文・博士論文のための研究ロードマップ</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">学部4年（卒業論文執筆）、修士1年〜2年、博士1年〜3年の段階別ガイド。年次別マイルストーン早見表。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">日本学術振興会特別研究員への道</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">制度の概要、採用されるためのコツ、申請書の書き方とコツ、申請までのプロセス。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">ライティング・リトリート</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">「書く」を研究実践に取り戻す装置としてのリトリートの紹介。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">おわりに</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">人文学研究の「深く、時間をかけて、繰り返す」思考とデジタル技術の共存可能性。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 15.1 振り返り -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">本手引き全体の振り返り</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">本手引きでは、人文学の研究プロセスに沿ってデジタルツールの活用法を段階的に紹介してきました。</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="info-box"><p class="text-[10px] font-bold text-indigo-600 mb-2">基盤を整える（第1〜5章）</p>
+              <ul class="text-[10px] text-gray-500 space-y-1">
+                <li><strong class="text-gray-600">第1・2章</strong>：タスク管理・情報管理のデジタルツール活用（Trello、Google カレンダー、Drive）</li>
+                <li><strong class="text-gray-600">第3章</strong>：読むためのツール（Google Scholar、Zotero）</li>
+                <li><strong class="text-gray-600">第4章</strong>：ノート術（Obsidian、ツェッテルカステン）</li>
+                <li><strong class="text-gray-600">第5章</strong>：書くためのツール（断片→ドキュメント→PDF共有）</li>
+              </ul>
+            </div>
+            <div class="info-box"><p class="text-[10px] font-bold text-indigo-600 mb-2">データと向き合う（第6〜10章）</p>
+              <ul class="text-[10px] text-gray-500 space-y-1">
+                <li><strong class="text-gray-600">第6章</strong>：コーパス活用（Sketch Engine、中納言）</li>
+                <li><strong class="text-gray-600">第7章</strong>：質的調査手法と音声データ（Whisper）</li>
+                <li><strong class="text-gray-600">第8章</strong>：質的データ分析（コーディング、発酵思考）</li>
+                <li><strong class="text-gray-600">第9章</strong>：デジタルデータの整理術</li>
+                <li><strong class="text-gray-600">第10章</strong>：ウェブページの構造・分析・構築</li>
+              </ul>
+            </div>
+            <div class="info-box"><p class="text-[10px] font-bold text-indigo-600 mb-2">発展と統合（第11〜14章）</p>
+              <ul class="text-[10px] text-gray-500 space-y-1">
+                <li><strong class="text-gray-600">第11章</strong>：ソーシャルメディアの言説と実践の分析</li>
+                <li><strong class="text-gray-600">第12章</strong>：テキストデータの収集・前処理・分析</li>
+                <li><strong class="text-gray-600">第13章</strong>：画像データの収集と分析</li>
+                <li><strong class="text-gray-600">第14章</strong>：生成AI活用の可能性と限界</li>
+              </ul>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mt-4">特に第4章のノート術と第8章の質的分析で示された方法論は、本手引き全体の内容を有機的に結ぶ軸となりました。ノート術では日々の読書や思索から得た断片を関連付けて知のネットワークを形成する姿勢を学びましたが、これは質的分析におけるコーディング作業にも通じます。いずれも断片（メモやデータ）をただ収集するだけでなく、自分なりの視点で整理し直し、部分同士を繋いで新たな全体像（知見）を構築する営みです。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15.2 発酵思考の視点からの読み直し -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">発酵思考の視点から人文学研究におけるデジタルツール活用を読み直す</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">「発酵思考」というキーワードを手がかりに、人文学研究におけるデジタルツール活用を捉え直してみましょう。発酵思考とは、成果を焦って即座に求めるのではなく、時間をかけた熟成を経て知見を深めていく思考法です。パン作りに例えるなら、研究における知的プロセスを「<strong class="text-gray-800">材料を集める → こねる → 寝かせる → 発酵させる → 焼き上げる</strong>」という段階に喩えることができます。</p>
+
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-amber-600 mb-1">材料を集める</p><p class="text-xs text-gray-600">研究の出発点は材料集め、すなわち情報収集です。文献探索ツール（第3章）、ウェブスクレイピング（第10章・第12章）、IIIF 画像収集（第13章）といったデジタルツールを使えば効率的に大量の材料を集められますが、重要なのは量だけでなく多様性です。発酵食品に良質な種菌と栄養源が必要なように、研究でも良質で多様な材料を集めることが後の熟成を左右します。何を材料として瓶に仕込むか（保存・管理するか）は研究者自身の判断に委ねられています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-amber-600 mb-1">こねる（混ぜ合わせる）</p><p class="text-xs text-gray-600">材料を集めたら次は「こねる」工程、すなわち情報を整理し組み合わせていく段階です。まさに第4章のノート術や第8章の質的分析が該当します。集めた文献から自分の言葉でメモを書き、関連するメモ同士をリンク付けしたり、インタビュー逐語録にコードを付与してデータを分解・分類したりする作業は、材料をこねて発酵の準備をするようなものです。Obsidian のグラフビューやマインドマップ作成ツールは、頭の中にあるアイデアの繋がりを視覚的に表現してくれます。ただし、機械任せに丸め込みすぎてはいけません。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-amber-600 mb-1">寝かせる</p><p class="text-xs text-gray-600">生地をこねた後にしばらく寝かせるとグルテンが落ち着き、発酵がスムーズになります。同様に、情報を整理したら一度時間を置き、頭を冷やす（熟考する）期間が重要です。人文学研究では、この「間」をとることが新たな着想に繋がることがしばしばあります。デジタルツールは即時に結果を出すことが得意ですが、あえてゆっくり考える時間を確保することも大切です。「速さ」が求められがちなデジタル時代ですが、ツールを使って意図的に「遅く考える」空間を作り出すことこそ、人文学における発酵思考の肝と言えるでしょう。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-amber-600 mb-1">発酵させる</p><p class="text-xs text-gray-600">時間とともにデータやアイデアが発酵し、思考が深まってくる段階です。分析対象に繰り返し向き合い、仮説を立てては検証・修正する試行錯誤を経て、徐々に解釈の骨格が形作られていきます。デジタルツールはこの発酵の進行を記録し、支えてくれます。日付付きのメモ（デイリーノート）を残しておけば、どのようにアイデアが発酵・変容していったか後から辿ることができます。発酵が進むと、材料同士が化学反応を起こして新たな意味や物語（ストーリーライン）が立ち現れてきます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-amber-600 mb-1">焼き上げる</p><p class="text-xs text-gray-600">十分に発酵が進んだら、最後は「焼き上げる」、すなわち成果として形にする段階です。論文やレポート、発表資料といったアウトプットにまとめ上げるプロセスで、第5章で扱った執筆ツールやレイアウト調整の技法が威力を発揮します。パンに言えば見た目良く美味しく焼き上げる工程ですが、研究でも論旨の一貫性や説得力、読みやすい文章・体裁が求められます。ただし、道具が整ったアウトプットが最終目的ではなく、自身の思考が主役であることを忘れず、発酵過程で培った洞察を軸に据え、ツールはあくまでそれを引き立てるための補助として使いましょう。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15.3 学習継続・習慣化のコツ -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">学習継続・習慣化のコツ</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">デジタルツールの活用は一朝一夕には身につきません。本手引きで得た知識や技術を真に自分のものとし、今後も発展させていくためには、日々の学習をコツコツと積み重ねることが肝要です。ポイントは「無理なく習慣化」し、過剰な自己管理ではなく持続可能なペースを作ることです。</p>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">週1回の振り返りタイムを設ける</p><p class="text-xs text-gray-600">毎週ある特定の曜日・時間に30分〜1時間ほど、自分のデジタルツール活用状況を振り返る習慣をつけましょう。例えば「日曜の夜に1週間の研究メモを見返す」「金曜の夕方に Zotero の新規文献整理と次週の課題チェックをする」といった具合です。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">習慣の記録と見える化</p><p class="text-xs text-gray-600">継続にはモチベーション管理も大切です。そこで役立つのが「Habit Tracker（ハビットトラッカー）」と呼ばれる習慣記録法です。手帳やノート、あるいは専用アプリで、「毎日○○した」「週に○回実施した」という記録を付け、カレンダーやチェックリストで進捗を見える化します。連続して継続できると達成感が得られますし、途切れても視覚的に把握できるので立て直しやすくなります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">振り返りジャーナルをつける</p><p class="text-xs text-gray-600">もう一つのおすすめは「学習日誌」をつけることです。デジタルツール習得の過程で感じたこと、発見、躓き、対応策などを日記形式で書き留めておきます。「なぜこのツールを使いたいのか」「今日はここがうまくいかなかったが原因は何か」等、内省的な問いを投げかけながら書くことで、単なる操作習得を超えてツール活用の意味づけが深まります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">小さなステップで技術習得</p><p class="text-xs text-gray-600">新しいデジタル技術を前にすると、機能が多すぎて圧倒されたり、専門用語に尻込みしたりすることがあります。そのような時は「スモールステップ」で段階的に習得することを意識しましょう。一気に全部を理解しようとせず、まず使ってみたい機能1つだけ試す、サンプルコードを一部だけ書き換えて動かしてみる、入門教材の第1章だけやってみる、といったハードルの低いタスクから始めるのです。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">完璧主義より持続可能性</p><p class="text-xs text-gray-600">習慣化やスキル習得の際には、「毎日○時間やらなければ」「完璧に理解しなければ」と自分を追い込みすぎないことも重要です。大切なのは、自分にとって無理のないルールで長く続けることです。研究とデジタル技術の両立自体が長期戦なのですから、息切れしないよう適度に休息と変化を取り入れつつ、細くても良いので継続していくことが成果を生みます。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15.4 関心別の発展ルート -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">関心別の発展ルート</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">人文学の研究と一口に言っても、その対象や手法の興味関心は人それぞれです。ここから先は読者ご自身の関心に応じてより専門的なスキルや知識を深めていくことになるでしょう。</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">質的調査・フィールドワーク</p><p class="text-[10px] text-gray-500">インタビュー記録や参与観察メモといった質的データをさらに深く扱いたい方は、質的研究手法の文献を読んでみることをおすすめします。グラウンデッド・セオリーやナラティブ分析など分析フレームの構築法を学ぶと良いでしょう。NVivo や MAXQDA など商用ツールの学生版トライアルも有効です。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">テキスト資料の分析</p><p class="text-[10px] text-gray-500">文学作品や歴史文献、新聞記事や SNS テキストなど、テキストデータを主な材料とする方は、デジタルテキスト分析や計量テキスト分析のスキルを伸ばすと研究の幅が広がります。プログラミング（Python や R）の習得が次のステップとして有力です。コーパス分析、形態素解析、トピックモデルなど高度な分析にも手が届くようになります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">絵画・写真・映像など視覚資料の分析</p><p class="text-[10px] text-gray-500">美術史や視覚文化研究、あるいは映像資料を扱う方は、画像データの高度な活用法を探ってみましょう。IIIF はその入口に過ぎません。OpenCV や TensorFlow といったライブラリを使えば、画像の特徴量抽出（色彩傾向、構図パターンなど）や物体認識を試すことができます。アーカイブ学や目録学の知識を深めることも発展ルートとして考えられます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-indigo-600 mb-1">ウェブ情報の分析・活用</p><p class="text-[10px] text-gray-500">ウェブ上の情報量は膨大で、その活用法も多岐にわたります。Hyphe 以外にも Gephi や NetworkX（Python ライブラリ）を用いてハイパーリンクネットワークを可視化し、ウェブ空間のつながり方を社会ネットワーク分析の観点から探究することも可能です。HTML/CSS や JavaScript の基礎を学び、自作のウェブページやデジタル展示を作ってみるのも有意義です。</p></div>
+            <div class="info-box sm:col-span-2"><p class="text-xs font-bold text-indigo-600 mb-1">ソーシャルメディアやオンラインコミュニティ</p><p class="text-[10px] text-gray-500">質的アプローチで SNS を分析する道は第11章で述べたとおりですが、他にも発展ルートがあります。デジタル・エスノグラフィーの手法を学び、オンラインコミュニティに参与観察的に入り込んで記述するアプローチは深い洞察をもたらします。量的なスタンスでソーシャルメディアを研究するなら、X API や YouTube Data API などを用いたデータ収集と、テキストマイニング・ソーシャルネットワーク分析を組み合わせると、大量の投稿データの傾向やユーザー間関係を分析できます。</p></div>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mt-4">デジタルツール同士を組み合わせて自分なりのワークフローを設計することも、次のステップとしてぜひ考えてみてください。例えば、Notion と Obsidian を併用して、Notion で文献リストやタスク管理を行いつつ、Obsidian で日々のメモや発想のネットワークを育てる、といった使い方が考えられます。やがて世界に一つだけの「あなただけの研究 × デジタルツールの組み合わせ」が完成することでしょう。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15.5 研究ロードマップ -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">卒論・修士論文・博士論文のための研究ロードマップ</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">デジタルツールの活用を磨いていくことは、そのまま皆さんの卒業論文や修士論文、博士論文といった本格的な研究成果の質向上に繋がります。ここでは、人文学系の学生（哲学・文学・歴史学など）がデジタルツールを活用しながら、段階的に研究を深化させていくための指針を示します。</p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-[10px] text-left border-collapse">
+              <thead><tr class="border-b-2 border-gray-200">
+                <th class="py-2 pr-2 font-bold text-gray-500 w-16">年次</th>
+                <th class="py-2 pr-2 font-bold text-gray-500 w-12">学期</th>
+                <th class="py-2 pr-2 font-bold text-gray-500">主な到達目標・成果</th>
+                <th class="py-2 font-bold text-gray-500 w-20">査読論文数（累計）</th>
+              </tr></thead>
+              <tbody class="text-gray-600">
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2 font-semibold">学部4年</td><td class="py-2 pr-2">前期</td><td class="py-2 pr-2">研究テーマ決定。先行研究50本以上を読む文献レビュー実施。研究計画策定と予備的な資料収集開始。</td><td class="py-2">0本</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2"></td><td class="py-2 pr-2">後期</td><td class="py-2 pr-2">分析・考察を行い卒業論文執筆。提出（2月）及び口頭試問合格。ゼミ発表や学会発表（可能なら）経験。</td><td class="py-2">0本</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2 font-semibold">修士1年</td><td class="py-2 pr-2">前期</td><td class="py-2 pr-2">修士研究計画の具体化。関連文献網羅的調査と理論整理。必要なスキル習得開始。</td><td class="py-2">0本</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2"></td><td class="py-2 pr-2">後期</td><td class="py-2 pr-2">予備調査・データ収集を実施。研究計画書アップデート。研究会やゼミで中間発表。学会発表デビュー（望ましい）。</td><td class="py-2">0本</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2 font-semibold">修士2年</td><td class="py-2 pr-2">前期</td><td class="py-2 pr-2">本格調査・分析を完了。夏頃より修士論文執筆開始。学会発表で結果を公表。査読論文投稿準備。</td><td class="py-2">0本</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2"></td><td class="py-2 pr-2">後期</td><td class="py-2 pr-2">修士論文提出・最終試験合格（学位取得）。研究成果を学術誌に投稿（〜1本目の掲載を目指す）。</td><td class="py-2">1本（目標）</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2 font-semibold">博士1年</td><td class="py-2 pr-2">前期</td><td class="py-2 pr-2">博士論文全体の構想策定（目次案作成）。研究計画書・プロポーザル準備。継続課題と新規課題の研究開始。</td><td class="py-2">1本</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2"></td><td class="py-2 pr-2">後期</td><td class="py-2 pr-2">博士論文構想のブラッシュアップ。指導教授と構想合意。学会発表（年1回以上）。修士成果の論文化（1本目掲載達成）。</td><td class="py-2">1本</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2 font-semibold">博士2年</td><td class="py-2 pr-2">前期</td><td class="py-2 pr-2">博士論文中間発表（構想発表会）準備。主要データ収集と分析ほぼ完了。査読論文2本目投稿。</td><td class="py-2">2本（目標）</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2"></td><td class="py-2 pr-2">後期</td><td class="py-2 pr-2">構想発表実施（研究計画承認）。フィードバックを反映し計画修正。査読論文3本目投稿。複数成果を公表。</td><td class="py-2">2本（目標）</td></tr>
+                <tr class="border-b border-gray-100"><td class="py-2 pr-2 font-semibold">博士3年</td><td class="py-2 pr-2">前期</td><td class="py-2 pr-2">博士論文執筆（全章ドラフト完成）。指導教員・副査チェックと推敲反映。最終公聴会準備。査読論文追加投稿（必要なら）。</td><td class="py-2">2本</td></tr>
+                <tr><td class="py-2 pr-2"></td><td class="py-2 pr-2">後期</td><td class="py-2 pr-2">博士論文提出・最終試験合格（学位取得）。博士論文内容の論文化完了。学位取得時までに査読論文3本以上を刊行。</td><td class="py-2">3本（目標）</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-3">上記はあくまで一例のスケジュールですが、「<strong class="text-gray-600">学術的に到達すべき地点</strong>」と「<strong class="text-gray-600">それを達成するための時期ごとの目標</strong>」をリンクさせることが重要です。デジタルツールはこの逆算思考と進捗管理を強力にサポートしてくれます。ぜひ自身の研究ロードマップを描き、必要に応じて修正しながら進んでください。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15.6 学振 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.6</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">日本学術振興会特別研究員への道</h3>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">15.6.1 制度の概要</p>
+            <p class="text-xs text-gray-600 mb-2">日本学術振興会「特別研究員」制度（通称「学振」）は、将来の学術研究を担う優秀な若手研究者に対し、研究生活の初期段階で自由な発想のもと研究に専念する機会を与えることを目的としたフェローシップ制度です。大きく「DC」（Doctoral Course、博士課程学生向け）と「PD」（Post-Doctoral、博士学位取得者向け）の区分があります。</p>
+            <div class="grid sm:grid-cols-2 gap-2">
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-indigo-600 mb-1">DC（DC1/DC2）</p><p class="text-[9px] text-gray-500">博士課程在学者向け。DC1 は博士課程1年目から、DC2 は2年目以降から始めるフェローシップ。研究奨励金：月額約22万7千円（令和8年度採用分）。採用期間は DC1 が最長3年間、DC2 が最長2年間。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-indigo-600 mb-1">PD</p><p class="text-[9px] text-gray-500">博士号取得者向け（取得後5年未満）。研究奨励金：月額約36万2千円。採用期間は原則3年間。博士課程在学中の所属大学とは異なる研究機関に所属して研究することが応募条件。</p></div>
+            </div>
+            <p class="text-[10px] text-gray-500 mt-2">採用者は研究費助成として<strong class="text-gray-600">特別研究員奨励費</strong>（年間上限150万円程度）に応募し、研究計画を実行するための経費（学会出張費や資料購入費など）に充てることができます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">15.6.2 採用されるためのコツ</p>
+            <p class="text-xs text-gray-600 mb-2">学振特別研究員の採択率は毎年おおむね20%前後で推移しており、非常に競争率の高い試験と言えます。</p>
+            <ul class="text-[10px] text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><div>書類審査で見られる主なポイントは、「これまでの研究業績（研究者としての能力・実績）」「これからの研究計画（学術的意義・独創性・実現可能性）」「研究者としての資質や将来性」などです。</div></li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><div>過去の採用実績を見ると、研究室ごとに採否の偏りが見られることがあります。「学振に採用される人が多い研究室ほど、新たな応募者も採用されやすい」という傾向が指摘されています。所属分野や研究室を超えて積極的に情報収集し、ノウハウを学ぶことが重要です。</div></li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><div>人文系の場合、理工系のような即時的な社会実装はなくても、「人類の文化や思想を深める学術的意義」「社会や教育への波及効果」などを丁寧に示すと良いでしょう。評価者に「ぜひこの人に研究を任せてみたい」と思わせるだけの情熱と論理性を、申請書全体から感じさせることが採用へのコツです。</div></li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">15.6.3 申請書の書き方とコツ</p>
+            <p class="text-xs text-gray-600 mb-2">特別研究員の申請書類の中核となるのが<strong class="text-gray-700">研究計画書</strong>（申請書本体）です。基本構成は、概ね「研究の背景」→「これまでの業績（先行研究の整理）」→「現状の課題」→「今後の研究計画」というストーリーラインで記述します。</p>
+            <ul class="text-[10px] text-gray-600 space-y-1">
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">研究の背景・目的</strong>：研究テーマの背景となる学問分野の状況や社会的課題を説明し、研究の目的（何を明らかにしたいのか）を明確に示す。</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">先行研究の整理と課題の明確化</strong>：先行研究から何が分かっており、何が分かっていないかを示す。「だから本研究が必要だ」という理由付けが重要。</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">研究内容・方法（研究計画）</strong>：採用期間中に何をどのように行うのかをできるだけ具体的に記述。タイムラインを示し、計画に実現性が感じられるようにする。</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">研究の特色・独創性</strong>：自分の研究ならではの独自の点をアピール。「独創性」は重要な評価軸の一つ。</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">研究遂行能力・準備状況</strong>：これまでの研究経験やスキル、関連する業績などを簡潔にまとめ、「自分にはこの計画を実行するための能力・素養が十分ある」ということを伝える。</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">自己PR・将来の展望</strong>：研究にかける熱意や将来ビジョンを語る。自身のエピソードを交えて熱意を伝える工夫が有効。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- おわりに -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-2xl p-6 border-l-4 border-amber-400">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">✨</div>
+        <h3 class="font-bold text-gray-800">おわりに</h3>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed mb-3">生成AI時代においても、人文学研究の価値は決して揺らぎません。それは、人間が自らの知性で過去と向き合い、文化を解釈し、新たな意味を紡ぎ出す営みだからです。AIという強力な道具を得た今だからこそ、私たちは改めて人間の創造力と責任の重みを自覚し、知的主体性を守り抜く決意を固める必要があります。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">適切なルールと節度をもってAIを利用することで、人文学研究はこれまで以上に豊かで生産的なものになるでしょう。本書全体を通じて培ったデジタルツール活用の知見と併せ、読者の皆さんがAIを従えつつも自らの頭で考える研究者として一層活躍されることを期待しています。</p>
+    </div>
+  </section>
+
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">ポートフォリオを見直し、全体が一貫した「研究環境の記録」になっているか確認する。次学期／次年度に向けた改善計画を作る。今後の計画を記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>ポートフォリオを見直し、全体が一貫した「研究環境の記録」になっているか確認する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>次学期／次年度に向けた改善計画を作る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">今後の計画を記述する</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -240,12 +289,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
