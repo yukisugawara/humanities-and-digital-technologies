@@ -3,104 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第3回 読むためのデジタルツール：調べる・集める・引用する | 人文学とデジタル技術（2026）</title>
+  <title>第3回 読むためのデジタルツール | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
+    code{background:rgba(99,102,241,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#4f46e5}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,16 +49,19 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-violet-100 text-violet-700 mb-4 inline-block">読む</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">03</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">読むためのデジタルツール：調べる・集める・引用する</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第3回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">03</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">読むためのデジタルツール</span></h1>
+        <p class="text-lg text-gray-600 font-medium mb-1">調べる・集める・引用する</p>
+        <p class="text-base text-gray-500 font-light">第3回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章では、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、そして文献管理ツールを用いた参考文献管理と引用の手法を解説します。それぞれのステップで役立つ具体的なデジタルツールの使い方を、実例やポイントとともに丁寧に紹介します。</p>
+    </div>
+  </section>
 
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-violet-400">
@@ -132,57 +70,172 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><span>Google Scholar による先行研究探索</span></li>
-        <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><span>紙資料のデジタル化と読みやすくする工夫</span></li>
-        <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><span>Zotero による文献管理と引用</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>Google Scholar による先行研究探索（検索語設計・引用追跡・アラート）</li>
+        <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>紙資料のデジタル化と読みやすくする工夫（スキャン・OCR・整理）</li>
+        <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>Zotero による文献管理と引用（収集・整理・引用出力・PDF管理・同期）</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Google Scholar による先行研究探索</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">検索語の設計と検索オプション（フレーズ検索・OR検索・除外検索・author: 演算子）。引用追跡と被引用文献の確認。関連文献の検索。マイライブラリ機能とアラートの活用。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">紙資料のデジタル化</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">スマートフォンによるスキャンと PDF 化（CamScanner、Adobe Scan、Genius Scan）。OCR によるテキスト化と活用（スキャンアプリ内蔵OCR、Google ドライブの OCR、専用ソフト）。電子化資料の整理と保存術（命名規則、フォルダ分類）。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Zotero による文献管理と引用</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">文献情報の自動取り込み（ブラウザ連携・Zotero Connector）。手動での文献登録とメタデータ補完。コレクションとタグによる分類整理。論文執筆時の引用と参考文献リスト出力（Word / Google Docs / LaTeX 連携）。引用スタイルの切り替え（APA, MLA, Chicago 等）。PDF 管理、注釈機能とクラウド同期。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 3.1 Google Scholar -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Google Scholar による先行研究探索</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Google Scholar（グーグルスカラー）は学術論文や専門書、報告書などを幅広く検索できるエンジンです。キーワードを入力するだけで多様な分野の文献を横断的に探せるため、先行研究の調査に大いに役立ちます。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.1 検索語の設計と検索オプション</p>
+            <p class="text-sm text-gray-600 mb-2">効果的な文献探索の第一歩は、適切な検索語を選び組み合わせることです。Google Scholar では基本的に複数の単語を入力すると AND 検索となり、単語間を空白で区切ることで指定できます。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><strong class="text-gray-700">フレーズ検索</strong>：検索語を引用符（" "）で囲みます。例えば "デジタル アーカイブ" のように指定すると、その正確な語句を含む文献のみを検索できます。</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><strong class="text-gray-700">OR 検索</strong>：語と語の間に OR（大文字）を入れます。例：京都 OR 奈良 とすると、京都または奈良のいずれかの語を含む文献を検索します。</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><strong class="text-gray-700">除外検索</strong>：除外したいキーワードの前にマイナス記号 - を付けます。例：平安京 -"平安神宮" とすれば、「平安神宮」を含まない平安京に関する文献を絞り込めます。</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><strong class="text-gray-700">その他オプション</strong>：「詳細検索」画面から特定の著者名や出版年、掲載誌名で絞り込むことも可能です。例えば <code>author:山田</code> と入力すると著者名に「山田」を含む論文に限定できます。また「引用部分を含める」設定を有効にすると、参考文献リストも検索対象に含められます。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">検索結果が多すぎる場合は、検索結果ページ左側のメニューから「1年以内」等の期間指定や「日本語の文献のみ」などの絞り込みも活用しましょう。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.2 引用関係を辿る（引用追跡と被引用文献の確認）</p>
+            <p class="text-sm text-gray-600 mb-2">有用な文献を見つけたら、その文献の引用関係を辿って関連する研究を探すことができます。Google Scholar では各検索結果の下に<strong class="text-gray-800">「引用元」</strong>と数字が表示されており、これはその文献が他の何件の文献に引用されているかを示します。この「引用元」をクリックすると、当該文献を引用している後続の研究一覧が表示されます。</p>
+            <p class="text-sm text-gray-600 mb-2">引用数が多い文献はその分野で一定の評価を得ている古典的研究である場合も多いので、一つの目安になります。</p>
+            <p class="text-sm text-gray-600">逆に、その文献が参考文献として挙げている先行研究（被引用文献）を辿ることも重要です。ある文献を起点に前後の関連文献を追跡することを<strong class="text-gray-800">「引用追跡」</strong>と呼び、体系的な文献レビューには欠かせない手法です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.3 関連文献の検索</p>
+            <p class="text-sm text-gray-600">Google Scholar の各結果には「関連記事」あるいは「関連文献」といったリンクも表示されます。これは現在表示している文献と内容的に類似した他の文献を Google がアルゴリズムで判断してリストアップしてくれる機能です。キーワードが完全には一致していなくても、テーマや分野が近い論文を網羅的に見つけたい場合に便利です。先行研究調査の際には、直接のキーワード検索だけでなく、こうした横断的なアプローチも組み合わせると網羅性が高まります。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.4 マイライブラリ機能とアラートの活用</p>
+            <p class="text-sm text-gray-600 mb-2">Google Scholar には、見つけた論文を保存して後から閲覧できる<strong class="text-gray-800">「マイライブラリ」</strong>機能があります。検索結果の「☆（保存）」アイコンをクリックすると文献情報が保存されます。保存された文献にはラベル（タグ）を付けて分類することも可能で、例えば「先行研究」「方法論」「統計資料」などとラベル分けして管理すれば、後で必要な文献を探しやすくなります。</p>
+            <p class="text-sm text-gray-600">さらに、新着文献の見逃しを防ぐには<strong class="text-gray-800">「アラート」</strong>機能が便利です。特定のキーワードやトピックについての検索アラートを設定しておくと、その条件に合致する新しい文献が登録された際に指定したメールアドレスへ通知が届きます。例えば「デジタル・ヒューマニティーズ」というキーワードでアラートを作成しておけば、そのテーマに関する最新の論文や記事が公開されるたびに自動で知らせてもらえます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.2 紙資料のデジタル化 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">紙資料のデジタル化と読みやすくする工夫</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">書籍や論文の紙媒体の資料も、デジタル化することで取り回しやすくなり、検索や引用が容易になります。ここではスマートフォンなどを利用した紙資料のPDF化と、OCR（光学文字認識）によるテキスト化、さらにデジタル化した資料の整理方法について紹介します。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.2.1 スマートフォンによるスキャンと PDF 化</p>
+            <p class="text-sm text-gray-600 mb-3">近年はスマートフォンを用いて手軽に紙の資料をスキャンし、PDF化することが可能です。専用のスキャンアプリを使えば、書類や本のページをカメラで撮影するだけで自動的に台形補正やトリミングが行われ、読みやすい電子文書に変換できます。</p>
+            <div class="grid sm:grid-cols-3 gap-2">
+              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">CamScanner</p><p class="text-[10px] text-gray-500">iOS/Android 向け定番。ページの検出・補正が優秀。複数ページを1つの PDF にまとめられます。無料版でも基本機能は十分。</p></div>
+              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">Adobe Scan</p><p class="text-[10px] text-gray-500">Adobe 社提供の無料アプリ。高品質なスキャンが可能。自動的に OCR を実行して PDF にテキスト情報を埋め込む機能も。</p></div>
+              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">Genius Scan</p><p class="text-[10px] text-gray-500">シンプルながら高機能。画像の鮮明化や色調補正など多彩なオプション。各種クラウドサービスへの保存も容易。</p></div>
+            </div>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.2.2 OCR によるテキスト化と活用</p>
+            <p class="text-sm text-gray-600 mb-2">スキャンした PDF や画像データから文字を読み取ってテキストデータに変換する技術を <strong class="text-gray-800">OCR</strong>（Optical Character Recognition、光学文字認識）と呼びます。OCR を施すことで、紙の資料から起こした PDF 内の文字をデジタルテキストに変換し、全文検索やコピー＆ペーストが可能になります。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><strong class="text-gray-700">スキャンアプリ内蔵の OCR 機能</strong>：Adobe Scan や CamScanner などには OCR 機能が組み込まれており、スキャン直後に自動で文字認識を行ってくれます。日本語にも対応。</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Google ドライブの OCR</strong>：無料で手軽に使える方法。画像や PDF を Google ドライブにアップロードし、「アプリで開く → Google ドキュメント」を選ぶと、自動的に OCR 処理が行われます。</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span><strong class="text-gray-700">専用ソフトや他のツール</strong>：Adobe Acrobat のような有償ソフトや、Microsoft OneNote（画像を貼り付けてテキストを抽出）、Google レンズなどの手段もあります。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">OCR の注意点：元のスキャン画像の品質が精度に影響します。特に縦書きの日本語や古い活字、特殊なフォントの場合は認識ミスが起こりやすいので、重要な引用に用いる場合は原本と照合して確認しましょう。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.2.3 電子化資料の整理と保存術</p>
+            <p class="text-sm text-gray-600 mb-2">デジタル化した資料が増えてくると、ファイル名や保存場所の整理が大切になります。例えば <code>Scan0001.pdf</code> のような無機質なファイル名ではなく、<code>著者名_論文タイトル_出版年.pdf</code> のようにリネームしておけば、中身を推測しやすくなります。</p>
+            <ul class="text-sm text-gray-600 space-y-1.5">
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>ファイル名には内容を想起できるキーワード（論文タイトル、著者名、年度など）を含める</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>複数の版や更新がある場合は、日付や版番号を付与してバージョン管理</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>種類やテーマ別にフォルダを作成し、関連ファイルをまとめて保存</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>YYYYMMDD 形式など一貫したルールを設ける</li>
+              <li class="flex items-start gap-2"><span class="text-violet-400 mt-0.5">&#9679;</span>重要なファイルはクラウドストレージと同期し、定期的にバックアップ</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">紙の資料をデジタル化する際には、研究目的の範囲内でのみ利用し、著作権に配慮して扱うことも忘れないようにしましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.3 Zotero -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Zotero による文献管理と引用</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、収集した文献情報を整理し、論文執筆時の引用作業を支援してくれる文献管理ツールとして <strong class="text-gray-800">Zotero（ゾテロ）</strong>の使い方を解説します。Zotero は無料で使えるオープンソースの文献管理ソフトウェアで、Web ブラウザと連携して文献情報を収集・蓄積し、論文やレポートの作成時に引用や参考文献リストを自動生成してくれる強力なツールです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.1 文献情報の自動取り込み（ブラウザ連携）</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero の大きな利点の一つが、ブラウザの拡張機能（コネクタ）を使った文献情報の自動取り込みです。パソコンに Zotero 本体をインストールし、あわせて Chrome や Firefox、Safari などに <strong class="text-gray-800">Zotero Connector</strong> を追加します。すると、学術論文のページや図書のデータベース、雑誌記事のウェブページなどを開いた際に、ブラウザのツールバーに書籍や論文風のアイコンが表示されるようになります。</p>
+            <p class="text-sm text-gray-600">その状態でアイコンをクリックすれば、現在閲覧中の文献情報が Zotero に保存されます。論文データベース（CiNii Articles や J-STAGE、PubMed 等）の論文ページや、学術ジャーナルのウェブサイト上で PDF を開いている場合でも、Zotero が適切なメタデータと共に PDF ファイルそのものをダウンロードして保存してくれることがあります。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.2 手動での文献登録とメタデータ補完</p>
+            <p class="text-sm text-gray-600 mb-2">自動取り込みだけではカバーしきれない資料や、自分でスキャンした文献なども Zotero に登録できます。「新規アイテムを追加」ボタンから文献の種別を選んで手動で書誌情報を入力できます。古い書籍や非公開資料でオンライン情報源がない場合でも、この手動入力で著者・タイトル・出版年などの項目を埋めれば、自分だけの文献データベースに組み込むことができます。</p>
+            <p class="text-sm text-gray-600">また、既に手元に PDF ファイルがある場合は、それを Zotero のウィンドウ内にドラッグ＆ドロップするだけで登録が可能です。Zotero は PDF 内に埋め込まれた識別子（DOI や ISBN）を手がかりに、自動的に対応する文献情報をインターネット上から探してきて項目を埋めてくれます。</p>
+            <p class="text-xs text-gray-500 mt-2">いずれの場合も、取り込んだメタデータに漏れや誤りがないか確認し、必要に応じて補完・修正しておくことが重要です。特に和文の文献では、アルファベットのローマ字表記と漢字記が混在するといった問題も起こり得るので、論文内での表記統一のためにも適切に編集しておきましょう。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.3 コレクションとタグによる分類整理</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero では、収集した文献を効率よく管理するための<strong class="text-gray-800">コレクション（Collection）</strong>機能と<strong class="text-gray-800">タグ（Tag）</strong>機能が用意されています。コレクションとは Zotero 内の仮想フォルダのようなもので、特定のテーマやプロジェクト毎に文献を仕分けておくことができます。</p>
+            <p class="text-sm text-gray-600">一方、タグは文献に自由につけられるキーワードラベルです。読んだ文献に「重要」「再読」「統計分析」「理論 A」といったタグを付けておけば、必要なときにフィルターして該当する文献だけを一覧表示できます。コレクションとタグを併用することで、物理的な書架に本を並べるのと同じ感覚で分野や目的別に文献を整理しつつ、タグという付箋のようなもので縦横無尽にグルーピングできるのが Zotero の強みです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.4 論文執筆時の引用と参考文献リスト出力</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero が真価を発揮するのは、実際に論文やレポートを執筆する際の<strong class="text-gray-800">引用管理と参考文献リスト（Bibliography）の自動生成</strong>です。Zotero は Microsoft Word や LibreOffice、Google ドキュメントと連携するプラグイン／アドオンを提供しており、執筆中の文章内にシームレスに引用を挿入できます。</p>
+            <p class="text-sm text-gray-600 mb-2">例えば Word の場合、Zotero をインストールすると「Zotero」タブが追加され、そこから「Add Citation」ボタンを押すと文献を選択するダイアログが現れます。著者名やタイトルの一部を入力して文献を選ぶと、指定した書式（例えば APA スタイルなら「(Yamada 2020)」のような形式）で文中に引用が挿入されます。</p>
+            <p class="text-sm text-gray-600">論文全体の執筆が終わった段階で「参考文献リストの挿入」を実行すれば、引用済み文献が指定したスタイルですべて自動的に整形されて出力されます。手作業で一つ一つ書誌情報を整えたり順番を並べ替えたりする必要がないため、<strong class="text-gray-800">大幅な時間短縮とミス防止</strong>につながります。Markdown 形式で執筆を行う場合にも Zotero を活用する方法があり、BibTeX 形式のデータベースをエクスポートして Pandoc や LaTeX で引用するという手法も可能です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.5 引用スタイルの切り替えと調整</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero の便利な機能として、引用スタイル（Citation Style）の切り替えがワンタッチで行える点があります。ある論文を執筆中に最初は APA スタイルで引用していたが、投稿先の規定で急遽 Chicago スタイルに変更しなければならなくなった、という場合でも、Zotero 連携で挿入した引用であればスタイル変更を自動で反映できます。</p>
+            <p class="text-sm text-gray-600">Zotero にはデフォルトで主要な国際的スタイル（APA、MLA、Chicago、IEEE など）が含まれていますが、それ以外にも数千種類に及ぶスタイルが公開されており、必要に応じて追加でインストールできます。和文誌向けのスタイルも提供されている場合があります。なお、スタイルを適用した後との参考文献リストはソフト任せにせず、念のため人間の目で細部をチェックすることをおすすめします。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.6 PDF 管理、注釈機能とクラウド同期</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero は文献情報だけでなく、実際の論文 PDF や資料ファイルも一緒に管理できます。Zotero 内で文献をダブルクリックするだけで PDF を開いて内容を確認できますし、いちいちエクスプローラー上でファイルを探す必要がなくなります。</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero 6 以降では、PDF リーダー機能がソフトウェア本体に統合され、Zotero のウィンドウ内で直接 PDF を開いて閲覧・ハイライト・注釈付けを行えるようになりました。重要な箇所にハイライトマーカーで色を付けたり、メモを書き込む（デジタル付箋を貼るようなイメージ）ことで、読んだ文献から得た知見や引用したい一文をすぐに取り出せるようになります。Zotero 上で付けたハイライトやメモは、後で「ノート」として抽出し、文献の要約や抜き書き集として整理しておくことも可能です。</p>
+            <p class="text-sm text-gray-600">複数のデバイスで使う場合やデータのバックアップとして重要なのが<strong class="text-gray-800">同期（Sync）</strong>機能です。Zotero は無料アカウント登録をすることで、文献データベースをクラウド上に同期できます。文献情報（メタデータやノート、タグ等）の同期は容量無制限ですが、PDF など添付ファイルの同期には無料で 300MB までの容量制限があります。同期機能を活用すれば、自宅のパソコンで収集した文献を大学の PC から参照したり、出先でタブレット版 Zotero から閲覧するといったことも容易になります。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- まとめ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-2xl p-6 border-l-4 border-violet-300">
+      <p class="text-sm text-gray-600 leading-relaxed">以上、Google Scholar による文献探索、紙資料のデジタル化、そして Zotero による文献管理と引用支援の方法について解説しました。デジタルツールを活用することで、<strong class="text-gray-800">「調べる・集める・引用する」という読解・研究プロセスが飛躍的に効率化</strong>されます。ぜひ本章で紹介した手法を実践し、学びの質を高めていってください。</p>
+    </div>
+  </section>
+
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">自分の研究テーマで検索語を複数パターン試し、結果を比較する。Zotero に文献を取り込み、タグ付け・コレクションを作る。検索戦略の工夫点、Zotero 運用方針をまとめる。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>自分の研究テーマで検索語を複数パターン試し、結果を比較する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>Zotero に文献を取り込み、タグ付け・コレクションを作る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">検索戦略の工夫点、Zotero 運用方針をまとめる</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -195,12 +248,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
