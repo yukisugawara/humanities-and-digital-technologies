@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第15回 まとめ：研究ワークフローの再設計 | 人文学とデジタル技術（2026）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
+    .gradient-bg {
+      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .topic-card {
+      transition: all 0.3s ease;
+    }
+    .topic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen relative overflow-x-hidden">
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        人文学とデジタル技術
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
+        <a href="../#sessions" class="hover:text-indigo-600 transition-colors hidden sm:block">授業一覧</a>
+        <a href="../" class="bg-gradient-to-r from-indigo-500 to-violet-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-indigo-200 transition-all">トップへ</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="relative pt-32 pb-16 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="fade-in">
+        <span class="pill bg-gray-100 text-gray-700 mb-4 inline-block">まとめ</span>
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <span class="text-6xl sm:text-7xl font-black text-indigo-200">15</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
+          <span class="gradient-text">まとめ：研究ワークフローの再設計</span>
+        </h1>
+        <p class="text-base sm:text-lg text-gray-500 font-light">第15回　人文学とデジタル技術（2026）</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-gray-400">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-xl">🎯</div>
+        <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
+      </div>
+      <ul class="space-y-2 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span><span>授業全体の振り返り</span></li>
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span><span>継続学習・ツール選択・研究計画への接続</span></li>
+        <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">&#9679;</span><span>ポートフォリオの最終確認</span></li>
+
+      </ul>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in text-center mb-8">
+      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
+    </div>
+    <div class="space-y-4">
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">本手引き全体の振り返り</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">15回の授業で扱ったツールと考え方の整理。デジタルツール活用の全体像を俯瞰します。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">発酵思考の視点からの読み直し</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">人文学の「スローペースで深く考える」アプローチとデジタル技術の「大量の情報を素早く処理する」能力を両立させるという本授業のコンセプトを振り返ります。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">学習継続・習慣化のコツ</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">授業終了後も継続的にデジタルスキルを磨くための方法論。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">関心別の発展ルート</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">テキスト分析、画像分析、質的研究、ウェブ分析、デジタルヒューマニティーズ等、各自の関心に応じた発展の方向性。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">卒論・修士論文・博士論文のための研究ロードマップ</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">学部4年（卒業論文執筆）、修士1年〜2年、博士1年〜3年の段階別ガイド。年次別マイルストーン早見表。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">日本学術振興会特別研究員への道</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">制度の概要、採用されるためのコツ、申請書の書き方とコツ、申請までのプロセス。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">ライティング・リトリート</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">「書く」を研究実践に取り戻す装置としてのリトリートの紹介。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in topic-card glass rounded-2xl p-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8</div>
+          <div>
+            <h3 class="font-bold text-gray-800 mb-1">おわりに</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">人文学研究の「深く、時間をかけて、繰り返す」思考とデジタル技術の共存可能性。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
+    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+        <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed">ポートフォリオを見直し、全体が一貫した「研究環境の記録」になっているか確認する。次学期／次年度に向けた改善計画を作る。今後の計画を記述する。</p>
+    </div>
+  </section>
+
+  <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
+    <div class="fade-in flex items-center justify-between">
+      <a href="14.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">← 第14回</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-indigo-600 transition-colors">授業一覧</a>
+      <a href="../" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">トップへ →</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
