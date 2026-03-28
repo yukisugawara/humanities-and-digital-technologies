@@ -3,104 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第14回 生成AI活用の可能性と限界：使いどころの設計 | 人文学とデジタル技術（2026）</title>
+  <title>第14回 生成AI活用の可能性と限界 | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +48,15 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-fuchsia-100 text-fuchsia-700 mb-4 inline-block">生成AI</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">14</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">生成AI活用の可能性と限界：使いどころの設計</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第14回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">14</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">生成AI活用の可能性と限界</span></h1>
+        <p class="text-lg text-gray-600 font-medium mb-1">使いどころの設計</p>
+        <p class="text-base text-gray-500 font-light">第14回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-fuchsia-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,102 +64,159 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><span>生成AIの基礎理解</span></li>
-        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><span>人文学研究における活用可能場面と注意点</span></li>
-        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><span>「使うルール」の設計方法</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span>生成AIの基礎（LLM・マルチモーダルモデルの仕組みと特性）</li>
+        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span>人文学研究における基本的立場</li>
+        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span>活用可能な場面（発想支援・要約・翻訳・検索クエリ・コード生成・図表・音声）</li>
+        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span>使用上の注意点（ハルシネーション・出典の不透明さ・バイアス・プライバシー・思考習慣への悪影響）</li>
+        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span>利用指針（「使うルール」の設計方法）</li>
+        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span>国際的な倫理動向・出版方針（Nature/Science/ICMJE/Springer/Elsevier）</li>
+        <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span>結論：知的主体性を守るために</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">生成AIの基礎</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">LLM の基本的な仕組みと特性を理解します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">人文学研究における基本的立場</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">AIを「代行者」ではなく「対話相手」として位置づける考え方。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">活用可能な場面</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">発想支援、要約補助、翻訳支援、プロンプト設計などの実践。ChatGPT / Gemini を対象にします。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">使用上の注意点</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">誤り（ハルシネーション）、偏り、出典の不透明性、著作権の問題。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">利用指針</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">研究倫理を踏まえた利用方針の考え方。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">「使うルール」の設計方法</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">自分の研究における利用範囲・目的を明示し、プロンプトや出力、採用／不採用の判断を記録する方法。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">国際的な倫理動向・出版方針</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">学術出版における生成AI利用に関する最新の方針と議論。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">8</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">結論：知的主体性を守るために</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">デジタル技術の力を借りつつ、研究の主体は人間であり続けるための姿勢。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 14.1 生成AIの基礎 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">生成AIの基礎</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">「生成AI（ジェネレーティブAI）」と総称される技術が注目を集めています。生成AIとは、大規模なデータから学習し、新しいコンテンツ（文章・画像・音声・コードなど）を自律的に作り出せる革新的なAI技術のことです。従来の分析型AIが既存データの分類や予測を行うのに対し、生成AIは訓練データに含まれないまったく新しい成果物を創造できる点が特徴です。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">代表的な例として、OpenAI社の対話型モデル<strong class="text-gray-800">ChatGPT</strong>が挙げられます。ChatGPT は巨大な言語モデル（GPTシリーズ）に基づき、人間のような文章を生成できるAIチャットボットです。質問や指示を与えると、自然な文章で回答を返し、文章の要約やアイデア出し、コードの生成など幅広いタスクに対応します。</p>
+          <p class="text-sm text-gray-600 leading-relaxed">さらに近年はマルチモーダル（多様な様式）対応の生成AIも登場しています。例えば Google DeepMind が開発した<strong class="text-gray-800">Gemini</strong>（日本での呼称は「ジェミニ」）は、テキストだけでなく画像・音声・動画・プログラミングコードといった複数のモダリティを一つのモデルで処理できるのが特徴です。このように、生成AIはテキスト生成のみならず、画像生成（例：Stable Diffusion や DALL-E）、音声の合成（テキスト読み上げなど）、動画生成など多方面に広がりつつあります。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14.2 基本的立場 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">人文学研究における基本的立場</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">人文学の研究者・院生にとって、研究における創造性や洞察の源泉を人間自身に置くことは極めて重要です。AIの進化によって文章生成や分析の一部を自動化できる時代になりましたが、だからといって研究上の発想や解釈まで AI に任せてしまうことには注意が必要です。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">この立場を支持するように、主要な学術団体や出版社も「<strong class="text-gray-800">AIは決して研究の責任ある主体にはなり得ない</strong>」という見解を示しています。例えば国際医学雑誌編集者会議（ICMJE）は、ChatGPTのような生成AIを論文の著者としてクレジットすべきではないと明言しています。AIは研究内容の正確さ・完全性・独創性に対する責任を負えず、人間のように成果に責任を持つことができないからです。</p>
+          <p class="text-sm text-gray-600 leading-relaxed">実際、生成AIの活用が広がる中で「AIに頼りすぎるとオリジナリティや創造性が損なわれるのではないか」という懸念も指摘されています。人文学研究の知的主体性を守るためにも、「<strong class="text-gray-800">AIはあくまで補助的なツールであり、研究の取り役は人間である</strong>」という基本姿勢を明確にしておくことが重要です。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14.3 活用可能な場面 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">活用可能な場面</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">以上の前提を踏まえつつ、生成AIを適切に活用できる場面も存在します。ポイントは、研究者の創造的思考を妨げず補助となる範囲で、ルーチン的な作業や発想の一助としてAIを使うことです。</p>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">アイデア発想支援</p><p class="text-xs text-gray-600">白紙の状態から研究の着想を得るのは容易ではありませんが、ChatGPT等にキーワードや関心テーマを与えて対話することで、新たな観点や関連アイデアのヒントが得られる場合があります。例えば「○○に関する未解決の論点は何か？」と質問すれば、関連する論点のリストや議論の切り口を提案してくれます。こうした発想の叩き台をAIから得て、人間研究者が取捨選択・発展させることで、考えを広げる助けになるでしょう。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">文章の要約・下調べ</p><p class="text-xs text-gray-600">大量の文献や長大なテキスト資料を読む際、AIによる要点の要約は時間短縮に繋がります。ただし、後述するように要約結果の正確性検証は不可欠です。また関連分野の予備知識が不足している場合にAIに基礎的な解説を求めることもできます。もっとも、AIの説明は教科書的な一般論に留まることが多いため、最終的には専門文献にあたり肉付けする必要があります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">検索クエリの設計</p><p class="text-xs text-gray-600">効果的な文献検索には適切なキーワード選定が重要ですが、未知の分野では適切な用語が思いつかないことがあります。その際、AIに「○○について調べるにはどんなキーワードを使うと良いか」と尋ねれば、関連する専門用語やデータベース名を提案してくれます。AIは広範な語彙知識から検索クエリのヒントを与えてくれるため、見落としていた切り口に気づける利点があります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">プログラミングやコード生成の補助</p><p class="text-xs text-gray-600">データ分析やテキストマイニングのためにプログラミングを用いることも少なくありません。そうした際、ChatGPT等を使えばコードの自動生成やデバッグ支援が得られます。例えば「Pythonで CSV ファイルを読み込んで文字出現頻度を集計するコードを書いて」と指示すれば、サンプルコードを即座に提示してくれます。ただし、生成されたコードが常に最適・正確とは限らないため、人間が内容を理解しテストしながら使うことが重要です。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">図表・ビジュアライゼーションの試作</p><p class="text-xs text-gray-600">図表や概念図のアイデア出しにもAIが使えます。また画像生成AIを利用すれば、資料のイメージ再現や仮想的な挿絵の作成も可能です。ただし、AI生成画像には著作権や史実との齟齬の問題があります。したがって、あくまでスケッチやイメージ共有の段階に留め、本番の図版作成は人間が責任を持って行うのが望ましいでしょう。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">音声読み上げ・会話</p><p class="text-xs text-gray-600">テキストから合成音声を生成する技術も進歩しており、論文原稿や史料の内容をAI音声で読み上げさせることができます。これにより、目の疲労を軽減しつつ論文を「聞いて」推敲したり、長時間の史料テキストを耳で確認したりできます。あくまで利便性向上ツールとして捉え、使いすぎて注意散漫にならないよう留意が必要です。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14.4 使用上の注意点 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">使用上の注意点</h3>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-red-500 mb-1">誤情報と幻覚（ハルシネーション）</p><p class="text-xs text-gray-600">生成AIは一見もっともらしい回答をしますが、事実に反する内容や存在しない情報をあたかも真実であるかのように作り出すことがあります。例えば参考文献リストを求めると、実在しない論文タイトル・著者名をでっち上げる「幻の引用（Citation hallucination）」が発生することが知られています。必ず<strong class="text-gray-700">裏取り（ファクトチェック）</strong>を行う習慣が不可欠です。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-red-500 mb-1">出典の不透明さ</p><p class="text-xs text-gray-600">生成AIの回答には参照した元情報（出典）が明示されません。AIは訓練データに由来する知識を統合して返すだけなので、情報源がブラックボックスです。そのため、AIの生成文を引用しようとしても典拠を示せず、学術的には利用価値が低くなってしまいます。また、AIの出力が実際には誰かの文章をほぼそのまま再現しているケース（いわゆる意図せぬ盗用）もありえます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-red-500 mb-1">バイアスや偏り</p><p class="text-xs text-gray-600">生成AIは訓練データに含まれる偏見やバイアスも学習してしまいます。そのため、ジェンダー・人種・地域に関するステレオタイプな表現や、一方的な観点に偏った回答をすることがあります。人文学研究では多角的な視点やマイノリティの声を重視しますが、AIの出力がデータ上多数派の見解に引きずられている可能性には注意が必要です。例えば偏倫理的な問いに対し、「欧米的な規範」に沿う答えばかりが返ってくる傾向も指摘されています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-red-500 mb-1">プライバシーと機密性</p><p class="text-xs text-gray-600">ChatGPTのようなオンラインサービスに研究上の未公開データや個人情報を入力することには大きなリスクがあります。ChatGPTでは入力内容がサービス改善用途に使われ得ることが明記されており、機密情報を不用意に含めると情報漏えいの危険があります。例えば未発表の史料全文や機密性の高いインタビュー記録をAIにそのまま解析させるのは避けるべきです。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-red-500 mb-1">思考習慣への悪影響</p><p class="text-xs text-gray-600">便利だからといって何でもAI任せにしていると、研究者自身の思考力や文章力の鍛錬機会が失われてしまう恐れがあります。実際、MITの実験ではChatGPTを使ってエッセイを書いた学生は脳の認知的な働きが低下し、自分が書いた内容を後で思い出せない割合が顕著に高かったと報告されています。AIを信頼して作業を任せるほど、自分自身では深く考えなくなり、特に時間に追われる状況ではAIの出力を鵜呑みにしがちになるという調査結果もあります。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14.5 利用指針 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">利用指針</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">生成AIを研究に取り入れる際の基本的なスタンスとして、「<strong class="text-gray-800">頭を使わなくてもよい作業に限って自動化する</strong>」という心得が挙げられます。すなわち、単純作業や定型的処理など、人間がやらなくても結果が大きく変わらない部分にはAIを活用しつつ、創造性や判断が要求される中核部分は人間が担うという役割分担です。</p>
+          <ul class="text-sm text-gray-600 space-y-3">
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">アイデアの起点や構想をAIに丸投げしない</strong>：研究テーマの設定や論文構成の骨子策定といったクリエイティブな部分は、安易にAIに頼らず自分で考えるようにしましょう。「問いの設計」は研究の核心であり、ここを人間が放棄してしまえば研究の主体性も失われます。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">人間による批判的チェックを必ず挟む</strong>：AIに文章の下書きや要約をさせた場合でも、人間がそれを精査し推敲するプロセスは省略しないでください。AIの出力は一見もっともらしくても誤りを含む可能性が常にあります。最終的な責任は常に人間側にあることを肝に銘じ、AIを「賢い共同執筆者」ではなく「あくまで初稿を手伝う補助ツール」と位置づけることが重要です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">用途に応じた適切なツール選択</strong>：文章生成が得意な ChatGPT、画像生成に特化した Midjourney や Stable Diffusion、音声合成に強い Voicemod や各種 TTS エンジン、コード支援の GitHub Copilot 等、多種多様です。研究のニーズに合わせて最適なAIツールを選ぶことも重要です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">使う場面・使わない場面を明確に線引きする</strong>：研究倫理上や創造性維持の観点から、AIの利用を敢えて控える領域も定めておきましょう。例えば、先行研究のレビューや考察の文章といった研究者自身の理解と洞察が問われる箇所は、たとえAIに書かせた方が早くても自分で書く、といったルールです。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">AIの提案をそのまま受け入れない</strong>：AIが出した答えや文章案は、一度疑ってみる姿勢を持ちましょう。「本当にそうだろうか？」「別の視点はないか？」と自問し、必要に応じて再度AIに反証例を尋ねたり、他の情報源を調べたりします。むしろAIを議論の相手のように見立て、わざと反論させてみる（「この仮説に反対の立場からコメントして」等）使い方も有効です。常に主導権は人間側に置き、AIの回答を材料に思考を発展させていく意識が大切です。</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14.6 「使うルール」の設計方法 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.6</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">「使うルール」の設計方法</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">前節で述べた指針を実際の研究生活で徹底するには、日頃から<strong class="text-gray-800">AI利用のガバナンス（統制）</strong>を意識しておく必要があります。ここでは、研究者自身が生成AIを使う上でのルールを設計し、トレース可能かつ倫理的に問題のない形で活用するための具体策を示します。</p>
+          <ul class="text-sm text-gray-600 space-y-3">
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">プロンプトと出力の記録</strong>：AIに何を入力し（プロンプト）、何を得たか（出力）を逐一記録しておくことを強く推奨します。研究ノートや電子日誌等に対話ログを保存し、後から検証できる状態にしましょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">再現可能性の確保</strong>：生成AIの出力は時間やモデルの更新によって変動する可能性があります。そこで、可能な限り使用時のモデル名・バージョン・日時をメモしておき、必要ならそのバージョンで再度実行できるようにします。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">バージョン管理と検証</strong>：プロンプト自体も試行錯誤で洗練されていくものです。プロンプトにバージョン番号を振って保存しておき、後で比較検討できるようにします。また、重要な出力については別のモデルや手法でクロスチェックすることも検討してください。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">倫理面・公開面での透明性</strong>：研究発表や論文執筆にAIを利用した場合、その事実を可能な限りオープンにしましょう。具体的には、論文の謝辞やメソッド部分に「本研究では文章要約にChatGPTを使用した」「図版作成の初期案作成にStable Diffusionを利用した」等と記述することが望ましいとされています。</div></li>
+            <li class="flex items-start gap-2"><span class="text-fuchsia-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">バージョン情報と使用箇所の明記</strong>：論文やレポートの中でAIを使った部分がある場合、脚注や付録でその詳細を明記するのも一案です。例えば「※第○章の分析コードはChatGPT（GPT-5.2, 2026年1月提供版）のアシストにより作成」などと入れておくことで、読者にどこまで人手か分かるようにします。</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14.7 国際的な倫理動向・出版方針 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.7</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">国際的な倫理動向・出版方針</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、生成AIの研究利用に関する国際的な倫理基準や学術出版の動向について整理します。2023年以降、各国の学会や主要学術誌が次々と方針を発表し、AI利用に関するガイドラインを明文化しています。</p>
+          <div class="space-y-3">
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">Nature / Science など科学誌の対応</p><p class="text-xs text-gray-600">トップクラスの学術誌である Nature や Science は、いち早く生成AIに関する厳格な方針を打ち出しました。Science 誌では2023年1月、編集長が「ChatGPTなどAIツールを論文の本文中に使用すること自体を禁止」すると宣言し、大きな話題となりました。一方、Nature を含む Springer Nature 社は「AIを著者として認めないが、執筆準備段階での限定的な利用は許容する」立場です。いずれも共通して「<strong class="text-gray-700">AIは著者にはなれない</strong>」「<strong class="text-gray-700">利用した場合は透明性を確保せよ</strong>」という点は一致しています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">ICMJE（国際医学雑誌編集者会議）の勧告</p><p class="text-xs text-gray-600">医学系ジャーナルに強い影響力を持つ ICMJE も、2023年更新の勧告でAI利用に関する原則を明記しました。先述のとおり「AIを著者に含めてはならない」ことに加え、投稿時にAI使用の有無を申告させる仕組みを推奨しています。具体的には、カバーレターおよび論文中の適切な箇所（例えば謝辞や方法）で「どのような目的でAI技術を使ったか」を記述すべきとしています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">Springer Nature や Elsevier など主要出版社のポリシー</p><p class="text-xs text-gray-600">大手学術出版社も共通した枠組みを打ち出しています。Springer Nature は2023年に「我々はAIに著者資格を与えない」「AI生成画像は受け付けない」「査読者によるAI利用にも慎重であるよう要請する」という声明を公表しました。Elsevier も同様に、2023年のガイドラインで「AIツールを著者として含めてはならない」「AI の使用は申告し、文章の責任は人間が負うこと」を明文化しています。このように出版社各社は細部に違いはあれど、「<strong class="text-gray-700">AIは著者ではない</strong>」「<strong class="text-gray-700">人間が責任を負う</strong>」「<strong class="text-gray-700">利用は開示する</strong>」「<strong class="text-gray-700">画像等への使用は慎重に</strong>」という4原則で概ね一致しています。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-fuchsia-600 mb-1">著作権と法的な位置づけ</p><p class="text-xs text-gray-600">生成AIによる成果物の著作権については各国で議論が進んでいます。多くの国・地域では「著作物として保護されるには人間の創作性が必要」という立場を取っており、AI単独で作った文章や画像は原則として著作権が認められないとの判断が出ています。また特許庁なども AI を発明者とは認めない方向です。要するに、著作権や知的財産の観点から見ても「AI＝著者」ではなく「AI＝道具」であるという整理になります。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14.8 結論 -->
+    <div class="fade-in glass rounded-2xl p-6 mb-5 border-l-4 border-fuchsia-300">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 bg-fuchsia-100 rounded-xl flex items-center justify-center text-xl">💡</div>
+        <h3 class="font-bold text-gray-800">結論：知的主体性を守るために</h3>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed mb-3">人文学研究において、私たちは常に人間の知的主体性を中心に据えておく必要があります。生成AIは強力で便利なツールですが、それに溺れてしまえば、自ら考え創造する人文学の本質が損なわれかねません。本章で見てきたように、生成AIには誤情報を紛れ込ませるリスクや、安易に使えば思考力を蝕む危険さえあります。しかし一方で、使いようによっては日常業務を効率化し、新たな発想の呼び水になる可能性も示しました。</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-3">重要なのは、冷静な眼差しでその可能性と限界を見極め、「<strong class="text-gray-800">ここぞ</strong>」という場面で適切に使うことです。具体的には、単純作業や下調べではAIの力を借りつつ、研究の核心たる着想・解釈は自らの頭で行うという役割分担を明確にしましょう。AIから得られたものは必ず吟味し、必要ならば修正・補強して、最終的なアウトプットはあくまで自分の言葉と判断でまとめ上げるのです。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">最後に強調したいのは、コミュニティ全体での対話の重要性です。生成AIの活用是非や倫理に関する疑問は、個人で抱え込まず周囲と議論しましょう。研究室内で「うちはここまでAIを使う」等の合意をとったり、学会の場で事例や課題を共有したりすることが大切です。本章で述べた提案が、その議論の一助となれば幸いです。</p>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">ChatGPT / Gemini を対象に、自分の研究で役立ちそうな用途を2〜3つ試す。うまくいった点／うまくいかなかった点を記録する。AI 利用方針（やる／やらない／注意点）を明文化する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>ChatGPT / Gemini を対象に、自分の研究で役立ちそうな用途を2〜3つ試す</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>うまくいった点／うまくいかなかった点を記録する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">AI利用方針（やる／やらない／注意点）を明文化する</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -240,12 +229,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
