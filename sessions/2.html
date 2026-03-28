@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第2回 社会人基礎としてのデジタルツール：タスク・予定・情報の管理 | 人文学とデジタル技術（2026）</title>
+  <title>第2回 社会人基礎としてのデジタルツール | 人文学とデジタル技術（2026）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,76 +31,31 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
+    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.8); }
+    .glass-strong { background: rgba(255,255,255,0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.9); }
+    .gradient-text { background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: blobFloat 8s ease-in-out infinite; }
+    @keyframes blobFloat { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-30px) scale(1.1); } 66% { transform: translate(-20px,20px) scale(0.9); } }
+    ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.3); border-radius: 4px; }
+    .pill { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+    .topic-card { transition: all 0.3s ease; }
+    .topic-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -8px rgba(99,102,241,0.12); }
     html { scroll-behavior: smooth; }
+    .info-box { background: rgba(255,255,255,0.5); border-radius: 1rem; padding: 1rem 1.25rem; }
+    code { background: rgba(99,102,241,0.08); padding: 0.15rem 0.4rem; border-radius: 0.375rem; font-size: 0.8em; font-family: 'SF Mono','Fira Code',monospace; color: #4f46e5; }
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s;"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s;"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s;"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -118,13 +73,24 @@
           <span class="text-6xl sm:text-7xl font-black text-indigo-200">02</span>
         </div>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">社会人基礎としてのデジタルツール：タスク・予定・情報の管理</span>
+          <span class="gradient-text">社会人基礎としてのデジタルツール</span>
         </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第2回　人文学とデジタル技術（2026）</p>
+        <p class="text-lg text-gray-600 font-medium mb-1">タスク・予定・情報の管理</p>
+        <p class="text-base text-gray-500 font-light">第2回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 導入 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+        本章の目的は、研究者や大学院生の皆さんがタスク・予定・情報を効率的に管理するための基本的なデジタルツールの使い方を習得し、日々の研究や業務を滞りなく進められる環境を整えることです。タスク管理やスケジュール管理、情報管理のスキルは、<strong class="text-gray-800">社会人基礎力の一部として非常に重要</strong>です。本章では Trello、Google カレンダー、Google ドライブ／スプレッドシート／フォームといった代表的なツールを取り上げ、それぞれの活用方法を丁寧に解説します。
+      </p>
+    </div>
+  </section>
+
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-blue-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,66 +98,191 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><span>Trello によるタスク管理（カンバン方式）</span></li>
-        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><span>Google カレンダーによる予定管理（タイムブロッキング）</span></li>
-        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><span>Google ドライブ・スプレッドシート・フォームによる情報管理</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>Trello によるタスク管理（カンバン方式・優先順位付け）</li>
+        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>Google カレンダーによる予定管理（タイムブロッキング・週次レビュー）</li>
+        <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>Google ドライブ／スプレッドシート／フォームによる情報管理</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+  <!-- 内容 -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in text-center mb-8">
       <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
     </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Trello によるタスク管理</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">カンバン方式の視覚的タスク管理。Board / List / Card の三層構造。Inbox → Next → Doing → Done のワークフロー。タスクの定義と粒度（数時間〜数日で完了できるサイズ）。優先順位付け（重要度・緊急度・コスト）。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Google カレンダーによる予定管理</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">固定予定・ブロック予定・バッファ時間の3種類を意識します。タイムブロッキング（「いつ何の作業をするか」をカレンダー上にブロック）で時間と実行を直結させます。週次レビューで定期的に見直す習慣も重要です。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Trello と併用する意味</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Trello は「何をやるか」を管理し、カレンダーは「いつやるか」を管理します。両方を使うことでタスクの抜け漏れ防止と実行計画の両面をカバーできます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Google ドライブ／スプレッドシート／フォーム</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">フォルダ構成とファイル命名ルール（日付やバージョン番号を含める）。共有とアクセス権限の設定。スプレッドシートで小規模データ管理。Google フォームによる情報収集の効率化（回答の自動集計）。</p>
-          </div>
-        </div>
-      </div>
 
+    <!-- 2.1 Trello -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Trello によるタスク管理</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Trello はカンバン方式（看板方式）に基づいた視覚的なタスク管理が可能なサービスです。一つの画面（ボード）上にリストを横に並べ、カードと呼ばれる単位でタスクを管理します。研究や業務において大小様々なタスクが発生しますが、それらを見える化し整理することで、「今何をすべきか」が把握しやすくなります。
+          </p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">タスクの定義と粒度の考え方</p>
+            <p class="text-sm text-gray-600 mb-2">効果的なタスク管理の第一歩は、<strong class="text-gray-800">タスクの定義</strong>を明確にすることです。一つ一つのタスクの粒度（大きさや範囲）を適切に設定することが重要です。</p>
+            <p class="text-sm text-gray-600">例えば「論文を書く」という漠然とした項目では大きすぎて進捗を管理しにくいため、「関連文献の収集」「実験データの整理」「序論のドラフト作成」のように、<strong class="text-gray-800">数時間から数日で完了できる適切な大きさ</strong>に細分化します。逆に、あまりに小さすぎる作業（5分以内で終わるようなもの）までタスクとして管理するとリストが肥大化してしまうため、そうした細かな作業はまとめるか、その場で即処理するなどバランスを取ることが肝心です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">ボード・リスト・カードの構造と役割</p>
+            <p class="text-sm text-gray-600 mb-3">Trello における基本構造は<strong class="text-gray-800">ボード（Board）</strong>、<strong class="text-gray-800">リスト（List）</strong>、<strong class="text-gray-800">カード（Card）</strong>の三層になっています。カードにはタスクのタイトルのほか、詳細説明、締切日、担当者、チェックリスト、コメントなど様々な情報を付加できます。</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+              <div class="bg-white/60 rounded-xl p-3 text-center">
+                <p class="text-xs font-black text-indigo-600 mb-1">Inbox</p>
+                <p class="text-[10px] text-gray-500">収集箱</p>
+              </div>
+              <div class="bg-white/60 rounded-xl p-3 text-center">
+                <p class="text-xs font-black text-indigo-600 mb-1">Next</p>
+                <p class="text-[10px] text-gray-500">次にやること</p>
+              </div>
+              <div class="bg-white/60 rounded-xl p-3 text-center">
+                <p class="text-xs font-black text-indigo-600 mb-1">Doing</p>
+                <p class="text-[10px] text-gray-500">実行中</p>
+              </div>
+              <div class="bg-white/60 rounded-xl p-3 text-center">
+                <p class="text-xs font-black text-indigo-600 mb-1">Done</p>
+                <p class="text-[10px] text-gray-500">完了</p>
+              </div>
+            </div>
+
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Inbox（収集箱）</strong>：新しく発生したタスクを一時的にすべてここに集めるリスト。思いついた作業や指示された用件など、まずは忘れないようすぐにカードを追加します。</li>
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Next（次にやること）</strong>：今後取り組む予定のタスクを置くリスト。Inbox の中から近いうちに着手すべきものを選び移します。いわば優先待機中のタスクリストです。</li>
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Doing（実行中）</strong>：現在進行中のタスクを置くリスト。今まさに取り組んでいるカードのみをここに移し、集中して完了を目指します。同時に多くのタスクを Doing に入れすぎないようにし、<strong class="text-gray-800">並行作業は可能な限り絞る</strong>ことがポイントです。</li>
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Done（完了）</strong>：完了したタスクの置き場所。タスクが終了したらカードをこのリストに移動します。完了済みタスクの記録としてしばらく残しておくと、後で成果を振り返る際に役立ちます。</li>
+            </ul>
+            <p class="text-sm text-gray-600 mt-3">このような形で <strong class="text-gray-800">Inbox → Next → Doing → Done</strong> とタスクを流していくことで、自身の抱えている作業を俯瞰でき、何が未着手で何が進行中かを一目で把握できます。定期的に未着手のタスクを見直し、長期間放置されているものは優先度を見直すか、必要に応じて削除・延期することで<strong class="text-gray-800">「タスクの積読」</strong>を防ぐ工夫も大切です。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">優先順位付けの考え方（重要度・緊急度・コスト）</p>
+            <p class="text-sm text-gray-600 mb-2">タスクが一覧化できたら、<strong class="text-gray-800">優先順位付け</strong>を行って効率的に消化していきます。判断する軸として一般的なのが、<strong class="text-gray-800">重要度</strong>（そのタスクがもたらす影響の大きさ）と<strong class="text-gray-800">緊急度</strong>（期限までの差し迫り具合）です。これに加えて、タスク遂行にかかる<strong class="text-gray-800">コスト</strong>（時間や労力）も考慮しましょう。</p>
+            <div class="mt-3 space-y-1">
+              <div class="flex items-center gap-2 bg-red-50 rounded-lg px-3 py-2"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><span class="text-xs text-gray-600"><strong class="text-gray-700">最優先</strong>：重要度が高く緊急なもの</span></div>
+              <div class="flex items-center gap-2 bg-orange-50 rounded-lg px-3 py-2"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><span class="text-xs text-gray-600"><strong class="text-gray-700">計画的に</strong>：重要度は高いが緊急ではないもの</span></div>
+              <div class="flex items-center gap-2 bg-yellow-50 rounded-lg px-3 py-2"><span class="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></span><span class="text-xs text-gray-600"><strong class="text-gray-700">判断が必要</strong>：緊急だが重要度が低いもの（可能なら断念・委譲）</span></div>
+              <div class="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2"><span class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span><span class="text-xs text-gray-600"><strong class="text-gray-700">後回し可</strong>：どちらも低いもの</span></div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">Trello ではカードに期限（Due Date）を設定し、ラベルを付けて「高優先度」など色分けし、ひと目で重要なタスクがわかるようにすることも可能です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.2 Google カレンダー -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Google カレンダーによる予定管理</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">スケジュール管理は研究や仕事を円滑に進める上で不可欠なスキルです。Google カレンダーを使えば、予定のリマインド、他人との共有、デバイス間同期など便利な機能を活用できます。特に複数のプロジェクトや研究活動・私生活を両立している場合、デジタルカレンダーで一元的に予定を管理することが望ましいです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">予定管理の基本概念（固定予定・ブロック予定・バッファ）</p>
+            <p class="text-sm text-gray-600 mb-3">効果的な時間管理のためには、予定を性質に応じて分類するのが有効です。大きく分けて<strong class="text-gray-800">固定予定</strong>、<strong class="text-gray-800">ブロック予定</strong>、<strong class="text-gray-800">バッファ時間</strong>の三種類を意識します。</p>
+            <ul class="text-sm text-gray-600 space-y-3">
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">固定予定</strong>：日時があらかじめ決まっている動かせない予定。授業・会議・打ち合わせ・締切日など。最優先でカレンダーに登録し、その時間帯は確実に空けておく必要があります。</div></li>
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ブロック予定（タイムブロッキング）</strong>：自分の裁量で時間を確保して行う作業予定。集中して取り組みたい研究作業や論文執筆、実験、資料読解などの時間をあえて予定としてカレンダー上にブロックします。固定予定以外の空き時間に何にどのくらいの時間を充てるかを計画的に割り振ることで、一日や一週間の「時間の使い方」を設計します。ブロック予定は言わば自分との約束であり、他の用事を安易に割り込ませないようにするのがコツです。</div></li>
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">バッファ時間</strong>：予備の時間や移動・休憩のための隙間時間。予定と予定の間にあらかじめバッファ（緩衝）を入れておくことで、突発的な対応や前の予定の長引きにも柔軟に対処できます。具体的には会議と会議の間に15〜30分程度の余裕時間を入れる、長時間の作業ブロックには適宜休憩を挟む、といった形でカレンダー上に空白の時間を残します。</div></li>
+            </ul>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">タイムブロッキングによる時間設計</p>
+            <p class="text-sm text-gray-600 mb-2">タイムブロッキングとは<strong class="text-gray-800">「いつ何の作業をするか」をあらかじめカレンダー上でブロックとして確保する手法</strong>です。例えば「月曜の9時〜11時は論文検索の時間」「火曜午後は実験結果の解析」といった具合に、自分のタスクリスト上の作業項目に具体的な日時を割り当てます。</p>
+            <p class="text-sm text-gray-600 mb-2">この方法の利点は、<strong class="text-gray-800">やるべきことと時間が直結するため実行に移しやすい</strong>点です。「やらなければ」とリストを眺めるより、「この時間にこの作業をする」と決めた方が、腰を据えて集中しやすくなります。</p>
+            <p class="text-sm text-gray-600">タイムブロッキングを実践する際は、各タスクの所要時間を見積もっておくことも大事です。詰め込みすぎを防ぐために、自分の一日の集中力や体力も考慮して計画しましょう。長時間に及ぶ集中作業は適宜休憩を取り入れ、逆に細切れの雑用はまとめて一つのブロックにするなどの工夫で、生産性を高めつつ疲れにくい時間設計を目指します。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">週次レビューと予定の見直し</p>
+            <p class="text-sm text-gray-600 mb-2">効果的な予定管理には、<strong class="text-gray-800">定期的なレビュー</strong>が欠かせません。おすすめは<strong class="text-gray-800">週次レビュー</strong>です。週に一度、例えば週末や週明けのタイミングで、自分のカレンダーとタスクリストを見返す時間を作りましょう。</p>
+            <p class="text-sm text-gray-600 mb-2">まず前週の予定通りに進められなかったタスクや繰り越した案件がないかを確認し、あれば原因を考えつつ今週いつ処理するか決めます。次に今後の一週間分の予定を俯瞰し、固定予定の抜け漏れがないか、優先すべきタスクのブロックが十分に確保されているかを点検します。</p>
+            <p class="text-sm text-gray-600">週次レビューの際には、Trello 等のタスク管理ツールも併せてチェックし、完了したタスクを Done に移動したり、新たに発生したタスクを Inbox へ追加したりします。計画は立てっぱなしではなく、状況の変化に応じて更新してこそ効果を発揮します。週次レビューで予定と実績のズレを修正し、次の週の行動計画をクリアにしてから新しい週を迎える習慣をつけましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trello と併用する意味 -->
+    <div class="fade-in glass rounded-2xl p-6 mb-5 border-l-4 border-violet-300">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">🔗</div>
+        <h3 class="font-bold text-gray-800">Trello と併用する意味</h3>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed mb-3">Trello によるタスク管理と Google カレンダーの予定管理は、それぞれ役割が異なりますが組み合わせて使うことで相乗効果を発揮します。</p>
+      <div class="grid sm:grid-cols-2 gap-3 mb-3">
+        <div class="bg-white/50 rounded-xl p-4 text-center">
+          <p class="text-xs font-bold text-indigo-600 mb-1">Trello</p>
+          <p class="text-sm text-gray-700 font-semibold">「何をやるか」を管理</p>
+        </div>
+        <div class="bg-white/50 rounded-xl p-4 text-center">
+          <p class="text-xs font-bold text-indigo-600 mb-1">Google カレンダー</p>
+          <p class="text-sm text-gray-700 font-semibold">「いつやるか」を管理</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 leading-relaxed">どちらか片方ではなく両方を使うことで、タスクの抜け漏れ防止と実行計画の両面をカバーできます。例えば、Trello 上で重要なタスクを把握したら、それを実行する時間をカレンダーにブロック予定として確保します。こうすることで「やるべきこと」が「やる予定」に落とし込まれ、<strong class="text-gray-800">タスクが溜まる一方になるのを防ぐ</strong>ことができます。タスク管理ツールとスケジュール管理ツールを併用することで、<strong class="text-gray-800">「タスク管理の計画性」と「時間管理の実行力」</strong>を両立させることができます。大事なことは、どちらのツールにも定期的に目を通し、相互に情報を反映させながら運用することです。</p>
+    </div>
+
+    <!-- 2.3 Google ドライブ／スプレッドシート／フォーム -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Google ドライブ／スプレッドシート／フォームによる情報管理</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、研究活動で取り扱う様々な情報を管理・共有するためのツール群として Google ドライブ、Google スプレッドシート、Google フォームの活用方法を紹介します。これらは Google が提供するクラウドサービスで、文書やデータの保存、共同編集、情報収集などをオンライン上で実現できます。デジタル時代の業務基盤として足非習熟しておきたいツールです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Google ドライブでの資料保存と命名ルール</p>
+            <p class="text-sm text-gray-600 mb-2">Google ドライブは、ファイルをクラウド上に保存し、インターネット経由でどこからでもアクセスできるストレージサービスです。研究で扱う論文PDFや実験データ、写真、スライド資料など、様々なファイルを Google ドライブにも保管しておくことで、<strong class="text-gray-800">データの消失リスクを減らしつつ他のデバイスや共同研究者と簡単に共有</strong>できます。</p>
+            <p class="text-sm text-gray-600 mb-2">効果的に使うには、まず<strong class="text-gray-800">フォルダ構成</strong>と<strong class="text-gray-800">ファイル命名ルール</strong>を決めておくことが重要です。研究プロジェクトごとにフォルダを作成し、その中に「データ」「論文」「解析結果」「ドラフト」など用途別のサブフォルダを用意するといった階層を設計しましょう。</p>
+            <p class="text-sm text-gray-600">ファイル名には統一した命名規則を設けます。例えば<strong class="text-gray-800">日付やバージョン番号を入れる</strong>（<code>20250115_experiment1_v2.csv</code> のように）、内容がわかる簡潔なキーワードを含める（<code>proposal_draft</code> や <code>survey_results</code> など）といった工夫です。誰が見ても理解できる名前を付けておけば、後で自分自身や共同研究者が迷わず目的のファイルを見つけられます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">フォルダ共有とアクセス権限の設計</p>
+            <p class="text-sm text-gray-600 mb-2">共有の際に注意したいのは<strong class="text-gray-800">アクセス権限</strong>の設定です。Google ドライブでは共有相手に対して「閲覧者（閲覧のみ可能）」「コメント可（閲覧＋コメント可能）」「編集者（編集可能）」といった権限レベルを指定できます。</p>
+            <p class="text-sm text-gray-600">例えば、生の実験データは誤って書き換えられないよう閲覧権限のみにしておき、分析用のスプレッドシートは共同編集が必要なので編集権限を与える、といった具合に使い分けます。組織外の人と共有する場合にはリンクにパスワードや期限を設定する、機密性の高い情報は共有権限を最小限に留めるなどの配慮も求められます。適切なフォルダ共有と権限管理によって、<strong class="text-gray-800">必要な人が必要な情報にアクセスできる環境</strong>を整えることが情報管理の基本です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Google スプレッドシートによる小規模データ管理</p>
+            <p class="text-sm text-gray-600 mb-2">Google スプレッドシートは、Excel に似た表計算ツールをブラウザ上で利用できるサービスです。少人数でのデータ共有や簡易なデータ解析に非常に便利で、特に<strong class="text-gray-800">小規模データの管理</strong>に適しています。例えば研究協力者のリスト、アンケートの回答結果、実験の観察記録などをスプレッドシート上に整理しておけば、チーム全員が最新の情報をリアルタイムで閲覧・更新できます。</p>
+            <p class="text-sm text-gray-600">スプレッドシートは関数計算や簡単なグラフ作成機能も備えているため、集計や可視化が必要な場合にも役立ちます。また、Google ドライブと連携しているため、自動保存や変更履歴の追跡が可能であり、万が一誰かが誤ってデータを消してしまった場合でも過去の状態に戻すことができます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Google フォームによる情報収集の実務活用</p>
+            <p class="text-sm text-gray-600 mb-2">Google フォームは、オンラインでアンケートフォームや調査票を作成し、回答を収集できるツールです。例えば<strong class="text-gray-800">研究協力者への情報提供依頼</strong>として、事前調査の質問票を Google フォームで作成し、対象者に URL を送って回答してもらえば、手軽にデータを集められます。イベントやミーティングの出欠確認、授業やゼミ内での簡単なアンケート、アイデア募集などにも使われています。</p>
+            <p class="text-sm text-gray-600">Google フォームの利点は、専門知識がなくても短時間でフォームを設計できることと、<strong class="text-gray-800">回答が自動で集計される</strong>ことです。質問文と回答形式（選択肢、チェックボックス、評価尺度、自由記述など）を指定するだけでフォームが完成し、回答用のリンクを配布できます。集まった回答は Google フォーム上で集計結果をグラフ表示できますし、元データは自動的に対応する Google スプレッドシートに蓄積されるため、後から詳細な分析や加工も容易です。紙でアンケートを配布して手入力で集計する手間とミスを省けるため、<strong class="text-gray-800">データ収集の効率化</strong>に大いに貢献します。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">情報管理ツール活用のまとめ</p>
+            <p class="text-sm text-gray-600">Google ドライブ、スプレッドシート、フォームはいずれも<strong class="text-gray-800">情報の保存・共有・収集をスムーズにするための強力なツール</strong>です。これらを活用することで、研究に必要な資料やデータを安全に保管し、チーム内でリアルタイムに情報共有し、さらには新たな情報をスピーディに集めることが可能になります。重要なのは、ツールを導入しただけで満足するのではなく、<strong class="text-gray-800">自分たちの運用ルールを決めて継続的に使いこなす</strong>ことです。例えば「毎回データファイルは Google ドライブに保存する」「週次ミーティングの議事録はスプレッドシートで管理する」「研究参加者へのアンケートは Google フォームで実施する」といったルールをチーム内で共有し、皆がそれに従うことで効果が最大化します。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">研究用のタスクボードを作成し、運用ルール（期限・粒度など）を決める。Drive のフォルダ設計（命名方針のたたき台）を作る。自分の運用案（タスク／フォルダ設計）を言語化する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>研究用のタスクボードを作成し、運用ルール（期限・粒度など）を決める</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>Drive のフォルダ設計（命名方針のたたき台）を作る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">自分の運用案（タスク／フォルダ設計）を言語化</strong>する</span></li>
+      </ul>
     </div>
   </section>
 
@@ -205,9 +296,7 @@
 
   <script>
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
