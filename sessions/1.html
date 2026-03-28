@@ -88,6 +88,19 @@
       box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
     }
     html { scroll-behavior: smooth; }
+    .info-box {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+    }
+    code {
+      background: rgba(99, 102, 241, 0.08);
+      padding: 0.15rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.8em;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: #4f46e5;
+    }
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
@@ -95,6 +108,7 @@
   <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
   <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
 
+  <!-- Navigation -->
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
@@ -110,6 +124,7 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <header class="relative pt-32 pb-16 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
@@ -125,6 +140,7 @@
     </div>
   </header>
 
+  <!-- 本章の到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
       <div class="flex items-center gap-3 mb-4">
@@ -136,87 +152,282 @@
         <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><span>学習環境の準備（PC／アカウント／作業場所）</span></li>
         <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><span>Notion 基本操作（ページ構造・ブロック・共有・テンプレート）</span></li>
         <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><span>入力効率化の基礎（Markdown 記法／ショートカット／タイピング練習）</span></li>
-
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+  <!-- 1.1 この章の位置づけ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in text-center mb-8">
       <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
     </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">この章の位置づけ</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">研究活動を進める状態をつくるための準備の章。何のために／どう進めるか／どう評価されるかを整理し、安心して動き出せる状態を整えます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">本手引きの目的</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">「調査・読解・思考・執筆・発信」をデジタル技術で設計・運用・発展させることを体系的に学びます。研究の中心はあくまで人間の頭と手であり、ツールは研究を継続可能にするための足場です。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">学習環境の準備</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">PC（推奨：ノートPCでも可）、安定したネット環境、メールアドレス（各種サービス登録用）、ブラウザ（Chrome / Edge / Firefox 等）を用意します。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">Notion 基本操作</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Notion は「ページ」と「ブロック」でできています。ページ構造（入れ物・入れ子）、ブロック（スラッシュ / コマンドで部品一覧）、共有（リンク共有とWeb公開の違い）、テンプレートの活用を学びます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">入力効率化</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Markdown 記法（見出し・箇条書き・太字等）で構造化した文章を高速で作成できるようになります。頻出ショートカット（Ctrl/Cmd + B/I/U/Z）も覚えます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">タイピング練習</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">研究における「筆圧」に近い基礎体力です。寿司打（sushida.net）での練習を推奨。ホームポジションとフォームを重視し、「短く、頻繁に」練習します。</p>
-          </div>
-        </div>
-      </div>
 
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1.1</div>
+        <div>
+          <h3 class="font-bold text-gray-800 mb-2">この章の位置づけ</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">
+            この章は、内容の学習というより、<strong class="text-gray-800">研究活動を進める状態をつくる</strong>ための準備の章です。研究は「ひらめき」だけでは進まず、日々の小さな作業が積み上がって前に進みます。その小さな作業を支えるのが、学習環境と運用ルールです。
+          </p>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            この手引きでは、毎回さまざまなツールを扱います。しかし、ツールの操作だけを覚えても、研究生活の中に定着しないと意味がありません。そこで最初に、<strong class="text-gray-800">何のために／どう進めるか／どう評価されるか</strong>を整理し、安心して動き出せる状態を整えます。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.2 本手引きの目的 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1.2</div>
+        <div>
+          <h3 class="font-bold text-gray-800 mb-2">本手引きの目的</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">
+            本手引きの目的は、人文学研究における「調査・読解・思考・執筆・発信」という研究活動の流れを、デジタル技術を用いて<strong class="text-gray-800">設計し、運用し、発展させる</strong>ことを体系的に学ぶことです。単なるツールの操作習得に留まらず、研究目的や関心に応じてツールを選択し、組み合わせ、研究プロセスの中に位置づける判断力を養います。
+          </p>
+          <div class="info-box">
+            <p class="text-sm text-gray-600 leading-relaxed">
+              ここで重要なのは、研究の中心はあくまで<strong class="text-gray-800">人間の頭と手</strong>にある、という前提です。ツールは研究を「代行」するものではなく、研究を<strong class="text-gray-800">継続可能にするための足場</strong>です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.3 学習環境の準備 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1.3</div>
+        <div>
+          <h3 class="font-bold text-gray-800 mb-2">学習環境の準備</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">
+            この手引きは、スマートフォンだけでも「読む」ことはできますが、作業の多くはPCのほうが安定します。特にNotionや各種ツールは、キーボードと大きい画面があると作業効率が大きく変わります。
+          </p>
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">必要なもの</p>
+            <ul class="space-y-1.5 text-sm text-gray-600">
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><span><strong class="text-gray-700">PC</strong>（推奨：ノートPCでも可）</span></li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><span><strong class="text-gray-700">安定したネット環境</strong></span></li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><span><strong class="text-gray-700">メールアドレス</strong>（各種サービス登録用）</span></li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><span><strong class="text-gray-700">ブラウザ</strong>（Chrome / Edge / Firefox 等）</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.4 Notion 基本操作 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Notion 基本操作</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            Notionは「ページ」と「ブロック」でできています。この二つがNotionの特色で、その点について理解しておくと、Notionの操作の大半は解決します。
+          </p>
+
+          <!-- アカウント作成と初期設定 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">1.4.1 アカウント作成と初期設定</p>
+            <p class="text-sm text-gray-600 mb-2">Notionのアカウントを作成し、ログインできる状態にします。学内メールが使える場合は、学内メールで作ると後々楽なことが多いです。</p>
+            <p class="text-xs font-bold text-gray-500 mb-1">初期設定の優先順位</p>
+            <ol class="text-sm text-gray-600 space-y-1 list-decimal list-inside">
+              <li>使う端末の決定（PC中心）</li>
+              <li>同期の確認（ログインした端末間で同じ内容が見えるか）</li>
+              <li>通知の整理（必要な通知だけ残す）</li>
+            </ol>
+          </div>
+
+          <!-- ページ構造 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">1.4.2 ページ構造</p>
+            <p class="text-sm text-gray-600 mb-2">ページは入れ物で、入れ子にできます。おすすめは、まず「玄関」を作ることです。最初から完璧に分けなくて大丈夫ですが、<strong class="text-gray-700">「投げ込み場所」だけは先に作る</strong>と、詰まりにくくなります。</p>
+            <p class="text-xs font-bold text-gray-500 mb-1">玄関ページ（例）</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>Inbox（思いつきの投げ込み）</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>授業ノート（各回のメモと提出物）</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>研究プロジェクト（自分のテーマに関するノート）</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>文献メモ（読む／読んだ記録）</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>タスク（やることの一覧）</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>目標管理</li>
+            </ul>
+          </div>
+
+          <!-- ブロック -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">1.4.3 ブロック</p>
+            <p class="text-sm text-gray-600 mb-2">Notionの1行1行はブロックです。段落、見出し、箇条書き、チェックボックス、画像、表など、ほとんど全部がブロックとして扱われます。操作の近道はスラッシュ（<code>/</code>）です。<code>/</code> を打つと部品一覧が出るので、そこで選ぶだけで形が作れます。</p>
+            <p class="text-xs font-bold text-gray-500 mb-1">よく使うブロック</p>
+            <div class="grid grid-cols-2 gap-1 text-xs text-gray-500">
+              <span>見出し（<code>/h1</code>, <code>/h2</code>, <code>/h3</code>）</span>
+              <span>箇条書き（<code>/bulleted list</code>）</span>
+              <span>番号付きリスト（<code>/numbered list</code>）</span>
+              <span>To-do（<code>/to-do</code>）</span>
+              <span>目次（<code>/toc</code>）</span>
+              <span>引用（<code>/quote</code>）</span>
+              <span>コード（<code>/code</code>）</span>
+              <span>コールアウト（<code>/callout</code>）</span>
+            </div>
+          </div>
+
+          <!-- 共有 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">1.4.4 共有</p>
+            <p class="text-sm text-gray-600 mb-2">Notionの共有は便利ですが、設定が複数あります。ここで混乱しやすいのは「リンク共有」と「Web公開」の違いです。</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">リンク共有</strong>：リンクを知っている人がアクセス</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Web公開</strong>：Webページとして公開（不特定多数の閲覧が起こりうる）</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">検索公開</strong>：検索エンジンに載る可能性</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">限定共有が目的なら、基本は<strong class="text-gray-600">検索公開はオフ</strong>です。編集権限やコメント権限も必要最小限にします。</p>
+          </div>
+
+          <!-- テンプレート -->
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">1.4.5 テンプレート</p>
+            <p class="text-sm text-gray-600">
+              テンプレートは「毎回の型」です。型は窮屈に見えますが、実は自由を生みます。毎回ゼロから書く負担が減ると、内容（考える部分）に集中できます。他のユーザーが作った完成度の高いテンプレートを使うこともできます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.5 入力効率化 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">入力効率化</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            入力効率化は、速さ自慢のためではありません。研究の集中は「中断」で崩れます。タイプミスやフォーマットの崩れは、全部「中断」になります。小さな中断を減らすと、<strong class="text-gray-800">思考の連続性が守られます</strong>。
+          </p>
+
+          <!-- Markdown記法 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">1.5.1 Markdown 記法</p>
+            <p class="text-sm text-gray-600 mb-3">NotionはMarkdown記法に対応しています。全部覚える必要はありませんが、次のあたりは頻出です。Markdown記法を覚えると、<strong class="text-gray-700">構造化した文章を高速で作成</strong>できるようになります。</p>
+            <div class="bg-gray-800 rounded-xl p-4 text-xs text-gray-200 font-mono space-y-1 leading-relaxed">
+              <p><span class="text-sky-400">#</span> 見出し1</p>
+              <p><span class="text-sky-400">##</span> 見出し2</p>
+              <p><span class="text-sky-400">###</span> 見出し3</p>
+              <p class="mt-2"><span class="text-sky-400">-</span> 箇条書き</p>
+              <p><span class="text-sky-400">1.</span> 番号付き</p>
+              <p class="mt-2"><span class="text-sky-400">- [ ]</span> To-do（チェックボックス）</p>
+              <p class="mt-2"><span class="text-sky-400">**</span>太字<span class="text-sky-400">**</span></p>
+              <p><span class="text-sky-400">*</span>斜体<span class="text-sky-400">*</span></p>
+              <p><span class="text-sky-400">`</span>コード<span class="text-sky-400">`</span></p>
+              <p><span class="text-sky-400">></span> 引用（引用ブロック）</p>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">Markdownは「見た目」だけでなく、<strong class="text-gray-600">構造を作る</strong>のに役立ちます。見出しが整うと、後から読み返すときに迷いません。</p>
+          </div>
+
+          <!-- ショートカット -->
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">1.5.2 ショートカット</p>
+            <p class="text-sm text-gray-600 mb-3">覚えた分だけ作業スピードが上がります。ただし、最初の段階で全部覚える必要はありません。まずは以下のショートカットだけで十分です。</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-left">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="py-2 pr-4 text-xs font-bold text-gray-500">操作</th>
+                    <th class="py-2 text-xs font-bold text-gray-500">ショートカット</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-600">
+                  <tr class="border-b border-gray-100"><td class="py-2 pr-4">太字</td><td class="py-2 font-mono text-xs text-indigo-600">Ctrl/Cmd + B</td></tr>
+                  <tr class="border-b border-gray-100"><td class="py-2 pr-4">斜体</td><td class="py-2 font-mono text-xs text-indigo-600">Ctrl/Cmd + I</td></tr>
+                  <tr class="border-b border-gray-100"><td class="py-2 pr-4">下線</td><td class="py-2 font-mono text-xs text-indigo-600">Ctrl/Cmd + U</td></tr>
+                  <tr><td class="py-2 pr-4">元に戻す</td><td class="py-2 font-mono text-xs text-indigo-600">Ctrl/Cmd + Z</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.6 タイピング練習 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1.6</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">タイピング練習</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            タイピングは、研究における「筆圧」に近い基礎体力です。文章を書く量が増えるほど、タイピングの差は積み上がって効いてきます。
+          </p>
+
+          <div class="info-box mb-4">
+            <p class="text-sm text-gray-600 mb-2">
+              本手引きでは、無料で遊べるタイピング・ゲーム<strong class="text-gray-700">寿司打</strong>（<a href="https://sushida.net" target="_blank" class="text-indigo-500 hover:underline">sushida.net</a>）での練習をお勧めします。
+            </p>
+            <p class="text-sm text-gray-600">
+              具体的な目標として、寿司打の<strong class="text-gray-700">「高級 1万円コース」</strong>（文字数が9から14文字以上、制限時間120秒）の「普通モード」を「お釣りあり」でクリアすることを設定します。目標が明確であれば、練習が習慣化しやすいからです。
+            </p>
+          </div>
+
+          <!-- 練習の考え方 -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">練習の考え方</p>
+            <p class="text-sm text-gray-600 mb-2">おすすめは「短く、頻繁に」です。一気に30分やるより、5分を毎日やるほうが伸びやすいです。</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>週5日：5分〜10分</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>週1回：寿司打1万円コース（記録更新を狙う）</li>
+            </ul>
+          </div>
+
+          <!-- 伸びやすいポイント -->
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">伸びやすいポイント</p>
+            <p class="text-sm text-gray-600 mb-2">タイピングが伸びないときは、気合よりフォームが効きます。</p>
+            <ul class="text-sm text-gray-600 space-y-1.5">
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>キーボードには「ホームポジション」と呼ばれる、指を置く基本の位置があります。左手の人差し指は<strong class="text-gray-700">Fキー</strong>、右手の人差し指は<strong class="text-gray-700">Jキー</strong>に置きましょう。この2つのキーには小さな突起がついているので、見なくても指の位置が分かります。</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span><strong class="text-gray-700">画面を見て打ちましょう</strong>（キーボードを見ない）</li>
+              <li class="flex items-start gap-2"><span class="text-indigo-400 mt-0.5">&#9679;</span>ミスしても慌てないでください（ミス後の立て直しが速さ）</li>
+            </ul>
+          </div>
+
+          <!-- キーボードを身体化する -->
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">キーボードを身体化する</p>
+            <p class="text-sm text-gray-600">
+              自分のコンピュータのキーボード表を印刷して、目に見えるところに貼っておきましょう。特に、記号の位置を頭と身体で覚えましょう。自分のお気に入りのキーボードを見つけるのも良いと思います。
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">シラバス・評価基準の確認、Notion/Slack の利用準備を行う。学んだこと／研究への接続／次に整備することを記述する。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2">
+          <span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span>
+          <span>シラバス・評価基準を確認する</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span>
+          <span>Notion / Slack の利用準備を行う</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span>
+          <span><strong class="text-gray-800">学んだこと／研究への接続／次に整備すること</strong>を記述する</span>
+        </li>
+      </ul>
     </div>
   </section>
 
+  <!-- Navigation Footer -->
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
-      <span></span>
+      <a href="intro.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">← はじめに</a>
       <a href="../#sessions" class="text-sm text-gray-400 hover:text-indigo-600 transition-colors">授業一覧</a>
       <a href="2.html" class="text-sm text-gray-500 hover:text-indigo-600 transition-colors">第2回 →</a>
     </div>
