@@ -8,99 +8,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
   <style>
-    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
-      animation: blobFloat 8s ease-in-out infinite;
-    }
-    @keyframes blobFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -30px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 4px; }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .topic-card {
-      transition: all 0.3s ease;
-    }
-    .topic-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.12);
-    }
-    html { scroll-behavior: smooth; }
+    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#e0f2fe,#e0e7ff,#f0f9ff,#ede9fe,#e0f2fe);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
+    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
+    .gradient-text{background:linear-gradient(135deg,#0ea5e9,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(99,102,241,.3);border-radius:4px}
+    .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(99,102,241,.12)}
+    html{scroll-behavior:smooth}
+    .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-sky-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-indigo-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-violet-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-indigo-600 transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
@@ -114,17 +48,14 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-cyan-100 text-cyan-700 mb-4 inline-block">テキスト</span>
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-indigo-200">12</span>
-        </div>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
-          <span class="gradient-text">テキストデータの収集・前処理・分析</span>
-        </h1>
-        <p class="text-base sm:text-lg text-gray-500 font-light">第12回　人文学とデジタル技術（2026）</p>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-indigo-200">12</span></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">テキストデータの収集・前処理・分析</span></h1>
+        <p class="text-base text-gray-500 font-light">第12回　人文学とデジタル技術（2026）</p>
       </div>
     </div>
   </header>
 
+  <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-cyan-400">
       <div class="flex items-center gap-3 mb-4">
@@ -132,65 +63,176 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">&#9679;</span><span>テキストデータの整形・前処理と可視化・分析の基礎</span></li>
-        <li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">&#9679;</span><span>ディスタント・リーディングの概念理解</span></li>
-
+        <li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">&#9679;</span>ディスタント・リーディングの理論的枠組みと議論の動向</li>
+        <li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">&#9679;</span>テキストデータの収集方法（デジタルアーカイブ・ウェブスクレイピング等）</li>
+        <li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">&#9679;</span>テキストデータの前処理（クリーニング・正規化・トークナイズ・ストップワード等）</li>
+        <li class="flex items-start gap-2"><span class="text-cyan-400 mt-0.5">&#9679;</span>テキストデータの分析（頻度分析・スタイロメトリー・トピックモデル・感情分析・ネットワーク分析）</li>
       </ul>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in text-center mb-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2>
-    </div>
-    <div class="space-y-4">
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">1</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">研究背景：文学研究×データサイエンス</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">ディスタント・リーディングの理論的枠組み（モレッティ）。自然言語処理（NLP）との接続。ディスタント・リーディングを巡る批判と議論の動向。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">テキストデータの収集</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">ウェブスクレイピング、API、デジタルアーカイブ等からのデータ取得方法。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">テキストデータの前処理</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Google Colab を用いた実践。正規表現によるテキストクリーニング。トークナイズ、ストップワード除去等の基礎的な前処理。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fade-in topic-card glass rounded-2xl p-5">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">4</div>
-          <div>
-            <h3 class="font-bold text-gray-800 mb-1">テキストデータの分析</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">頻度分析、ワードクラウド、共起分析等の可視化。データの作り方が解釈を左右する点を確認します。</p>
-          </div>
-        </div>
-      </div>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 12.1 研究背景 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">12.1</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">研究背景：文学研究 × データサイエンス</h3>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">12.1.1 ディスタント・リーディングの理論的枠組み</p>
+            <p class="text-sm text-gray-600 mb-2">文学研究における「distant reading（ディスタント・リーディング）」は、2000年に Franco Moretti によって提唱されて以来、その概念と方法論の両面で多くの変遷を経てきました。Moretti は従来の精読（close reading）偏重の文学研究に異議を唱え、極端に少数の作品だけを尊重する精読を「神学的」とまで評しました。そして彼は「テキストの読み方は既に知っているのだから、今度はテキストを読まない方法を学ぼう」と挑発的に呼びかけたのです。</p>
+            <p class="text-sm text-gray-600 mb-2">Moretti がこのように精読を批判した背景には、従来の文学研究がごく限られた正典（カノン）の作品群に依拠しすぎているという問題意識がありました。実際、彼によれば研究対象となる西洋文学作品は出版されたもの全体の「1%にも満たない」範囲に偏っています。Moretti はこのような「未読の巨大な作品群（the great unread）」を視野に入れるには、個々の作品を読む伝統的方法では不可能だと考えました。</p>
+            <p class="text-sm text-gray-600">こうした問題意識から、Moretti は世界文学を統計的・地理的・社会的に捉える実験的な研究を次々と展開しました。その代表例が『Graphs, Maps, Trees』（2005年）であり、文学テキストの大規模なパターンを可視化するためにグラフ（統計図表）、地図、樹形図といった手法を駆使しています。これらのアプローチは、個々のテキストに密着した精読では見いだせない大きな歴史的傾向や構造を浮かび上がらせ、ディスタント・リーディングの可能性を示すものとなりました。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">12.1.2 ディスタント・リーディングと自然言語処理（NLP）との接続</p>
+            <p class="text-sm text-gray-600 mb-2">ディスタント・リーディングを支える方法論は、大量のテキストを対象とする分析技術に基づいています。Moretti はこの操作化こそが<strong class="text-gray-800">計算批評（computational criticism）</strong>の核心であると述べており、「概念から測定へ、そして現実世界へ橋を架ること」を意味すると説明しています。</p>
+            <p class="text-sm text-gray-600 mb-2">具体的な分析手法としては、テキスト中の単語やフレーズの出現頻度を数える基本的な統計から始まり、<strong class="text-gray-800">スタイロメトリー</strong>（文体計量）、<strong class="text-gray-800">トピックモデル分析</strong>（Topic Modeling）、<strong class="text-gray-800">感情分析</strong>（sentiment analysis）、固有表現抽出（NER）による人物・地名の網羅的抽出、<strong class="text-gray-800">機械学習</strong>によるテキスト分類など、多様な NLP 技法が応用されています。</p>
+            <p class="text-sm text-gray-600">近年では Transformer を基盤とした言語モデル（BERT や GPT-4、GPT-5 など）が登場し、テキストの意味や文脈をより精細に捉えた分析が可能になりました。ただし、モデルが高度化する一方で、その結果に対する解釈や評価はなお人文学者の判断に委ねられる部分が大きく、アルゴリズムが示すパターンを人間の文脈知と照合する作業は欠かせません。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">12.1.3 ディスタント・リーディングを巡る批判と議論の動向</p>
+            <p class="text-sm text-gray-600 mb-3">ディスタント・リーディングの台頭は、従来の文学研究者から様々な反響を呼び起こしました。当初、Moretti の挑発的な主張は論争の的となり、精読を重視する批評家からは反発も招きました。「読まない読み」は文学解釈の本質を損なうのではないかとの懸念も表明されました。しかし一方で、その大胆な視点は文学研究に新たな可能性を感じさせ、多くの議論を刺激する契機ともなりました。</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="bg-white/40 rounded-xl p-3">
+                <p class="text-[10px] font-bold text-red-500 mb-1">批判的立場</p>
+                <p class="text-[10px] text-gray-500">Drucker (2017)：コンピュータによるテキスト処理は「字義通りで自動的・反復的」な行為であり、人間の読む行為（観念的で解釈的・生産的な行為）とは本質的に異なると指摘。Nan Z. Da (2019)：計量的な文学研究（CLS）を徹底的に検証し、統計的手法の使い方に問題があると指摘。「質の低い文学批評」を生み出しがちであると断じました。</p>
+              </div>
+              <div class="bg-white/40 rounded-xl p-3">
+                <p class="text-[10px] font-bold text-emerald-500 mb-1">支持的立場</p>
+                <p class="text-[10px] text-gray-500">Underwood (2019)：大規模分析の成果が文学研究に新たな知見をもたらすことを強調し、この種の定量研究は十分に価値があると述べました。Jockers (2013)：個別テキストの精査（ミクロな読解）に対し、何百ものテキストを数量的に俯瞰する「マクロ分析」を導入することで、文学全体像の理解が深まると論じています。</p>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3">現在では、ディスタント・リーディングは伝統的な精読と対立するものではなく、<strong class="text-gray-800">補完し合う関係</strong>にあるという見方が広がっています。遠隔読解で得られたマクロな視点の発見は、再びミクロな精読にフィードバックされるべきです。ディスタント・リーディングと精読の併用、いわば<strong class="text-gray-800">「中間距離の読解」</strong>へと向かう動きもあり、二者を統合したスケーラブルな読解戦略が模索されています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12.2 テキストデータの収集 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">12.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">テキストデータの収集</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ディスタント・リーディングを実践する第一歩は、分析対象となるテキストデータの大規模な収集です。従来の文学研究では数作品の精読で十分でしたが、ディスタント・リーディングでは何百・何千もの作品テキストを揃える必要があります。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">電子テキストアーカイブの活用</p>
+            <p class="text-sm text-gray-600">具体的なテキストデータの入手源としては、インターネット上の電子テキストアーカイブが重要な役割を果たします。代表的な例として <strong class="text-gray-800">Project Gutenberg</strong> は数万点に及ぶパブリックドメインの文学作品をテキストファイルで提供しており、19世紀英文学の主要な小説（ジェーン・オースティンやチャールズ・ディケンズ、アーサー・コナン・ドイルなど）の全文データを容易に取得できます。他にも、<strong class="text-gray-800">Internet Archive</strong> や <strong class="text-gray-800">Google Books</strong>、<strong class="text-gray-800">HathiTrust</strong> のデジタルライブラリには19世紀の書籍が大量にスキャン・電子化されています。ただし、こうした大規模データを直接扱うにはプログラミング知識や専門的なデータ取得手法（例えば API の利用やウェブスクレイピング）が必要になる場合もあります。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">コーパス構築の戦略と注意点</p>
+            <p class="text-sm text-gray-600 mb-2">コーパスを構築する際には、まず対象とする時代やジャンル、作品の種類を明確に定めます。例えば「19世紀イギリスの小説」を対象にする場合でも、範囲を 1800–1899 年とするのか、ヴィクトリア朝（1837–1901年）に限定するのか、あるいは英国以外で英語で書かれた小説も含めるのかなど、スコープの設定次第で集める作品が変わります。</p>
+            <p class="text-sm text-gray-600">データ収集にあたって忘れてはならないのが、<strong class="text-gray-800">収集対象のバイアスと網羅性の問題</strong>です。簡単に手に入る電子テキストは有名作家や正典（カノン）に偏りがちであり、Moretti 自身が批判した「精読が神学的だ」（ごく一部の作品に偏重している）を、ディスタント・リーディングでも繰り返してしまう危険があります。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">テキストの品質とメタデータ</p>
+            <p class="text-sm text-gray-600 mb-2">もう一つ考慮すべきポイントは、テキストデータ自体の品質と、その周辺情報（メタデータ）です。特に過去の作品を扱う場合、電子化のプロセスで生じるノイズや欠損に注意しなければなりません。19世紀の書籍はしばしばスキャン画像から OCR でテキスト化されていますが、その認識精度は必ずしも高くありません。</p>
+            <p class="text-sm text-gray-600">さらに、集めたテキストに付随するメタデータ（書誌情報）もできるだけ確保しておきたいところです。作品名、著者、出版年、ジャンル、初出版媒体（雑誌か単行本か）といった情報は、分析結果を解釈する上で極めて有用です。また、データ収集の<strong class="text-gray-800">グローバルな偏り</strong>にも留意すべきです。英語圏の19世紀文学などは大規模に電子化されていますが、非英語圏や周縁地域の文学作品は未だデジタル化が進んでいないケースも多くあります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12.3 テキストデータの前処理 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">12.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">テキストデータの前処理</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">大量のテキストデータを収集した後は、それらを分析に適した形に整える「前処理（プリプロセッシング）」の工程が待っています。生のテキストデータは往々にしてそのままでは計算機による分析に適しません。不要なノイズを含んでいたり、形式が統一されていなかったり、人間にとっては意味があっても機械的処理には向かない構造を持っていたりするためです。前処理とは一言で言えば、テキストから分析に不要な要素を取り除き、扱いやすいデータ形式に変換するプロセスです。</p>
+
+          <div class="space-y-3">
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">不要部分の除去（クリーニング）</p>
+              <p class="text-xs text-gray-600">電子化された小説テキストには序文や注釈、校訂者による解説、さらには Project Gutenberg の場合は冒頭や末尾にライセンス情報やスキャン提供者メモが含まれていることがあります。文学研究の分析ではこれらは普通不要ですから、自動的に検出して削除するスクリプトを書くか、規則に従ってトリミングする必要があります。OCR で生成されたテキストの場合、改行や段組みの痕跡が不自然な位置で挿入されていることがあるため、一旦すべての改行をスペースに置換してから段落単位で再構築するといった処理も有効です。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">文字・表記の統一（正規化）</p>
+              <p class="text-xs text-gray-600">19世紀のテキストでは表記ゆれが現代以上に多様です。綴り字が時代や作家によって異なる場合や、大文字小文字の使い方、句読点の打ち方なども揺れがあります。分析目的によってはこれらを正規化（ノーマライズ）することが望ましいでしょう。例えば単語頻度を数える場合、大文字と小文字の違いは区別しない方が語数計測の精度が上がります。そのためテキストをすべて小文字化（lowercasing）する処理は基本的によく行われます。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">トークナイズ（単語への分割）</p>
+              <p class="text-xs text-gray-600">英語テキストの前処理では、単語への分割（トークン化）も不可欠なステップです。人間は文章を読んで自然に単語を認識できますが、計算機は空白や句読点を手がかりにして単語境界を判断します。前処理段階では、テキストを適切に処理して単語単位のリスト（トークン列）を取得します。多くの場合、句読点は除去し、記号も分析には使わないので削除します。また数字も普通はテキストの内容分析からは外すため 0-9 の数字をすべて 0 に置換するか削除することが多いです。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">ストップワード除去・ステミング/レンマ化</p>
+              <p class="text-xs text-gray-600 mb-2">頻度分析やトピックモデルなどでは、あまりにも出現頻度の高い単語は分析上のノイズになることがあります。英語では "the", "of", "and" などの超頻出語（いわゆるストップワード）は文書間の差異を生みにくいため、場合によっては除去します。ただしスタイロメトリーの文脈では、逆にそれら超頻出の機能語こそが文体の特徴を担うと考えられており、分析目的によって判断が必要です。</p>
+              <p class="text-xs text-gray-600"><strong class="text-gray-700">ステミング</strong>は語尾変化を切り落として語幹（stem）を抽出する簡易的な方法で、例えば "walking","walks","walked" をすべて "walk" に変換するといったルールに基づきます。一方<strong class="text-gray-700">レンマ化</strong>は辞書的な原形（lemma）への変換で、動詞なら原形、名詞なら単数形に統一する処理です。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">データ形式への変換</p>
+              <p class="text-xs text-gray-600">テキスト前処理の最終段階として、分析手法が直接扱えるデータ形式への変換があります。多くの計量テキスト分析では、文書ごとの単語頻度表（ドキュメント-ターム行列）や、単語の出現リストを使います。テキストコーパスを構築・前処理する過程には編集者（研究者）の判断や介入が多分に含まれます。そのため、どう前処理したか（例えばどの単語を除去したか、どう正規化したか）を記録し公開することが、研究の再現性のためにも望ましいとされています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12.4 テキストデータの分析 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">12.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">テキストデータの分析</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">十分な規模のテキストデータを収集し、それをクリーンな形に前処理できたら、いよいよディスタント・リーディングの核心である「分析」の段階に入ります。いずれの手法も大量のテキストから人間の読みでは見つけられないようなパターンを抽出し、それを文学的知見へと結びつけることを目指す点で共通しています。</p>
+
+          <div class="space-y-3">
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">頻度分析と語彙統計</p>
+              <p class="text-xs text-gray-600">分析の入口として、まずは基本的な記述統計にあたる単語頻度や語彙の多様性を見ることが考えられます。例えばコーパス全体で最も頻出する単語は何か、各作品ごとに特徴的な単語はあるか、語彙の豊富さ（タイプ数/トークン数の比率や平均文長など）はどうか、といった指標は、大まかに文体や内容の傾向を掴む手がかりになります。頻出語の分布という基本的な統計からジャンル間・時代間の違いを捉え、研究の仮説づくりに役立てることができます。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">スタイロメトリー（文体計量）</p>
+              <p class="text-xs text-gray-600">Burrows 以来の伝統的な方法は、超頻出語の出現比率を各テキストについて算出し、それらを多変量解析にかけて文体の類似・相違を明らかにするというものです。具体的には、例えば19世紀の主要な小説家（オースティン、ディケンズ、トーマス・ハーディ等）の作品をすべてコーパスに入れ、各作品における上位 n 語の割合を計算します。次に、それら割合のプロフィールに基づいて作品間の距離を測り、主成分分析（PCA）やクラスター分析で可視化します。すると、驚くべきことに作家ごとに作品がまとまってクラスターを形成したり、年代順に変化する軌跡が見えたりします。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">トピックモデル分析（LDA 等）</p>
+              <p class="text-xs text-gray-600">Blei らによって提唱された潜在的ディリクレ配分（LDA）に代表されるトピックモデル手法では、コーパス内の単語の共起パターンから、文書集合に潜む「トピック」を自動推定します。例えば19世紀小説 3000 冊に LDA を適用すると、「産業革命の経済活動に関するトピック」「恋愛や結婚に関するトピック」「植民地や異国が舞台の冒険に関するトピック」など、コーパス内で頻繁に一緒に現れる単語の集合が抽出されるでしょう。ただし Lisa Rhody はトピックモデルの結果だけを眺めても既存のカテゴリーをなぞるような平板な解釈に陥りがちだと批判しており、モデルが吐き出すトピック語群にどのような意味づけを行うかが研究者の腕の見せ所となります。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">感情分析（センチメント分析）</p>
+              <p class="text-xs text-gray-600">テキストマイニングの代表的手法で、文学作品のトーンやキャラクターの心情推定に応用されています。例えば長編小説の各章ごとに感情語をスコアリングし、物語全体の感情曲線（プロットアーク）を描くことができます。19世紀のゴシック小説であれば、クライマックスに向けてネガティブな語が増え恐怖の度合いが高まるといったパターンがあるかもしれません。ただし、古い文学作品では感情表現が婉曲的だったり、ポジティブな語とネガティブな語が反転した意味（皮肉や風刺）で使われたりする場合があるため、単純な極性分析が妥当しないこともあります。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">ネットワーク分析による物語構造の解明</p>
+              <p class="text-xs text-gray-600">さらに進んだ分析として、抽出した対話情報から小説内の登場人物同士の関係ネットワークを構築した研究もあります。Elson らの研究は、60作品もの19世紀小説を自動解析して得られたネットワーク指標を比較することで、従来は数作品の例示で語られていた文学理論を大規模に検証しています。Moretti も『ネットワーク理論、プロット分析』（2011年）でシェイクスピアの戯曲に登場人物ネットワークを適用しています。このようにネットワーク分析は、小説世界の構造（誰と誰がどの程度関わるか）を客観指標で表し、それを作品間で比較することで新たな視点を提供してくれます。</p>
+            </div>
+            <div class="info-box">
+              <p class="text-xs font-bold text-cyan-600 mb-1">機械学習によるテキスト分類</p>
+              <p class="text-xs text-gray-600">ディスタント・リーディングの分析では、機械学習を用いたテキスト分類も強力な手法です。Underwood の近年の研究では、数千冊規模の文書集合に対し「これは小説か否か」を判別する分類モデルを学習させ、フィクションとノンフィクションの言語的差異を定量的に測定しています。その結果、小説とノンフィクションは時代が下るにつれて語彙選択の面で乖離が大きくなり、1900年頃までにかなり明確に区別できるようになることが示されています。</p>
+            </div>
+          </div>
+
+          <div class="info-box mt-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">分析結果の解釈と精読との接続</p>
+            <p class="text-sm text-gray-600">大規模テキスト分析から知見を引き出す際には、常に批判的なまなざしと人文学的な仮説が必要です。近年は単なるデータマイニングではなく<strong class="text-gray-800">仮説検証型の遠隔読解</strong>が推奨されています。つまり「データに何か面白いパターンはないか」と闇雲に探すのではなく、「この歴史的現象はテキスト上にどのように現れているか」という問いを立て、それに答えるための指標を計量分析で求めるという姿勢です。ディスタント・リーディングは決して精読（close reading）と対立するものではなく、むしろ<strong class="text-gray-800">補完的な関係</strong>にあります。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
     <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-indigo-400">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">小規模データで前処理を行い、どこが難所か記録する。できれば簡単な可視化（頻度など）まで試す。前処理の工夫点と注意点を振り返る。</p>
+      <ul class="space-y-3 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">1</span><span>小規模データで前処理を行い、どこが難所か記録する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">2</span><span>できれば簡単な可視化（頻度など）まで試す</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">前処理の工夫点と注意点を振り返る</strong></span></li>
+      </ul>
     </div>
   </section>
 
@@ -203,12 +245,8 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
