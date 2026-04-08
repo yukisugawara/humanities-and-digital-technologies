@@ -24,6 +24,14 @@
     .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
+  
+    .attendance-card {
+      background: linear-gradient(135deg, rgba(243,232,255,0.9), rgba(252,231,243,0.9), rgba(254,242,232,0.9));
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(216,180,254,0.4);
+      box-shadow: 0 8px 32px rgba(168,85,247,0.08);
+    }
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
@@ -253,6 +261,58 @@
     </div>
   </section>
 
+  <!-- 出席・ふりかえりフォーム -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12" id="attendance-form">
+    <div class="fade-in rounded-3xl p-6 sm:p-8 attendance-card">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">✋</div>
+        <h2 class="font-bold text-lg text-gray-800">出席登録・ふりかえり</h2>
+      </div>
+
+      <form id="reflectionForm" onsubmit="return submitReflection(event)">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">学籍番号 <span class="text-red-500">*</span></label>
+            <input type="text" id="studentId" required placeholder="例: 12A34567B"
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all">
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">名前 <span class="text-red-500">*</span></label>
+            <input type="text" id="studentName" required placeholder="例: 大阪 太郎"
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all">
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">メールアドレス <span class="text-red-500">*</span></label>
+            <input type="email" id="studentEmail" required placeholder="例: example@osaka-u.ac.jp"
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all">
+            <p class="text-xs text-gray-400 mt-1">入力内容のコピーがこのアドレスに送信されます</p>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">ふりかえり（感想・気づき・質問など） <span class="text-red-500">*</span></label>
+            <textarea id="reflection" required rows="6" minlength="200"
+              placeholder="この回で学んだこと、気づいたこと、疑問に思ったことなどを自由に記述してください（200文字以上、生成AIを使わず自分の言葉で書いてください）"
+              class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white/70 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all resize-y"
+              oninput="updateCharCount()"></textarea>
+            <div class="flex justify-between mt-1">
+              <p class="text-xs text-gray-400">生成AIを使わず、自分の言葉で記述してください</p>
+              <p class="text-xs" id="charCount"><span class="text-gray-400">0</span><span class="text-gray-400"> / 200文字以上</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="formMessage" class="mt-4 text-sm hidden rounded-xl px-4 py-3"></div>
+
+        <button type="submit" id="submitBtn"
+          class="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 text-white font-bold text-sm hover:from-purple-500 hover:via-pink-500 hover:to-rose-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+          提出する
+        </button>
+      </form>
+    </div>
+  </section>
+
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
       <a href="8.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">← 第8回</a>
@@ -265,5 +325,77 @@
     const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
     document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
   </script>
+
+  <script>
+    // ★ デプロイしたGoogle Apps ScriptのURLをここに入力してください
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyeNDOLgph8I4VViQ07UMllQjXu_gowhHEB5lS6qBT8USEsGM5m87TVtv01OGFJ7k-W/exec';
+    const SESSION_NUMBER = 9;
+
+    function updateCharCount() {
+      const text = document.getElementById('reflection').value;
+      const count = text.length;
+      const countEl = document.getElementById('charCount');
+      if (count >= 200) {
+        countEl.innerHTML = '<span class="text-emerald-600 font-semibold">' + count + '</span><span class="text-emerald-600"> / 200文字以上 ✓</span>';
+      } else {
+        countEl.innerHTML = '<span class="text-purple-500 font-semibold">' + count + '</span><span class="text-gray-400"> / 200文字以上</span>';
+      }
+    }
+
+    function showMessage(msg, isError) {
+      const el = document.getElementById('formMessage');
+      el.textContent = msg;
+      el.className = 'mt-4 text-sm rounded-xl px-4 py-3 ' +
+        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200');
+      el.classList.remove('hidden');
+    }
+
+    async function submitReflection(e) {
+      e.preventDefault();
+
+      const reflection = document.getElementById('reflection').value;
+      if (reflection.length < 200) {
+        showMessage('ふりかえりは200文字以上で記入してください（現在 ' + reflection.length + ' 文字）。', true);
+        return false;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '送信中...';
+
+      const payload = {
+        session: SESSION_NUMBER,
+        studentId: document.getElementById('studentId').value.trim(),
+        name: document.getElementById('studentName').value.trim(),
+        email: document.getElementById('studentEmail').value.trim(),
+        reflection: reflection
+      };
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        showMessage(result.message, !result.success);
+
+        if (result.success) {
+          document.getElementById('reflectionForm').reset();
+          updateCharCount();
+          btn.textContent = '提出済み';
+        } else {
+          btn.disabled = false;
+          btn.textContent = '提出する';
+        }
+      } catch (err) {
+        showMessage('通信エラーが発生しました。時間をおいて再度お試しください。', true);
+        btn.disabled = false;
+        btn.textContent = '提出する';
+      }
+
+      return false;
+    }
+  </script>
+
 </body>
 </html>
