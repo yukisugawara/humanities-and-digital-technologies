@@ -132,6 +132,33 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
+  <!-- Password Gate -->
+  <div id="password-gate" style="display:none; position:fixed; inset:0; z-index:99999; background:linear-gradient(-45deg,#fdf2f8,#ede9fe,#fff7ed,#e0f2fe); display:flex; align-items:center; justify-content:center;">
+    <div style="background:rgba(255,255,255,0.85); backdrop-filter:blur(24px); border-radius:1.5rem; padding:2.5rem; max-width:360px; width:90%; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+      <p style="font-size:2rem; margin-bottom:0.5rem;">🔒</p>
+      <h2 style="font-weight:800; font-size:1.2rem; color:#1f2937; margin-bottom:0.5rem;">パスワードを入力してください</h2>
+      <p style="font-size:0.75rem; color:#9ca3af; margin-bottom:1.5rem;">このページは受講者限定です</p>
+      <input id="pw-input" type="password" placeholder="パスワード" style="width:100%; padding:0.7rem 1rem; border-radius:0.75rem; border:1px solid #e5e7eb; font-size:0.9rem; outline:none; margin-bottom:0.75rem;" onkeydown="if(event.key==='Enter')checkPw()">
+      <button onclick="checkPw()" style="width:100%; padding:0.7rem; border-radius:0.75rem; background:linear-gradient(135deg,#8b5cf6,#ec4899); color:white; font-weight:700; font-size:0.9rem; border:none; cursor:pointer;">入る</button>
+      <p id="pw-error" style="color:#ef4444; font-size:0.75rem; margin-top:0.5rem; display:none;">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    function checkPw() {
+      if (document.getElementById('pw-input').value === 'hakkou') {
+        sessionStorage.setItem('hdt_auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+      }
+    }
+    if (sessionStorage.getItem('hdt_auth') !== '1') {
+      document.getElementById('password-gate').style.display = 'flex';
+    } else {
+      document.getElementById('password-gate').style.display = 'none';
+    }
+  </script>
+
   <div class="blob w-96 h-96 bg-amber-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
   <div class="blob w-80 h-80 bg-yellow-200 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
   <div class="blob w-72 h-72 bg-amber-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
