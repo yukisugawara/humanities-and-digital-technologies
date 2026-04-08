@@ -15,7 +15,7 @@
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
     .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
-    .gradient-text{background:linear-gradient(135deg,#059669,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text{background:linear-gradient(135deg,#c084fc,#f9a8d4,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
     .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
@@ -24,7 +24,7 @@
     .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
-    code{background:rgba(16,185,129,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#059669}
+    code{background:rgba(192,132,252,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#7c3aed}
   
     .attendance-card {
       background: linear-gradient(135deg, rgba(243,232,255,0.9), rgba(252,231,243,0.9), rgba(254,242,232,0.9));
@@ -36,19 +36,19 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-emerald-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
-  <div class="blob w-80 h-80 bg-teal-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
-  <div class="blob w-72 h-72 bg-green-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
+  <div class="blob w-96 h-96 bg-pink-200 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-violet-200 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-violet-500 transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
-        <a href="../#sessions" class="hover:text-emerald-600 transition-colors hidden sm:block">授業一覧</a>
-        <a href="7.html" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-emerald-200 transition-all">次の授業 →</a>
+        <a href="../#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
+        <a href="7.html" class="bg-gradient-to-r from-violet-400 to-pink-400 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">次の授業 →</a>
       </div>
     </div>
   </nav>
@@ -56,8 +56,8 @@
   <header class="relative pt-32 pb-16 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
-        <span class="pill bg-teal-100 text-teal-700 mb-4 inline-block">コーパス</span>
-        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-emerald-200">06</span></div>
+        <span class="pill bg-orange-100 text-orange-600 mb-4 inline-block">コーパス</span>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-violet-200">06</span></div>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">デジタルツールとしてのコーパス</span></h1>
         <p class="text-lg text-gray-600 font-medium mb-1">コーパス研究の基礎と検索</p>
         <p class="text-base text-gray-500 font-light">第6回　人文学とデジタル技術（2026）</p>
@@ -67,17 +67,17 @@
 
   <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-teal-400">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-pink-300">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl">🎯</div>
+        <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center text-xl">🎯</div>
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span>人文学研究でコーパスを用いる意義（再現性・確証バイアス回避・根拠の可視化）</li>
-        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span>コーパスの定義・基本的特徴・種類の理解</li>
-        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span>研究目的に応じたコーパス選択のポイント</li>
-        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span>研究アプローチの理解（Corpus-based vs Corpus-driven）</li>
-        <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span>Sketch Engine・中納言での検索実習（KWIC・頻度・共起分析）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>人文学研究でコーパスを用いる意義（再現性・確証バイアス回避・根拠の可視化）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>コーパスの定義・基本的特徴・種類の理解</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>研究目的に応じたコーパス選択のポイント</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>研究アプローチの理解（Corpus-based vs Corpus-driven）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Sketch Engine・中納言での検索実習（KWIC・頻度・共起分析）</li>
       </ul>
     </div>
   </section>
@@ -88,14 +88,14 @@
     <!-- 6.1 意義 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">人文学研究でコーパスを用いる意義</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-3">コーパス（大規模言語データベース）を人文学研究に活用することには、いくつか重要な意義があります。</p>
           <div class="grid sm:grid-cols-3 gap-3">
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">再現性の向上</p><p class="text-xs text-gray-600">従来の人文学では、研究者ごとの解釈や直感に頼る部分が大きく、同じ資料から異なる解釈が生まれることもしばしばでした。コーパスを用いることで、誰もが同じデータにアクセスし、同じ検索手順を踏めば同様の結果を得られるため、研究結果の検証や追試が容易になります。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">確証バイアスの回避</p><p class="text-xs text-gray-600">確証バイアスとは、自分の仮説に都合の良い事例ばかりを集めてしまう傾向のことです。コーパス上で網羅的にデータを観察すれば、恣意的に例を選ぶ余地が減り、仮説に合致する例だけでなく反証例も含めて客観的に検討できます。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">解釈の根拠の可視化</p><p class="text-xs text-gray-600">コーパスから得られた結果（例えばある語の使用頻度や用例の一覧）は、解釈を裏付ける明確なエビデンスとなります。具体的なデータを示せるため、従来の曖昧な主観的判断に比べて説得力が増します。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">再現性の向上</p><p class="text-xs text-gray-600">従来の人文学では、研究者ごとの解釈や直感に頼る部分が大きく、同じ資料から異なる解釈が生まれることもしばしばでした。コーパスを用いることで、誰もが同じデータにアクセスし、同じ検索手順を踏めば同様の結果を得られるため、研究結果の検証や追試が容易になります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">確証バイアスの回避</p><p class="text-xs text-gray-600">確証バイアスとは、自分の仮説に都合の良い事例ばかりを集めてしまう傾向のことです。コーパス上で網羅的にデータを観察すれば、恣意的に例を選ぶ余地が減り、仮説に合致する例だけでなく反証例も含めて客観的に検討できます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">解釈の根拠の可視化</p><p class="text-xs text-gray-600">コーパスから得られた結果（例えばある語の使用頻度や用例の一覧）は、解釈を裏付ける明確なエビデンスとなります。具体的なデータを示せるため、従来の曖昧な主観的判断に比べて説得力が増します。</p></div>
           </div>
           <p class="text-sm text-gray-600 leading-relaxed mt-3">このようにコーパスは、人文学を単に「データ化」する以上の意味を持っています。それは人文学を「解釈の学」から「実証の学」へと開き、<strong class="text-gray-800">データによる客観的観察と人間的な解釈とを統合する試み</strong>でもあります。</p>
         </div>
@@ -105,16 +105,16 @@
     <!-- 6.2 定義と特徴 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">コーパスの定義と基本的特徴</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">コーパス（Corpus）とは、現実に使用された大量の言語データを電子的に集積・構造化したデータベースのことです。テキストデータ（文章や会話の書き起こし）がコンピュータで検索・分析できる形で蓄えられており、日本語では「言語コーパス」などと呼ぶこともあります。典型的には数百万語から数億語規模にも及ぶ自然言語の用例を含み、言語学の研究、辞書や文法書の編纂、言語教育などで重要なリソースとして活用されています。</p>
           <div class="space-y-2">
-            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-teal-400 mt-0.5 font-bold">1.</span><div><strong class="text-gray-700">大規模な言語データベースであること</strong>：規模が大きいことで、ある単語の出現頻度を統計的に調べたり、珍しい表現の用例を見つけたりすることが可能になります。例えば BNC は約1億語、COCA は約10億語の規模です。</div></div>
-            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-teal-400 mt-0.5 font-bold">2.</span><div><strong class="text-gray-700">自然言語の実例を集めていること</strong>：コーパスに収録されるデータは、新聞記事、会話の記録、小説、ウェブテキストなど、実際に使われた言語の実例です。研究者が頭で考えた例文ではなく現実の用例に基づくため、分析に客観性と現実性を与えます。</div></div>
-            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-teal-400 mt-0.5 font-bold">3.</span><div><strong class="text-gray-700">電子化され検索可能であること</strong>：コンピュータ上で利用でき、検索ソフトやプログラムを使って容易に分析できます。語の出現頻度を数えたり、ある語がどのような文脈で使われるかを調べたりといったことが自動化できます。</div></div>
-            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-teal-400 mt-0.5 font-bold">4.</span><div><strong class="text-gray-700">注釈（アノテーション）が付与されていること</strong>：多くのコーパスには各単語の品詞や文法構造などの情報が付与されています。例えば BNC や BCCWJ では、収録テキスト中のすべての単語に品詞タグが付いています。「名詞だけを検索する」「動詞＋目的語のパターンを抽出する」といった高度な検索が可能になります。</div></div>
-            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-teal-400 mt-0.5 font-bold">5.</span><div><strong class="text-gray-700">研究・教育への幅広い応用</strong>：言語研究の基盤資料であり、辞書や文法書の編纂、言語学の仮説検証などに広く使われています。さらに言語教育の分野でも、教材開発や学習者の誤用分析、コーパスに基づくデータ駆動型学習（Data-Driven Learning; DDL）などに活用されています。</div></div>
+            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-pink-400 mt-0.5 font-bold">1.</span><div><strong class="text-gray-700">大規模な言語データベースであること</strong>：規模が大きいことで、ある単語の出現頻度を統計的に調べたり、珍しい表現の用例を見つけたりすることが可能になります。例えば BNC は約1億語、COCA は約10億語の規模です。</div></div>
+            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-pink-400 mt-0.5 font-bold">2.</span><div><strong class="text-gray-700">自然言語の実例を集めていること</strong>：コーパスに収録されるデータは、新聞記事、会話の記録、小説、ウェブテキストなど、実際に使われた言語の実例です。研究者が頭で考えた例文ではなく現実の用例に基づくため、分析に客観性と現実性を与えます。</div></div>
+            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-pink-400 mt-0.5 font-bold">3.</span><div><strong class="text-gray-700">電子化され検索可能であること</strong>：コンピュータ上で利用でき、検索ソフトやプログラムを使って容易に分析できます。語の出現頻度を数えたり、ある語がどのような文脈で使われるかを調べたりといったことが自動化できます。</div></div>
+            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-pink-400 mt-0.5 font-bold">4.</span><div><strong class="text-gray-700">注釈（アノテーション）が付与されていること</strong>：多くのコーパスには各単語の品詞や文法構造などの情報が付与されています。例えば BNC や BCCWJ では、収録テキスト中のすべての単語に品詞タグが付いています。「名詞だけを検索する」「動詞＋目的語のパターンを抽出する」といった高度な検索が可能になります。</div></div>
+            <div class="flex items-start gap-2 text-sm text-gray-600"><span class="text-pink-400 mt-0.5 font-bold">5.</span><div><strong class="text-gray-700">研究・教育への幅広い応用</strong>：言語研究の基盤資料であり、辞書や文法書の編纂、言語学の仮説検証などに広く使われています。さらに言語教育の分野でも、教材開発や学習者の誤用分析、コーパスに基づくデータ駆動型学習（Data-Driven Learning; DDL）などに活用されています。</div></div>
           </div>
         </div>
       </div>
@@ -123,18 +123,18 @@
     <!-- 6.3 種類 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.3</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.3</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">コーパスの種類</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">コーパスには様々な種類があり、構築方法や用途によって分類できます。</p>
           <div class="space-y-3">
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">均衡コーパス（Balanced Corpus）</p><p class="text-xs text-gray-600">あらかじめコーパスの規模や収集範囲を定め、言語全体を代表するように多様なジャンルからバランスよくデータを集めて構築されたコーパス。言語のスナップショットであり、特定の時期・領域の言語使用を偏りなく反映することを目指します。典型例として英国英語の BNC（約1億語）や、日本語の BCCWJ（約1億語）があります。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">モニターコーパス（Monitor Corpus）</p><p class="text-xs text-gray-600">継続的にデータが追加・更新されていく動的なコーパス。言語の変化を逐次「監視（モニター）」する目的で設計されており、新語の出現状況や語の使用頻度の変遷を追跡するのに向いています。例えばアメリカ英語の大型コーパスである COCA などがモニターコーパスに該当します。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">アノテーション付きコーパス</p><p class="text-xs text-gray-600">原文テキストに品詞や構文構造、意味情報などの注釈（アノテーション）が付与されたコーパス。「名詞句に限定して検索する」「主語と目的語の関係を持つ文を抽出する」など高度な分析が可能です。代表例として英語の Penn Treebank や、日本語では BCCWJ（形態素・品詞情報付きで提供）などが挙げられます。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">パラレルコーパス（Parallel Corpus）</p><p class="text-xs text-gray-600">二つ以上の言語で内容が対応しているテキストを対にして収録したコーパス。翻訳テキストの原文と訳文を揃えたもので、多言語の翻訳研究や機械翻訳の開発にしばしば用いられます。例えば Europarl コーパスは典型的なパラレルコーパスです。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">専門分野コーパス（ドメインコーパス）</p><p class="text-xs text-gray-600">特定の専門領域・ジャンルに特化してテキストを集めたコーパス。例えば医学論文だけを集めた医学英語コーパス、法律文書のコーパス、ある作家の全作品コーパスなど。人文学の研究者が自前でコーパスを構築する場合も、自分の研究対象に合わせたドメインコーパスを作るケースが多いでしょう。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">学習者コーパス（Learner Corpus）</p><p class="text-xs text-gray-600">第二言語・外国語としてその言語を学ぶ学習者が実際に書いた作文や発話を収集したコーパス。非母語話者特有の誤用や中間言語の特徴をデータとして記録している点に特徴があり、応用言語学や言語教育の研究で重宝されます。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-teal-600 mb-1">ウェブコーパス</p><p class="text-xs text-gray-600">インターネット上の大量のウェブページからテキストを収集して構築されたコーパス。圧倒的なデータ量と多様性を確保できるのが利点で、珍しい表現例や最新の流行語・専門語も見つけやすい魅力があります。一方で代表性の担保が難しい、品質管理の問題、著作権やプライバシーへの配慮も必要です。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">均衡コーパス（Balanced Corpus）</p><p class="text-xs text-gray-600">あらかじめコーパスの規模や収集範囲を定め、言語全体を代表するように多様なジャンルからバランスよくデータを集めて構築されたコーパス。言語のスナップショットであり、特定の時期・領域の言語使用を偏りなく反映することを目指します。典型例として英国英語の BNC（約1億語）や、日本語の BCCWJ（約1億語）があります。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">モニターコーパス（Monitor Corpus）</p><p class="text-xs text-gray-600">継続的にデータが追加・更新されていく動的なコーパス。言語の変化を逐次「監視（モニター）」する目的で設計されており、新語の出現状況や語の使用頻度の変遷を追跡するのに向いています。例えばアメリカ英語の大型コーパスである COCA などがモニターコーパスに該当します。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">アノテーション付きコーパス</p><p class="text-xs text-gray-600">原文テキストに品詞や構文構造、意味情報などの注釈（アノテーション）が付与されたコーパス。「名詞句に限定して検索する」「主語と目的語の関係を持つ文を抽出する」など高度な分析が可能です。代表例として英語の Penn Treebank や、日本語では BCCWJ（形態素・品詞情報付きで提供）などが挙げられます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">パラレルコーパス（Parallel Corpus）</p><p class="text-xs text-gray-600">二つ以上の言語で内容が対応しているテキストを対にして収録したコーパス。翻訳テキストの原文と訳文を揃えたもので、多言語の翻訳研究や機械翻訳の開発にしばしば用いられます。例えば Europarl コーパスは典型的なパラレルコーパスです。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">専門分野コーパス（ドメインコーパス）</p><p class="text-xs text-gray-600">特定の専門領域・ジャンルに特化してテキストを集めたコーパス。例えば医学論文だけを集めた医学英語コーパス、法律文書のコーパス、ある作家の全作品コーパスなど。人文学の研究者が自前でコーパスを構築する場合も、自分の研究対象に合わせたドメインコーパスを作るケースが多いでしょう。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">学習者コーパス（Learner Corpus）</p><p class="text-xs text-gray-600">第二言語・外国語としてその言語を学ぶ学習者が実際に書いた作文や発話を収集したコーパス。非母語話者特有の誤用や中間言語の特徴をデータとして記録している点に特徴があり、応用言語学や言語教育の研究で重宝されます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-pink-500 mb-1">ウェブコーパス</p><p class="text-xs text-gray-600">インターネット上の大量のウェブページからテキストを収集して構築されたコーパス。圧倒的なデータ量と多様性を確保できるのが利点で、珍しい表現例や最新の流行語・専門語も見つけやすい魅力があります。一方で代表性の担保が難しい、品質管理の問題、著作権やプライバシーへの配慮も必要です。</p></div>
           </div>
           <p class="text-xs text-gray-500 mt-3">大切なのは、自身の研究目的に合ったコーパスを選ぶことです。言語の現在の全体像を知りたいなら均衡コーパス、新語の出現を追跡したいならモニターコーパス、特定分野の表現を調べたいなら専門分野コーパス、といった具合に使い分けると良いでしょう。</p>
         </div>
@@ -144,15 +144,15 @@
     <!-- 6.4 コーパス選択のポイント -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.4</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.4</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">研究目的に応じたコーパス選択のポイント</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-3">実際にコーパスを選んだり自作したりする際には、いくつか考慮すべきポイントがあります。</p>
           <ul class="text-sm text-gray-600 space-y-2">
-            <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">代表性</strong>：コーパスが自分の研究したい言語現象にとって充分に代表的かを考えましょう。コーパスの構成要素（ジャンルや話者属性など）が自分の研究の対象を偏りなくカバーしているかを確認することが重要です。</div></li>
-            <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ジャンル・文体のバランス</strong>：特に均衡コーパス以外では、何らかの偏りがあるものです。例えば Web 由来のコーパスはブログや会話調の文章が多めになる傾向があります。自分の分析したいジャンルが十分な量含まれているかを検討しましょう。</div></li>
-            <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">データの品質とノイズ</strong>：コーパスのテキストデータがどの程度クリーンかも重要です。ノイズの多いコーパスを使うと分析結果にも影響が出るため、可能ならテキストクリーニングがなされているか、注釈精度が高いか、といった点も確認すると良いでしょう。</div></li>
-            <li class="flex items-start gap-2"><span class="text-teal-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">著作権・プライバシー</strong>：特に自分で新たにコーパスを構築する場合は、収集するテキストの権利処理に気を配る必要があります。著作権で保護された文章を無断で大量に収集・公開することは法律上問題がありますし、日記やSNS投稿などには個人情報が含まれる可能性もあります。既存の公開コーパスを利用する場合でも、その利用許諾範囲（商用利用の可否や再配布の禁止等）を守ることが大切です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">代表性</strong>：コーパスが自分の研究したい言語現象にとって充分に代表的かを考えましょう。コーパスの構成要素（ジャンルや話者属性など）が自分の研究の対象を偏りなくカバーしているかを確認することが重要です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ジャンル・文体のバランス</strong>：特に均衡コーパス以外では、何らかの偏りがあるものです。例えば Web 由来のコーパスはブログや会話調の文章が多めになる傾向があります。自分の分析したいジャンルが十分な量含まれているかを検討しましょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">データの品質とノイズ</strong>：コーパスのテキストデータがどの程度クリーンかも重要です。ノイズの多いコーパスを使うと分析結果にも影響が出るため、可能ならテキストクリーニングがなされているか、注釈精度が高いか、といった点も確認すると良いでしょう。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">著作権・プライバシー</strong>：特に自分で新たにコーパスを構築する場合は、収集するテキストの権利処理に気を配る必要があります。著作権で保護された文章を無断で大量に収集・公開することは法律上問題がありますし、日記やSNS投稿などには個人情報が含まれる可能性もあります。既存の公開コーパスを利用する場合でも、その利用許諾範囲（商用利用の可否や再配布の禁止等）を守ることが大切です。</div></li>
           </ul>
         </div>
       </div>
@@ -161,19 +161,19 @@
     <!-- 6.5 アプローチ -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.5</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.5</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">コーパス研究のアプローチ：Corpus-based と Corpus-driven</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">コーパスを用いた研究スタイルには、大きく分けて二つのアプローチが存在します。</p>
 
           <div class="grid sm:grid-cols-2 gap-4 mb-4">
             <div class="info-box">
-              <p class="text-xs font-bold text-teal-600 mb-2">コーパス検証型（Corpus-based）</p>
+              <p class="text-xs font-bold text-pink-500 mb-2">コーパス検証型（Corpus-based）</p>
               <p class="text-xs text-gray-600 mb-2">あらかじめ設定した理論や仮説をコーパスデータによって検証する手法です。研究者は分析前に「○○という表現は話し言葉で多用されるはずだ」「英語の受動態は書き言葉で頻出するだろう」といった仮説や問いを立て、それに基づきコーパス検索と結果分析を行います。</p>
               <p class="text-xs text-gray-500"><strong class="text-gray-600">メリット</strong>：明確な問いに答える形で分析を進めるため結果の解釈がしやすく、エビデンスが直接仮説の支持・反証に結びつく。<br><strong class="text-gray-600">デメリット</strong>：仮説にない現象は見落としがちになる。</p>
             </div>
             <div class="info-box">
-              <p class="text-xs font-bold text-teal-600 mb-2">コーパス駆動型（Corpus-driven）</p>
+              <p class="text-xs font-bold text-pink-500 mb-2">コーパス駆動型（Corpus-driven）</p>
               <p class="text-xs text-gray-600 mb-2">明確な仮説を最初から持たず、コーパスデータそのものの中からパターンや法則を見出そうとする手法です。既存の理論にとらわれず大量のデータを観察し、そこから知見を導く「データ主導（ボトムアップ）」のアプローチになります。</p>
               <p class="text-xs text-gray-500"><strong class="text-gray-600">メリット</strong>：予期しないパターンの発見につながりやすく、新しい言語事実や規則性を発掘できる。<br><strong class="text-gray-600">デメリット</strong>：分析範囲が広大になり焦点が絞りにくい。膨大なパターンの中から意味のあるものを取捨選択して理論化するには熟練を要する。</p>
             </div>
@@ -190,7 +190,7 @@
     <!-- 6.6 Sketch Engine 検索実習 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.6</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.6</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">コーパス検索実習：Sketch Engine を利用した分析</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">以上でコーパスの基礎知識と理論的背景を概観しました。ここからは実際にコーパスを検索・分析する手順を学びましょう。実習には、世界的に広く使われているコーパス検索ツールである <strong class="text-gray-800">Sketch Engine</strong> を中心に扱います。日本語コーパス向けのツールである国立国語研究所の「<strong class="text-gray-800">中納言</strong>」にも触れます。</p>
@@ -216,15 +216,15 @@
             <p class="text-xs font-bold text-gray-700 mb-2">基本機能：KWIC 表示・頻度分析・共起分析</p>
             <div class="space-y-3">
               <div>
-                <p class="text-xs font-bold text-teal-600 mb-1">KWIC 表示（コンコーダンス）</p>
+                <p class="text-xs font-bold text-pink-500 mb-1">KWIC 表示（コンコーダンス）</p>
                 <p class="text-xs text-gray-600">検索を実行すると、デフォルトでは結果は KWIC 形式で表示されます。KWIC とは "Key Word in Context" の略で、検索語を中心に前後の文脈（コンテクスト）を数語ずつ表示したものです。これによって、検索語がどのような文脈で使われているかを直感的に把握できます。KWIC 表示をスクロールして眺めるだけでも、その語の典型的な使われ方（例えば頻出するフレーズや文型）を掴むことができます。</p>
               </div>
               <div>
-                <p class="text-xs font-bold text-teal-600 mb-1">頻度分析</p>
+                <p class="text-xs font-bold text-pink-500 mb-1">頻度分析</p>
                 <p class="text-xs text-gray-600">検索語の出現頻度は結果画面上部に表示されます。SketchEngine ではヒット件数とともに、コーパス全体における百万語あたり頻度（per million words; pmw）も表示されることがあります。頻度情報は、語がどれほど一般的かを示す指標であり、異なる語を比較したりジャンル間で出現率を比べたりする際に有用です。また Frequency List（頻度表）機能もあり、コーパス中で最も頻出する単語を列挙したり、特定の条件下での頻度順位を調べたりできます。</p>
               </div>
               <div>
-                <p class="text-xs font-bold text-teal-600 mb-1">共起（コロケーション）分析</p>
+                <p class="text-xs font-bold text-pink-500 mb-1">共起（コロケーション）分析</p>
                 <p class="text-xs text-gray-600">コーパス研究では、ある語と一緒によく現れる語（共起語, collocate）を調べることも重要です。Sketch Engine で検索した結果画面には「Collocations（コロケーション）」タブや「Word Sketch」タブがあります。Collocations 機能では、検索語の左右一定範囲内に出現する単語で統計的に有意に頻度の高いものがリストアップされます。さらに「Word Sketch」機能を使うと、検索語を中心とした文法関係ごとの共起一覧が得られます。例えば「オブジェクト（目的語）として現れる名詞」として what, it, this, things など、「副詞的に修飾する語」として fully, really, how などが抽出され、それぞれの共起頻度やスコアが表示されます。</p>
               </div>
             </div>
@@ -243,22 +243,22 @@
 
   <!-- まとめ -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
-    <div class="fade-in glass rounded-2xl p-6 border-l-4 border-teal-300">
+    <div class="fade-in glass rounded-2xl p-6 border-l-4 border-pink-300">
       <p class="text-sm text-gray-600 leading-relaxed">本章では、コーパスの基礎から実践までを概観しました。コーパスは現代の人文学研究になくてはならない強力なツールです。大規模で多様な言語データを用いることで、直感や限られた例に頼った従来の研究に比べ、はるかに客観的で再現性の高い分析が可能になります。ぜひ本章で紹介した Sketch Engine 等のツールを実際に使ってみて、再現性ある言語研究の第一歩を踏み出してみてください。</p>
     </div>
   </section>
 
   <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
+    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-violet-400">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
       <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">1</span><span>コーパスに含まれるデータの性質と結果解釈への影響について振り返る</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">2</span><span>Sketch Engine（または中納言）で自分の関心のある語・表現を検索する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">選んだ語・表現／使用したコーパス／行った操作（頻度・KWIC・共起等）／観察された傾向／解釈</strong>を具体的に記述する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">1</span><span>コーパスに含まれるデータの性質と結果解釈への影響について振り返る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">2</span><span>Sketch Engine（または中納言）で自分の関心のある語・表現を検索する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">選んだ語・表現／使用したコーパス／行った操作（頻度・KWIC・共起等）／観察された傾向／解釈</strong>を具体的に記述する</span></li>
       </ul>
     </div>
   </section>
@@ -317,9 +317,9 @@
 
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
-      <a href="5.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">← 第5回</a>
-      <a href="../#sessions" class="text-sm text-gray-400 hover:text-emerald-600 transition-colors">授業一覧</a>
-      <a href="7.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">第7回 →</a>
+      <a href="5.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">← 第5回</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-violet-500 transition-colors">授業一覧</a>
+      <a href="7.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">第7回 →</a>
     </div>
   </footer>
 
@@ -338,7 +338,7 @@
       const count = text.length;
       const countEl = document.getElementById('charCount');
       if (count >= 200) {
-        countEl.innerHTML = '<span class="text-emerald-600 font-semibold">' + count + '</span><span class="text-emerald-600"> / 200文字以上 ✓</span>';
+        countEl.innerHTML = '<span class="text-violet-500 font-semibold">' + count + '</span><span class="text-violet-500"> / 200文字以上 ✓</span>';
       } else {
         countEl.innerHTML = '<span class="text-purple-500 font-semibold">' + count + '</span><span class="text-gray-400"> / 200文字以上</span>';
       }
@@ -348,7 +348,7 @@
       const el = document.getElementById('formMessage');
       el.textContent = msg;
       el.className = 'mt-4 text-sm rounded-xl px-4 py-3 ' +
-        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200');
+        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-violet-50 text-violet-600 border border-violet-200');
       el.classList.remove('hidden');
     }
 

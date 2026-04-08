@@ -15,7 +15,7 @@
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
     .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
-    .gradient-text{background:linear-gradient(135deg,#059669,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text{background:linear-gradient(135deg,#c084fc,#f9a8d4,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
     .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
@@ -24,7 +24,7 @@
     .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
-    code{background:rgba(16,185,129,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#059669}
+    code{background:rgba(192,132,252,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#7c3aed}
   
     .attendance-card {
       background: linear-gradient(135deg, rgba(243,232,255,0.9), rgba(252,231,243,0.9), rgba(254,242,232,0.9));
@@ -36,19 +36,19 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-emerald-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
-  <div class="blob w-80 h-80 bg-teal-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
-  <div class="blob w-72 h-72 bg-green-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
+  <div class="blob w-96 h-96 bg-pink-200 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-violet-200 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-violet-500 transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
-        <a href="../#sessions" class="hover:text-emerald-600 transition-colors hidden sm:block">授業一覧</a>
-        <a href="14.html" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-emerald-200 transition-all">次の授業 →</a>
+        <a href="../#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
+        <a href="14.html" class="bg-gradient-to-r from-violet-400 to-pink-400 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">次の授業 →</a>
       </div>
     </div>
   </nav>
@@ -56,8 +56,8 @@
   <header class="relative pt-32 pb-16 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
-        <span class="pill bg-emerald-100 text-emerald-700 mb-4 inline-block">画像</span>
-        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-emerald-200">13</span></div>
+        <span class="pill bg-violet-100 text-violet-600 mb-4 inline-block">画像</span>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-violet-200">13</span></div>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">画像データの収集と分析</span></h1>
         <p class="text-lg text-gray-600 font-medium mb-1">視覚資料を研究資源にする</p>
         <p class="text-base text-gray-500 font-light">第13回　人文学とデジタル技術（2026）</p>
@@ -67,19 +67,19 @@
 
   <!-- 到達点 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-violet-400">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">🎯</div>
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">🎯</div>
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span>視覚資料（画像）を研究対象にする意義</li>
-        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span>ディスタント・ビューイングの概念と背景（Arnold & Tilton）</li>
-        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span>対象分野と応用事例（歴史写真・美術史・映像メディア・ソーシャルメディア）</li>
-        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span>技術的手法（画像分類・顔検出・特徴量抽出・次元圧縮）</li>
-        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span>IIIF の仕組み（Image API・Presentation API・ビューワ）</li>
-        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span>IIIF を使った画像収集（NDL・Warburg Institute・MET 他）</li>
-        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span>解釈上の留意点（文脈・加工・著作権・出典表記・倫理）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>視覚資料（画像）を研究対象にする意義</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>ディスタント・ビューイングの概念と背景（Arnold & Tilton）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>対象分野と応用事例（歴史写真・美術史・映像メディア・ソーシャルメディア）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>技術的手法（画像分類・顔検出・特徴量抽出・次元圧縮）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>IIIF の仕組み（Image API・Presentation API・ビューワ）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>IIIF を使った画像収集（NDL・Warburg Institute・MET 他）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>解釈上の留意点（文脈・加工・著作権・出典表記・倫理）</li>
       </ul>
     </div>
   </section>
@@ -90,7 +90,7 @@
     <!-- 13.1 視覚資料を研究対象にする意義 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">視覚資料（画像）を研究対象にする意義</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-3">人文学の研究において、文字資料（テキスト）だけでなく視覚資料（画像）を対象とすることには大きな意義があります。文章による記録には限界があり、伝えきれない情報や文脈がありますが、それを補完する手段として画像による視覚情報が必要となる場面も少なくありません。</p>
@@ -103,7 +103,7 @@
     <!-- 13.2 ディスタント・ビューイング -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">ディスタント・ビューイング</h3>
 
@@ -117,10 +117,10 @@
             <p class="text-xs font-bold text-gray-700 mb-2">13.2.2 対象分野と分析対象の広がり</p>
             <p class="text-sm text-gray-600 mb-3">distant viewing の適用される分野は多岐にわたり、歴史的写真アーカイブ、美術作品の画像データ、映画・映像メディア、広告やポスターなどの視覚資料、さらにはソーシャルメディア上の画像にまで広がっています。</p>
             <div class="grid sm:grid-cols-2 gap-3">
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">歴史写真アーカイブの分析</p><p class="text-[10px] text-gray-500">例えば米国の FSA-OWI ドキュメンタリー写真コレクション（1935〜43年、約17万点）に対し、Arnold と Tilton は InceptionV3 モデルの内部レイヤーを用いて各写真を特徴ベクトルに圧縮し、画像の類似度に基づくクラスタリングを試みました。その結果、撮影年や担当写真家が異なっていても同じ主たる対象を撮影した写真が、撮影年や撮影地、担当写真家が異なっていてもしばしば近傍に集まった点です。さらに写真家間の視覚的距離をネットワークとして可視化し、歴史的事実と合致する興味深い関係性が浮かび上がりました。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">美術作品の数量的な比較</p><p class="text-[10px] text-gray-500">美術史においても、画像データの包括的分析によって作品群の傾向を数量的に把握する試みが現れています。Bender は "distant viewing in art history" と題した研究で、大規模な美術作品データセット上の主題選択の変遷を分析しました。例えばヴィーナスを主題とする作品数の推移を地域ごとに比べた結果、19世紀における神話画衰退の度合いが国によって大きく異なることが明らかとなりました。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">映画・映像メディアへの応用</p><p class="text-[10px] text-gray-500">Arnold と Tilton は1960年代のシチュエーション・コメディ2作品（『奥さまは魔女』と『かわいい魔女ジニー』）を対象に、映像そのものをコンピュータで分析するケーススタディを報告しています。キャラクターごとの出演シーン数や画面上の存在時間を計測することで、物語における役割の違いを比較しました。その結果、両シリーズの主人公女性キャラクターの描かれ方に作品ごとの特徴が浮かび上がりました。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">ソーシャルメディア画像の分析</p><p class="text-[10px] text-gray-500">近年では、Instagram 等の写真共有プラットフォームに対しても大規模視覚分析が行われています。その一例が Lev Manovich らによる Selfiecity プロジェクトです。世界5都市で共有された「自撮り（selfie）」写真3200枚を収集し、自動顔解析と人手評価を組み合わせてデータ化しました。分析から明らかになった結果の一つは、自撮り写真の投稿者には女性が男性よりも顕著に多いこと、また都市ごとの傾向として笑顔の度合い（顔の微笑スコア）が非常に高く、さらに女性は男性よりも顕著に頭部を傾けたポーズをとる傾向が強い、といった文化差も見出されました。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">歴史写真アーカイブの分析</p><p class="text-[10px] text-gray-500">例えば米国の FSA-OWI ドキュメンタリー写真コレクション（1935〜43年、約17万点）に対し、Arnold と Tilton は InceptionV3 モデルの内部レイヤーを用いて各写真を特徴ベクトルに圧縮し、画像の類似度に基づくクラスタリングを試みました。その結果、撮影年や担当写真家が異なっていても同じ主たる対象を撮影した写真が、撮影年や撮影地、担当写真家が異なっていてもしばしば近傍に集まった点です。さらに写真家間の視覚的距離をネットワークとして可視化し、歴史的事実と合致する興味深い関係性が浮かび上がりました。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">美術作品の数量的な比較</p><p class="text-[10px] text-gray-500">美術史においても、画像データの包括的分析によって作品群の傾向を数量的に把握する試みが現れています。Bender は "distant viewing in art history" と題した研究で、大規模な美術作品データセット上の主題選択の変遷を分析しました。例えばヴィーナスを主題とする作品数の推移を地域ごとに比べた結果、19世紀における神話画衰退の度合いが国によって大きく異なることが明らかとなりました。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">映画・映像メディアへの応用</p><p class="text-[10px] text-gray-500">Arnold と Tilton は1960年代のシチュエーション・コメディ2作品（『奥さまは魔女』と『かわいい魔女ジニー』）を対象に、映像そのものをコンピュータで分析するケーススタディを報告しています。キャラクターごとの出演シーン数や画面上の存在時間を計測することで、物語における役割の違いを比較しました。その結果、両シリーズの主人公女性キャラクターの描かれ方に作品ごとの特徴が浮かび上がりました。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">ソーシャルメディア画像の分析</p><p class="text-[10px] text-gray-500">近年では、Instagram 等の写真共有プラットフォームに対しても大規模視覚分析が行われています。その一例が Lev Manovich らによる Selfiecity プロジェクトです。世界5都市で共有された「自撮り（selfie）」写真3200枚を収集し、自動顔解析と人手評価を組み合わせてデータ化しました。分析から明らかになった結果の一つは、自撮り写真の投稿者には女性が男性よりも顕著に多いこと、また都市ごとの傾向として笑顔の度合い（顔の微笑スコア）が非常に高く、さらに女性は男性よりも顕著に頭部を傾けたポーズをとる傾向が強い、といった文化差も見出されました。</p></div>
             </div>
           </div>
 
@@ -128,10 +128,10 @@
             <p class="text-xs font-bold text-gray-700 mb-2">13.2.3 ディスタント・ビューイングに用いられる技術的手法</p>
             <p class="text-sm text-gray-600 mb-3">Arnold と Tilton はその手法を「注釈、編成、探索、伝達」の4段階に整理しています。まず研究目的に応じて画像から抽出すべき要素を決め（例：顔の有無・人物の性別、物体カテゴリ、主要な色相など）、コンピュータビジョン技術によって全画像からこれらメタデータを生成します。次に得られたデータを既存の付帯情報（撮影年や作者などのメタデータ）と組み合わせ整理（編成）し、統計解析や可視化によってパターンを探索します。</p>
             <div class="grid sm:grid-cols-2 gap-3">
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">画像分類と物体検出</p><p class="text-[10px] text-gray-500">画像に写っている物体やシーンの種類を自動判別する技術で、深層学習の畳み込みニューラルネットワーク（CNN）モデルによって近年飛躍的に精度が向上しました。FSA 写真の事例では、ImageNet データで学習した汎用物体認識モデル（InceptionV3）の内部表現を利用し、画像ごとの特徴ベクトルを算出しています。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">顔検出・顔認識</p><p class="text-[10px] text-gray-500">人物が写った写真や映像では、顔を自動検出して人物ごとに識別・集計することで、その出現頻度や画面占有時間を測定できます。先述のテレビ番組の研究では、オープンソースの顔解析ツールキット（例：OpenFace）を用いて各ショット中の顔位置を検出し、クラスタリングによって同一人物を識別する手法が取られました。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">特徴量抽出と次元圧縮</p><p class="text-[10px] text-gray-500">画像から色、形状、テクスチャなどの定量的特徴を計算し、高次元ベクトルで表現した上で、主成分分析や t-SNE といった手法で2次元マップに可視化することで、データ全体の分布傾向を俯瞰できます。Manovich の Selfiecity では、顔の向きや微笑の強さ等の数値を自動取得し、都市ごとの分布を比較しています。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">注意点：技術のバイアス</p><p class="text-[10px] text-gray-500">Arnold と Tilton は、既存のコンピュータビジョン技術の多くが軍事や監視目的で開発されてきた経緯や、現代の写真で訓練されたモデルをそのまま歴史資料に適用する際の問題を指摘しています。例えば白黒写真で学習したカラー写真用の物体認識モデルでは性能が十分でない場合があること、顔認識でも訓練データが偏っていれば特定の人種・性別に対する精度が異なる可能性があることが報告されています。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">画像分類と物体検出</p><p class="text-[10px] text-gray-500">画像に写っている物体やシーンの種類を自動判別する技術で、深層学習の畳み込みニューラルネットワーク（CNN）モデルによって近年飛躍的に精度が向上しました。FSA 写真の事例では、ImageNet データで学習した汎用物体認識モデル（InceptionV3）の内部表現を利用し、画像ごとの特徴ベクトルを算出しています。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">顔検出・顔認識</p><p class="text-[10px] text-gray-500">人物が写った写真や映像では、顔を自動検出して人物ごとに識別・集計することで、その出現頻度や画面占有時間を測定できます。先述のテレビ番組の研究では、オープンソースの顔解析ツールキット（例：OpenFace）を用いて各ショット中の顔位置を検出し、クラスタリングによって同一人物を識別する手法が取られました。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">特徴量抽出と次元圧縮</p><p class="text-[10px] text-gray-500">画像から色、形状、テクスチャなどの定量的特徴を計算し、高次元ベクトルで表現した上で、主成分分析や t-SNE といった手法で2次元マップに可視化することで、データ全体の分布傾向を俯瞰できます。Manovich の Selfiecity では、顔の向きや微笑の強さ等の数値を自動取得し、都市ごとの分布を比較しています。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">注意点：技術のバイアス</p><p class="text-[10px] text-gray-500">Arnold と Tilton は、既存のコンピュータビジョン技術の多くが軍事や監視目的で開発されてきた経緯や、現代の写真で訓練されたモデルをそのまま歴史資料に適用する際の問題を指摘しています。例えば白黒写真で学習したカラー写真用の物体認識モデルでは性能が十分でない場合があること、顔認識でも訓練データが偏っていれば特定の人種・性別に対する精度が異なる可能性があることが報告されています。</p></div>
             </div>
           </div>
 
@@ -148,13 +148,13 @@
     <!-- 13.3 IIIF -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.3</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.3</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">IIIF の仕組み：画像配信とプレゼンテーション</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">デジタル時代に大量の画像を活用するには、標準化された仕組みが重要です。<strong class="text-gray-800">IIIF</strong>（International Image Interoperability Framework）は、まさに画像データの標準化と相互運用を目的とした国際的な枠組みです。</p>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-emerald-600 mb-1">IIIF Image API による画像配信</p>
+            <p class="text-xs font-bold text-violet-500 mb-1">IIIF Image API による画像配信</p>
             <p class="text-xs text-gray-600 mb-2">Image API は、ウェブ上で画像を表示・操作するための統一的な画像取得方法を定めた API 仕様です。画像サーバに対して HTTP リクエストで URL パラメータを指定することで、画像の一部分（領域）や縮小画像、回転画像、白黒画像など、種々のバリエーションの画像データを取得できます。</p>
             <div class="bg-gray-800 rounded-lg p-3 text-xs text-gray-200 font-mono mb-2">
               <p>https://{画像サーバ}/{識別子}/{領域}/{サイズ}/{回転角度}/{画質}.{形式}</p>
@@ -163,13 +163,13 @@
           </div>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-emerald-600 mb-1">IIIF Presentation API とマニフェストの構造</p>
+            <p class="text-xs font-bold text-violet-500 mb-1">IIIF Presentation API とマニフェストの構造</p>
             <p class="text-xs text-gray-600 mb-2">Presentation API は、画像を含むデジタルオブジェクトの構造や基本的なメタデータを記述し、ビューワでの表示方法を定めるための API 仕様です。中心概念が<strong class="text-gray-700">マニフェスト（manifest）</strong>と呼ばれる JSON-LD 形式のドキュメントで、これが一つのオブジェクト（例えば一冊の書物、一枚の絵画、一冊の写真アルバム等）を記述します。マニフェストには、そのオブジェクトに含まれる画像群の構造（ページ順序や章立てなど）や、基本的な書誌メタデータ（タイトル、作成者、年代、ライセンス情報等）が含まれています。</p>
             <p class="text-[10px] text-gray-500">要約すれば、マニフェストは「あるオブジェクトの基本メタデータ」と「中身の画像群の構造および画像への参照」をひとまとめに記述したものと言えます。この統一形式により、異なる機関の画像資料であってもマニフェストさえ取得すれば共通の方法で扱える利点があります。</p>
           </div>
 
           <div class="info-box">
-            <p class="text-xs font-bold text-emerald-600 mb-1">IIIF ビューワの活用</p>
+            <p class="text-xs font-bold text-violet-500 mb-1">IIIF ビューワの活用</p>
             <p class="text-xs text-gray-600">IIIF のもう一つの重要要素は、対応する<strong class="text-gray-700">ビューワ（viewer）</strong>です。代表的な汎用ビューワには <strong class="text-gray-700">Mirador</strong> や Universal Viewer、OpenSeaDragon（IIIF 対応版）などがあります。これらを用いると、IIIF マニフェストさえ指定すれば、画像コレクションをページめくり形式で閲覧したり、ズームや回転、明るさ調整、比較表示（複数の画像を並べて比較）などの操作が可能です。特に Mirador は、複数の IIIF マニフェストを同時に読み込み、別々のコレクションからの画像を並べて比較検討するといった高度な使い方もできます。</p>
           </div>
         </div>
@@ -179,16 +179,16 @@
     <!-- 13.4 IIIF を使った画像収集 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.4</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.4</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">IIIF を使った画像収集</h3>
 
           <div class="info-box mb-4">
             <p class="text-xs font-bold text-gray-700 mb-2">13.4.1 IIIF 公開 API の事例紹介</p>
             <div class="grid sm:grid-cols-3 gap-3">
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">国立国会図書館（NDL）</p><p class="text-[10px] text-gray-500">日本の代表的な IIIF 対応データベース。デジタルコレクションでは公開資料について IIIF マニフェストが提供されており、書籍や古典籍の高精細画像を取得できます。明治・大正期の書籍から浮世絵、古写真まで多様な資料が含まれ、数十万点規模の画像を IIIF 経由で利用可能です。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">ワーバーグ研究所（Warburg Institute）</p><p class="text-[10px] text-gray-500">イコノグラフィック・データベースも IIIF に対応した重要なリソース。同データベースは主に西洋美術の主題分類にもとづき画像が整理されており、古典神話や歴史、日常生活、宗教寓意などのカテゴリ別に検索・閲覧できます。登録画像数は写真コレクションからの約8万点とその他2万点、計10万点ほどにのぼります。</p></div>
-              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-emerald-600 mb-1">メトロポリタン美術館（The MET）</p><p class="text-[10px] text-gray-500">オープンアクセス戦略の一環として、所蔵美術品画像の大量公開を行っている代表的な美術館。MET の Open Access プログラムでは、40万点を超える所蔵美術品の高解像度画像がパブリックドメインとして公開され、誰でも利用可能です。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">国立国会図書館（NDL）</p><p class="text-[10px] text-gray-500">日本の代表的な IIIF 対応データベース。デジタルコレクションでは公開資料について IIIF マニフェストが提供されており、書籍や古典籍の高精細画像を取得できます。明治・大正期の書籍から浮世絵、古写真まで多様な資料が含まれ、数十万点規模の画像を IIIF 経由で利用可能です。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">ワーバーグ研究所（Warburg Institute）</p><p class="text-[10px] text-gray-500">イコノグラフィック・データベースも IIIF に対応した重要なリソース。同データベースは主に西洋美術の主題分類にもとづき画像が整理されており、古典神話や歴史、日常生活、宗教寓意などのカテゴリ別に検索・閲覧できます。登録画像数は写真コレクションからの約8万点とその他2万点、計10万点ほどにのぼります。</p></div>
+              <div class="bg-white/40 rounded-xl p-3"><p class="text-[10px] font-bold text-violet-500 mb-1">メトロポリタン美術館（The MET）</p><p class="text-[10px] text-gray-500">オープンアクセス戦略の一環として、所蔵美術品画像の大量公開を行っている代表的な美術館。MET の Open Access プログラムでは、40万点を超える所蔵美術品の高解像度画像がパブリックドメインとして公開され、誰でも利用可能です。</p></div>
             </div>
             <p class="text-[10px] text-gray-500 mt-2">上記以外にも、ヨーロッパの美術館・図書館には IIIF 対応が急速に広まっています。大英図書館（British Library）、フランス国立図書館（BnF）、米国議会図書館（Library of Congress）なども IIIF マニフェストを提供しています。また日本国内でも、国文学研究資料館の古典籍資料や東京国立博物館の所蔵品画像などが IIIF で公開されています。</p>
           </div>
@@ -227,15 +227,15 @@
     <!-- 13.5 解釈上の留意点 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.5</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">13.5</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">解釈上の留意点</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、視覚資料を研究に活用する際の解釈上・倫理上の留意点について触れておきます。画像は強力な情報源ですが、その利用には慎重な姿勢が求められます。</p>
           <ul class="text-sm text-gray-600 space-y-3">
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">文脈の重要性</strong>：視覚資料の意味は多義的で文脈に依存します。ある一枚の写真や絵画も、それが提示される文脈によって受け取られる意味が大きく変わり得ます。研究者は、画像を読む際にそのコンテクストを丁寧に復元・考慮する必要があります。例えば歴史写真を分析する際には、その写真がどこで誰によって撮影され、当時どのように発表・流通し、現在我々が見ているそのデジタル画像はどういう経路でアーカイブされたのか、といった背景に目を向けることが大切です。</div></li>
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">画像の加工・切り出し・注釈による意味の変容</strong>：研究や発表の中で、画像資料をトリミング（切り抜き）したり、一部に強調のマークを付けたり、色調を補正したりすることがあるかもしれません。こうした操作は便利ではありますが、元画像の持つ情報やバランスに影響を与えます。画像を加工して用いる場合は、その加工内容と意図を明示することが重要です。</div></li>
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">著作権と IIIF 画像利用の前提</strong>：IIIF 経由で取得できる画像の多くはパブリックドメイン（著作権保護期間満了）か、もしくは提供機関が研究教育目的での利用を許諾したものです。しかし全てが無制限に使えるとは限りません。IIIF マニフェストの license 項目や提供サイトの利用規約を必ず確認し、許諾範囲を守ることが大事です。</div></li>
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">出典表記の原則と倫理的な再利用</strong>：研究において他者の資料を用いた場合、その出典を明示するのは基本的な倫理です。画像資料も例外ではなく、引用した図版には出典（所蔵元やデータベース名、資料 ID 等）を必ず記載しましょう。パブリックドメインの画像であっても、学術出版物では「○○美術館所蔵（Public Domain）」などと明記するのが一般的です。また、人を被写体とした写真資料の場合はプライバシーや名誉への配慮も必要です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">文脈の重要性</strong>：視覚資料の意味は多義的で文脈に依存します。ある一枚の写真や絵画も、それが提示される文脈によって受け取られる意味が大きく変わり得ます。研究者は、画像を読む際にそのコンテクストを丁寧に復元・考慮する必要があります。例えば歴史写真を分析する際には、その写真がどこで誰によって撮影され、当時どのように発表・流通し、現在我々が見ているそのデジタル画像はどういう経路でアーカイブされたのか、といった背景に目を向けることが大切です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">画像の加工・切り出し・注釈による意味の変容</strong>：研究や発表の中で、画像資料をトリミング（切り抜き）したり、一部に強調のマークを付けたり、色調を補正したりすることがあるかもしれません。こうした操作は便利ではありますが、元画像の持つ情報やバランスに影響を与えます。画像を加工して用いる場合は、その加工内容と意図を明示することが重要です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">著作権と IIIF 画像利用の前提</strong>：IIIF 経由で取得できる画像の多くはパブリックドメイン（著作権保護期間満了）か、もしくは提供機関が研究教育目的での利用を許諾したものです。しかし全てが無制限に使えるとは限りません。IIIF マニフェストの license 項目や提供サイトの利用規約を必ず確認し、許諾範囲を守ることが大事です。</div></li>
+            <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">出典表記の原則と倫理的な再利用</strong>：研究において他者の資料を用いた場合、その出典を明示するのは基本的な倫理です。画像資料も例外ではなく、引用した図版には出典（所蔵元やデータベース名、資料 ID 等）を必ず記載しましょう。パブリックドメインの画像であっても、学術出版物では「○○美術館所蔵（Public Domain）」などと明記するのが一般的です。また、人を被写体とした写真資料の場合はプライバシーや名誉への配慮も必要です。</div></li>
           </ul>
         </div>
       </div>
@@ -244,15 +244,15 @@
 
   <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
+    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-violet-400">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
       <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">1</span><span>IIIF で画像を取得し、メタデータ（出典・権利等）を整理する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">2</span><span>画像の扱いで気づいた注意点をまとめる</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">出典・権利・メタデータの注意点を書く</strong></span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">1</span><span>IIIF で画像を取得し、メタデータ（出典・権利等）を整理する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">2</span><span>画像の扱いで気づいた注意点をまとめる</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">出典・権利・メタデータの注意点を書く</strong></span></li>
       </ul>
     </div>
   </section>
@@ -311,9 +311,9 @@
 
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
-      <a href="12.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">← 第12回</a>
-      <a href="../#sessions" class="text-sm text-gray-400 hover:text-emerald-600 transition-colors">授業一覧</a>
-      <a href="14.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">第14回 →</a>
+      <a href="12.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">← 第12回</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-violet-500 transition-colors">授業一覧</a>
+      <a href="14.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">第14回 →</a>
     </div>
   </footer>
 
@@ -332,7 +332,7 @@
       const count = text.length;
       const countEl = document.getElementById('charCount');
       if (count >= 200) {
-        countEl.innerHTML = '<span class="text-emerald-600 font-semibold">' + count + '</span><span class="text-emerald-600"> / 200文字以上 ✓</span>';
+        countEl.innerHTML = '<span class="text-violet-500 font-semibold">' + count + '</span><span class="text-violet-500"> / 200文字以上 ✓</span>';
       } else {
         countEl.innerHTML = '<span class="text-purple-500 font-semibold">' + count + '</span><span class="text-gray-400"> / 200文字以上</span>';
       }
@@ -342,7 +342,7 @@
       const el = document.getElementById('formMessage');
       el.textContent = msg;
       el.className = 'mt-4 text-sm rounded-xl px-4 py-3 ' +
-        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200');
+        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-violet-50 text-violet-600 border border-violet-200');
       el.classList.remove('hidden');
     }
 

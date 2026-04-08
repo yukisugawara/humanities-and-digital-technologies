@@ -22,7 +22,7 @@
   <style>
     * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
     .gradient-bg {
-      background: linear-gradient(-45deg, #e0f2fe, #e0e7ff, #f0f9ff, #ede9fe, #e0f2fe);
+      background: linear-gradient(-45deg, #fdf2f8, #f5f3ff, #fff7ed, #ecfeff, #fce7f3);
       background-size: 400% 400%;
       animation: gradientShift 20s ease infinite;
     }
@@ -33,7 +33,7 @@
     }
     .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.8); }
     .glass-strong { background: rgba(255,255,255,0.85); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.9); }
-    .gradient-text { background: linear-gradient(135deg, #059669, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-text { background: linear-gradient(135deg, #c084fc, #f9a8d4, #fdba74); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
     .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: blobFloat 8s ease-in-out infinite; }
@@ -44,7 +44,7 @@
     .topic-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -8px rgba(99,102,241,0.12); }
     html { scroll-behavior: smooth; }
     .info-box { background: rgba(255,255,255,0.5); border-radius: 1rem; padding: 1rem 1.25rem; }
-    code { background: rgba(99,102,241,0.08); padding: 0.15rem 0.4rem; border-radius: 0.375rem; font-size: 0.8em; font-family: 'SF Mono','Fira Code',monospace; color: #4f46e5; }
+    code { background: rgba(99,102,241,0.08); padding: 0.15rem 0.4rem; border-radius: 0.375rem; font-size: 0.8em; font-family: 'SF Mono','Fira Code',monospace; color: #7c3aed; }
   
     .attendance-card {
       background: linear-gradient(135deg, rgba(243,232,255,0.9), rgba(252,231,243,0.9), rgba(254,242,232,0.9));
@@ -56,19 +56,19 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-emerald-300 top-20 -left-48 fixed" style="animation-delay:0s;"></div>
-  <div class="blob w-80 h-80 bg-teal-300 top-1/2 -right-40 fixed" style="animation-delay:2s;"></div>
-  <div class="blob w-72 h-72 bg-green-200 bottom-20 left-1/3 fixed" style="animation-delay:4s;"></div>
+  <div class="blob w-96 h-96 bg-pink-200 top-20 -left-48 fixed" style="animation-delay:0s;"></div>
+  <div class="blob w-80 h-80 bg-violet-200 top-1/2 -right-40 fixed" style="animation-delay:2s;"></div>
+  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay:4s;"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-violet-500 transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
-        <a href="../#sessions" class="hover:text-emerald-600 transition-colors hidden sm:block">授業一覧</a>
-        <a href="3.html" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-emerald-200 transition-all">次の授業 →</a>
+        <a href="../#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
+        <a href="3.html" class="bg-gradient-to-r from-violet-400 to-pink-400 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">次の授業 →</a>
       </div>
     </div>
   </nav>
@@ -78,7 +78,7 @@
       <div class="fade-in">
         <span class="pill bg-blue-100 text-blue-700 mb-4 inline-block">管理</span>
         <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-6xl sm:text-7xl font-black text-emerald-200">02</span>
+          <span class="text-6xl sm:text-7xl font-black text-violet-200">02</span>
         </div>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4">
           <span class="gradient-text">社会人基礎としてのデジタルツール</span>
@@ -122,7 +122,7 @@
     <!-- 2.1 Trello -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">Trello によるタスク管理</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">
@@ -141,19 +141,19 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
               <div class="bg-white/60 rounded-xl p-3 text-center">
-                <p class="text-xs font-black text-emerald-600 mb-1">Inbox</p>
+                <p class="text-xs font-black text-violet-500 mb-1">Inbox</p>
                 <p class="text-[10px] text-gray-500">収集箱</p>
               </div>
               <div class="bg-white/60 rounded-xl p-3 text-center">
-                <p class="text-xs font-black text-emerald-600 mb-1">Next</p>
+                <p class="text-xs font-black text-violet-500 mb-1">Next</p>
                 <p class="text-[10px] text-gray-500">次にやること</p>
               </div>
               <div class="bg-white/60 rounded-xl p-3 text-center">
-                <p class="text-xs font-black text-emerald-600 mb-1">Doing</p>
+                <p class="text-xs font-black text-violet-500 mb-1">Doing</p>
                 <p class="text-[10px] text-gray-500">実行中</p>
               </div>
               <div class="bg-white/60 rounded-xl p-3 text-center">
-                <p class="text-xs font-black text-emerald-600 mb-1">Done</p>
+                <p class="text-xs font-black text-violet-500 mb-1">Done</p>
                 <p class="text-[10px] text-gray-500">完了</p>
               </div>
             </div>
@@ -185,7 +185,7 @@
     <!-- 2.2 Google カレンダー -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">Google カレンダーによる予定管理</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">スケジュール管理は研究や仕事を円滑に進める上で不可欠なスキルです。Google カレンダーを使えば、予定のリマインド、他人との共有、デバイス間同期など便利な機能を活用できます。特に複数のプロジェクトや研究活動・私生活を両立している場合、デジタルカレンダーで一元的に予定を管理することが望ましいです。</p>
@@ -218,19 +218,19 @@
     </div>
 
     <!-- Trello と併用する意味 -->
-    <div class="fade-in glass rounded-2xl p-6 mb-5 border-l-4 border-teal-300">
+    <div class="fade-in glass rounded-2xl p-6 mb-5 border-l-4 border-pink-300">
       <div class="flex items-center gap-3 mb-3">
-        <div class="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl">🔗</div>
+        <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center text-xl">🔗</div>
         <h3 class="font-bold text-gray-800">Trello と併用する意味</h3>
       </div>
       <p class="text-sm text-gray-600 leading-relaxed mb-3">Trello によるタスク管理と Google カレンダーの予定管理は、それぞれ役割が異なりますが組み合わせて使うことで相乗効果を発揮します。</p>
       <div class="grid sm:grid-cols-2 gap-3 mb-3">
         <div class="bg-white/50 rounded-xl p-4 text-center">
-          <p class="text-xs font-bold text-emerald-600 mb-1">Trello</p>
+          <p class="text-xs font-bold text-violet-500 mb-1">Trello</p>
           <p class="text-sm text-gray-700 font-semibold">「何をやるか」を管理</p>
         </div>
         <div class="bg-white/50 rounded-xl p-4 text-center">
-          <p class="text-xs font-bold text-emerald-600 mb-1">Google カレンダー</p>
+          <p class="text-xs font-bold text-violet-500 mb-1">Google カレンダー</p>
           <p class="text-sm text-gray-700 font-semibold">「いつやるか」を管理</p>
         </div>
       </div>
@@ -240,7 +240,7 @@
     <!-- 2.3 Google ドライブ／スプレッドシート／フォーム -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.3</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">2.3</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">Google ドライブ／スプレッドシート／フォームによる情報管理</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、研究活動で取り扱う様々な情報を管理・共有するためのツール群として Google ドライブ、Google スプレッドシート、Google フォームの活用方法を紹介します。これらは Google が提供するクラウドサービスで、文書やデータの保存、共同編集、情報収集などをオンライン上で実現できます。デジタル時代の業務基盤として足非習熟しておきたいツールです。</p>
@@ -281,15 +281,15 @@
 
   <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
+    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-violet-400">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
       <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">1</span><span>研究用のタスクボードを作成し、運用ルール（期限・粒度など）を決める</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">2</span><span>Drive のフォルダ設計（命名方針のたたき台）を作る</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">自分の運用案（タスク／フォルダ設計）を言語化</strong>する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">1</span><span>研究用のタスクボードを作成し、運用ルール（期限・粒度など）を決める</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">2</span><span>Drive のフォルダ設計（命名方針のたたき台）を作る</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">自分の運用案（タスク／フォルダ設計）を言語化</strong>する</span></li>
       </ul>
     </div>
   </section>
@@ -348,9 +348,9 @@
 
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
-      <a href="1.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">← 第1回</a>
-      <a href="../#sessions" class="text-sm text-gray-400 hover:text-emerald-600 transition-colors">授業一覧</a>
-      <a href="3.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">第3回 →</a>
+      <a href="1.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">← 第1回</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-violet-500 transition-colors">授業一覧</a>
+      <a href="3.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">第3回 →</a>
     </div>
   </footer>
 
@@ -371,7 +371,7 @@
       const count = text.length;
       const countEl = document.getElementById('charCount');
       if (count >= 200) {
-        countEl.innerHTML = '<span class="text-emerald-600 font-semibold">' + count + '</span><span class="text-emerald-600"> / 200文字以上 ✓</span>';
+        countEl.innerHTML = '<span class="text-violet-500 font-semibold">' + count + '</span><span class="text-violet-500"> / 200文字以上 ✓</span>';
       } else {
         countEl.innerHTML = '<span class="text-purple-500 font-semibold">' + count + '</span><span class="text-gray-400"> / 200文字以上</span>';
       }
@@ -381,7 +381,7 @@
       const el = document.getElementById('formMessage');
       el.textContent = msg;
       el.className = 'mt-4 text-sm rounded-xl px-4 py-3 ' +
-        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200');
+        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-violet-50 text-violet-600 border border-violet-200');
       el.classList.remove('hidden');
     }
 

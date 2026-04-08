@@ -15,7 +15,7 @@
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
     .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
-    .gradient-text{background:linear-gradient(135deg,#059669,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text{background:linear-gradient(135deg,#c084fc,#f9a8d4,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
     .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
@@ -24,7 +24,7 @@
     .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
-    code{background:rgba(16,185,129,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#059669}
+    code{background:rgba(192,132,252,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#7c3aed}
   
     .attendance-card {
       background: linear-gradient(135deg, rgba(243,232,255,0.9), rgba(252,231,243,0.9), rgba(254,242,232,0.9));
@@ -36,19 +36,19 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-emerald-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
-  <div class="blob w-80 h-80 bg-teal-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
-  <div class="blob w-72 h-72 bg-green-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
+  <div class="blob w-96 h-96 bg-pink-200 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-violet-200 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-emerald-600 transition-colors">
+      <a href="../" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-violet-500 transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         人文学とデジタル技術
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
-        <a href="../#sessions" class="hover:text-emerald-600 transition-colors hidden sm:block">授業一覧</a>
-        <a href="8.html" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-emerald-200 transition-all">次の授業 →</a>
+        <a href="../#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
+        <a href="8.html" class="bg-gradient-to-r from-violet-400 to-pink-400 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">次の授業 →</a>
       </div>
     </div>
   </nav>
@@ -57,7 +57,7 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="fade-in">
         <span class="pill bg-rose-100 text-rose-700 mb-4 inline-block">聴く</span>
-        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-emerald-200">07</span></div>
+        <div class="flex items-center justify-center gap-3 mb-4"><span class="text-6xl sm:text-7xl font-black text-violet-200">07</span></div>
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-black leading-tight mb-4"><span class="gradient-text">聴くためのデジタルツール</span></h1>
         <p class="text-lg text-gray-600 font-medium mb-1">インタビュー調査と文字起こし</p>
         <p class="text-base text-gray-500 font-light">第7回　人文学とデジタル技術（2026）</p>
@@ -87,7 +87,7 @@
     <!-- 7.1 インタビュー調査 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">インタビュー調査</h3>
 
@@ -138,14 +138,14 @@
             <p class="text-sm text-gray-600 mb-3">インタビュー調査を「準備開始から、分析直前まで」の流れとして8つのステップに整理します。各段階で「何のために、何を決め、何を残すか」を明確にすると、調査の質が安定し、後の分析も進めやすくなります。</p>
 
             <div class="space-y-3">
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">1</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">調査テーマの決定</strong>：何を明らかにしたいのかという調査テーマを定めます。(1) 社会的に意味があるか、(2) 学術的に前進させるか、(3) 実際にデータへアクセスできるか、(4) 限られた期間で到達できるスコープか、の4点を同時に点検するとよいです。</p></div></div>
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">2</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">先行研究レビュー（文献検討）</strong>：先行研究をレビューして「既に分かっていること／まだ分かっていないこと」を区別します。文献レビューは単なる下調べではなく、自分の研究を知識体系の中に位置づける作業です。</p></div></div>
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">3</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">リサーチクエスチョン（RQ）の設定</strong>：「まだ明らかでない点」を問いの形にしてRQを定めます。RQは研究の羅針盤であり、良いRQは先行研究の知識ギャップと論理的につながっており、かつ答えるための手段（対象者・方法・時間）が見えている問いです。</p></div></div>
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">4</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">研究倫理の検討と倫理審査手続き</strong>：インタビューは人を対象にするため、倫理的配慮が調査の土台になります。(1) プライバシー保護と匿名化、(2) インフォームド・コンセント（説明と同意）、(3) 心理的・社会的リスクへの配慮、(4) 学協会等の倫理綱領の遵守を押さえます。とりわけ、<strong class="text-gray-700">データ管理（保存場所・共有範囲・削除方針）を曖昧にしないこと</strong>が重要です。</p></div></div>
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">5</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">調査対象者の決定（サンプリング）</strong>：RQに答えるために「誰に話を聞くべきか」を設計します。質的調査では無作為抽出よりも、目的に沿ったサンプリング（目的抽出）が基本になります。修士研究の目安としては5〜15名程度が一つの基準になり、加えて「新しい情報が増えにくくなる（飽和）」も判断材料になります。</p></div></div>
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">6</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">インタビュー・ガイドの作成（質問設計）</strong>：対象者像が見えたら、当日の道しるべとしてインタビュー・ガイド（質問項目リスト）を作ります。ガイドは「台本」ではなく「聞き漏らし防止の地図」です。RQを情報要件へ分解し、経験・意見・感情・知識・感覚・背景といった複数タイプの質問を混ぜると、語りの厚みが出やすくなります。質問の順序は、答えやすい導入から入り、核心へ進み、最後はクールダウンする流れが基本です。また、<strong class="text-gray-700">誘導的な聞き方を避け、平易で短い質問</strong>を心がけます。</p></div></div>
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">7</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">インタビューの実施（データ収集）</strong>：本番では、録音機材と環境（静かさ・プライバシー）を事前に確認し、時間配分と質問の優先順位を頭に入れて臨みます。対話中は、<strong class="text-gray-700">フォローアップ</strong>（「それで？」）、<strong class="text-gray-700">深掘り</strong>（「もう少し詳しく」）、<strong class="text-gray-700">特定化</strong>（「具体的には？」）、<strong class="text-gray-700">沈黙の活用</strong>、<strong class="text-gray-700">解釈確認</strong>（「つまり〜という理解でよいですか」）などを組み合わせると、語りの精度が上がります。基本姿勢は<strong class="text-gray-800">「短い質問・長い回答」</strong>です。</p></div></div>
-              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">8</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">トランスクリプトの作成（音声の文字起こし）</strong>：収集した音声は、逐語録（トランスクリプト）としてテキスト化します。逐語録は、後のコーディングや解釈の「材料」になるため、手間がかかっても省略しにくい工程です。ここまで整うと、次の段階として質的データ分析（コード化・カテゴリー化・解釈）へ進めます。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">1</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">調査テーマの決定</strong>：何を明らかにしたいのかという調査テーマを定めます。(1) 社会的に意味があるか、(2) 学術的に前進させるか、(3) 実際にデータへアクセスできるか、(4) 限られた期間で到達できるスコープか、の4点を同時に点検するとよいです。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">2</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">先行研究レビュー（文献検討）</strong>：先行研究をレビューして「既に分かっていること／まだ分かっていないこと」を区別します。文献レビューは単なる下調べではなく、自分の研究を知識体系の中に位置づける作業です。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">3</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">リサーチクエスチョン（RQ）の設定</strong>：「まだ明らかでない点」を問いの形にしてRQを定めます。RQは研究の羅針盤であり、良いRQは先行研究の知識ギャップと論理的につながっており、かつ答えるための手段（対象者・方法・時間）が見えている問いです。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">4</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">研究倫理の検討と倫理審査手続き</strong>：インタビューは人を対象にするため、倫理的配慮が調査の土台になります。(1) プライバシー保護と匿名化、(2) インフォームド・コンセント（説明と同意）、(3) 心理的・社会的リスクへの配慮、(4) 学協会等の倫理綱領の遵守を押さえます。とりわけ、<strong class="text-gray-700">データ管理（保存場所・共有範囲・削除方針）を曖昧にしないこと</strong>が重要です。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">5</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">調査対象者の決定（サンプリング）</strong>：RQに答えるために「誰に話を聞くべきか」を設計します。質的調査では無作為抽出よりも、目的に沿ったサンプリング（目的抽出）が基本になります。修士研究の目安としては5〜15名程度が一つの基準になり、加えて「新しい情報が増えにくくなる（飽和）」も判断材料になります。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">6</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">インタビュー・ガイドの作成（質問設計）</strong>：対象者像が見えたら、当日の道しるべとしてインタビュー・ガイド（質問項目リスト）を作ります。ガイドは「台本」ではなく「聞き漏らし防止の地図」です。RQを情報要件へ分解し、経験・意見・感情・知識・感覚・背景といった複数タイプの質問を混ぜると、語りの厚みが出やすくなります。質問の順序は、答えやすい導入から入り、核心へ進み、最後はクールダウンする流れが基本です。また、<strong class="text-gray-700">誘導的な聞き方を避け、平易で短い質問</strong>を心がけます。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">7</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">インタビューの実施（データ収集）</strong>：本番では、録音機材と環境（静かさ・プライバシー）を事前に確認し、時間配分と質問の優先順位を頭に入れて臨みます。対話中は、<strong class="text-gray-700">フォローアップ</strong>（「それで？」）、<strong class="text-gray-700">深掘り</strong>（「もう少し詳しく」）、<strong class="text-gray-700">特定化</strong>（「具体的には？」）、<strong class="text-gray-700">沈黙の活用</strong>、<strong class="text-gray-700">解釈確認</strong>（「つまり〜という理解でよいですか」）などを組み合わせると、語りの精度が上がります。基本姿勢は<strong class="text-gray-800">「短い質問・長い回答」</strong>です。</p></div></div>
+              <div class="flex items-start gap-3"><div class="w-7 h-7 bg-gradient-to-br from-violet-400 to-pink-400 rounded-full flex items-center justify-center text-white text-[10px] font-black flex-shrink-0">8</div><div><p class="text-xs text-gray-600"><strong class="text-gray-700">トランスクリプトの作成（音声の文字起こし）</strong>：収集した音声は、逐語録（トランスクリプト）としてテキスト化します。逐語録は、後のコーディングや解釈の「材料」になるため、手間がかかっても省略しにくい工程です。ここまで整うと、次の段階として質的データ分析（コード化・カテゴリー化・解釈）へ進めます。</p></div></div>
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@
     <!-- 7.2 音声の文字起こし -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">7.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">音声の文字起こし</h3>
 
@@ -235,15 +235,15 @@
 
   <!-- チェックポイント -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-emerald-400">
+    <div class="fade-in glass-strong rounded-3xl p-6 sm:p-8 border-l-4 border-violet-400">
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">📝</div>
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
       <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">1</span><span>短い音声を Whisper（Google Colab）で文字起こしする</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">2</span><span>誤認識箇所を元の音声で確認して修正する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">インタビュー設計上の工夫点／倫理上の注意点／文字起こしの限界と対策</strong>を記述する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">1</span><span>短い音声を Whisper（Google Colab）で文字起こしする</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">2</span><span>誤認識箇所を元の音声で確認して修正する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">インタビュー設計上の工夫点／倫理上の注意点／文字起こしの限界と対策</strong>を記述する</span></li>
       </ul>
     </div>
   </section>
@@ -302,9 +302,9 @@
 
   <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
     <div class="fade-in flex items-center justify-between">
-      <a href="6.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">← 第6回</a>
-      <a href="../#sessions" class="text-sm text-gray-400 hover:text-emerald-600 transition-colors">授業一覧</a>
-      <a href="8.html" class="text-sm text-gray-500 hover:text-emerald-600 transition-colors">第8回 →</a>
+      <a href="6.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">← 第6回</a>
+      <a href="../#sessions" class="text-sm text-gray-400 hover:text-violet-500 transition-colors">授業一覧</a>
+      <a href="8.html" class="text-sm text-gray-500 hover:text-violet-500 transition-colors">第8回 →</a>
     </div>
   </footer>
 
@@ -323,7 +323,7 @@
       const count = text.length;
       const countEl = document.getElementById('charCount');
       if (count >= 200) {
-        countEl.innerHTML = '<span class="text-emerald-600 font-semibold">' + count + '</span><span class="text-emerald-600"> / 200文字以上 ✓</span>';
+        countEl.innerHTML = '<span class="text-violet-500 font-semibold">' + count + '</span><span class="text-violet-500"> / 200文字以上 ✓</span>';
       } else {
         countEl.innerHTML = '<span class="text-purple-500 font-semibold">' + count + '</span><span class="text-gray-400"> / 200文字以上</span>';
       }
@@ -333,7 +333,7 @@
       const el = document.getElementById('formMessage');
       el.textContent = msg;
       el.className = 'mt-4 text-sm rounded-xl px-4 py-3 ' +
-        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200');
+        (isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-violet-50 text-violet-600 border border-violet-200');
       el.classList.remove('hidden');
     }
 

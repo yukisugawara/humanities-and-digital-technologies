@@ -26,7 +26,7 @@
     .splash {
       position: fixed; inset: 0; z-index: 9999;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #059669, #10b981, #34d399);
+      background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #fdba74, #a5f3fc);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .splash.done {
@@ -53,7 +53,7 @@
 
     /* Animated gradient background */
     .gradient-bg {
-      background: linear-gradient(-45deg, #dcfce7, #d1fae5, #ecfdf5, #f0fdf4, #dcfce7);
+      background: linear-gradient(-45deg, #fdf2f8, #f5f3ff, #fff7ed, #ecfeff, #fce7f3);
       background-size: 400% 400%;
       animation: gradientShift 20s ease infinite;
     }
@@ -77,7 +77,7 @@
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, #059669, #10b981, #34d399);
+      background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #fdba74, #a5f3fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -88,7 +88,7 @@
     }
     .session-card:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.15);
+      box-shadow: 0 25px 50px -12px rgba(196, 181, 253, 0.15);
     }
 
     .fade-in {
@@ -132,10 +132,10 @@
 
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(16, 185, 129, 0.3); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: rgba(196, 181, 253, 0.4); border-radius: 4px; }
 
     .number-badge {
-      background: linear-gradient(135deg, #059669, #10b981);
+      background: linear-gradient(135deg, #c084fc, #f9a8d4);
       color: white;
       width: 3rem; height: 3rem;
       border-radius: 1rem;
@@ -155,7 +155,7 @@
       position: relative;
     }
     .logo-bubble svg {
-      filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.3));
+      filter: drop-shadow(0 4px 12px rgba(196, 181, 253, 0.3));
       transition: transform 0.3s ease;
     }
     .logo-bubble:hover svg {
@@ -174,7 +174,7 @@
     }
     .goal-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(16, 185, 129, 0.12);
+      box-shadow: 0 12px 24px -8px rgba(196, 181, 253, 0.12);
     }
   </style>
 </head>
@@ -185,20 +185,15 @@
     <div class="text-center text-white">
       <div class="splash-logo mb-6">
         <svg width="120" height="120" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Book + Circuit icon -->
-          <rect x="25" y="30" width="70" height="90" rx="8" fill="white" opacity="0.3"/>
-          <rect x="30" y="35" width="60" height="80" rx="6" fill="white" opacity="0.5"/>
-          <line x1="45" y1="50" x2="75" y2="50" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
-          <line x1="45" y1="60" x2="70" y2="60" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
-          <line x1="45" y1="70" x2="65" y2="70" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
-          <!-- Circuit nodes -->
-          <circle cx="110" cy="45" r="8" fill="#67e8f9" opacity="0.8"/>
-          <circle cx="130" cy="75" r="6" fill="#a78bfa" opacity="0.8"/>
-          <circle cx="105" cy="100" r="7" fill="#38bdf8" opacity="0.8"/>
-          <line x1="110" y1="53" x2="130" y2="69" stroke="#67e8f9" stroke-width="2" opacity="0.6"/>
-          <line x1="130" y1="81" x2="105" y2="93" stroke="#a78bfa" stroke-width="2" opacity="0.6"/>
-          <line x1="90" y1="65" x2="110" y2="45" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
-          <line x1="90" y1="85" x2="105" y2="100" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+          <!-- Fermentation jar -->
+          <path d="M50 45 h60 v8 c0,0 8,2 8,12 v50 c0,12 -8,20 -20,20 h-36 c-12,0 -20,-8 -20,-20 v-50 c0,-10 8,-12 8,-12 z" fill="white" opacity="0.35"/>
+          <path d="M55 53 h50 v4 c0,0 5,2 5,10 v45 c0,10 -6,16 -16,16 h-28 c-10,0 -16,-6 -16,-16 v-45 c0,-8 5,-10 5,-10 z" fill="white" opacity="0.5"/>
+          <!-- Bubbles rising -->
+          <circle cx="72" cy="95" r="7" fill="white" opacity="0.7"><animate attributeName="cy" values="95;70;50" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0.5;0" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="88" cy="105" r="5" fill="white" opacity="0.6"><animate attributeName="cy" values="105;80;55" dur="3.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.4;0" dur="3.5s" repeatCount="indefinite"/></circle>
+          <circle cx="65" cy="100" r="4" fill="white" opacity="0.5"><animate attributeName="cy" values="100;75;45" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.3;0" dur="4s" repeatCount="indefinite"/></circle>
+          <circle cx="95" cy="98" r="3" fill="white" opacity="0.6"><animate attributeName="cy" values="98;73;48" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.3;0" dur="2.8s" repeatCount="indefinite"/></circle>
+          <circle cx="78" cy="110" r="6" fill="white" opacity="0.5"><animate attributeName="cy" values="110;85;60" dur="3.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.3;0" dur="3.8s" repeatCount="indefinite"/></circle>
         </svg>
       </div>
       <p class="splash-text text-2xl font-black tracking-wider">人文学とデジタル技術</p>
@@ -207,9 +202,9 @@
   </div>
 
   <!-- Floating decorative blobs -->
-  <div class="blob w-96 h-96 bg-emerald-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
-  <div class="blob w-80 h-80 bg-teal-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-green-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-96 h-96 bg-pink-200 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-violet-200 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
+  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
 
   <!-- Navigation -->
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
@@ -217,22 +212,19 @@
       <a href="#" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base group">
         <div class="logo-bubble w-8 h-8">
           <svg width="32" height="32" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="25" y="30" width="70" height="90" rx="8" fill="#059669" opacity="0.2"/>
-            <rect x="30" y="35" width="60" height="80" rx="6" fill="#059669" opacity="0.3"/>
-            <circle cx="110" cy="45" r="8" fill="#10b981" opacity="0.6"/>
-            <circle cx="130" cy="75" r="6" fill="#34d399" opacity="0.6"/>
-            <circle cx="105" cy="100" r="7" fill="#10b981" opacity="0.6"/>
-            <line x1="110" y1="53" x2="130" y2="69" stroke="#059669" stroke-width="2" opacity="0.4"/>
-            <line x1="130" y1="81" x2="105" y2="93" stroke="#34d399" stroke-width="2" opacity="0.4"/>
+            <path d="M50 45 h60 v8 c0,0 8,2 8,12 v50 c0,12 -8,20 -20,20 h-36 c-12,0 -20,-8 -20,-20 v-50 c0,-10 8,-12 8,-12 z" fill="#c084fc" opacity="0.25"/>
+            <circle cx="72" cy="85" r="6" fill="#f9a8d4" opacity="0.6"/>
+            <circle cx="88" cy="95" r="4" fill="#fdba74" opacity="0.5"/>
+            <circle cx="78" cy="100" r="5" fill="#c084fc" opacity="0.5"/>
           </svg>
         </div>
         <span data-i18n="nav_title">人文学とデジタル技術</span>
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
-        <a href="#about" class="hover:text-emerald-600 transition-colors hidden sm:block" data-i18n="nav_about">概要</a>
-        <a href="#goals" class="hover:text-emerald-600 transition-colors hidden sm:block" data-i18n="nav_goals">学習目標</a>
-        <a href="#sessions" class="hover:text-emerald-600 transition-colors hidden sm:block" data-i18n="nav_sessions">授業一覧</a>
-        <a href="#grading" class="hover:text-emerald-600 transition-colors hidden sm:block" data-i18n="nav_grading">評価</a>
+        <a href="#about" class="hover:text-violet-500 transition-colors hidden sm:block" data-i18n="nav_about">概要</a>
+        <a href="#goals" class="hover:text-violet-500 transition-colors hidden sm:block" data-i18n="nav_goals">学習目標</a>
+        <a href="#sessions" class="hover:text-violet-500 transition-colors hidden sm:block" data-i18n="nav_sessions">授業一覧</a>
+        <a href="#grading" class="hover:text-violet-500 transition-colors hidden sm:block" data-i18n="nav_grading">評価</a>
         <button id="lang-toggle" onclick="toggleLang()" class="px-3 py-1.5 rounded-full text-xs font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">EN</button>
       </div>
     </div>
@@ -244,33 +236,32 @@
       <div class="fade-in">
         <div class="mb-6 flex justify-center">
           <svg width="140" height="140" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-xl" style="animation: heroFloat 4s ease-in-out infinite;">
-            <rect x="20" y="25" width="75" height="95" rx="10" fill="url(#heroBookGrad)" opacity="0.25"/>
-            <rect x="26" y="31" width="63" height="83" rx="7" fill="url(#heroBookGrad)" opacity="0.4"/>
-            <line x1="40" y1="48" x2="72" y2="48" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
-            <line x1="40" y1="58" x2="68" y2="58" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
-            <line x1="40" y1="68" x2="63" y2="68" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
-            <line x1="40" y1="78" x2="58" y2="78" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
-            <!-- Nodes -->
-            <circle cx="115" cy="40" r="10" fill="url(#heroNode1)"/>
-            <circle cx="138" cy="72" r="8" fill="url(#heroNode2)"/>
-            <circle cx="110" cy="105" r="9" fill="url(#heroNode3)"/>
-            <circle cx="132" cy="115" r="6" fill="url(#heroNode4)"/>
-            <!-- Connections -->
-            <line x1="115" y1="50" x2="138" y2="64" stroke="#059669" stroke-width="2" opacity="0.3"/>
-            <line x1="138" y1="80" x2="110" y2="96" stroke="#34d399" stroke-width="2" opacity="0.3"/>
-            <line x1="110" y1="114" x2="132" y2="115" stroke="#10b981" stroke-width="2" opacity="0.3"/>
-            <line x1="89" y1="60" x2="115" y2="40" stroke="#10b981" stroke-width="2" opacity="0.2"/>
-            <line x1="89" y1="85" x2="110" y2="105" stroke="#10b981" stroke-width="2" opacity="0.2"/>
+            <!-- Fermentation jar body -->
+            <path d="M45 40 h70 v6 c0,0 10,3 10,15 v55 c0,14 -10,22 -22,22 h-46 c-12,0 -22,-8 -22,-22 v-55 c0,-12 10,-15 10,-15 z" fill="url(#heroJarGrad)" opacity="0.3"/>
+            <path d="M50 46 h60 v4 c0,0 7,3 7,12 v50 c0,12 -7,18 -18,18 h-38 c-11,0 -18,-6 -18,-18 v-50 c0,-9 7,-12 7,-12 z" fill="url(#heroJarGrad)" opacity="0.45"/>
+            <!-- Jar lid -->
+            <rect x="42" y="36" width="76" height="8" rx="4" fill="url(#heroLidGrad)" opacity="0.5"/>
+            <!-- Bubbles with animation -->
+            <circle cx="68" cy="90" r="9" fill="url(#heroBubble1)" opacity="0.7"><animate attributeName="cy" values="90;65;40" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0.5;0" dur="3s" repeatCount="indefinite"/><animate attributeName="r" values="9;10;8" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="92" cy="100" r="7" fill="url(#heroBubble2)" opacity="0.6"><animate attributeName="cy" values="100;72;45" dur="3.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.4;0" dur="3.6s" repeatCount="indefinite"/></circle>
+            <circle cx="58" cy="105" r="5" fill="url(#heroBubble3)" opacity="0.55"><animate attributeName="cy" values="105;78;50" dur="4.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.55;0.3;0" dur="4.2s" repeatCount="indefinite"/></circle>
+            <circle cx="100" cy="95" r="4" fill="#fda4af" opacity="0.6"><animate attributeName="cy" values="95;68;42" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.3;0" dur="2.8s" repeatCount="indefinite"/></circle>
+            <circle cx="80" cy="110" r="8" fill="url(#heroBubble1)" opacity="0.5"><animate attributeName="cy" values="110;82;55" dur="3.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.3;0" dur="3.9s" repeatCount="indefinite"/></circle>
+            <circle cx="75" cy="115" r="3" fill="#a5f3fc" opacity="0.5"><animate attributeName="cy" values="115;88;60" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.2;0" dur="3.2s" repeatCount="indefinite"/></circle>
+            <!-- Static small bubbles at bottom -->
+            <circle cx="65" cy="118" r="3" fill="#e9d5ff" opacity="0.4"/>
+            <circle cx="85" cy="120" r="4" fill="#fce7f3" opacity="0.35"/>
+            <circle cx="95" cy="116" r="2.5" fill="#fdba74" opacity="0.4"/>
             <defs>
-              <linearGradient id="heroBookGrad" x1="20" y1="25" x2="95" y2="120"><stop stop-color="#059669"/><stop offset="1" stop-color="#10b981"/></linearGradient>
-              <linearGradient id="heroNode1" x1="105" y1="30" x2="125" y2="50"><stop stop-color="#6ee7b7"/><stop offset="1" stop-color="#10b981"/></linearGradient>
-              <linearGradient id="heroNode2" x1="130" y1="64" x2="146" y2="80"><stop stop-color="#a7f3d0"/><stop offset="1" stop-color="#34d399"/></linearGradient>
-              <linearGradient id="heroNode3" x1="101" y1="96" x2="119" y2="114"><stop stop-color="#6ee7b7"/><stop offset="1" stop-color="#059669"/></linearGradient>
-              <linearGradient id="heroNode4" x1="126" y1="109" x2="138" y2="121"><stop stop-color="#bbf7d0"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+              <linearGradient id="heroJarGrad" x1="35" y1="36" x2="125" y2="138"><stop stop-color="#c084fc"/><stop offset="0.5" stop-color="#f9a8d4"/><stop offset="1" stop-color="#fdba74"/></linearGradient>
+              <linearGradient id="heroLidGrad" x1="42" y1="36" x2="118" y2="44"><stop stop-color="#c084fc"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+              <radialGradient id="heroBubble1" cx="50%" cy="50%" r="50%"><stop stop-color="#f5d0fe"/><stop offset="1" stop-color="#c084fc"/></radialGradient>
+              <radialGradient id="heroBubble2" cx="50%" cy="50%" r="50%"><stop stop-color="#fce7f3"/><stop offset="1" stop-color="#f9a8d4"/></radialGradient>
+              <radialGradient id="heroBubble3" cx="50%" cy="50%" r="50%"><stop stop-color="#fff7ed"/><stop offset="1" stop-color="#fdba74"/></radialGradient>
             </defs>
           </svg>
         </div>
-        <p class="text-sm font-semibold text-emerald-600 tracking-widest uppercase mb-4" data-i18n="hero_univ">
+        <p class="text-sm font-semibold text-violet-500 tracking-widest uppercase mb-4" data-i18n="hero_univ">
           大阪大学大学院 人文学研究科
         </p>
         <h1 class="text-4xl sm:text-5xl md:text-7xl font-black leading-tight mb-4">
@@ -280,9 +271,9 @@
       </div>
 
       <div class="fade-in flex flex-wrap justify-center gap-3 mb-12">
-        <span class="pill bg-emerald-100 text-sky-700" data-i18n="pill_sessions">全15回</span>
-        <span class="pill bg-emerald-100 text-emerald-700" data-i18n="pill_format">オンデマンド</span>
-        <span class="pill bg-teal-100 text-teal-700" data-i18n="pill_credits">2単位</span>
+        <span class="pill bg-violet-100 text-sky-700" data-i18n="pill_sessions">全15回</span>
+        <span class="pill bg-violet-100 text-violet-600" data-i18n="pill_format">オンデマンド</span>
+        <span class="pill bg-orange-100 text-orange-600" data-i18n="pill_credits">2単位</span>
         <span class="pill bg-cyan-100 text-cyan-700" data-i18n="pill_portfolio">ポートフォリオ</span>
       </div>
 
@@ -320,7 +311,7 @@
       <!-- Basic Info -->
       <div class="fade-in glass rounded-3xl p-6 sm:p-8">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📋</div>
+          <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">📋</div>
           <h3 class="font-bold text-lg text-gray-800" data-i18n="basic_title">基本情報</h3>
         </div>
         <div class="space-y-3 text-sm text-gray-600">
@@ -354,24 +345,24 @@
       <!-- Requirements -->
       <div class="fade-in glass rounded-3xl p-6 sm:p-8">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">💻</div>
+          <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">💻</div>
           <h3 class="font-bold text-lg text-gray-800" data-i18n="req_title">履修条件</h3>
         </div>
         <div class="space-y-3 text-sm text-gray-600">
           <div class="flex items-start gap-2">
-            <span class="text-emerald-400 mt-0.5">&#9679;</span>
+            <span class="text-pink-400 mt-0.5">&#9679;</span>
             <span data-i18n="req_1">人文学研究科の大学院生を主対象（他研究科の履修も可）</span>
           </div>
           <div class="flex items-start gap-2">
-            <span class="text-emerald-400 mt-0.5">&#9679;</span>
+            <span class="text-pink-400 mt-0.5">&#9679;</span>
             <span data-i18n="req_2">オンデマンド（非同期）で学習（定期的な視聴・作業・提出が必要）</span>
           </div>
           <div class="flex items-start gap-2">
-            <span class="text-emerald-400 mt-0.5">&#9679;</span>
+            <span class="text-pink-400 mt-0.5">&#9679;</span>
             <span data-i18n="req_3">PC と安定したネット環境を推奨</span>
           </div>
           <div class="flex items-start gap-2">
-            <span class="text-emerald-400 mt-0.5">&#9679;</span>
+            <span class="text-pink-400 mt-0.5">&#9679;</span>
             <span data-i18n="req_4">Notion 等を利用するため、アカウント作成ができること</span>
           </div>
         </div>
@@ -389,7 +380,7 @@
     <div class="grid sm:grid-cols-2 gap-5">
       <div class="fade-in goal-card glass rounded-3xl p-6">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">1</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-violet-400 to-purple-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">1</div>
           <div>
             <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_1_title">研究ワークフローの設計・運用</h3>
             <p class="text-sm text-gray-500" data-i18n="goal_1_desc">調査、読解、メモ、執筆、データ整理、発信の各段階で適切なツールと手順を選択・統合し、継続可能な研究環境を構築できるようになる。</p>
@@ -399,7 +390,7 @@
 
       <div class="fade-in goal-card glass rounded-3xl p-6">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-emerald-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">2</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">2</div>
           <div>
             <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_2_title">データリテラシーの獲得</h3>
             <p class="text-sm text-gray-500" data-i18n="goal_2_desc">コーパス検索、質的分析支援、文字起こし、テキスト前処理、IIIFによる画像収集などを通じ、人文学的解釈に接続できる形でデータを扱う基礎を身につける。</p>
@@ -409,7 +400,7 @@
 
       <div class="fade-in goal-card glass rounded-3xl p-6">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">3</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">3</div>
           <div>
             <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_3_title">批判的実践力</h3>
             <p class="text-sm text-gray-500" data-i18n="goal_3_desc">生成AI等について、利便性だけでなく誤り・偏り・出典・著作権・研究倫理の観点から検討し、責任ある利用方針を自ら設計できるようになる。</p>
@@ -419,7 +410,7 @@
 
       <div class="fade-in goal-card glass rounded-3xl p-6">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-lime-400 to-emerald-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">4</div>
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center text-white text-lg font-black flex-shrink-0">4</div>
           <div>
             <h3 class="font-bold text-gray-800 mb-2" data-i18n="goal_4_title">ポートフォリオの整理・発信</h3>
             <p class="text-sm text-gray-500" data-i18n="goal_4_desc">ツールや手法による成果物を構造化し、他者に説明可能な形で提示できるようになる。</p>
@@ -439,15 +430,15 @@
     <!-- Introduction Card -->
     <a href="sessions/intro.html" class="fade-in session-card glass rounded-3xl p-6 block group mb-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(254,243,199,0.4));">
       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0">📖</div>
+        <div class="w-12 h-12 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0">📖</div>
         <div class="flex-1">
           <div class="flex items-center gap-2 mb-1">
-            <span class="pill bg-amber-100 text-amber-700">はじめに</span>
+            <span class="pill bg-rose-100 text-rose-600">はじめに</span>
           </div>
-          <h3 class="font-bold text-gray-800 group-hover:text-amber-700 transition-colors">デジタル時代における発酵思考</h3>
+          <h3 class="font-bold text-gray-800 group-hover:text-rose-600 transition-colors">デジタル時代における発酵思考</h3>
           <p class="text-sm text-gray-500">本授業の目的・全体像・「発酵思考」というコンセプト</p>
         </div>
-        <svg class="w-5 h-5 text-gray-300 group-hover:text-amber-500 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <svg class="w-5 h-5 text-gray-300 group-hover:text-rose-400 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
       </div>
     </a>
 
@@ -458,11 +449,11 @@
         <div class="flex items-start gap-4">
           <div class="number-badge">1</div>
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-2"><span class="pill bg-emerald-100 text-emerald-700" data-i18n="s1_tag">導入</span></div>
-            <h3 class="font-bold text-gray-800 mb-1 group-hover:text-emerald-600 transition-colors" data-i18n="s1_title">導入：授業設計とポートフォリオの見取り図</h3>
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-violet-100 text-violet-600" data-i18n="s1_tag">導入</span></div>
+            <h3 class="font-bold text-gray-800 mb-1 group-hover:text-violet-500 transition-colors" data-i18n="s1_title">導入：授業設計とポートフォリオの見取り図</h3>
             <p class="text-sm text-gray-500" data-i18n="s1_desc">Notion の基本操作、Markdown記法、学習環境の整備</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -472,10 +463,10 @@
           <div class="number-badge">2</div>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2 mb-2"><span class="pill bg-blue-100 text-blue-700" data-i18n="s2_tag">管理</span></div>
-            <h3 class="font-bold text-gray-800 mb-1 group-hover:text-emerald-600 transition-colors" data-i18n="s2_title">社会人基礎としてのデジタルツール</h3>
+            <h3 class="font-bold text-gray-800 mb-1 group-hover:text-violet-500 transition-colors" data-i18n="s2_title">社会人基礎としてのデジタルツール</h3>
             <p class="text-sm text-gray-500" data-i18n="s2_desc">Trello、Google Calendar、Drive、Spreadsheet、Forms</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -484,11 +475,11 @@
         <div class="flex items-start gap-4">
           <div class="number-badge">3</div>
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-2"><span class="pill bg-teal-100 text-teal-700" data-i18n="s3_tag">読む</span></div>
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-orange-100 text-orange-600" data-i18n="s3_tag">読む</span></div>
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s3_title">読むためのデジタルツール</h3>
             <p class="text-sm text-gray-500" data-i18n="s3_desc">Google Scholar、文献検索、Zotero による文献管理</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -501,7 +492,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s4_title">研究のためのノート術</h3>
             <p class="text-sm text-gray-500" data-i18n="s4_desc">ツェッテルカステン（Zettelkasten）と Obsidian</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -514,7 +505,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s5_title">書くためのデジタルツール</h3>
             <p class="text-sm text-gray-500" data-i18n="s5_desc">Scrivener、Notion、Word、Google Docs、LaTeX (Overleaf)</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -523,11 +514,11 @@
         <div class="flex items-start gap-4">
           <div class="number-badge">6</div>
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-2"><span class="pill bg-teal-100 text-teal-700" data-i18n="s6_tag">コーパス</span></div>
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-orange-100 text-orange-600" data-i18n="s6_tag">コーパス</span></div>
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s6_title">デジタルツールとしてのコーパス</h3>
             <p class="text-sm text-gray-500" data-i18n="s6_desc">Sketch Engine、中納言、KWIC、コロケーション分析</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -540,7 +531,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s7_title">聴くためのデジタルツール</h3>
             <p class="text-sm text-gray-500" data-i18n="s7_desc">インタビュー調査法、Whisper による音声文字起こし</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -549,11 +540,11 @@
         <div class="flex items-start gap-4">
           <div class="number-badge">8</div>
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-2"><span class="pill bg-amber-100 text-amber-700" data-i18n="s8_tag">質的分析</span></div>
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-rose-100 text-rose-600" data-i18n="s8_tag">質的分析</span></div>
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s8_title">質的データ分析の基礎</h3>
             <p class="text-sm text-gray-500" data-i18n="s8_desc">コーディング、「発酵思考」、MAXQDA</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -566,7 +557,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s9_title">デジタルデータの片づけ</h3>
             <p class="text-sm text-gray-500" data-i18n="s9_desc">研究生活の整理術、Notion DB、命名規則、ミニマリズム</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -575,11 +566,11 @@
         <div class="flex items-start gap-4">
           <div class="number-badge">10</div>
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-2"><span class="pill bg-emerald-100 text-sky-700" data-i18n="s10_tag">ウェブ</span></div>
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-violet-100 text-sky-700" data-i18n="s10_tag">ウェブ</span></div>
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s10_title">ウェブページの構造・分析・構築</h3>
             <p class="text-sm text-gray-500" data-i18n="s10_desc">Hyphe によるウェブ分析、WordPress によるページ制作</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -592,7 +583,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s11_title">ソーシャルメディアの言説と実践の分析</h3>
             <p class="text-sm text-gray-500" data-i18n="s11_desc">Instagram、YouTube の質的分析、自己呈示と社会的情動</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -605,7 +596,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s12_title">テキストデータの収集・前処理・分析</h3>
             <p class="text-sm text-gray-500" data-i18n="s12_desc">Google Colab、正規表現、テキスト前処理、可視化</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -614,11 +605,11 @@
         <div class="flex items-start gap-4">
           <div class="number-badge">13</div>
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-2"><span class="pill bg-emerald-100 text-emerald-700" data-i18n="s13_tag">画像</span></div>
+            <div class="flex items-center gap-2 mb-2"><span class="pill bg-violet-100 text-violet-600" data-i18n="s13_tag">画像</span></div>
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s13_title">画像データの収集と分析</h3>
             <p class="text-sm text-gray-500" data-i18n="s13_desc">IIIF による画像取得、メタデータ整理、Colab での分析</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -631,7 +622,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s14_title">生成AI活用の可能性と限界</h3>
             <p class="text-sm text-gray-500" data-i18n="s14_desc">ChatGPT / Gemini、プロンプト設計、研究倫理と利用方針</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -644,7 +635,7 @@
             <h3 class="font-bold text-gray-800 mb-1" data-i18n="s15_title">まとめ</h3>
             <p class="text-sm text-gray-500" data-i18n="s15_desc">授業の振り返り、発展ルート、ポートフォリオ最終確認</p>
           </div>
-          <svg class="w-5 h-5 text-gray-300 group-hover:text-emerald-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <svg class="w-5 h-5 text-gray-300 group-hover:text-violet-400 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
       </a>
 
@@ -661,10 +652,10 @@
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="fade-in glass rounded-3xl p-6 sm:p-8">
         <div class="flex items-center gap-3 mb-5">
-          <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">📝</div>
+          <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">📝</div>
           <div>
             <h3 class="font-bold text-lg text-gray-800" data-i18n="grade_check_title">成績評価チェックポイント</h3>
-            <p class="text-2xl font-black text-emerald-600">60<span class="text-base font-bold text-gray-400" data-i18n="grade_points">点</span></p>
+            <p class="text-2xl font-black text-violet-500">60<span class="text-base font-bold text-gray-400" data-i18n="grade_points">点</span></p>
           </div>
         </div>
         <div class="space-y-2 text-sm text-gray-600">
@@ -679,33 +670,33 @@
 
       <div class="fade-in glass rounded-3xl p-6 sm:p-8">
         <div class="flex items-center gap-3 mb-5">
-          <div class="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-xl">🎨</div>
+          <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center text-xl">🎨</div>
           <div>
             <h3 class="font-bold text-lg text-gray-800" data-i18n="grade_portfolio_title">デジタルポートフォリオ（Notion）</h3>
-            <p class="text-2xl font-black text-teal-600">40<span class="text-base font-bold text-gray-400" data-i18n="grade_points2">点</span></p>
+            <p class="text-2xl font-black text-pink-500">40<span class="text-base font-bold text-gray-400" data-i18n="grade_points2">点</span></p>
           </div>
         </div>
         <div class="space-y-2 text-sm text-gray-600">
           <p data-i18n="grade_portfolio_desc">以下の5つの観点（各8点）で総合評価：</p>
           <div class="grid grid-cols-1 gap-1.5 mt-3">
             <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span>
               <span class="text-xs" data-i18n="grade_p1">内容の適切さ・充実度（8点）</span>
             </div>
             <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span>
               <span class="text-xs" data-i18n="grade_p2">価値観・ビジョンの明確さ（8点）</span>
             </div>
             <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
-              <span class="w-2 h-2 rounded-full bg-green-400"></span>
+              <span class="w-2 h-2 rounded-full bg-pink-400"></span>
               <span class="text-xs" data-i18n="grade_p3">構成とわかりやすさ（8点）</span>
             </div>
             <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span>
               <span class="text-xs" data-i18n="grade_p4">Notion機能の活用（8点）</span>
             </div>
             <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span>
               <span class="text-xs" data-i18n="grade_p5">創意工夫・オリジナリティ（8点）</span>
             </div>
           </div>
@@ -718,15 +709,16 @@
   <footer class="max-w-6xl mx-auto px-4 sm:px-6 pb-12 pt-4">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6">
       <div class="flex items-center gap-3 mb-6">
-        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center text-xl">🎓</div>
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl">🎓</div>
         <h3 class="font-bold text-lg text-gray-800" data-i18n="footer_instructor">担当教員</h3>
       </div>
       <div class="bg-white/50 rounded-2xl p-5">
-        <a href="https://yukisugawara.github.io" target="_blank" class="font-bold text-gray-800 text-base hover:text-emerald-600 hover:underline transition-colors" data-i18n="footer_name">菅原 裕輝</a>
+        <a href="https://yukisugawara.github.io" target="_blank" class="font-bold text-gray-800 text-base hover:text-violet-500 hover:underline transition-colors" data-i18n="footer_name">菅原 裕輝</a>
         <p class="text-sm text-gray-500 mt-1" data-i18n="footer_aff">人文学研究科 人文学林・講師</p>
         <div class="mt-3 space-y-1 text-sm text-gray-500">
           <p data-i18n="footer_office">居室：言語文化学専攻棟205</p>
-          <p>E-mail: <a href="mailto:ysugawara.hmt@osaka-u.ac.jp" class="text-emerald-500 hover:underline">ysugawara.hmt@osaka-u.ac.jp</a></p>
+          <p>Web: <a href="https://yukisugawara.github.io" target="_blank" class="text-violet-400 hover:underline">yukisugawara.github.io</a></p>
+          <p>E-mail: <a href="mailto:ysugawara.hmt@osaka-u.ac.jp" class="text-violet-400 hover:underline">ysugawara.hmt@osaka-u.ac.jp</a></p>
           <p data-i18n="footer_oh">オフィスアワー：金曜日 15:00〜16:00（事前にメールで連絡）</p>
         </div>
       </div>
