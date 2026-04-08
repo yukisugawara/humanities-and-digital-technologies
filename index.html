@@ -647,8 +647,9 @@
         <div class="space-y-2 text-sm text-gray-600">
           <p data-i18n="grade_check_desc1">15回 x 4点。各回の学習後に提出。</p>
           <p data-i18n="grade_check_desc2">自由記述欄に感想やコメントを「きちんと」書いていれば、原則として満点（4点）。</p>
-          <div class="mt-3 p-3 bg-amber-50 rounded-xl text-xs text-amber-700 space-y-1">
-            <p data-i18n="grade_check_late">締切より遅れて提出：1点減点</p>
+          <div class="mt-3 p-3 bg-red-50 rounded-xl text-xs text-red-700 space-y-1">
+            <p data-i18n="grade_check_deadline"><strong>提出〆切：2026年7月31日（金）</strong></p>
+            <p data-i18n="grade_check_late">〆切を過ぎた提出は採点対象外となります。</p>
             <p data-i18n="grade_check_empty">学習が確認できない形：3点減点</p>
           </div>
         </div>
@@ -663,6 +664,7 @@
           </div>
         </div>
         <div class="space-y-2 text-sm text-gray-600">
+          <p data-i18n="grade_portfolio_deadline" class="text-xs font-bold text-red-600 mb-1">提出〆切：2026年7月31日（金）｜〆切を過ぎた提出は採点対象外</p>
           <p data-i18n="grade_portfolio_desc">以下の5つの観点（各8点）で総合評価：</p>
           <div class="grid grid-cols-1 gap-1.5 mt-3">
             <div class="flex items-center gap-2 bg-white/50 rounded-xl px-3 py-2">
@@ -811,10 +813,12 @@
         grade_points: 'pts',
         grade_check_desc1: '15 sessions x 4 points. Submit after each session.',
         grade_check_desc2: 'Full marks (4 pts) for substantive written reflections.',
-        grade_check_late: 'Late submission: -1 point',
+        grade_check_deadline: 'Deadline: July 31, 2026 (Fri)',
+        grade_check_late: 'Submissions after the deadline will not be graded.',
         grade_check_empty: 'Insufficient learning evidence: -3 points',
         grade_portfolio_title: 'Digital Portfolio (Notion)',
         grade_points2: 'pts',
+        grade_portfolio_deadline: 'Deadline: July 31, 2026 (Fri) | Late submissions will not be graded',
         grade_portfolio_desc: 'Evaluated on 5 criteria (8 pts each):',
         grade_p1: 'Content quality & depth (8 pts)',
         grade_p2: 'Clarity of values & vision (8 pts)',
