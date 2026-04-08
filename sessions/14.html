@@ -7,21 +7,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"M PLUS Rounded 1c"','"Noto Sans JP"','sans-serif']}}}}</script>
   <style>
-    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
-    .gradient-bg{background:linear-gradient(-45deg,#dcfce7,#d1fae5,#ecfdf5,#f0fdf4,#dcfce7);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    *{font-family:'M PLUS Rounded 1c','Noto Sans JP',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#fdf2f8,#ede9fe,#fff7ed,#e0f2fe,#fce7f3,#f5f3ff);background-size:400% 400%;animation:gradientShift 20s ease infinite}
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
-    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
-    .gradient-text{background:linear-gradient(135deg,#c084fc,#f9a8d4,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(255,255,255,.55);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 32px rgba(0,0,0,.04),inset 0 0 0 1px rgba(255,255,255,.4)}
+    .glass-strong{background:rgba(255,255,255,.8);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border:1px solid rgba(255,255,255,.7);box-shadow:0 4px 16px rgba(0,0,0,.03)}
+    .gradient-text{background:linear-gradient(135deg,#8b5cf6,#ec4899,#f97316,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
-    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    .blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.5;animation:blobFloat 8s ease-in-out infinite}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
-    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(16,185,129,.3);border-radius:4px}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(139,92,246,.3);border-radius:4px}
     .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
-    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(139,92,246,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   
@@ -35,9 +35,9 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-pink-200 top-20 -left-48 fixed" style="animation-delay:0s"></div>
-  <div class="blob w-80 h-80 bg-violet-200 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
-  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
+  <div class="blob w-96 h-96 bg-violet-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-pink-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-amber-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
@@ -47,7 +47,7 @@
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
         <a href="../#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
-        <a href="15.html" class="bg-gradient-to-r from-violet-400 to-pink-400 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">次の授業 →</a>
+        <a href="15.html" class="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">次の授業 →</a>
       </div>
     </div>
   </nav>
@@ -89,7 +89,7 @@
     <!-- 14.1 生成AIの基礎 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">生成AIの基礎</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-3">「生成AI（ジェネレーティブAI）」と総称される技術が注目を集めています。生成AIとは、大規模なデータから学習し、新しいコンテンツ（文章・画像・音声・コードなど）を自律的に作り出せる革新的なAI技術のことです。従来の分析型AIが既存データの分類や予測を行うのに対し、生成AIは訓練データに含まれないまったく新しい成果物を創造できる点が特徴です。</p>
@@ -102,7 +102,7 @@
     <!-- 14.2 基本的立場 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">人文学研究における基本的立場</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-3">人文学の研究者・院生にとって、研究における創造性や洞察の源泉を人間自身に置くことは極めて重要です。AIの進化によって文章生成や分析の一部を自動化できる時代になりましたが、だからといって研究上の発想や解釈まで AI に任せてしまうことには注意が必要です。</p>
@@ -115,7 +115,7 @@
     <!-- 14.3 活用可能な場面 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.3</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.3</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">活用可能な場面</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">以上の前提を踏まえつつ、生成AIを適切に活用できる場面も存在します。ポイントは、研究者の創造的思考を妨げず補助となる範囲で、ルーチン的な作業や発想の一助としてAIを使うことです。</p>
@@ -134,7 +134,7 @@
     <!-- 14.4 使用上の注意点 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.4</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.4</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">使用上の注意点</h3>
           <div class="space-y-3">
@@ -151,7 +151,7 @@
     <!-- 14.5 利用指針 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.5</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.5</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">利用指針</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">生成AIを研究に取り入れる際の基本的なスタンスとして、「<strong class="text-gray-800">頭を使わなくてもよい作業に限って自動化する</strong>」という心得が挙げられます。すなわち、単純作業や定型的処理など、人間がやらなくても結果が大きく変わらない部分にはAIを活用しつつ、創造性や判断が要求される中核部分は人間が担うという役割分担です。</p>
@@ -169,7 +169,7 @@
     <!-- 14.6 「使うルール」の設計方法 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.6</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.6</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">「使うルール」の設計方法</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">前節で述べた指針を実際の研究生活で徹底するには、日頃から<strong class="text-gray-800">AI利用のガバナンス（統制）</strong>を意識しておく必要があります。ここでは、研究者自身が生成AIを使う上でのルールを設計し、トレース可能かつ倫理的に問題のない形で活用するための具体策を示します。</p>
@@ -187,7 +187,7 @@
     <!-- 14.7 国際的な倫理動向・出版方針 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.7</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">14.7</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">国際的な倫理動向・出版方針</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、生成AIの研究利用に関する国際的な倫理基準や学術出版の動向について整理します。2023年以降、各国の学会や主要学術誌が次々と方針を発表し、AI利用に関するガイドラインを明文化しています。</p>

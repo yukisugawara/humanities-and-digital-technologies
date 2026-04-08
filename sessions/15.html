@@ -7,22 +7,22 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','"Zen Kaku Gothic New"','sans-serif']}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"M PLUS Rounded 1c"','"Noto Sans JP"','sans-serif']}}}}</script>
   <style>
-    *{font-family:'Noto Sans JP','Zen Kaku Gothic New',sans-serif}
-    .gradient-bg{background:linear-gradient(-45deg,#dcfce7,#d1fae5,#ecfdf5,#f0fdf4,#dcfce7);background-size:400% 400%;animation:gradientShift 20s ease infinite}
+    *{font-family:'M PLUS Rounded 1c','Noto Sans JP',sans-serif}
+    .gradient-bg{background:linear-gradient(-45deg,#fdf2f8,#ede9fe,#fff7ed,#e0f2fe,#fce7f3,#f5f3ff);background-size:400% 400%;animation:gradientShift 20s ease infinite}
     @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8)}
-    .glass-strong{background:rgba(255,255,255,.85);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.9)}
-    .gradient-text{background:linear-gradient(135deg,#c084fc,#f9a8d4,#fdba74);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .glass{background:rgba(255,255,255,.55);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 32px rgba(0,0,0,.04),inset 0 0 0 1px rgba(255,255,255,.4)}
+    .glass-strong{background:rgba(255,255,255,.8);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border:1px solid rgba(255,255,255,.7);box-shadow:0 4px 16px rgba(0,0,0,.03)}
+    .gradient-text{background:linear-gradient(135deg,#8b5cf6,#ec4899,#f97316,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .gradient-text-amber{background:linear-gradient(135deg,#d97706,#b45309,#92400e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .fade-in{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}.fade-in.visible{opacity:1;transform:translateY(0)}
-    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:blobFloat 8s ease-in-out infinite}
+    .blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.5;animation:blobFloat 8s ease-in-out infinite}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(.9)}}
-    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(16,185,129,.3);border-radius:4px}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(139,92,246,.3);border-radius:4px}
     .pill{display:inline-block;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600}
-    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(16,185,129,.12)}
+    .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(139,92,246,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
   
@@ -36,9 +36,9 @@
   </style>
 </head>
 <body class="gradient-bg min-h-screen relative overflow-x-hidden">
-  <div class="blob w-96 h-96 bg-pink-200 top-20 -left-48 fixed" style="animation-delay:0s"></div>
-  <div class="blob w-80 h-80 bg-violet-200 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
-  <div class="blob w-72 h-72 bg-orange-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
+  <div class="blob w-96 h-96 bg-violet-300 top-20 -left-48 fixed" style="animation-delay:0s"></div>
+  <div class="blob w-80 h-80 bg-pink-300 top-1/2 -right-40 fixed" style="animation-delay:2s"></div>
+  <div class="blob w-72 h-72 bg-amber-200 bottom-20 left-1/3 fixed" style="animation-delay:4s"></div>
 
   <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
@@ -48,7 +48,7 @@
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
         <a href="../#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
-        <a href="../" class="bg-gradient-to-r from-violet-400 to-pink-400 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">トップへ</a>
+        <a href="../" class="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">トップへ</a>
       </div>
     </div>
   </nav>
@@ -88,7 +88,7 @@
     <!-- 15.1 振り返り -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.1</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">本授業全体の振り返り</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">本授業では、人文学の研究プロセスに沿ってデジタルツールの活用法を段階的に紹介してきました。</p>
@@ -127,7 +127,7 @@
     <!-- 15.2 発酵思考の視点からの読み直し -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.2</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.2</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">発酵思考の視点から人文学研究におけるデジタルツール活用を読み直す</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">「発酵思考」というキーワードを手がかりに、人文学研究におけるデジタルツール活用を捉え直してみましょう。発酵思考とは、成果を焦って即座に求めるのではなく、時間をかけた熟成を経て知見を深めていく思考法です。パン作りに例えるなら、研究における知的プロセスを「<strong class="text-gray-800">材料を集める → こねる → 寝かせる → 発酵させる → 焼き上げる</strong>」という段階に喩えることができます。</p>
@@ -146,7 +146,7 @@
     <!-- 15.3 学習継続・習慣化のコツ -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.3</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.3</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">学習継続・習慣化のコツ</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">デジタルツールの活用は一朝一夕には身につきません。本授業で得た知識や技術を真に自分のものとし、今後も発展させていくためには、日々の学習をコツコツと積み重ねることが肝要です。ポイントは「無理なく習慣化」し、過剰な自己管理ではなく持続可能なペースを作ることです。</p>
@@ -164,7 +164,7 @@
     <!-- 15.4 関心別の発展ルート -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.4</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.4</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">関心別の発展ルート</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">人文学の研究と一口に言っても、その対象や手法の興味関心は人それぞれです。ここから先は読者ご自身の関心に応じてより専門的なスキルや知識を深めていくことになるでしょう。</p>
@@ -183,7 +183,7 @@
     <!-- 15.5 研究ロードマップ -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.5</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.5</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">卒論・修士論文・博士論文のための研究ロードマップ</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">デジタルツールの活用を磨いていくことは、そのまま皆さんの卒業論文や修士論文、博士論文といった本格的な研究成果の質向上に繋がります。ここでは、人文学系の学生（哲学・文学・歴史学など）がデジタルツールを活用しながら、段階的に研究を深化させていくための指針を示します。</p>
@@ -220,7 +220,7 @@
     <!-- 15.6 学振 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.6</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-xs font-black flex-shrink-0">15.6</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">日本学術振興会特別研究員への道</h3>
 
