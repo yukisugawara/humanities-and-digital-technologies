@@ -127,10 +127,11 @@
     }
     details.qa-item summary::-webkit-details-marker { display: none; }
     details.qa-item summary::before {
-      content: 'Q';
+      content: 'Q' attr(data-num);
       flex-shrink: 0;
-      width: 1.75rem;
+      min-width: 2.2rem;
       height: 1.75rem;
+      padding: 0 0.55rem;
       border-radius: 0.5rem;
       background: linear-gradient(135deg, #8b5cf6, #ec4899);
       color: white;
@@ -138,7 +139,8 @@
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
     }
     details.qa-item .answer {
       margin-top: 0.85rem;
@@ -168,6 +170,23 @@
     details.qa-item .answer-body {
       flex: 1;
       white-space: pre-wrap;
+    }
+    details.qa-item .responder {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #7c3aed;
+      background: rgba(237, 233, 254, 0.8);
+      border: 1px solid rgba(196, 181, 253, 0.5);
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+    details.qa-item .responder.ta {
+      color: #db2777;
+      background: rgba(252, 231, 243, 0.85);
+      border-color: rgba(249, 168, 212, 0.5);
     }
 
     .session-block {
@@ -280,8 +299,9 @@
       <div class="space-y-3">
 
         <details class="qa-item">
-          <summary>本授業で取り上げられた Goal Management や助成金申請リストを見て、Notion にはこのような活用法もあることを知りました。現在は Reminders を使って毎日のタスク管理を行っていますが、より複雑でタスク量が多い場合には、Notion の方が整理しやすいかもしれないと感じました。先生はこのようなページを一から作ることが多いのでしょうか、それともテンプレートを探して自分に合うように工夫することが多いのでしょうか。</summary>
-          <div class="answer"><div class="answer-body">Notion については、自分でつくるようにしています！
+          <summary data-num="1">本授業で取り上げられた Goal Management や助成金申請リストを見て、Notion にはこのような活用法もあることを知りました。現在は Reminders を使って毎日のタスク管理を行っていますが、より複雑でタスク量が多い場合には、Notion の方が整理しやすいかもしれないと感じました。先生はこのようなページを一から作ることが多いのでしょうか、それともテンプレートを探して自分に合うように工夫することが多いのでしょうか。</summary>
+          <div class="answer"><div class="answer-body"><span class="responder">回答者：菅原（担当教員）</span>
+Notion については、自分でつくるようにしています！
 
 どのようなページの構成にするかは、そのページをつくった人の思考の枠みたいなものがつよく反映していると思うので、テンプレートを使うのは、個人的にはおすすめしないです。
 
@@ -289,15 +309,17 @@
         </details>
 
         <details class="qa-item">
-          <summary>Notion はどこまで使えばよいのかを教えていただきたいです。タスク管理や文献一覧を Notion で管理するだけでなく、文献を翻訳した文書や文献ごとのまとめノートも Notion の方がよいのでしょうか。研究において、どこまで Notion でまとめて、Notion 以外でどこまでまとめれば有効なのか教えていただきたいです。</summary>
-          <div class="answer"><div class="answer-body">これはほんとうにひとそれぞれで、紙があうひとは紙で、デジタルがあうひとはデジタルで、という感じがよいとおもいます。
+          <summary data-num="2">Notion はどこまで使えばよいのかを教えていただきたいです。タスク管理や文献一覧を Notion で管理するだけでなく、文献を翻訳した文書や文献ごとのまとめノートも Notion の方がよいのでしょうか。研究において、どこまで Notion でまとめて、Notion 以外でどこまでまとめれば有効なのか教えていただきたいです。</summary>
+          <div class="answer"><div class="answer-body"><span class="responder">回答者：菅原（担当教員）</span>
+これはほんとうにひとそれぞれで、紙があうひとは紙で、デジタルがあうひとはデジタルで、という感じがよいとおもいます。
 
 ただ、「慣れ」の問題もあるとおもうので、デジタルでやってみることにも挑戦してみてほしいです。いろいろやっていくなかで、じぶんのスタイルがみつかるとおもいます。</div></div>
         </details>
 
         <details class="qa-item">
-          <summary>自分は予定などを紙で管理するタイプで、Notion は使ったことがなかったのですが、実際に作ってみると便利そうだなと思いました。これまで共同研究などでは Discord などを使用していたのですが、こちらのほうが便利だったりするのでしょうか？</summary>
-          <div class="answer"><div class="answer-body">2 の質問への回答とおなじで、ほんとうにひとそれぞれで、好みの問題になるとおもいます。
+          <summary data-num="3">自分は予定などを紙で管理するタイプで、Notion は使ったことがなかったのですが、実際に作ってみると便利そうだなと思いました。これまで共同研究などでは Discord などを使用していたのですが、こちらのほうが便利だったりするのでしょうか？</summary>
+          <div class="answer"><div class="answer-body"><span class="responder">回答者：菅原（担当教員）</span>
+2 の質問への回答とおなじで、ほんとうにひとそれぞれで、好みの問題になるとおもいます。
 
 個人的に、Discord は、ダークなかんじで格好よいのですが、つかいこなすまでのハードルが一般人にとってはすこしたかく、コンピュータになれていないひとと一緒にやるときにはおすすめしにくいぶぶんがあると感じております。なので、いっしょに働くあいての好みにあわせて、Discord にするか、Slack にするか、Notion にするか、メールにするか、などを相手と相談しながら考えるのがよいかとおもいます。
 
