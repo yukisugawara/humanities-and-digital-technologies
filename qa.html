@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>質問と回答 Q&A | 人文学とデジタル技術（2026）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"M PLUS Rounded 1c"', '"Noto Sans JP"', 'sans-serif'],
+            display: ['"M PLUS Rounded 1c"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif; }
+
+    .gradient-bg {
+      background: linear-gradient(-45deg, #fdf2f8, #ede9fe, #fff7ed, #e0f2fe, #fce7f3, #f5f3ff);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(32px) saturate(200%);
+      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899, #f97316, #06b6d4);
+      background-size: 200% 200%;
+      animation: textShimmer 5s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    @keyframes textShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.5;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(196, 181, 253, 0.4); border-radius: 4px; }
+
+    .number-badge {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: white;
+      width: 3rem; height: 3rem;
+      border-radius: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem; flex-shrink: 0;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    html { scroll-behavior: smooth; }
+
+    details.qa-item {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(196, 181, 253, 0.25);
+      transition: all 0.3s ease;
+    }
+    details.qa-item[open] {
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 8px 24px -8px rgba(139, 92, 246, 0.12);
+    }
+    details.qa-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 600;
+      color: #1f2937;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    details.qa-item summary::-webkit-details-marker { display: none; }
+    details.qa-item summary::before {
+      content: 'Q';
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 0.5rem;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+    details.qa-item .answer {
+      margin-top: 0.85rem;
+      padding-left: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: #4b5563;
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+    details.qa-item .answer::before {
+      content: 'A';
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 0.5rem;
+      background: linear-gradient(135deg, #f97316, #06b6d4);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-left: -2.5rem;
+    }
+    details.qa-item .answer-body {
+      flex: 1;
+      white-space: pre-wrap;
+    }
+
+    .session-block {
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .session-block:hover {
+      transform: translateY(-2px);
+    }
+    .placeholder-note {
+      background: rgba(255, 247, 237, 0.6);
+      border: 1px dashed rgba(251, 146, 60, 0.4);
+      border-radius: 0.875rem;
+      padding: 0.85rem 1.1rem;
+      color: #9a3412;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen relative overflow-x-hidden">
+
+  <!-- Password Gate -->
+  <div id="password-gate" style="display:none; position:fixed; inset:0; z-index:99999; background:linear-gradient(-45deg,#fdf2f8,#ede9fe,#fff7ed,#e0f2fe); display:flex; align-items:center; justify-content:center;">
+    <div style="background:rgba(255,255,255,0.85); backdrop-filter:blur(24px); border-radius:1.5rem; padding:2.5rem; max-width:360px; width:90%; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+      <p style="font-size:2rem; margin-bottom:0.5rem;">🔒</p>
+      <h2 style="font-weight:800; font-size:1.2rem; color:#1f2937; margin-bottom:0.5rem;">パスワードを入力してください</h2>
+      <p style="font-size:0.75rem; color:#9ca3af; margin-bottom:1.5rem;">このページは受講者限定です</p>
+      <input id="pw-input" type="password" placeholder="パスワード" style="width:100%; padding:0.7rem 1rem; border-radius:0.75rem; border:1px solid #e5e7eb; font-size:0.9rem; outline:none; margin-bottom:0.75rem;" onkeydown="if(event.key==='Enter')checkPw()">
+      <button onclick="checkPw()" style="width:100%; padding:0.7rem; border-radius:0.75rem; background:linear-gradient(135deg,#8b5cf6,#ec4899); color:white; font-weight:700; font-size:0.9rem; border:none; cursor:pointer;">入る</button>
+      <p id="pw-error" style="color:#ef4444; font-size:0.75rem; margin-top:0.5rem; display:none;">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    function checkPw() {
+      if (document.getElementById('pw-input').value === 'hakkou') {
+        sessionStorage.setItem('hdt_auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+      }
+    }
+    if (sessionStorage.getItem('hdt_auth') !== '1') {
+      document.getElementById('password-gate').style.display = 'flex';
+    } else {
+      document.getElementById('password-gate').style.display = 'none';
+    }
+  </script>
+
+  <!-- Floating decorative blobs -->
+  <div class="blob w-96 h-96 bg-violet-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-pink-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
+  <div class="blob w-72 h-72 bg-amber-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+  <div class="blob w-64 h-64 bg-sky-200 top-1/3 right-1/4 fixed" style="animation-delay: 6s;"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base hover:text-violet-500 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        人文学とデジタル技術
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
+        <a href="index.html#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
+        <a href="index.html#grading" class="hover:text-violet-500 transition-colors hidden sm:block">評価</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative pt-32 pb-12 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="fade-in">
+        <span class="pill bg-violet-100 text-violet-600 mb-4 inline-block">Q&amp;A</span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-4 font-display">
+          <span class="gradient-text">質問と回答</span>
+        </h1>
+        <p class="text-base sm:text-lg text-gray-500 font-light">受講者からの質問と、担当教員の回答をまとめたページです</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro note -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8 border-l-4 border-violet-400">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center text-xl flex-shrink-0">💬</div>
+        <div class="text-sm text-gray-600 leading-relaxed">
+          <p class="font-bold text-gray-800 mb-2">このページについて</p>
+          <p>各回のふりかえりで寄せられた質問や、メールでの問い合わせのうち、受講者全員と共有したほうがよいと判断したものを、匿名化のうえ掲載します。</p>
+          <p class="mt-2">回答は授業の進行にあわせて随時追加されます。質問をクリック（タップ）すると回答が表示されます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q&A Sessions -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-20 space-y-8">
+
+    <!-- 第1回 -->
+    <section id="s1" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">1</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-violet-100 text-violet-700">導入</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">導入：授業のデザインとポートフォリオの全体像</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+
+        <details class="qa-item">
+          <summary>本授業で取り上げられた Goal Management や助成金申請リストを見て、Notion にはこのような活用法もあることを知りました。現在は Reminders を使って毎日のタスク管理を行っていますが、より複雑でタスク量が多い場合には、Notion の方が整理しやすいかもしれないと感じました。先生はこのようなページを一から作ることが多いのでしょうか、それともテンプレートを探して自分に合うように工夫することが多いのでしょうか。</summary>
+          <div class="answer"><div class="answer-body">Notion については、自分でつくるようにしています！
+
+どのようなページの構成にするかは、そのページをつくった人の思考の枠みたいなものがつよく反映していると思うので、テンプレートを使うのは、個人的にはおすすめしないです。
+
+こんなことが Notion でできるんだ、ということを知るうえで参考にするのはよいと思うのですが、「自分の思考の型をつくる」ことや、「自分の思考の型をデジタル上につくる」ことが重要かとおもっています。</div></div>
+        </details>
+
+        <details class="qa-item">
+          <summary>Notion はどこまで使えばよいのかを教えていただきたいです。タスク管理や文献一覧を Notion で管理するだけでなく、文献を翻訳した文書や文献ごとのまとめノートも Notion の方がよいのでしょうか。研究において、どこまで Notion でまとめて、Notion 以外でどこまでまとめれば有効なのか教えていただきたいです。</summary>
+          <div class="answer"><div class="answer-body">これはほんとうにひとそれぞれで、紙があうひとは紙で、デジタルがあうひとはデジタルで、という感じがよいとおもいます。
+
+ただ、「慣れ」の問題もあるとおもうので、デジタルでやってみることにも挑戦してみてほしいです。いろいろやっていくなかで、じぶんのスタイルがみつかるとおもいます。</div></div>
+        </details>
+
+        <details class="qa-item">
+          <summary>自分は予定などを紙で管理するタイプで、Notion は使ったことがなかったのですが、実際に作ってみると便利そうだなと思いました。これまで共同研究などでは Discord などを使用していたのですが、こちらのほうが便利だったりするのでしょうか？</summary>
+          <div class="answer"><div class="answer-body">2 の質問への回答とおなじで、ほんとうにひとそれぞれで、好みの問題になるとおもいます。
+
+個人的に、Discord は、ダークなかんじで格好よいのですが、つかいこなすまでのハードルが一般人にとってはすこしたかく、コンピュータになれていないひとと一緒にやるときにはおすすめしにくいぶぶんがあると感じております。なので、いっしょに働くあいての好みにあわせて、Discord にするか、Slack にするか、Notion にするか、メールにするか、などを相手と相談しながら考えるのがよいかとおもいます。
+
+個人的には、いろいろ試したのですが、相手が誰であれ、相手との断続的なコミュニケーションをすること自体がストレスになるとかんじているので、<strong>コミュニケーションのズレをへらすシステムのデザイン自体がいちばんたいせつ</strong>だとかんじています。対面であれば、認識があっているかについて、紙やホワイトボードでわかりやすく図解したり、オンラインであれば、ウェブページや Notion などで共有して、認識をすりあわせて共有しておいて、メールやメッセージなどのコミュニケーション自体を最小限までへらして、じぶんひとりで集中する時間をつくる、というイメージです。</div></div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- 第2回 -->
+    <section id="s2" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">2</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-pink-100 text-pink-700">運用</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">プロの仕事に使えるデジタルツール</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第3回 -->
+    <section id="s3" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">3</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-orange-100 text-orange-700">読む</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">読むためのデジタルツール</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第4回 -->
+    <section id="s4" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">4</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-sky-100 text-sky-700">ノート</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">研究のためのノートづくり</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第5回 -->
+    <section id="s5" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">5</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-emerald-100 text-emerald-700">書く</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">書くためのデジタルツール</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第6回 -->
+    <section id="s6" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">6</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-violet-100 text-violet-700">コーパス</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">デジタルツールとしてのコーパス</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第7回 -->
+    <section id="s7" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">7</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-pink-100 text-pink-700">聴く</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">聴くためのデジタルツール</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第8回 -->
+    <section id="s8" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">8</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-amber-100 text-amber-700">質的分析</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">質的データ分析の基礎</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第9回 -->
+    <section id="s9" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">9</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-sky-100 text-sky-700">整理</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">デジタルデータの整理</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第10回 -->
+    <section id="s10" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">10</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-violet-100 text-violet-700">Web</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">Web ページの構造・分析・作成</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第11回 -->
+    <section id="s11" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">11</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-pink-100 text-pink-700">SNS</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">ソーシャルメディアの言説と実践の分析</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第12回 -->
+    <section id="s12" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">12</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-orange-100 text-orange-700">テキスト</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">テキストデータの収集・前処理・分析</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第13回 -->
+    <section id="s13" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">13</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-emerald-100 text-emerald-700">画像</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">画像データの収集と分析</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第14回 -->
+    <section id="s14" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">14</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-fuchsia-100 text-fuchsia-700">生成AI</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">生成AI活用の可能性と限界</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+    <!-- 第15回 -->
+    <section id="s15" class="fade-in session-block glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="number-badge">15</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1 flex-wrap"><span class="pill bg-gray-100 text-gray-700">まとめ</span></div>
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">まとめ</h2>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="placeholder-note">質問は準備中です。授業が進むにつれて、寄せられた質問と回答をこの場所に追加します。</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+    <p class="text-center text-xs text-gray-300">人文学とデジタル技術 2026 | 大阪大学大学院人文学研究科</p>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Scroll to hash on load (after password gate)
+    window.addEventListener('load', () => {
+      if (location.hash) {
+        const el = document.querySelector(location.hash);
+        if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+      }
+    });
+  </script>
+</body>
+</html>
