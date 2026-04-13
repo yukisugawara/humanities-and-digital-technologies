@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TF/TA 業務マニュアル | 人文学とデジタル技術（2026）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Zen Kaku Gothic New"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif; }
+
+    .gradient-bg {
+      background: linear-gradient(-45deg, #fef3c7, #fce7f3, #e0e7ff, #ccfbf1, #fef3c7);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.3); border-radius: 4px; }
+
+    html { scroll-behavior: smooth; }
+
+    .section-card {
+      transition: all 0.3s ease;
+    }
+    .section-card:hover {
+      box-shadow: 0 10px 40px -10px rgba(124, 58, 237, 0.1);
+    }
+
+    /* Manual auth overlay */
+    .manual-auth-overlay {
+      position: fixed; inset: 0; z-index: 9998;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(-45deg, #fef3c7, #fce7f3, #e0e7ff, #ccfbf1);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    /* Tab styles */
+    .tab-btn {
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 1rem 1rem 0 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+    }
+    .tab-btn.active {
+      background: rgba(255,255,255,0.8);
+      color: #7c3aed;
+      box-shadow: 0 -4px 12px rgba(124, 58, 237, 0.1);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    .role-tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-right: 0.25rem;
+    }
+    .role-ta { background: #dbeafe; color: #1d4ed8; }
+    .role-tf { background: #fce7f3; color: #be185d; }
+    .role-tfta { background: #ede9fe; color: #6d28d9; }
+
+    .session-badge {
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      color: white;
+      width: 2.5rem; height: 2.5rem;
+      border-radius: 0.75rem;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.95rem; flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen relative overflow-x-hidden">
+
+  <!-- Manual Auth Overlay -->
+  <div class="manual-auth-overlay" id="manual-auth">
+    <div style="background:rgba(255,255,255,0.8);backdrop-filter:blur(20px);border-radius:2rem;
+      padding:2.5rem;max-width:380px;width:90%;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.1);
+      border:1px solid rgba(255,255,255,0.9);">
+      <div style="margin-bottom:1rem;">
+        <div style="width:64px;height:64px;margin:0 auto;background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:1.25rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">
+          📖
+        </div>
+      </div>
+      <p style="font-size:1.1rem;font-weight:800;color:#1f2937;margin-bottom:0.25rem;">TF/TA 業務マニュアル</p>
+      <p style="font-size:0.75rem;color:#9ca3af;margin-bottom:1.5rem;">ティーチングスタッフ専用ページです<br>パスワードを入力してください</p>
+      <input id="manual-input" type="password" placeholder="パスワード"
+        style="width:100%;padding:0.75rem 1rem;border-radius:1rem;border:2px solid #e5e7eb;
+        font-size:1rem;text-align:center;outline:none;transition:border 0.2s;box-sizing:border-box;"
+        onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e5e7eb'">
+      <p id="manual-error" style="color:#ef4444;font-size:0.75rem;margin-top:0.5rem;display:none;">パスワードが違います</p>
+      <button id="manual-btn"
+        style="margin-top:1rem;width:100%;padding:0.75rem;border-radius:1rem;border:none;
+        background:linear-gradient(135deg,#7c3aed,#ec4899);color:white;font-size:0.9rem;
+        font-weight:700;cursor:pointer;transition:opacity 0.2s;"
+        onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+        マニュアルを開く
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating decorative blobs -->
+  <div class="blob w-96 h-96 bg-purple-300 top-20 -left-48 fixed" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-pink-300 top-1/2 -right-40 fixed" style="animation-delay: 2s;"></div>
+  <div class="blob w-72 h-72 bg-amber-200 bottom-20 left-1/3 fixed" style="animation-delay: 4s;"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-gray-800 font-bold text-sm sm:text-base group">
+        <div class="w-8 h-8">
+          <svg width="32" height="32" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="nA" x1="0" y1="0" x2="50" y2="60"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+              <linearGradient id="nB" x1="30" y1="10" x2="90" y2="70"><stop stop-color="#67e8f9"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+              <linearGradient id="nC" x1="50" y1="20" x2="110" y2="90"><stop stop-color="#f9a8d4"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+              <linearGradient id="nD" x1="70" y1="40" x2="130" y2="110"><stop stop-color="#fbbf24"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+              <linearGradient id="nE" x1="90" y1="50" x2="150" y2="120"><stop stop-color="#86efac"/><stop offset="1" stop-color="#22c55e"/></linearGradient>
+            </defs>
+            <path d="M12 58C12 42 24 30 40 30C56 30 68 42 68 58C68 74 56 82 40 82C37 82 34 81.5 31 80L18 87L21 77C15 72 12 65 12 58Z" fill="url(#nA)" opacity="0.8"/>
+            <path d="M32 48C32 32 44 22 60 22C76 22 88 32 88 48C88 64 76 72 60 72C57 72 54 71.5 51 70L38 77L41 67C35 62 32 55 32 48Z" fill="url(#nB)" opacity="0.7"/>
+            <path d="M52 68C52 52 64 42 80 42C96 42 108 52 108 68C108 84 96 92 80 92C77 92 74 91.5 71 90L58 97L61 87C55 82 52 75 52 68Z" fill="url(#nC)" opacity="0.7"/>
+            <path d="M72 54C72 38 84 28 100 28C116 28 128 38 128 54C128 70 116 78 100 78C97 78 94 77.5 91 76L78 83L81 73C75 68 72 61 72 54Z" fill="url(#nD)" opacity="0.65"/>
+            <path d="M92 72C92 56 104 46 120 46C136 46 148 56 148 72C148 88 136 96 120 96C117 96 114 95.5 111 94L98 101L101 91C95 86 92 79 92 72Z" fill="url(#nE)" opacity="0.6"/>
+          </svg>
+        </div>
+        <span>人文学とデジタル技術</span>
+      </a>
+      <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-purple-600 transition-colors">ホームに戻る</a>
+    </div>
+  </nav>
+
+  <!-- Main Content (hidden until auth) -->
+  <div id="manual-content" style="display:none;">
+
+    <!-- Header -->
+    <header class="relative pt-28 pb-10 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto text-center fade-in">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-strong text-sm font-semibold text-purple-700 mb-6">
+          📖 ティーチングスタッフ専用
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-gray-800 mb-3">TF/TA 業務マニュアル</h1>
+        <p class="text-gray-500">「人文学とデジタル技術」2026 ティーチングスタッフのための業務ガイド</p>
+      </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 mb-0">
+      <div class="flex justify-center gap-2">
+        <button class="tab-btn active" onclick="switchTab('basic')">基礎編</button>
+        <button class="tab-btn" onclick="switchTab('practice')">実践編</button>
+      </div>
+    </div>
+
+    <!-- ==================== 基礎編 ==================== -->
+    <div id="tab-basic" class="tab-content active">
+      <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+
+        <!-- 基本事項 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-violet-500 rounded-xl flex items-center justify-center text-white text-lg">📋</div>
+            <h2 class="font-black text-xl text-gray-800">基本事項</h2>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-white/50 rounded-2xl p-5">
+              <h3 class="font-bold text-gray-700 mb-3">勤務時間</h3>
+              <p class="text-sm text-gray-600 mb-3">1クラスあたり、TA としての勤務時間は<span class="font-bold text-purple-600">20時間を上限</span>として予定しています。</p>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-purple-50 rounded-xl p-4">
+                  <h4 class="font-bold text-purple-700 text-sm mb-2">春学期の月別勤務例（4月〜6月）</h4>
+                  <ul class="text-xs text-gray-600 space-y-1.5">
+                    <li><span class="font-semibold">4月</span>：事前講習会1h + 授業3回（2h x3）= 7時間 → <span class="font-semibold text-purple-700">支払対象：7時間</span></li>
+                    <li><span class="font-semibold">5月</span>：授業3回（2h x3 = 6時間）→ <span class="font-semibold text-purple-700">支払対象：6時間</span></li>
+                    <li><span class="font-semibold">6月</span>：授業2回（2h x2 = 4時間）→ <span class="font-semibold text-purple-700">支払対象：4時間</span></li>
+                  </ul>
+                  <p class="text-xs font-bold text-purple-700 mt-2 pt-2 border-t border-purple-200">合計：17時間</p>
+                </div>
+                <div class="bg-pink-50 rounded-xl p-4">
+                  <h4 class="font-bold text-pink-700 text-sm mb-2">夏学期の月別勤務例（6月〜8月）</h4>
+                  <ul class="text-xs text-gray-600 space-y-1.5">
+                    <li><span class="font-semibold">6月</span>：授業3回（2h x3 = 6時間）→ <span class="font-semibold text-pink-700">支払対象：6時間</span></li>
+                    <li><span class="font-semibold">7月</span>：授業4回（2h x4 = 8時間）→ <span class="font-semibold text-pink-700">支払対象：8時間</span></li>
+                    <li><span class="font-semibold">8月</span>：授業1回（2h）→ <span class="font-semibold text-pink-700">支払対象：2時間</span></li>
+                  </ul>
+                  <p class="text-xs font-bold text-pink-700 mt-2 pt-2 border-t border-pink-200">合計：16時間</p>
+                </div>
+              </div>
+
+              <div class="mt-4 bg-red-50 rounded-xl p-4 border border-red-200">
+                <p class="text-xs text-red-700 font-semibold"><strong>⚠ 重要：</strong>各学期の勤務時間は<strong>20時間を超えないように</strong>注意してください（教員・TF・TAともに）。無理に学期ごとに20時間勤務する必要はありません。</p>
+              </div>
+
+              <div class="mt-4 bg-blue-50 rounded-xl p-4 border border-blue-100">
+                <p class="text-xs text-gray-700"><strong>※給与の端数処理について：</strong>給与は月ごとに集計し、月ごとの合計勤務時間に1時間未満の端数（30分など）がある場合は、<strong>1時間に切り上げて</strong>計算されます。そのため、単純な合計時間と、実際の給与支払い対象時間が異なる場合があります。</p>
+              </div>
+
+              <div class="mt-4 bg-amber-50 rounded-xl p-4">
+                <h4 class="font-bold text-amber-700 text-sm mb-1">備考</h4>
+                <p class="text-xs text-gray-600">博士前期課程の学生がTA業務をする場合、大学の規定による時給は<span class="font-bold">1,400円</span>です。TFは<span class="font-bold">1,800円</span>です。</p>
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-600 px-1">TAとしてやることは、<span class="font-bold">（A）授業補助</span>と<span class="font-bold">（B）勤務報告</span>があります。</p>
+          </div>
+        </div>
+
+        <!-- 高橋先生からのメッセージ -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-gradient-to-br from-rose-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-lg">💬</div>
+            <h2 class="font-black text-xl text-gray-800">高橋先生からのメッセージ</h2>
+          </div>
+
+          <!-- 呼ばれたい名前 -->
+          <div class="bg-white/50 rounded-2xl p-5 mb-4">
+            <h3 class="font-bold text-gray-700 mb-3">「呼ばれたい名前」について</h3>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>「呼ばれたい名前」は、<strong>かならず設定して、授業開始前にZoomの表示を変えてもらってください。</strong></span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>留学生からの希望もあり、<strong>漢字の使用を避けるか、もしくは、漢字とふりがなを使用</strong>してください。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>呼ばれたい名前なので、本名でもかまいません（ただし上記について注意すること）。</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 発声練習 -->
+          <div class="bg-white/50 rounded-2xl p-5 mb-4">
+            <h3 class="font-bold text-gray-700 mb-3">冒頭のワーク「一つの質問に全員がこたえる」（発声練習）について</h3>
+            <p class="text-sm text-gray-600">やりたくない受講生に強制はしませんが、これは<strong>オンラインでの接続状態や、受講者の当日の健康状態をクラスで確認するためのもの</strong>なので、できるだけやってほしいと説明してください。</p>
+          </div>
+
+          <!-- 多文化理解 -->
+          <div class="bg-white/50 rounded-2xl p-5 mb-4">
+            <h3 class="font-bold text-gray-700 mb-3">多文化理解・コミュニケーションについて</h3>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>留学生が4割を占めるので、<strong>多文化理解や文化的差異への配慮</strong>がたいせつです。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span><strong>「やさしい日本語ではなす」</strong>ことを、ティーチングスタッフも受講者もこころがけてください。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>外国語学専攻は、ほかの専攻と入試がことなるため、日本語の能力にかなりの個人差がみられます。<strong>受講者が早口でまくしたてないよう、注意してください。</strong></span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>多文化間、異分野間コミュニケーションの重要性を理解することが、この「人文学と対話」の主要な学習目標でもあるので、<strong>受講者個人や専門的見解が他の受講者に押しつけられないよう</strong>ティーチングスタッフが注意してください。</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 授業内の動画視聴 -->
+          <div class="bg-white/50 rounded-2xl p-5">
+            <h3 class="font-bold text-gray-700 mb-3">授業内の動画視聴について</h3>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>授業内の講義動画は、受講者の端末にて個別に視聴させるのではなく、<strong>Zoomの画面共有を使用</strong>してください。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>講義ではなく演習科目であるので、「聞く」だけでなく、<strong>授業に参加しているという意識をもつことが重要</strong>です。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-pink-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                <span>視聴中はカメラオフでもかまいませんが、基本的には授業中であることに注意喚起し、<strong>端末から離れたり、流し聴きしないよう注意</strong>してください。</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- (A) 授業補助 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center text-white text-lg">🏫</div>
+            <h2 class="font-black text-xl text-gray-800">（A）授業補助</h2>
+          </div>
+
+          <!-- (1) 授業時間内の授業補助 -->
+          <div class="bg-white/50 rounded-2xl p-5 mb-4">
+            <h3 class="font-bold text-gray-700 mb-3">（1）授業時間内の授業補助</h3>
+            <p class="text-sm text-gray-600 mb-4">授業開始10分前にはZoomに入室ください。第二回以降は、授業日の前に各回の内容やTA、ティーチングスタッフのその回の動き方を確認します。</p>
+
+            <div class="space-y-2.5">
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-ta">TA</span>
+                <span>出欠確認・記録：クラスの名簿（Googleスプレッドシートの出席表）に受講者の出欠や遅刻などを記録</span>
+              </div>
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-tfta">TF/TA</span>
+                <span>ペアでのワークの場合などの相手役</span>
+              </div>
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-tf">TF</span>
+                <span>グループワークのためのブレイクアウトルーム設定</span>
+              </div>
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-tf">TF</span>
+                <span>次回のグループワークのグループ分けを行う（スプレッドシートに記入）→授業当日までに教員がチェック、修正→授業開始時にブレイクアウトルームを設定する</span>
+              </div>
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-tfta">TF/TA</span>
+                <span>グループワーク見守りや進行補助。可能な場合や必要な場合は、各グループワークに入り話し合いの補助や進行を行う</span>
+              </div>
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-tfta">TF/TA</span>
+                <span>遅れてきた参加者の対応</span>
+              </div>
+            </div>
+
+            <!-- GW見守りのポイント -->
+            <div class="mt-5 bg-indigo-50 rounded-xl p-4">
+              <h4 class="font-bold text-indigo-700 text-sm mb-3">グループワーク見守り・進行のポイント</h4>
+              <p class="text-xs text-gray-600 mb-3">基本的には受講者の主体性に任せてください。ただし、下記のような場合には、できるかぎり介入や助言が必要です。</p>
+              <ul class="text-xs text-gray-600 space-y-2">
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>授業冒頭の指示に従って話し合いが行われていない場合 → 軌道修正</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>タイムスケジュールが守られていない場合 → リマインド、早めるよう促す</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>カメラオフの参加など受講態度に問題がある場合 → 口頭で注意、事情があれば聞く</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>ある人だけが明らかに長い間話している場合 → 「他の人の話す時間もあるので」と伝え制止</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>ある人がずっと黙っている場合 → 一回くらいは発言を促す</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-red-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>話し合いがヒートアップして言い争いになった場合 → 「冷静にするのは今は難しそうなのでここでは止めよう」と伝え制止</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-red-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>受講者が感情的になった場合（泣き出すなど）→ 続けて話ができるか確認、対応に困った場合は主担当教員を呼ぶ</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>（可能であれば）他者を中傷・否定・アウティングするような発言 → 「対話のなかではやめてほしい」と伝え制止</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>（可能であれば）明らかな偏見を意見として言う人がいた場合 → 「それは一つの見方に過ぎない」などとコメント</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>（可能であれば）話し合いが噛み合っていない場合 → 論点を整理したり、問いを投げかける</span>
+                </li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-3">※基本的にTF/TAは話し合いの内容について自分の意見を言わなくてよいですが、受講者がTSの意見も聞きたいと言った場合は、一参加者・個人として発言をして結構です。</p>
+            </div>
+          </div>
+
+          <!-- (2) ふりかえり -->
+          <div class="bg-white/50 rounded-2xl p-5 mb-4">
+            <h3 class="font-bold text-gray-700 mb-3">（2）授業後のティーチングスタッフのふりかえり</h3>
+            <div class="flex items-start gap-2 text-sm text-gray-600 mb-3">
+              <span class="role-tag role-tfta">TF/TA</span>
+              <span>グループワークでの受講者のコミュニケーションの特性やグループダイナミクスに関して、その日のグループの話し合いの内容、気になったことをティーチングスタッフで共有するふりかえりの時間に可能な限り参加してください。</span>
+            </div>
+            <p class="text-sm text-gray-600 mb-2">一回の授業あたりのTA勤務時間を2時間（授業時間＋30分）で設定しています。</p>
+            <div class="bg-red-50 rounded-xl p-3 mt-3">
+              <p class="text-xs text-red-700 font-semibold">個々の受講者のコミュニケーションの特性や参加態度に関する報告内容は、ティーチングスタッフ以外（特に受講者たち）には漏らさないようお願いします。</p>
+            </div>
+          </div>
+
+          <!-- (3) 授業時間外 -->
+          <div class="bg-white/50 rounded-2xl p-5">
+            <h3 class="font-bold text-gray-700 mb-3">（3）授業時間外の提出物の管理、授業の準備</h3>
+            <div class="space-y-2.5">
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-tf">TF</span>
+                <span>次回のグループ分けを事前に行い、スプレッドシートに記入する</span>
+              </div>
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-ta">TA</span>
+                <span>最終レポートのダウンロード、とりまとめ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (B) 勤務報告 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 mb-6 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white text-lg">📝</div>
+            <h2 class="font-black text-xl text-gray-800">（B）勤務報告</h2>
+          </div>
+
+          <!-- (1) 勤務時間の報告 -->
+          <div class="bg-white/50 rounded-2xl p-5 mb-4">
+            <h3 class="font-bold text-gray-700 mb-3">（1）勤務開始時・終了時の報告</h3>
+            <p class="text-sm text-gray-600 mb-4">勤務の開始時と終了時に、主担当教員のメールアドレスまで、下のようなフォーマットでメールを送ってください。対面の授業のTAと異なり、勤務記録が残らないので、メールのやりとりで記録する必要があります。</p>
+
+            <p class="text-xs font-bold text-gray-700 mb-2">【勤務開始時の文面例】</p>
+            <div class="bg-gray-50 rounded-xl p-4 font-mono text-xs text-gray-600 leading-relaxed mb-4">
+              <p>○○先生</p>
+              <p class="mt-2">人文学基礎（人文学と対話）クラス◯TA の△△です。</p>
+              <p class="mt-2">本日の勤務を開始いたします。</p>
+              <p class="mt-2">・勤務開始日時：2026/△/◇（曜日）8:40</p>
+              <p class="mt-2">△△（署名）</p>
+            </div>
+
+            <p class="text-xs font-bold text-gray-700 mb-2">【勤務終了時の文面例】</p>
+            <div class="bg-gray-50 rounded-xl p-4 font-mono text-xs text-gray-600 leading-relaxed">
+              <p>○○先生</p>
+              <p class="mt-2">人文学基礎（人文学と対話）クラス◯TA の△△です。</p>
+              <p class="mt-2">本日の勤務時間と内容は以下の通りです：</p>
+              <p class="mt-2">・勤務日時：2026/△/◇（曜日）8:40-10:40　2時間</p>
+              <p>・勤務内容：授業運営補助</p>
+              <p class="mt-2">△△（署名）</p>
+            </div>
+          </div>
+
+          <!-- (2) 勤務時間記録簿 -->
+          <div class="bg-white/50 rounded-2xl p-5">
+            <h3 class="font-bold text-gray-700 mb-3">（2）月末に勤務時間等記録簿を人文学研究科人事係に提出</h3>
+            <p class="text-sm text-gray-600 mb-2">その月の締め切りまでに勤務時間記録簿の予定を記入したものを月末より一週間前に人文学研究科人事係にメールで提出、月末までに本紙を本人および主担当教員押印の上、人事係に提出してください。</p>
+            <p class="text-sm text-gray-600 mb-2">人文学研究科人事係から勤務開始前に、TAの方にメールで必要書類が届きます。「TATF留意事項」の内容をよく確認し、各自の責任で書類の作成・押印・提出をお願いします。</p>
+            <div class="bg-blue-50 rounded-xl p-3 mt-3">
+              <p class="text-xs text-blue-700">基本的には押印は対面で行うことが原則ですが、難しい場合はPDFを主担当に共有する、書類をメールボックスに入れておくなどの方法もあります。主担当教員に個別にご連絡ください。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 学年暦 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-lg">📅</div>
+            <div>
+              <h2 class="font-black text-xl text-gray-800">学年暦</h2>
+              <p class="text-xs text-gray-400">令和8年度 全学共通教育 学年暦</p>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <a href="siryo/calendar/R8_gakunenreki.pdf" target="_blank" class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <span class="text-sm text-gray-700 group-hover:text-blue-600 transition-colors font-medium">令和8年度 全学共通教育 学年暦（PDF）</span>
+            </a>
+          </div>
+          <div class="mt-3 text-xs text-gray-500 space-y-1">
+            <p><span class="font-semibold">春学期：</span>4月1日〜6月14日　<span class="font-semibold">夏学期：</span>6月15日〜9月30日</p>
+            <p><span class="font-semibold">秋学期：</span>10月1日〜12月2日　<span class="font-semibold">冬学期：</span>12月3日〜3月31日</p>
+          </div>
+        </div>
+
+        <!-- 人事係配付書類 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-gradient-to-br from-gray-400 to-slate-500 rounded-xl flex items-center justify-center text-white text-lg">📎</div>
+            <div>
+              <h2 class="font-black text-xl text-gray-800">人事係配付書類</h2>
+              <p class="text-xs text-gray-400">人文学研究科人事係からTF/TAに配付される書類一式です</p>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <a href="siryo/配布資料（人文学林TA_R8）/配付02・別紙様式3（TA･TF従事時間報告書）.xlsx" download class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors truncate">TA・TF従事時間報告書（別紙様式3）</p>
+                <p class="text-[10px] text-gray-400">xlsx</p>
+              </div>
+            </a>
+
+            <a href="siryo/配布資料（人文学林TA_R8）/配付03 TA・TF留意事項・20260401.doc" download class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors truncate">TA・TF留意事項</p>
+                <p class="text-[10px] text-gray-400">doc</p>
+              </div>
+            </a>
+
+            <a href="siryo/配布資料（人文学林TA_R8）/配付04 （R3.11）学生向けお知らせ（従事可能年数）・20230221DL.docx" download class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors truncate">学生向けお知らせ（従事可能年数）</p>
+                <p class="text-[10px] text-gray-400">docx</p>
+              </div>
+            </a>
+
+            <a href="siryo/配布資料（人文学林TA_R8）/配付05 「STOP！研究費不正（TA,RA,ｱﾙﾊﾞｲﾄ,ﾁｭｰﾀｰ等）」.pdf" download class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors truncate">STOP！研究費不正</p>
+                <p class="text-[10px] text-gray-400">pdf</p>
+              </div>
+            </a>
+
+            <a href="siryo/配布資料（人文学林TA_R8）/配付06 新任教職員等向けコンプライアンス教材・20230727.pdf" download class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors truncate">コンプライアンス教材</p>
+                <p class="text-[10px] text-gray-400">pdf</p>
+              </div>
+            </a>
+
+            <a href="siryo/配布資料（人文学林TA_R8）/配付07 TA及びTFの受入れに関する規程・20250401.pdf" download class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors truncate">TA及びTFの受入れに関する規程</p>
+                <p class="text-[10px] text-gray-400">pdf</p>
+              </div>
+            </a>
+
+            <a href="siryo/配布資料（人文学林TA_R8）/配布詳細MAP（言文B棟　人事係）.pdf" download class="flex items-center gap-3 bg-white/50 rounded-xl p-3 hover:bg-white/80 transition-colors group">
+              <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 group-hover:text-purple-600 transition-colors truncate">人事係 配布詳細MAP（言文B棟）</p>
+                <p class="text-[10px] text-gray-400">pdf</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- ==================== 実践編 ==================== -->
+    <div id="tab-practice" class="tab-content">
+      <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+
+        <!-- 第1回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">1</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">イントロダクション、対話とは何をすることか？</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4 mb-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">タイムスケジュール（目安）</h3>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs text-gray-600">
+              <span class="font-mono font-bold text-purple-600">8:40</span><span>ティーチングスタッフ入室</span>
+              <span class="font-mono font-bold text-purple-600">8:50</span><span>授業開始、TSの簡単な紹介、受講者の点呼</span>
+              <span class="font-mono font-bold text-purple-600">9:00</span><span>授業のイントロダクション[動画1]、質疑</span>
+              <span class="font-mono font-bold text-purple-600">9:25</span><span>ミニレクチャー：対話とは何をすることか[動画2]</span>
+              <span class="font-mono font-bold text-purple-600">9:45</span><span>[動画3] + 対話型ワーク：自分について知ってもらおう</span>
+              <span class="font-mono font-bold text-purple-600">10:15</span><span>来週の授業までにすること（連絡事項）</span>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5">
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-ta">TA</span>
+                <span>出欠をスプレッドシートにつける。対話型ワークの受講者の「呼ばれたい名前」をスプレッドシートにつける</span>
+              </div>
+              <div class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="role-tag role-tfta">TF/TA</span>
+                <span>対話型ワークの自己紹介を、学生のお手本になるようにコンパクトに伝える（名前、所属、呼ばれたい名前とその理由、「トリセツ」）</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-3">※自己紹介の順番：TF/TA → 受講者 → 教員</p>
+          </div>
+        </div>
+
+        <!-- 第2回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">2</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">質問を通じて自他の考えを理解する</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4 mb-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">タイムスケジュール</h3>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs text-gray-600">
+              <span class="font-mono font-bold text-purple-600">8:40</span><span>ティーチングスタッフ入室</span>
+              <span class="font-mono font-bold text-purple-600">8:50</span><span>授業開始、"発声練習"のワーク</span>
+              <span class="font-mono font-bold text-purple-600">9:05</span><span>今日のワークの説明（TFがブレイクアウトルーム準備）</span>
+              <span class="font-mono font-bold text-purple-600">9:35</span><span>TF/TAによる模範演技</span>
+              <span class="font-mono font-bold text-purple-600">9:40</span><span>対話型ワーク：相手の研究テーマについて質問（30分）</span>
+              <span class="font-mono font-bold text-purple-600">10:10</span><span>ワークで話されたことを「他己紹介」のかたちでシェア</span>
+              <span class="font-mono font-bold text-purple-600">10:15</span><span>ふりかえりシートの提出について</span>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5 text-sm text-gray-600">
+              <p class="font-semibold text-gray-700">1. はじめのミニワーク：発声練習</p>
+              <p class="ml-4">TSも受講者と同じ質問に答える</p>
+
+              <p class="font-semibold text-gray-700 mt-3">2. 今日のワークの説明、模範演技</p>
+              <div class="ml-4 space-y-2">
+                <div class="flex items-start gap-2">
+                  <span class="role-tag role-tf">TF</span>
+                  <span>動画が流れている間に、出席表のペアを確認してブレイクアウトルームの設定（グループ分けと終了時間30分）を行う</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="role-tag role-tfta">TF/TA</span>
+                  <span>説明の最後に、ワークの模範演技を5分程度行う</span>
+                </div>
+              </div>
+
+              <p class="font-semibold text-gray-700 mt-3">3. 対話型ワーク</p>
+              <div class="ml-4 space-y-2">
+                <div class="flex items-start gap-2">
+                  <span class="role-tag role-ta">TA</span>
+                  <span>ペアが出来ていない人がいた場合、ペアワークに入る</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="role-tag role-tf">TF</span>
+                  <span>各ルームを巡回して、グループのワークの様子を見守りサポート</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="role-tag role-tf">TF</span>
+                  <span>15分経過時点で「役を交代して二巡目のワークを行ってください」とブロードキャスト</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="role-tag role-ta">TA</span>
+                  <span>対話ワークに参加した場合、他己紹介フォームに入力する</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第3回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">3</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">協働の探究のための〈問い〉を立て、共有する</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4 mb-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">タイムスケジュール</h3>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs text-gray-600">
+              <span class="font-mono font-bold text-purple-600">8:40</span><span>ティーチングスタッフ入室</span>
+              <span class="font-mono font-bold text-purple-600">8:50</span><span>授業開始、"発声練習"のワーク</span>
+              <span class="font-mono font-bold text-purple-600">9:00</span><span>今日のワークの説明</span>
+              <span class="font-mono font-bold text-purple-600">9:20</span><span>TAとTSによる模範演技</span>
+              <span class="font-mono font-bold text-purple-600">9:25</span><span>対話型ワーク：〈問い〉を立て、共有する（45分）</span>
+              <span class="font-mono font-bold text-purple-600">10:10</span><span>ふりかえりシートの提出について</span>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5 text-sm text-gray-600">
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tfta">TF/TA</span>
+                <span>発声練習：受講者と同じ質問に答える</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>講義動画を流している間に、ブレイクアウトルームのグループ分けを行う（45分で閉じる設定）</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tfta">TF/TA</span>
+                <span>模範演技を教員と3人で実施。「研究テーマ以外で他の人と考えたい問い」を準備してくる（できれば少し曖昧な問い）</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>15分ごとに「次の問いの検討に入ってください」とブロードキャスト</span>
+              </div>
+            </div>
+            <div class="bg-amber-50 rounded-xl p-3 mt-4">
+              <p class="text-xs text-amber-800 font-semibold mb-1">サポートのポイント</p>
+              <p class="text-xs text-gray-600">第3回は難易度が高いため、問いのブラッシュアップのための質問や修正候補の提案をしてもよい。質問が事実だけに終始している場合は、相手の関心や人となりを聴く質問ができるように助言する。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第4回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">4</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">現代における人文学の課題について「言いっぱなし聞きっぱなし」形式で対話する</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4 mb-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">タイムスケジュール</h3>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs text-gray-600">
+              <span class="font-mono font-bold text-purple-600">8:40</span><span>ティーチングスタッフ入室</span>
+              <span class="font-mono font-bold text-purple-600">8:50</span><span>授業開始、"発声練習"のワーク</span>
+              <span class="font-mono font-bold text-purple-600">9:05</span><span>今日のワークの説明</span>
+              <span class="font-mono font-bold text-purple-600">9:25</span><span>対話型ワーク：「言いっぱなし聞きっぱなし」形式（50分）</span>
+              <span class="font-mono font-bold text-purple-600">10:15</span><span>ふりかえりシートの提出について</span>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5 text-sm text-gray-600">
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tfta">TF/TA</span>
+                <span>発声練習：受講者と同じ質問に答える</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>クラスを2グループに分け、準備してきた問いをチャットに書いてもらい、全員の問いをコピペしておく</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-ta">TA</span>
+                <span>1人が話し出したら時間を計測。5分を過ぎたら「5分過ぎたので、次の人の順番です」と機械的に終わらせる</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>事前学習動画を見ていない可能性がある人には確認する</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>問いを準備していない人は一巡目の最後に回す</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>早く終わった場合 → 二巡目として質問や問いを出してもらう。出てこない場合は「他の人の意見を聞いての感想や考えたこと」を順番に話してもらう</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-ta">TA</span>
+                <span>時間が余れば、テーマについて思うことがあれば話してもよい</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>最後にコメントしてもよいが、強いまとめ（結論）は避ける。特定の受講者の発言への肯定・否定コメントも避ける</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第5回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">5</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">人文学とデジタル技術</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4 mb-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">タイムスケジュール</h3>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs text-gray-600">
+              <span class="font-mono font-bold text-purple-600">8:40</span><span>ティーチングスタッフ入室</span>
+              <span class="font-mono font-bold text-purple-600">8:50</span><span>授業開始、"発声練習"のワーク</span>
+              <span class="font-mono font-bold text-purple-600">9:05</span><span>今日のワークの説明</span>
+              <span class="font-mono font-bold text-purple-600">9:15</span><span>対話型ワーク：Plain vanilla方式（45分）</span>
+              <span class="font-mono font-bold text-purple-600">10:15</span><span>ふりかえりシートの提出について</span>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5 text-sm text-gray-600">
+              <p>第4回と同様、事前学習動画を見て「問い」と答えを準備してきてもらっています。まず「問い」をチャットに書いてもらってから、問いの説明、背景やそれに対する自分の考えを話してもらってください。</p>
+
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>進行役として、1人の人が話し出したら時間を測っておく。5分を過ぎた場合は「そろそろ5分過ぎたので、最後に一言言いたいことを言って、次の人に回しましょう」など、話を切り上げるように発言者に頼む</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-tf">TF</span>
+                <span>進行役の方針によっては、現在の時点で自分の今後のキャリアの予定（就職／博士後期課程進学／悩み中など）を話してもらってもよい（各進行役におまかせ）</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="role-tag role-ta">TA</span>
+                <span>一巡目で時間が余れば、M2の先輩として（あるいは社会人経験者として）キャリアについて考えていることをお話しいただいても結構です</span>
+              </div>
+            </div>
+
+            <div class="bg-cyan-50 rounded-xl p-4 mt-4">
+              <p class="text-xs text-cyan-800 font-semibold mb-2">グループワークの時間（45分間：9:15–10:00）</p>
+              <ul class="text-xs text-gray-600 space-y-1.5">
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>早く終わった場合は、二巡目のターンとして、他の人の意見や問いに質問・コメントをするか、誰かの問い（似たような問いが多くあったらそれ）について全員に意見を話してもらう</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>二巡目では、ある程度他の人の言ったことに言及してもかまわない、と伝えてください。今回のテーマでは、多少悩み相談に近いものになっても構いません</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-amber-50 rounded-xl p-4 mt-4">
+              <p class="text-xs text-amber-800 font-semibold mb-2">※ お願い（教員向け）</p>
+              <p class="text-xs text-gray-600">それぞれのグループで来年TAを頼めそうな人（条件：コミュニケーションや対話に積極的で簡単な進行役ができそう、できれば後期課程進学を考えているとより望ましい）をひそかに探しておいてください。グループにいない場合はそれで構いません。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第6回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">6</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">人文学研究の倫理に関する事例について対話と探究</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4 mb-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">タイムスケジュール</h3>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs text-gray-600">
+              <span class="font-mono font-bold text-purple-600">8:40</span><span>ティーチングスタッフ入室</span>
+              <span class="font-mono font-bold text-purple-600">8:50</span><span>授業開始、"発声練習"のワーク</span>
+              <span class="font-mono font-bold text-purple-600">9:00</span><span>【動画】今日のワークの説明</span>
+              <span class="font-mono font-bold text-purple-600">9:15</span><span>対話型ワーク：倫理の事例について対話と探究（50分）</span>
+              <span class="font-mono font-bold text-purple-600">10:10</span><span>【動画】ワークの解説＋ふりかえりシート</span>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5 text-sm text-gray-600">
+              <p>指定した方式で話し合いを行います。【第六回ワークの進め方】に従って進行してください。</p>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>事例と立場の選択肢をまずチャットに貼り付ける</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>質問するフェーズでは、誰に対する質問かはっきりさせてもらう</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>同じ質問者が続けて質問できるのは2回まで</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>質問する側が固定されていたら、逆の側からの質問を促す</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>全員が片方の立場を選んだ場合：反対の立場の意見や論拠を考えてチャットに書いてもらう</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>最後5分で「AとBの意見の違いの根底にあるちがい」「AとBが共通して話し合える本質的な〈問い〉・論点」を考えてもらう</span>
+                </li>
+              </ul>
+              <div class="bg-amber-50 rounded-xl p-3 mt-2">
+                <p class="text-xs text-amber-800">※「人それぞれ」とならないように、AとBの選択の違いが何によるものなのかを受講者に考えてもらうこと。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第7回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">7</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">人文学と現代における人権や共生の課題について対話と探究</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4 mb-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">タイムスケジュール</h3>
+            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs text-gray-600">
+              <span class="font-mono font-bold text-purple-600">8:40</span><span>ティーチングスタッフ入室</span>
+              <span class="font-mono font-bold text-purple-600">8:50</span><span>授業開始、"発声練習"のワーク</span>
+              <span class="font-mono font-bold text-purple-600">9:05</span><span>今日のワークの説明</span>
+              <span class="font-mono font-bold text-purple-600">9:20</span><span>対話型ワーク：人権や共生の課題について（40分）</span>
+              <span class="font-mono font-bold text-purple-600">10:00</span><span>まとめ（動画）、レポート課題について説明</span>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5 text-sm text-gray-600">
+              <p>【第7回ワークの進め方】に従って進行します。</p>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>準備が不足してチャットへの書き込みが遅い参加者がいたら、ある程度待って先に進む</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>一人一つ逆の立場の人に質問することを目標にしてもよい</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>質問する側が固定されていたら逆の側からの質問を促す</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>同じ質問者が続けて質問できるのは2回まで</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>質問が出なくなったら、同じ立場の人や立場問わず全員への質問もOK</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>全員が片方の立場の場合：全員で反対の立場の論拠を出してみる</span>
+                </li>
+              </ul>
+              <div class="bg-red-50 rounded-xl p-3 mt-3">
+                <p class="text-xs text-red-700 font-semibold mb-1">注意</p>
+                <p class="text-xs text-gray-600">極端なマイノリティへの誤解や偏った見方に基づく意見があった場合は、「それはあなたの考えであって全員が賛成しているわけではない」「当事者の中にはその認識は偏りを含んでいると指摘している人がいる」などとコメントしてください。ただし、認識の是非が問題になるわけではないため「正しいかどうかはここでは置いておく」として先に進めるのがよいです。</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">★9:50頃、「AとBの意見の違いの根底にどんな価値や前提の違いがあるか」「AとBが共通して話し合える根本的な〈問い〉は何か」を考えてもらう</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第8回 -->
+        <div class="fade-in glass rounded-3xl p-6 sm:p-8 section-card">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="session-badge">8</div>
+            <div>
+              <h2 class="font-black text-lg text-gray-800">「人文学を社会に活かす」「大学院生のキャリア形成」について対話する</h2>
+            </div>
+          </div>
+
+          <div class="bg-white/50 rounded-2xl p-4">
+            <h3 class="font-bold text-gray-700 text-sm mb-3">TF/TAの役割</h3>
+            <div class="space-y-2.5 text-sm text-gray-600">
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>1人の人が5分を過ぎたら「そろそろ5分過ぎたので、最後に一言言いたいことを言って、次の人に回しましょう」と話を切り上げるように依頼</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>話してもいいという人は、（A）現在の時点でのキャリアの予定、（B）修了生の動画のうちどれを見てどんな感想を持ったかを最初に話してもらう</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>一巡目で時間が余れば、TAも先輩として（または社会人経験者として）キャリアについて話してもよい</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-indigo-400 mt-0.5 flex-shrink-0">&#9679;</span>
+                  <span>グループワーク時間は約60分。早く終わった場合は二巡目として「他の人の意見を聞いての感想」を話してもらう（他者への言及可、悩み相談に近くてもOK）</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto px-4 sm:px-6 pb-12 pt-4">
+      <div class="text-center">
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-800 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          ホームに戻る
+        </a>
+      </div>
+      <p class="text-center text-xs text-gray-300 mt-4">人文学とデジタル技術 2026</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Manual page auth
+    (function() {
+      const MANUAL_PASS = 'kikukotonotikara';
+      const MANUAL_KEY = 'hd_manual_auth_2026';
+
+      if (sessionStorage.getItem(MANUAL_KEY) === 'true') {
+        document.getElementById('manual-auth').style.display = 'none';
+        document.getElementById('manual-content').style.display = 'block';
+        return;
+      }
+
+      const input = document.getElementById('manual-input');
+      const btn = document.getElementById('manual-btn');
+      const error = document.getElementById('manual-error');
+
+      function tryManualAuth() {
+        if (input.value === MANUAL_PASS) {
+          sessionStorage.setItem(MANUAL_KEY, 'true');
+          const overlay = document.getElementById('manual-auth');
+          overlay.style.transition = 'opacity 0.5s ease';
+          overlay.style.opacity = '0';
+          setTimeout(() => {
+            overlay.style.display = 'none';
+            document.getElementById('manual-content').style.display = 'block';
+          }, 500);
+        } else {
+          error.style.display = 'block';
+          input.style.borderColor = '#ef4444';
+          input.value = '';
+          setTimeout(() => { error.style.display = 'none'; input.style.borderColor = '#e5e7eb'; }, 2000);
+        }
+      }
+
+      btn.addEventListener('click', tryManualAuth);
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') tryManualAuth(); });
+      setTimeout(() => input.focus(), 100);
+    })();
+
+    // Tab switching
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      event.target.classList.add('active');
+
+      // Re-trigger fade-in for newly visible content
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('#tab-' + tab + ' .fade-in').forEach(el => {
+        el.classList.remove('visible');
+        observer.observe(el);
+      });
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
