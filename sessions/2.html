@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -52,6 +52,63 @@
       -webkit-backdrop-filter: blur(30px);
       border: 1px solid rgba(216,180,254,0.4);
       box-shadow: 0 8px 32px rgba(168,85,247,0.08);
+    }
+    .paper-note {
+      position: relative;
+      background-color: #fffdf5;
+      background-image:
+        linear-gradient(to right, transparent 0, transparent 48px, rgba(239,68,68,0.35) 48px, rgba(239,68,68,0.35) 49px, transparent 49px),
+        repeating-linear-gradient(to bottom, transparent 0, transparent 31px, rgba(59,130,246,0.18) 31px, rgba(59,130,246,0.18) 32px);
+      border-radius: 0.25rem;
+      padding: 1.75rem 1.5rem 1.75rem 3.75rem;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 12px 24px -12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.05);
+      transform: rotate(-0.3deg);
+      font-family: 'Klee One', 'M PLUS Rounded 1c', sans-serif;
+      color: #374151;
+      line-height: 32px;
+    }
+    .paper-note::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-4deg);
+      width: 80px;
+      height: 20px;
+      background: rgba(250, 204, 21, 0.45);
+      border: 1px dashed rgba(202, 138, 4, 0.25);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+    .paper-note h4 {
+      font-family: 'Klee One', 'M PLUS Rounded 1c', sans-serif;
+      font-weight: 600;
+      color: #1f2937;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .paper-note ul { list-style: none; padding: 0; margin: 0; }
+    .paper-note > ul > li { padding-left: 1.5rem; position: relative; font-size: 0.95rem; }
+    .paper-note > ul > li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #8b5cf6;
+      font-weight: 700;
+    }
+    .paper-note ul ul { margin-top: 0.15rem; margin-bottom: 0.35rem; padding-left: 0.25rem; }
+    .paper-note ul ul li { font-size: 0.85rem; color: #4b5563; padding-left: 1rem; position: relative; }
+    .paper-note ul ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #ec4899;
+    }
+    .paper-note .paper-tip {
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed rgba(156,163,175,0.5);
+      font-size: 0.85rem;
+      color: #6b7280;
     }
   </style>
 </head>
@@ -162,6 +219,7 @@
               <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>デジタルツールやデジタル技術を人文学研究のなかで使えるようになるのは良いことですが、それはあくまで手段であって、あなたが達成したい目的ではないはずです。</li>
               <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>あなたの目的・目標は何ですか？　1 年後や 2 年後、どのような自分になっていたいですか？　どんな人生を送りたいですか？</li>
               <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>紙やノート、デジタルなメモツール（Notion や Evernote など）に、2026 年度（2027 年 3 月まで）の自分の目標を書いてみましょう！</li>
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>1 年の目標は紙に書いて、目に見える位置においておきましょう。</li>
             </ul>
           </div>
 
@@ -187,36 +245,36 @@
             </div>
           </div>
 
-          <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">就活の準備（面接篇）</p>
-            <p class="text-sm text-gray-600 mb-3">面接の前に、以下の問いに答えられるようにしておきましょう（考えておきましょう）。</p>
-            <ul class="text-sm text-gray-600 space-y-1.5">
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>why 〇〇業界（領域）</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>why ▲▲（職種）</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>why ■■（企業、学校、組織）</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><div>入社後やりたいこと
-                <ul class="mt-1 ml-2 space-y-1 text-xs text-gray-500">
-                  <li>・なぜそれに興味持ったか</li>
-                  <li>・なぜそれをやるのに■■なのか（他の業界、他の企業じゃなぜダメか）</li>
-                  <li>・その領域の課題は何だと思うか</li>
-                  <li>・どうすれば解決できると思うか</li>
+          <div class="paper-note">
+            <h4>就活の準備（面接篇）</h4>
+            <p style="font-size:0.85rem;color:#4b5563;margin-bottom:0.75rem;">面接の前に、以下の問いに答えられるようにしておきましょう。</p>
+            <ul>
+              <li>なぜその業界（領域）なのですか？</li>
+              <li>なぜその職種なのですか？</li>
+              <li>なぜその企業（学校、組織）なのですか？</li>
+              <li>入社後、何をやりたいですか？
+                <ul>
+                  <li>なぜそれに興味を持ったのですか？</li>
+                  <li>なぜそれをやるのがその企業（学校、組織）でなくてはならないのですか？（他の業界・他の企業ではなぜダメなのですか？）</li>
+                  <li>その領域の課題は何だと思いますか？</li>
+                  <li>どうすれば解決できると思いますか？</li>
                 </ul>
-              </div></li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><div>これまで 1 番頑張ったこと
-                <ul class="mt-1 ml-2 space-y-1 text-xs text-gray-500">
-                  <li>・自分の立場</li>
-                  <li>・自分がどれだけ貢献したか</li>
-                  <li>・困難だったこと（どう乗り越えたか）</li>
+              </li>
+              <li>これまで 1 番頑張ったことは何ですか？
+                <ul>
+                  <li>そのときのあなたの立場は何でしたか？</li>
+                  <li>あなたはどれだけ貢献しましたか？</li>
+                  <li>困難だったことは何ですか？（どう乗り越えましたか？）</li>
                 </ul>
-              </div></li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>周りに反対されながらも何かをやり通し、成果を産んだ経験</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>自分の強み（エピソード）</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>自分の弱み（エピソード）</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>周りからどんな人と言われるか</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>研究内容について</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span>逆質問</li>
+              </li>
+              <li>周りに反対されながらも何かをやり通し、成果を生み出した経験はありますか？</li>
+              <li>あなたの強みは何ですか？（具体的なエピソードとともに）</li>
+              <li>あなたの弱みは何ですか？（具体的なエピソードとともに）</li>
+              <li>周りからどんな人だと言われますか？</li>
+              <li>ご自身の研究内容について教えてもらえますか？</li>
+              <li>何か質問はありますか？（逆質問）</li>
             </ul>
-            <p class="text-xs text-gray-500 mt-3">→ 書きながら考えてみるのがお勧めです。A4 用紙 1 枚でまとめてみましょう。</p>
+            <p class="paper-tip">✎ 書きながら考えてみるのがお勧めです。A4 用紙 1 枚でまとめてみましょう。</p>
           </div>
         </div>
       </div>
@@ -248,7 +306,7 @@
                 <p class="text-[10px] text-gray-500">収集箱</p>
               </div>
               <div class="bg-white/60 rounded-xl p-3 text-center">
-                <p class="text-xs font-black text-violet-500 mb-1">Next</p>
+                <p class="text-xs font-black text-violet-500 mb-1">To Do</p>
                 <p class="text-[10px] text-gray-500">次にやること</p>
               </div>
               <div class="bg-white/60 rounded-xl p-3 text-center">
@@ -263,11 +321,11 @@
 
             <ul class="text-sm text-gray-600 space-y-2">
               <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Inbox（収集箱）</strong>：新しく発生したタスクを一時的にすべてここに集めるリスト。思いついた作業や指示された用件など、まずは忘れないようすぐにカードを追加します。</li>
-              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Next（次にやること）</strong>：今後取り組む予定のタスクを置くリスト。Inbox の中から近いうちに着手すべきものを選び移します。いわば優先待機中のタスクリストです。</li>
+              <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">To Do（次にやること）</strong>：今後取り組む予定のタスクを置くリスト。Inbox の中から近いうちに着手すべきものを選び移します。いわば優先待機中のタスクリストです。</li>
               <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Doing（実行中）</strong>：現在進行中のタスクを置くリスト。今まさに取り組んでいるカードのみをここに移し、集中して完了を目指します。同時に多くのタスクを Doing に入れすぎないようにし、並行作業は可能な限り絞ることがポイントです。</li>
               <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Done（完了）</strong>：完了したタスクの置き場所。タスクが終了したらカードをこのリストに移動します。完了済みタスクの記録としてしばらく残しておくと、後で成果を振り返る際に役立ちます。</li>
             </ul>
-            <p class="text-sm text-gray-600 mt-3">このような形で <strong class="text-gray-800">Inbox → Next → Doing → Done</strong> とタスクを流していくことで、自身の抱えている作業を俯瞰でき、何が未着手で何が進行中かを一目で把握できます。定期的に未着手のタスクを見直し、長期間放置されているものは優先度を見直すか、必要に応じて削除・延期することで<strong class="text-gray-800">「タスクの積読」</strong>を防ぐ工夫も大切です。</p>
+            <p class="text-sm text-gray-600 mt-3">このような形で <strong class="text-gray-800">Inbox → To Do → Doing → Done</strong> とタスクを流していくことで、自身の抱えている作業を俯瞰でき、何が未着手で何が進行中かを一目で把握できます。定期的に未着手のタスクを見直し、長期間放置されているものは優先度を見直すか、必要に応じて削除・延期することで<strong class="text-gray-800">「タスクの積読」</strong>を防ぐ工夫も大切です。</p>
           </div>
 
           <div class="info-box">
@@ -352,7 +410,7 @@
             <p class="text-xs font-bold text-gray-700 mb-2">Google ドライブでの資料保存と命名ルール</p>
             <p class="text-sm text-gray-600 mb-2">Google ドライブは、ファイルをクラウド上に保存し、インターネット経由でどこからでもアクセスできるストレージサービスです。研究で扱う論文PDFや実験データ、写真、スライド資料など、様々なファイルを Google ドライブにも保管しておくことで、<strong class="text-gray-800">データの消失リスクを減らしつつ他のデバイスや共同研究者と簡単に共有</strong>できます。</p>
             <p class="text-sm text-gray-600 mb-2">効果的に使うには、まず<strong class="text-gray-800">フォルダ構成</strong>と<strong class="text-gray-800">ファイル命名ルール</strong>を決めておくことが重要です。研究プロジェクトごとにフォルダを作成し、その中に「データ」「論文」「解析結果」「ドラフト」など用途別のサブフォルダを用意するといった階層を設計しましょう。</p>
-            <p class="text-sm text-gray-600">ファイル名には統一した命名規則を設けます。例えば<strong class="text-gray-800">日付やバージョン番号を入れる</strong>（<code>20250115_experiment1_v2.csv</code> のように）、内容がわかる簡潔なキーワードを含める（<code>proposal_draft</code> や <code>survey_results</code> など）といった工夫です。誰が見ても理解できる名前を付けておけば、後で自分自身や共同研究者が迷わず目的のファイルを見つけられます。</p>
+            <p class="text-sm text-gray-600">ファイル名には統一した命名規則を設けます。例えば<strong class="text-gray-800">日付やバージョン番号を入れる</strong>（<code>260418_experiment1_v2.csv</code> のように）、内容がわかる簡潔なキーワードを含める（<code>proposal_draft</code> や <code>survey_results</code> など）といった工夫です。誰が見ても理解できる名前を付けておけば、後で自分自身や共同研究者が迷わず目的のファイルを見つけられます。</p>
           </div>
 
           <div class="info-box mb-4">
