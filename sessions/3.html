@@ -100,7 +100,7 @@
 
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8">
-      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章では、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、文献管理ツールを用いた参考文献管理と引用の手法、生成AIを補助的に用いた「短読」と精読の使い分け、そして<strong class="text-gray-800">Literature Review（先行研究レビュー）として自分の研究を位置づける考え方</strong>について解説します。ツールの使い方だけでなく、その背後にある研究の作法もあわせて学んでいきます。</p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章ではまず、<strong class="text-gray-800">Literature Review（先行研究レビュー）として自分の研究を位置づける考え方</strong>を確認したうえで、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、文献管理ツールを用いた参考文献管理と引用の手法、生成AIを補助的に用いた「短読」と精読の使い分けについて解説します。ツールの使い方だけでなく、その背後にある研究の作法もあわせて学んでいきます。</p>
     </div>
   </section>
 
@@ -111,11 +111,11 @@
         <h2 class="font-bold text-lg text-gray-800">本章の到達点</h2>
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Literature Review として自分の研究を先行研究のなかに位置づける考え方（差異・スコープ・ジャーナル・著者の仕事、AIとの付き合い方）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Google Scholar による先行研究探索（検索語設計・引用追跡・アラート）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>紙資料のデジタル化と読みやすくする工夫（スキャン・OCR・整理）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Zotero による文献管理と引用（収集・整理・引用出力・PDF管理・同期）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>AI（NotebookLM・Gemini）を用いた「短読」と精読のすすめ（翻訳・要約・解説、ハルシネーションへの注意）</li>
-        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Literature Review として自分の研究を先行研究のなかに位置づける考え方（差異・スコープ・ジャーナル・著者の仕事、AIとの付き合い方）</li>
       </ul>
     </div>
   </section>
@@ -123,222 +123,28 @@
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
-    <!-- 3.1 Google Scholar -->
+    <!-- 3.1 Literature Review -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.1</div>
-        <div class="w-full">
-          <h3 class="font-bold text-gray-800 mb-2">Google Scholar による先行研究探索</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">Google Scholar（グーグルスカラー）は学術論文や専門書、報告書などを幅広く検索できるエンジンです。キーワードを入力するだけで多様な分野の文献を横断的に探せるため、先行研究の調査に大いに役立ちます。</p>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.1.1 検索語の設計と検索オプション</p>
-            <p class="text-sm text-gray-600 mb-2">効果的な文献探索の第一歩は、適切な検索語を選び組み合わせることです。Google Scholar では基本的に複数の単語を入力すると AND 検索となり、単語間を空白で区切ることで指定できます。</p>
-            <ul class="text-sm text-gray-600 space-y-2">
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">フレーズ検索</strong>：検索語を引用符（" "）で囲みます。例えば "デジタル アーカイブ" のように指定すると、その正確な語句を含む文献のみを検索できます。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">OR 検索</strong>：語と語の間に OR（大文字）を入れます。例：京都 OR 奈良 とすると、京都または奈良のいずれかの語を含む文献を検索します。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">除外検索</strong>：除外したいキーワードの前にマイナス記号 - を付けます。例：平安京 -"平安神宮" とすれば、「平安神宮」を含まない平安京に関する文献を絞り込めます。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">その他オプション</strong>：「詳細検索」画面から特定の著者名や出版年、掲載誌名で絞り込むことも可能です。著者名で絞り込みたいときは検索ボックスに <span class="whitespace-nowrap">author:山田</span> のように入力すると、著者名に「山田」を含む論文に限定できます。また「引用部分を含める」設定を有効にすると、参考文献リストも検索対象に含められます。</li>
-            </ul>
-            <p class="text-xs text-gray-500 mt-2">検索結果が多すぎる場合は、検索結果ページ左側のメニューから「1年以内」等の期間指定や「日本語の文献のみ」などの絞り込みも活用しましょう。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.1.2 引用関係を辿る（引用追跡と被引用文献の確認）</p>
-            <p class="text-sm text-gray-600 mb-2">有用な文献を見つけたら、その文献の引用関係を辿って関連する研究を探すことができます。Google Scholar では各検索結果の下に<strong class="text-gray-800">「引用元」</strong>と数字が表示されており、これはその文献が他の何件の文献に引用されているかを示します。この「引用元」をクリックすると、当該文献を引用している後続の研究一覧が表示されます。</p>
-            <p class="text-sm text-gray-600 mb-2">引用数が多い文献はその分野で一定の評価を得ている古典的研究である場合も多いので、一つの目安になります。</p>
-            <p class="text-sm text-gray-600">逆に、その文献が参考文献として挙げている先行研究（被引用文献）を辿ることも重要です。ある文献を起点に前後の関連文献を追跡することを<strong class="text-gray-800">「引用追跡」</strong>と呼び、体系的な文献レビューには欠かせない手法です。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.1.3 関連文献の検索</p>
-            <p class="text-sm text-gray-600">Google Scholar の各結果には「関連記事」あるいは「関連文献」といったリンクも表示されます。これは現在表示している文献と内容的に類似した他の文献を Google がアルゴリズムで判断してリストアップしてくれる機能です。キーワードが完全には一致していなくても、テーマや分野が近い論文を網羅的に見つけたい場合に便利です。先行研究調査の際には、直接のキーワード検索だけでなく、こうした横断的なアプローチも組み合わせると網羅性が高まります。</p>
-          </div>
-
-          <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.1.4 マイライブラリ機能とアラートの活用</p>
-            <p class="text-sm text-gray-600 mb-2">Google Scholar には、見つけた論文を保存して後から閲覧できる<strong class="text-gray-800">「マイライブラリ」</strong>機能があります。検索結果の「☆（保存）」アイコンをクリックすると文献情報が保存されます。保存された文献にはラベル（タグ）を付けて分類することも可能で、例えば「先行研究」「方法論」「統計資料」などとラベル分けして管理すれば、後で必要な文献を探しやすくなります。</p>
-            <p class="text-sm text-gray-600">さらに、新着文献の見逃しを防ぐには<strong class="text-gray-800">「アラート」</strong>機能が便利です。特定のキーワードやトピックについての検索アラートを設定しておくと、その条件に合致する新しい文献が登録された際に指定したメールアドレスへ通知が届きます。例えば「デジタル・ヒューマニティーズ」というキーワードでアラートを作成しておけば、そのテーマに関する最新の論文や記事が公開されるたびに自動で知らせてもらえます。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3.2 紙資料のデジタル化 -->
-    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
-      <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.2</div>
-        <div class="w-full">
-          <h3 class="font-bold text-gray-800 mb-2">紙資料のデジタル化と読みやすくする工夫</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">書籍や論文の紙媒体の資料も、デジタル化することで取り回しやすくなり、検索や引用が容易になります。ここではスマートフォンなどを利用した紙資料のPDF化と、OCR（光学文字認識）によるテキスト化、さらにデジタル化した資料の整理方法について紹介します。</p>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.2.1 スマートフォンによるスキャンと PDF 化</p>
-            <p class="text-sm text-gray-600 mb-3">近年はスマートフォンを用いて手軽に紙の資料をスキャンし、PDF化することが可能です。専用のスキャンアプリを使えば、書類や本のページをカメラで撮影するだけで自動的に台形補正やトリミングが行われ、読みやすい電子文書に変換できます。</p>
-            <div class="grid sm:grid-cols-3 gap-2">
-              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">CamScanner</p><p class="text-[10px] text-gray-500">iOS/Android 向け定番。ページの検出・補正が優秀。複数ページを1つの PDF にまとめられます。無料版でも基本機能は十分。</p></div>
-              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">Adobe Scan</p><p class="text-[10px] text-gray-500">Adobe 社提供の無料アプリ。高品質なスキャンが可能。自動的に OCR を実行して PDF にテキスト情報を埋め込む機能も。</p></div>
-              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">Genius Scan</p><p class="text-[10px] text-gray-500">シンプルながら高機能。画像の鮮明化や色調補正など多彩なオプション。各種クラウドサービスへの保存も容易。</p></div>
-            </div>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.2.2 OCR によるテキスト化と活用</p>
-            <p class="text-sm text-gray-600 mb-2">スキャンした PDF や画像データから文字を読み取ってテキストデータに変換する技術を <strong class="text-gray-800">OCR</strong>（Optical Character Recognition、光学文字認識）と呼びます。OCR を施すことで、紙の資料から起こした PDF 内の文字をデジタルテキストに変換し、全文検索やコピー＆ペーストが可能になります。</p>
-            <ul class="text-sm text-gray-600 space-y-2">
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">スキャンアプリ内蔵の OCR 機能</strong>：Adobe Scan や CamScanner などには OCR 機能が組み込まれており、スキャン直後に自動で文字認識を行ってくれます。日本語にも対応。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Google ドライブの OCR</strong>：無料で手軽に使える方法。画像や PDF を Google ドライブにアップロードし、「アプリで開く → Google ドキュメント」を選ぶと、自動的に OCR 処理が行われます。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">専用ソフトや他のツール</strong>：Adobe Acrobat のような有償ソフトや、Microsoft OneNote（画像を貼り付けてテキストを抽出）、Google レンズなどの手段もあります。</li>
-            </ul>
-            <p class="text-xs text-gray-500 mt-2">OCR の注意点：元のスキャン画像の品質が精度に影響します。特に縦書きの日本語や古い活字、特殊なフォントの場合は認識ミスが起こりやすいので、重要な引用に用いる場合は原本と照合して確認しましょう。</p>
-          </div>
-
-          <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.2.3 電子化資料の整理と保存術</p>
-            <p class="text-sm text-gray-600 mb-2">デジタル化した資料が増えてくると、ファイル名や保存場所の整理が大切になります。例えば <code>Scan0001.pdf</code> のような無機質なファイル名ではなく、<code>著者名_論文タイトル_出版年.pdf</code> のようにリネームしておけば、中身を推測しやすくなります。</p>
-            <ul class="text-sm text-gray-600 space-y-1.5">
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>ファイル名には内容を想起できるキーワード（論文タイトル、著者名、年度など）を含める</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>複数の版や更新がある場合は、日付や版番号を付与してバージョン管理</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>種類やテーマ別にフォルダを作成し、関連ファイルをまとめて保存</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>YYYYMMDD 形式など一貫したルールを設ける</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>重要なファイルはクラウドストレージと同期し、定期的にバックアップ</li>
-            </ul>
-            <p class="text-xs text-gray-500 mt-2">紙の資料をデジタル化する際には、研究目的の範囲内でのみ利用し、著作権に配慮して扱うことも忘れないようにしましょう。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3.3 Zotero -->
-    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
-      <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.3</div>
-        <div class="w-full">
-          <h3 class="font-bold text-gray-800 mb-2">Zotero による文献管理と引用</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、収集した文献情報を整理し、論文執筆時の引用作業を支援してくれる文献管理ツールとして <strong class="text-gray-800">Zotero（ゾテロ）</strong>の使い方を解説します。Zotero は無料で使えるオープンソースの文献管理ソフトウェアで、Web ブラウザと連携して文献情報を収集・蓄積し、論文やレポートの作成時に引用や参考文献リストを自動生成してくれる強力なツールです。</p>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.3.1 文献情報の自動取り込み（ブラウザ連携）</p>
-            <p class="text-sm text-gray-600 mb-2">Zotero の大きな利点の一つが、ブラウザの拡張機能（コネクタ）を使った文献情報の自動取り込みです。パソコンに Zotero 本体をインストールし、あわせて Chrome や Firefox、Safari などに <strong class="text-gray-800">Zotero Connector</strong> を追加します。すると、学術論文のページや図書のデータベース、雑誌記事のウェブページなどを開いた際に、ブラウザのツールバーに書籍や論文風のアイコンが表示されるようになります。</p>
-            <p class="text-sm text-gray-600">その状態でアイコンをクリックすれば、現在閲覧中の文献情報が Zotero に保存されます。論文データベース（CiNii Articles や J-STAGE、PubMed 等）の論文ページや、学術ジャーナルのウェブサイト上で PDF を開いている場合でも、Zotero が適切なメタデータと共に PDF ファイルそのものをダウンロードして保存してくれることがあります。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.3.2 手動での文献登録とメタデータ補完</p>
-            <p class="text-sm text-gray-600 mb-2">自動取り込みだけではカバーしきれない資料や、自分でスキャンした文献なども Zotero に登録できます。「新規アイテムを追加」ボタンから文献の種別を選んで手動で書誌情報を入力できます。古い書籍や非公開資料でオンライン情報源がない場合でも、この手動入力で著者・タイトル・出版年などの項目を埋めれば、自分だけの文献データベースに組み込むことができます。</p>
-            <p class="text-sm text-gray-600">また、既に手元に PDF ファイルがある場合は、それを Zotero のウィンドウ内にドラッグ＆ドロップするだけで登録が可能です。Zotero は PDF 内に埋め込まれた識別子（DOI や ISBN）を手がかりに、自動的に対応する文献情報をインターネット上から探してきて項目を埋めてくれます。</p>
-            <p class="text-xs text-gray-500 mt-2">いずれの場合も、取り込んだメタデータに漏れや誤りがないか確認し、必要に応じて補完・修正しておくことが重要です。特に和文の文献では、アルファベットのローマ字表記と漢字記が混在するといった問題も起こり得るので、論文内での表記統一のためにも適切に編集しておきましょう。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.3.3 コレクションとタグによる分類整理</p>
-            <p class="text-sm text-gray-600 mb-2">Zotero では、収集した文献を効率よく管理するための<strong class="text-gray-800">コレクション（Collection）</strong>機能と<strong class="text-gray-800">タグ（Tag）</strong>機能が用意されています。コレクションとは Zotero 内の仮想フォルダのようなもので、特定のテーマやプロジェクト毎に文献を仕分けておくことができます。</p>
-            <p class="text-sm text-gray-600">一方、タグは文献に自由につけられるキーワードラベルです。読んだ文献に「重要」「再読」「統計分析」「理論 A」といったタグを付けておけば、必要なときにフィルターして該当する文献だけを一覧表示できます。コレクションとタグを併用することで、物理的な書架に本を並べるのと同じ感覚で分野や目的別に文献を整理しつつ、タグという付箋のようなもので縦横無尽にグルーピングできるのが Zotero の強みです。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.3.4 論文執筆時の引用と参考文献リスト出力</p>
-            <p class="text-sm text-gray-600 mb-2">Zotero が真価を発揮するのは、実際に論文やレポートを執筆する際の<strong class="text-gray-800">引用管理と参考文献リスト（Bibliography）の自動生成</strong>です。Zotero は Microsoft Word や LibreOffice、Google ドキュメントと連携するプラグイン／アドオンを提供しており、執筆中の文章内にシームレスに引用を挿入できます。</p>
-            <p class="text-sm text-gray-600 mb-2">例えば Word の場合、Zotero をインストールすると「Zotero」タブが追加され、そこから「Add Citation」ボタンを押すと文献を選択するダイアログが現れます。著者名やタイトルの一部を入力して文献を選ぶと、指定した書式（例えば APA スタイルなら「(Yamada 2020)」のような形式）で文中に引用が挿入されます。</p>
-            <p class="text-sm text-gray-600">論文全体の執筆が終わった段階で「参考文献リストの挿入」を実行すれば、引用済み文献が指定したスタイルですべて自動的に整形されて出力されます。手作業で一つ一つ書誌情報を整えたり順番を並べ替えたりする必要がないため、<strong class="text-gray-800">大幅な時間短縮とミス防止</strong>につながります。Markdown 形式で執筆を行う場合にも Zotero を活用する方法があり、BibTeX 形式のデータベースをエクスポートして Pandoc や LaTeX で引用するという手法も可能です。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.3.5 引用スタイルの切り替えと調整</p>
-            <p class="text-sm text-gray-600 mb-2">Zotero の便利な機能として、引用スタイル（Citation Style）の切り替えがワンタッチで行える点があります。ある論文を執筆中に最初は APA スタイルで引用していたが、投稿先の規定で急遽 Chicago スタイルに変更しなければならなくなった、という場合でも、Zotero 連携で挿入した引用であればスタイル変更を自動で反映できます。</p>
-            <p class="text-sm text-gray-600">Zotero にはデフォルトで主要な国際的スタイル（APA、MLA、Chicago、IEEE など）が含まれていますが、それ以外にも数千種類に及ぶスタイルが公開されており、必要に応じて追加でインストールできます。和文誌向けのスタイルも提供されている場合があります。なお、スタイルを適用した後との参考文献リストはソフト任せにせず、念のため人間の目で細部をチェックすることをおすすめします。</p>
-          </div>
-
-          <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.3.6 PDF 管理、注釈機能とクラウド同期</p>
-            <p class="text-sm text-gray-600 mb-2">Zotero は文献情報だけでなく、実際の論文 PDF や資料ファイルも一緒に管理できます。Zotero 内で文献をダブルクリックするだけで PDF を開いて内容を確認できますし、いちいちエクスプローラー上でファイルを探す必要がなくなります。</p>
-            <p class="text-sm text-gray-600 mb-2">Zotero 6 以降では、PDF リーダー機能がソフトウェア本体に統合され、Zotero のウィンドウ内で直接 PDF を開いて閲覧・ハイライト・注釈付けを行えるようになりました。重要な箇所にハイライトマーカーで色を付けたり、メモを書き込む（デジタル付箋を貼るようなイメージ）ことで、読んだ文献から得た知見や引用したい一文をすぐに取り出せるようになります。Zotero 上で付けたハイライトやメモは、後で「ノート」として抽出し、文献の要約や抜き書き集として整理しておくことも可能です。</p>
-            <p class="text-sm text-gray-600">複数のデバイスで使う場合やデータのバックアップとして重要なのが<strong class="text-gray-800">同期（Sync）</strong>機能です。Zotero は無料アカウント登録をすることで、文献データベースをクラウド上に同期できます。文献情報（メタデータやノート、タグ等）の同期は容量無制限ですが、PDF など添付ファイルの同期には無料で 300MB までの容量制限があります。同期機能を活用すれば、自宅のパソコンで収集した文献を大学の PC から参照したり、出先でタブレット版 Zotero から閲覧するといったことも容易になります。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3.4 AIを用いた「短読」と精読のすすめ -->
-    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
-      <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.4</div>
-        <div class="w-full">
-          <h3 class="font-bold text-gray-800 mb-2">AIを用いた「短読」と精読のすすめ</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">近年、生成AIを活用して論文や書籍を効率的に読み解く<strong class="text-gray-800">「短読（短縮読書）」</strong>という手法が広がりつつあります。本授業では基本的に<strong class="text-gray-800">精読（close reading）</strong>を推奨しますが、時間に余裕がないとき、文章がどうしても難解すぎるとき、あるいは自分が学習していない言語の文献を扱うときなどには、短読が有効な選択肢となります。ここでは、OCR化したPDFファイルを対象に <strong class="text-gray-800">Gemini</strong> や <strong class="text-gray-800">NotebookLM</strong> を用いて翻訳・要約・解説を行う方法と、その際に必ず押さえておきたい留意点を紹介します。</p>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.4.1 短読が有効な場面と基本姿勢</p>
-            <p class="text-sm text-gray-600 mb-2">短読はあくまで補助的な手法であり、原文に向き合う精読を置き換えるものではありません。次のような場面では、短読を上手に組み合わせることで読解の負担を軽減できます。</p>
-            <ul class="text-sm text-gray-600 space-y-2">
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">時間がないとき</strong>：締切が迫っている、複数の文献を短時間で見渡す必要がある、といった状況で全体像を素早くつかみたい場合。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">文章がどうしても難解すぎるとき</strong>：抽象度の高い理論的議論や、専門用語が密集した文章で、まずは要旨を把握してから本文に戻りたい場合。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">自分が学習していない言語のとき</strong>：未習の言語で書かれた文献に当たる必要がある場合に、翻訳と解説を併用して内容に近づくための入り口として活用できます。</li>
-            </ul>
-            <p class="text-xs text-gray-500 mt-2">短読を行う前提として、対象のPDFファイルがOCR化されている（テキストとして抽出可能になっている）必要があります。OCR化の方法は <strong>3.2.2</strong> を参照してください。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.4.2 NotebookLM と Gemini の使い分け</p>
-            <p class="text-sm text-gray-600 mb-3">同じ Google 系のサービスでも、NotebookLM と Gemini では仕組みも得意分野も異なります。短読の目的に応じて使い分けるのが大切です。</p>
-            <div class="grid sm:grid-cols-2 gap-3 mb-2">
-              <div class="bg-white/55 rounded-xl p-4">
-                <p class="text-sm font-bold text-gray-700 mb-2">📓 NotebookLM</p>
-                <p class="text-[13px] text-gray-600 leading-relaxed mb-2">アップロードしたPDFの中身を都度検索しながら回答を生成する RAG（Retrieval-Augmented Generation／検索拡張生成）という仕組みに基づいています。</p>
-                <p class="text-[13px] text-gray-600 leading-relaxed">そのため Gemini に比べて、<span class="marker marker-yellow">ハルシネーションが起きにくい構造</span>になっています。原文に忠実な要約や訳出を行いたいときに向いています。</p>
-              </div>
-              <div class="bg-white/55 rounded-xl p-4">
-                <p class="text-sm font-bold text-gray-700 mb-2">✨ Gemini</p>
-                <p class="text-[13px] text-gray-600 leading-relaxed mb-2">汎用AI であるため、PDFに書かれていない背景知識や関連情報も含めて説明を作成する傾向があります。</p>
-                <p class="text-[13px] text-gray-600 leading-relaxed">説明が分かりやすくなる反面、<span class="marker marker-pink">ハルシネーションの危険があるため、より注意が必要</span>です。用いる際は必ず原文との対応関係を確認しましょう。</p>
-              </div>
-            </div>
-            <p class="text-xs text-gray-500 mt-2">原文への忠実さを重視するなら NotebookLM、難解な箇所をかみ砕いて理解したいなら Gemini、というように両者を組み合わせるのがおすすめです。Gemini を使う場合でも、出力を鵜呑みにせず、必ず該当箇所の原文を開いて突き合わせる習慣をつけてください。</p>
-          </div>
-
-          <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.4.3 短読の活用パターン</p>
-            <p class="text-sm text-gray-600 mb-2">AIに対する指示の出し方によって、短読の粒度を変えることができます。目的に応じて以下のような使い方が考えられます。</p>
-            <ul class="text-sm text-gray-600 space-y-2">
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">論文全体の要約</strong>：まずは1本の論文の主張・方法・結論を短くまとめてもらう。読むべき文献かどうかの判断や、レビュー作業の入り口に有効です。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">節ごとの要約・解説</strong>：章や節の単位で要約と解説を出してもらう。論の展開を追いやすくなり、難解な節だけを重点的に補強することもできます。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">パラグラフごとの訳出＋解説</strong>：全文をパラグラフ単位で丁寧に訳出してもらい、各パラグラフに解説を添えてもらう方法。訳文と原文を見比べながら読み進めることで、<span class="marker marker-blue">精読に近い読書体験</span>に近づけることができます。</li>
-            </ul>
-            <p class="text-xs text-gray-500 mt-2">いずれの場合も、出力された要約・訳・解説と原文を必ず往復しながら読むようにしてください。AIが省略した論点や、誤解した部分が必ず存在しうるという前提で扱うことが大切です。</p>
-          </div>
-
-          <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.4.4 それでも精読をすすめる理由</p>
-            <p class="text-sm text-gray-600 mb-2">ただし、AIを介した短読は、<span class="marker marker-pink">原文から直接味わえる読書体験をかなり薄めた形</span>になることを忘れてはいけません。基本的には、原文そのものに触れることを強くお勧めします。原文から直接得られる感動や読書体験は、人生や自分の考えを深く形成していくものだからです。</p>
-            <p class="text-sm text-gray-600 mb-2">一方向的・ワンショットの短読は、対象の文章を「処理」して終わりにしてしまいがちです。これに対し、<span class="marker marker-yellow">同じ文章を何度も繰り返しながら紙で読み、マーカーを引いたり、書き込みをしたりする精読</span>は、文章と長く付き合うなかで自分の思考そのものを練り上げていく営みです。</p>
-            <p class="text-sm text-gray-600">短読はあくまで「どうしても」のときの補助線として位置づけ、可能な限り、原文に向き合う精読を学びの中心に据えてください。短読で得たとっかかりを足がかりに、最終的にはもう一度原文に戻り、自分の手と目で読み込むこと――これが本章の到達点でもあります。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3.5 Literature Review -->
-    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
-      <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.5</div>
+        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.1</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">Literature Review ―― 先行研究のなかに自分を位置づける</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">ツールの話から少し離れて、<strong class="text-gray-700">なぜ先行研究を調べるのか</strong>を改めて考えてみましょう。Literature Review（先行研究レビュー）は、単なる文献リストの作成ではなく、自分の研究を「これまでの研究の流れのなかにどう位置づけるか」を決めていく、研究のもっとも重要な手続きの一つです。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">具体的なツールの話に入る前に、<strong class="text-gray-700">なぜ先行研究を調べるのか</strong>を改めて確認しておきましょう。Literature Review（先行研究レビュー）は、単なる文献リストの作成ではなく、自分の研究を「これまでの研究の流れのなかにどう位置づけるか」を決めていく、研究のもっとも重要な手続きの一つです。本章で扱うツールはすべて、この営みを支えるための道具立てです。</p>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.5.1 先行研究調査の意義 ―― 差異を描いて独創性を示す</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.1 先行研究調査の意義 ―― 差異を描いて独創性を示す</p>
             <p class="text-sm text-gray-600 mb-2">研究の独創性や価値は、ある日突然「ゼロから生まれる」ものではなく、これまでの研究との関係のなかで初めて立ち上がってきます。つまり、<span class="marker marker-yellow">過去の研究との差異を正確に記述することによってはじめて、自分の研究の独創性や意義が示せる</span>のです。</p>
             <p class="text-sm text-gray-600">同じテーマであっても、ある先行研究を中心に据えれば「Aの議論を継承・批判する研究」になり、別の先行研究を中心に据えれば「Bの方法論を応用する研究」になる、というように、引用する文献の選び方そのものが、自分の研究の輪郭を描く作業になります。Literature Review は、「読んだ文献の感想文」ではなく、自分の研究を学問の地図のうえに位置づけていく営みなのです。</p>
           </div>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.5.2 「先行研究がない」とはなかなか言えない</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.2 「先行研究がない」とはなかなか言えない</p>
             <p class="text-sm text-gray-600 mb-2">調査を始めたばかりの段階では、「自分のテーマには先行研究がほとんどない」と感じることがあるかもしれません。しかし、<span class="marker marker-pink">先行研究がまったくないということは、ほとんどありません</span>。多くの場合は、検索のスコープが狭すぎる、あるいは隣接する分野のキーワードまで視野に入っていないだけです。</p>
             <p class="text-sm text-gray-600">研究テーマを少し抽象化したり、関連する概念・方法論・対象地域・時代の研究まで視野を広げてみてください。同じ対象を扱っていなくても、似た問いを別の対象に投げかけている研究、似た方法論で別の問いに迫った研究は、自分の研究を位置づけるうえでの大切な対話相手になります。スコープを広げて、もう一段抽象化した検索語で文献を探してみることが、ここでは何より重要です。</p>
           </div>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.5.3 文献を読み解く三つの視点</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.3 文献を読み解く三つの視点</p>
             <p class="text-sm text-gray-600 mb-3">先行研究をリストアップするときは、論文の本文だけでなく、その文献の「来歴」もあわせて見ておくと、自分の研究のなかでの位置づけがしやすくなります。とくに次の三つの視点を意識すると、文献の重みが立体的に見えてきます。</p>
             <div class="grid sm:grid-cols-3 gap-3 mb-2">
               <div class="bg-white/55 rounded-xl p-3.5">
@@ -358,26 +164,221 @@
           </div>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.5.4 専門ジャーナルの見取り図を持つ</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.4 専門ジャーナルの見取り図を持つ</p>
             <p class="text-sm text-gray-600 mb-2">研究を続けていくうえで、自分が専門とする分野について、<span class="marker marker-blue">国内誌・国際誌の双方を含めて、どのようなジャーナルが存在し、それぞれがどんな特徴を持つのかを整理しておく</span>ことを強くお勧めします。</p>
             <p class="text-sm text-gray-600">「このテーマならまず A 誌をチェックする」「方法論寄りの議論なら B 誌の特集が手厚い」「英語圏の議論を追うなら C 誌・D 誌」――こうした見取り図を持っているだけで、文献調査の効率も、自分の研究を「どこに向けて書いているのか」という意識の解像度も、大きく変わります。論文を「どこに掲載するか／どこから情報を仕入れるか」を整理しておくことは、研究者としての軸を育てる作業でもあります。</p>
           </div>
 
           <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.5.5 先行研究の調査は AI で完全にできるのか？</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.1.5 先行研究の調査は AI で完全にできるのか？</p>
             <p class="text-sm text-gray-600 mb-2">最後に立ち止まっておきたいのが、「先行研究の調査は AI に任せきりでよいのか」という問いです。結論から言えば、<span class="marker marker-pink">完全にはできません</span>。Literature Review が研究の中核に位置する作業である以上、ここを丸ごと外注してしまうことは、研究の輪郭そのものを他者に委ねることに近いからです。</p>
             <p class="text-sm text-gray-600 mb-2">生成AI や AI エージェントが整理した先行研究一覧は、表面的なキーワードの一致や引用数の多さに基づいてピックアップされたものであることが多く、自分の研究がどのように位置づけられるべきかを必ずしも正確にとらえているわけではありません。どの研究を中心に据え、どの研究と「対話」するかによって、自分の研究の輪郭そのものが変わります。だからこそ、<span class="marker marker-yellow">自分で自分の研究を先行研究のなかに位置づけるという営みそれ自体</span>が、研究の中核に位置するのです。</p>
-            <p class="text-sm text-gray-600">AI は、見落としがちな関連分野の文献を提示してくれる「視野の拡張装置」として大いに活用してかまいません。ただし、最終的に「この文献と対話する」と決めるのは、AI ではなく、研究者であるあなた自身です。</p>
+            <p class="text-sm text-gray-600">AI は、見落としがちな関連分野の文献を提示してくれる「視野の拡張装置」として大いに活用してかまいません。ただし、最終的に「この文献と対話する」と決めるのは、AI ではなく、研究者であるあなた自身です。次節以降で扱う Google Scholar や Zotero、AI ツールも、すべてこの営みを支えるための道具として位置づけてみてください。</p>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 3.2 Google Scholar -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.2</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Google Scholar による先行研究探索</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Google Scholar（グーグルスカラー）は学術論文や専門書、報告書などを幅広く検索できるエンジンです。キーワードを入力するだけで多様な分野の文献を横断的に探せるため、先行研究の調査に大いに役立ちます。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.2.1 検索語の設計と検索オプション</p>
+            <p class="text-sm text-gray-600 mb-2">効果的な文献探索の第一歩は、適切な検索語を選び組み合わせることです。Google Scholar では基本的に複数の単語を入力すると AND 検索となり、単語間を空白で区切ることで指定できます。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">フレーズ検索</strong>：検索語を引用符（" "）で囲みます。例えば "デジタル アーカイブ" のように指定すると、その正確な語句を含む文献のみを検索できます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">OR 検索</strong>：語と語の間に OR（大文字）を入れます。例：京都 OR 奈良 とすると、京都または奈良のいずれかの語を含む文献を検索します。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">除外検索</strong>：除外したいキーワードの前にマイナス記号 - を付けます。例：平安京 -"平安神宮" とすれば、「平安神宮」を含まない平安京に関する文献を絞り込めます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">その他オプション</strong>：「詳細検索」画面から特定の著者名や出版年、掲載誌名で絞り込むことも可能です。著者名で絞り込みたいときは検索ボックスに <span class="whitespace-nowrap">author:山田</span> のように入力すると、著者名に「山田」を含む論文に限定できます。また「引用部分を含める」設定を有効にすると、参考文献リストも検索対象に含められます。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">検索結果が多すぎる場合は、検索結果ページ左側のメニューから「1年以内」等の期間指定や「日本語の文献のみ」などの絞り込みも活用しましょう。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.2.2 引用関係を辿る（引用追跡と被引用文献の確認）</p>
+            <p class="text-sm text-gray-600 mb-2">有用な文献を見つけたら、その文献の引用関係を辿って関連する研究を探すことができます。Google Scholar では各検索結果の下に<strong class="text-gray-800">「引用元」</strong>と数字が表示されており、これはその文献が他の何件の文献に引用されているかを示します。この「引用元」をクリックすると、当該文献を引用している後続の研究一覧が表示されます。</p>
+            <p class="text-sm text-gray-600 mb-2">引用数が多い文献はその分野で一定の評価を得ている古典的研究である場合も多いので、一つの目安になります。</p>
+            <p class="text-sm text-gray-600">逆に、その文献が参考文献として挙げている先行研究（被引用文献）を辿ることも重要です。ある文献を起点に前後の関連文献を追跡することを<strong class="text-gray-800">「引用追跡」</strong>と呼び、体系的な文献レビューには欠かせない手法です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.2.3 関連文献の検索</p>
+            <p class="text-sm text-gray-600">Google Scholar の各結果には「関連記事」あるいは「関連文献」といったリンクも表示されます。これは現在表示している文献と内容的に類似した他の文献を Google がアルゴリズムで判断してリストアップしてくれる機能です。キーワードが完全には一致していなくても、テーマや分野が近い論文を網羅的に見つけたい場合に便利です。先行研究調査の際には、直接のキーワード検索だけでなく、こうした横断的なアプローチも組み合わせると網羅性が高まります。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.2.4 マイライブラリ機能とアラートの活用</p>
+            <p class="text-sm text-gray-600 mb-2">Google Scholar には、見つけた論文を保存して後から閲覧できる<strong class="text-gray-800">「マイライブラリ」</strong>機能があります。検索結果の「☆（保存）」アイコンをクリックすると文献情報が保存されます。保存された文献にはラベル（タグ）を付けて分類することも可能で、例えば「先行研究」「方法論」「統計資料」などとラベル分けして管理すれば、後で必要な文献を探しやすくなります。</p>
+            <p class="text-sm text-gray-600">さらに、新着文献の見逃しを防ぐには<strong class="text-gray-800">「アラート」</strong>機能が便利です。特定のキーワードやトピックについての検索アラートを設定しておくと、その条件に合致する新しい文献が登録された際に指定したメールアドレスへ通知が届きます。例えば「デジタル・ヒューマニティーズ」というキーワードでアラートを作成しておけば、そのテーマに関する最新の論文や記事が公開されるたびに自動で知らせてもらえます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.3 紙資料のデジタル化 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.3</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">紙資料のデジタル化と読みやすくする工夫</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">書籍や論文の紙媒体の資料も、デジタル化することで取り回しやすくなり、検索や引用が容易になります。ここではスマートフォンなどを利用した紙資料のPDF化と、OCR（光学文字認識）によるテキスト化、さらにデジタル化した資料の整理方法について紹介します。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.1 スマートフォンによるスキャンと PDF 化</p>
+            <p class="text-sm text-gray-600 mb-3">近年はスマートフォンを用いて手軽に紙の資料をスキャンし、PDF化することが可能です。専用のスキャンアプリを使えば、書類や本のページをカメラで撮影するだけで自動的に台形補正やトリミングが行われ、読みやすい電子文書に変換できます。</p>
+            <div class="grid sm:grid-cols-3 gap-2">
+              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">CamScanner</p><p class="text-[10px] text-gray-500">iOS/Android 向け定番。ページの検出・補正が優秀。複数ページを1つの PDF にまとめられます。無料版でも基本機能は十分。</p></div>
+              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">Adobe Scan</p><p class="text-[10px] text-gray-500">Adobe 社提供の無料アプリ。高品質なスキャンが可能。自動的に OCR を実行して PDF にテキスト情報を埋め込む機能も。</p></div>
+              <div class="bg-white/50 rounded-xl p-3"><p class="text-xs font-bold text-gray-700">Genius Scan</p><p class="text-[10px] text-gray-500">シンプルながら高機能。画像の鮮明化や色調補正など多彩なオプション。各種クラウドサービスへの保存も容易。</p></div>
+            </div>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.2 OCR によるテキスト化と活用</p>
+            <p class="text-sm text-gray-600 mb-2">スキャンした PDF や画像データから文字を読み取ってテキストデータに変換する技術を <strong class="text-gray-800">OCR</strong>（Optical Character Recognition、光学文字認識）と呼びます。OCR を施すことで、紙の資料から起こした PDF 内の文字をデジタルテキストに変換し、全文検索やコピー＆ペーストが可能になります。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">スキャンアプリ内蔵の OCR 機能</strong>：Adobe Scan や CamScanner などには OCR 機能が組み込まれており、スキャン直後に自動で文字認識を行ってくれます。日本語にも対応。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Google ドライブの OCR</strong>：無料で手軽に使える方法。画像や PDF を Google ドライブにアップロードし、「アプリで開く → Google ドキュメント」を選ぶと、自動的に OCR 処理が行われます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">専用ソフトや他のツール</strong>：Adobe Acrobat のような有償ソフトや、Microsoft OneNote（画像を貼り付けてテキストを抽出）、Google レンズなどの手段もあります。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">OCR の注意点：元のスキャン画像の品質が精度に影響します。特に縦書きの日本語や古い活字、特殊なフォントの場合は認識ミスが起こりやすいので、重要な引用に用いる場合は原本と照合して確認しましょう。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.3.3 電子化資料の整理と保存術</p>
+            <p class="text-sm text-gray-600 mb-2">デジタル化した資料が増えてくると、ファイル名や保存場所の整理が大切になります。例えば <code>Scan0001.pdf</code> のような無機質なファイル名ではなく、<code>著者名_論文タイトル_出版年.pdf</code> のようにリネームしておけば、中身を推測しやすくなります。</p>
+            <ul class="text-sm text-gray-600 space-y-1.5">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>ファイル名には内容を想起できるキーワード（論文タイトル、著者名、年度など）を含める</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>複数の版や更新がある場合は、日付や版番号を付与してバージョン管理</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>種類やテーマ別にフォルダを作成し、関連ファイルをまとめて保存</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>YYYYMMDD 形式など一貫したルールを設ける</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>重要なファイルはクラウドストレージと同期し、定期的にバックアップ</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">紙の資料をデジタル化する際には、研究目的の範囲内でのみ利用し、著作権に配慮して扱うことも忘れないようにしましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.4 Zotero -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Zotero による文献管理と引用</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">最後に、収集した文献情報を整理し、論文執筆時の引用作業を支援してくれる文献管理ツールとして <strong class="text-gray-800">Zotero（ゾテロ）</strong>の使い方を解説します。Zotero は無料で使えるオープンソースの文献管理ソフトウェアで、Web ブラウザと連携して文献情報を収集・蓄積し、論文やレポートの作成時に引用や参考文献リストを自動生成してくれる強力なツールです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.1 文献情報の自動取り込み（ブラウザ連携）</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero の大きな利点の一つが、ブラウザの拡張機能（コネクタ）を使った文献情報の自動取り込みです。パソコンに Zotero 本体をインストールし、あわせて Chrome や Firefox、Safari などに <strong class="text-gray-800">Zotero Connector</strong> を追加します。すると、学術論文のページや図書のデータベース、雑誌記事のウェブページなどを開いた際に、ブラウザのツールバーに書籍や論文風のアイコンが表示されるようになります。</p>
+            <p class="text-sm text-gray-600">その状態でアイコンをクリックすれば、現在閲覧中の文献情報が Zotero に保存されます。論文データベース（CiNii Articles や J-STAGE、PubMed 等）の論文ページや、学術ジャーナルのウェブサイト上で PDF を開いている場合でも、Zotero が適切なメタデータと共に PDF ファイルそのものをダウンロードして保存してくれることがあります。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.2 手動での文献登録とメタデータ補完</p>
+            <p class="text-sm text-gray-600 mb-2">自動取り込みだけではカバーしきれない資料や、自分でスキャンした文献なども Zotero に登録できます。「新規アイテムを追加」ボタンから文献の種別を選んで手動で書誌情報を入力できます。古い書籍や非公開資料でオンライン情報源がない場合でも、この手動入力で著者・タイトル・出版年などの項目を埋めれば、自分だけの文献データベースに組み込むことができます。</p>
+            <p class="text-sm text-gray-600">また、既に手元に PDF ファイルがある場合は、それを Zotero のウィンドウ内にドラッグ＆ドロップするだけで登録が可能です。Zotero は PDF 内に埋め込まれた識別子（DOI や ISBN）を手がかりに、自動的に対応する文献情報をインターネット上から探してきて項目を埋めてくれます。</p>
+            <p class="text-xs text-gray-500 mt-2">いずれの場合も、取り込んだメタデータに漏れや誤りがないか確認し、必要に応じて補完・修正しておくことが重要です。特に和文の文献では、アルファベットのローマ字表記と漢字記が混在するといった問題も起こり得るので、論文内での表記統一のためにも適切に編集しておきましょう。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.3 コレクションとタグによる分類整理</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero では、収集した文献を効率よく管理するための<strong class="text-gray-800">コレクション（Collection）</strong>機能と<strong class="text-gray-800">タグ（Tag）</strong>機能が用意されています。コレクションとは Zotero 内の仮想フォルダのようなもので、特定のテーマやプロジェクト毎に文献を仕分けておくことができます。</p>
+            <p class="text-sm text-gray-600">一方、タグは文献に自由につけられるキーワードラベルです。読んだ文献に「重要」「再読」「統計分析」「理論 A」といったタグを付けておけば、必要なときにフィルターして該当する文献だけを一覧表示できます。コレクションとタグを併用することで、物理的な書架に本を並べるのと同じ感覚で分野や目的別に文献を整理しつつ、タグという付箋のようなもので縦横無尽にグルーピングできるのが Zotero の強みです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.4 論文執筆時の引用と参考文献リスト出力</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero が真価を発揮するのは、実際に論文やレポートを執筆する際の<strong class="text-gray-800">引用管理と参考文献リスト（Bibliography）の自動生成</strong>です。Zotero は Microsoft Word や LibreOffice、Google ドキュメントと連携するプラグイン／アドオンを提供しており、執筆中の文章内にシームレスに引用を挿入できます。</p>
+            <p class="text-sm text-gray-600 mb-2">例えば Word の場合、Zotero をインストールすると「Zotero」タブが追加され、そこから「Add Citation」ボタンを押すと文献を選択するダイアログが現れます。著者名やタイトルの一部を入力して文献を選ぶと、指定した書式（例えば APA スタイルなら「(Yamada 2020)」のような形式）で文中に引用が挿入されます。</p>
+            <p class="text-sm text-gray-600">論文全体の執筆が終わった段階で「参考文献リストの挿入」を実行すれば、引用済み文献が指定したスタイルですべて自動的に整形されて出力されます。手作業で一つ一つ書誌情報を整えたり順番を並べ替えたりする必要がないため、<strong class="text-gray-800">大幅な時間短縮とミス防止</strong>につながります。Markdown 形式で執筆を行う場合にも Zotero を活用する方法があり、BibTeX 形式のデータベースをエクスポートして Pandoc や LaTeX で引用するという手法も可能です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.5 引用スタイルの切り替えと調整</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero の便利な機能として、引用スタイル（Citation Style）の切り替えがワンタッチで行える点があります。ある論文を執筆中に最初は APA スタイルで引用していたが、投稿先の規定で急遽 Chicago スタイルに変更しなければならなくなった、という場合でも、Zotero 連携で挿入した引用であればスタイル変更を自動で反映できます。</p>
+            <p class="text-sm text-gray-600">Zotero にはデフォルトで主要な国際的スタイル（APA、MLA、Chicago、IEEE など）が含まれていますが、それ以外にも数千種類に及ぶスタイルが公開されており、必要に応じて追加でインストールできます。和文誌向けのスタイルも提供されている場合があります。なお、スタイルを適用した後との参考文献リストはソフト任せにせず、念のため人間の目で細部をチェックすることをおすすめします。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.6 PDF 管理、注釈機能とクラウド同期</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero は文献情報だけでなく、実際の論文 PDF や資料ファイルも一緒に管理できます。Zotero 内で文献をダブルクリックするだけで PDF を開いて内容を確認できますし、いちいちエクスプローラー上でファイルを探す必要がなくなります。</p>
+            <p class="text-sm text-gray-600 mb-2">Zotero 6 以降では、PDF リーダー機能がソフトウェア本体に統合され、Zotero のウィンドウ内で直接 PDF を開いて閲覧・ハイライト・注釈付けを行えるようになりました。重要な箇所にハイライトマーカーで色を付けたり、メモを書き込む（デジタル付箋を貼るようなイメージ）ことで、読んだ文献から得た知見や引用したい一文をすぐに取り出せるようになります。Zotero 上で付けたハイライトやメモは、後で「ノート」として抽出し、文献の要約や抜き書き集として整理しておくことも可能です。</p>
+            <p class="text-sm text-gray-600">複数のデバイスで使う場合やデータのバックアップとして重要なのが<strong class="text-gray-800">同期（Sync）</strong>機能です。Zotero は無料アカウント登録をすることで、文献データベースをクラウド上に同期できます。文献情報（メタデータやノート、タグ等）の同期は容量無制限ですが、PDF など添付ファイルの同期には無料で 300MB までの容量制限があります。同期機能を活用すれば、自宅のパソコンで収集した文献を大学の PC から参照したり、出先でタブレット版 Zotero から閲覧するといったことも容易になります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.5 AIを用いた「短読」と精読のすすめ -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">AIを用いた「短読」と精読のすすめ</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">近年、生成AIを活用して論文や書籍を効率的に読み解く<strong class="text-gray-800">「短読（短縮読書）」</strong>という手法が広がりつつあります。本授業では基本的に<strong class="text-gray-800">精読（close reading）</strong>を推奨しますが、時間に余裕がないとき、文章がどうしても難解すぎるとき、あるいは自分が学習していない言語の文献を扱うときなどには、短読が有効な選択肢となります。ここでは、OCR化したPDFファイルを対象に <strong class="text-gray-800">Gemini</strong> や <strong class="text-gray-800">NotebookLM</strong> を用いて翻訳・要約・解説を行う方法と、その際に必ず押さえておきたい留意点を紹介します。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.1 短読が有効な場面と基本姿勢</p>
+            <p class="text-sm text-gray-600 mb-2">短読はあくまで補助的な手法であり、原文に向き合う精読を置き換えるものではありません。次のような場面では、短読を上手に組み合わせることで読解の負担を軽減できます。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">時間がないとき</strong>：締切が迫っている、複数の文献を短時間で見渡す必要がある、といった状況で全体像を素早くつかみたい場合。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">文章がどうしても難解すぎるとき</strong>：抽象度の高い理論的議論や、専門用語が密集した文章で、まずは要旨を把握してから本文に戻りたい場合。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">自分が学習していない言語のとき</strong>：未習の言語で書かれた文献に当たる必要がある場合に、翻訳と解説を併用して内容に近づくための入り口として活用できます。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">短読を行う前提として、対象のPDFファイルがOCR化されている（テキストとして抽出可能になっている）必要があります。OCR化の方法は <strong>3.3.2</strong> を参照してください。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.2 NotebookLM と Gemini の使い分け</p>
+            <p class="text-sm text-gray-600 mb-3">同じ Google 系のサービスでも、NotebookLM と Gemini では仕組みも得意分野も異なります。短読の目的に応じて使い分けるのが大切です。</p>
+            <div class="grid sm:grid-cols-2 gap-3 mb-2">
+              <div class="bg-white/55 rounded-xl p-4">
+                <p class="text-sm font-bold text-gray-700 mb-2">📓 NotebookLM</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed mb-2">アップロードしたPDFの中身を都度検索しながら回答を生成する RAG（Retrieval-Augmented Generation／検索拡張生成）という仕組みに基づいています。</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed">そのため Gemini に比べて、<span class="marker marker-yellow">ハルシネーションが起きにくい構造</span>になっています。原文に忠実な要約や訳出を行いたいときに向いています。</p>
+              </div>
+              <div class="bg-white/55 rounded-xl p-4">
+                <p class="text-sm font-bold text-gray-700 mb-2">✨ Gemini</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed mb-2">汎用AI であるため、PDFに書かれていない背景知識や関連情報も含めて説明を作成する傾向があります。</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed">説明が分かりやすくなる反面、<span class="marker marker-pink">ハルシネーションの危険があるため、より注意が必要</span>です。用いる際は必ず原文との対応関係を確認しましょう。</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">原文への忠実さを重視するなら NotebookLM、難解な箇所をかみ砕いて理解したいなら Gemini、というように両者を組み合わせるのがおすすめです。Gemini を使う場合でも、出力を鵜呑みにせず、必ず該当箇所の原文を開いて突き合わせる習慣をつけてください。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.3 短読の活用パターン</p>
+            <p class="text-sm text-gray-600 mb-2">AIに対する指示の出し方によって、短読の粒度を変えることができます。目的に応じて以下のような使い方が考えられます。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">論文全体の要約</strong>：まずは1本の論文の主張・方法・結論を短くまとめてもらう。読むべき文献かどうかの判断や、レビュー作業の入り口に有効です。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">節ごとの要約・解説</strong>：章や節の単位で要約と解説を出してもらう。論の展開を追いやすくなり、難解な節だけを重点的に補強することもできます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">パラグラフごとの訳出＋解説</strong>：全文をパラグラフ単位で丁寧に訳出してもらい、各パラグラフに解説を添えてもらう方法。訳文と原文を見比べながら読み進めることで、<span class="marker marker-blue">精読に近い読書体験</span>に近づけることができます。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">いずれの場合も、出力された要約・訳・解説と原文を必ず往復しながら読むようにしてください。AIが省略した論点や、誤解した部分が必ず存在しうるという前提で扱うことが大切です。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.4 それでも精読をすすめる理由</p>
+            <p class="text-sm text-gray-600 mb-2">ただし、AIを介した短読は、<span class="marker marker-pink">原文から直接味わえる読書体験をかなり薄めた形</span>になることを忘れてはいけません。基本的には、原文そのものに触れることを強くお勧めします。原文から直接得られる感動や読書体験は、人生や自分の考えを深く形成していくものだからです。</p>
+            <p class="text-sm text-gray-600 mb-2">一方向的・ワンショットの短読は、対象の文章を「処理」して終わりにしてしまいがちです。これに対し、<span class="marker marker-yellow">同じ文章を何度も繰り返しながら紙で読み、マーカーを引いたり、書き込みをしたりする精読</span>は、文章と長く付き合うなかで自分の思考そのものを練り上げていく営みです。</p>
+            <p class="text-sm text-gray-600">短読はあくまで「どうしても」のときの補助線として位置づけ、可能な限り、原文に向き合う精読を学びの中心に据えてください。短読で得たとっかかりを足がかりに、最終的にはもう一度原文に戻り、自分の手と目で読み込むこと――これが本章の到達点でもあります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- まとめ -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-2xl p-6 border-l-4 border-pink-300">
-      <p class="text-sm text-gray-600 leading-relaxed">以上、Google Scholar による文献探索、紙資料のデジタル化、Zotero による文献管理と引用支援、AI を用いた「短読」と精読の使い分け、そして Literature Review として自分の研究を先行研究のなかに位置づける考え方について解説しました。デジタルツールは「調べる・集める・引用する」という研究プロセスを大きく効率化してくれますが、その先にあるのは、<span class="marker marker-yellow">原文と深く対話する精読</span>と、<span class="marker marker-blue">先行研究のなかに自分の研究を自ら位置づける営み</span>です。本章で紹介した手法を実践しながら、ツールに任せきりにできない研究の中核を、自分の手と頭で引き受けていってください。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">以上、Literature Review として自分の研究を先行研究のなかに位置づける考え方を出発点に、Google Scholar による文献探索、紙資料のデジタル化、Zotero による文献管理と引用支援、AI を用いた「短読」と精読の使い分けについて解説しました。デジタルツールは「調べる・集める・引用する」という研究プロセスを大きく効率化してくれますが、その先にあるのは、<span class="marker marker-blue">先行研究のなかに自分の研究を自ら位置づける営み</span>と、<span class="marker marker-yellow">原文と深く対話する精読</span>です。本章で紹介した手法を実践しながら、ツールに任せきりにできない研究の中核を、自分の手と頭で引き受けていってください。</p>
     </div>
   </section>
 
