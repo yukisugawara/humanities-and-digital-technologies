@@ -100,7 +100,7 @@
 
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8">
-      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章では、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、文献管理ツールを用いた参考文献管理と引用の手法、さらに生成AIを補助的に用いた「短読」と精読の使い分けについて解説します。それぞれのステップで役立つ具体的なデジタルツールの使い方を、実例やポイントとともに丁寧に紹介します。</p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章では、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、文献管理ツールを用いた参考文献管理と引用の手法、生成AIを補助的に用いた「短読」と精読の使い分け、そして<strong class="text-gray-800">Literature Review（先行研究レビュー）として自分の研究を位置づける考え方</strong>について解説します。ツールの使い方だけでなく、その背後にある研究の作法もあわせて学んでいきます。</p>
     </div>
   </section>
 
@@ -115,6 +115,7 @@
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>紙資料のデジタル化と読みやすくする工夫（スキャン・OCR・整理）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Zotero による文献管理と引用（収集・整理・引用出力・PDF管理・同期）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>AI（NotebookLM・Gemini）を用いた「短読」と精読のすすめ（翻訳・要約・解説、ハルシネーションへの注意）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Literature Review として自分の研究を先行研究のなかに位置づける考え方（差異・スコープ・ジャーナル・著者の仕事、AIとの付き合い方）</li>
       </ul>
     </div>
   </section>
@@ -137,7 +138,7 @@
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">フレーズ検索</strong>：検索語を引用符（" "）で囲みます。例えば "デジタル アーカイブ" のように指定すると、その正確な語句を含む文献のみを検索できます。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">OR 検索</strong>：語と語の間に OR（大文字）を入れます。例：京都 OR 奈良 とすると、京都または奈良のいずれかの語を含む文献を検索します。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">除外検索</strong>：除外したいキーワードの前にマイナス記号 - を付けます。例：平安京 -"平安神宮" とすれば、「平安神宮」を含まない平安京に関する文献を絞り込めます。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">その他オプション</strong>：「詳細検索」画面から特定の著者名や出版年、掲載誌名で絞り込むことも可能です。著者名で絞り込みたいときは検索ボックスに <span class="marker marker-yellow font-mono whitespace-nowrap text-gray-700">author:山田</span> のように入力すると、著者名に「山田」を含む論文に限定できます。また「引用部分を含める」設定を有効にすると、参考文献リストも検索対象に含められます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">その他オプション</strong>：「詳細検索」画面から特定の著者名や出版年、掲載誌名で絞り込むことも可能です。著者名で絞り込みたいときは検索ボックスに <span class="whitespace-nowrap">author:山田</span> のように入力すると、著者名に「山田」を含む論文に限定できます。また「引用部分を含める」設定を有効にすると、参考文献リストも検索対象に含められます。</li>
             </ul>
             <p class="text-xs text-gray-500 mt-2">検索結果が多すぎる場合は、検索結果ページ左側のメニューから「1年以内」等の期間指定や「日本語の文献のみ」などの絞り込みも活用しましょう。</p>
           </div>
@@ -315,12 +316,68 @@
         </div>
       </div>
     </div>
+
+    <!-- 3.5 Literature Review -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.5</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">Literature Review ―― 先行研究のなかに自分を位置づける</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ツールの話から少し離れて、<strong class="text-gray-700">なぜ先行研究を調べるのか</strong>を改めて考えてみましょう。Literature Review（先行研究レビュー）は、単なる文献リストの作成ではなく、自分の研究を「これまでの研究の流れのなかにどう位置づけるか」を決めていく、研究のもっとも重要な手続きの一つです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.1 先行研究調査の意義 ―― 差異を描いて独創性を示す</p>
+            <p class="text-sm text-gray-600 mb-2">研究の独創性や価値は、ある日突然「ゼロから生まれる」ものではなく、これまでの研究との関係のなかで初めて立ち上がってきます。つまり、<span class="marker marker-yellow">過去の研究との差異を正確に記述することによってはじめて、自分の研究の独創性や意義が示せる</span>のです。</p>
+            <p class="text-sm text-gray-600">同じテーマであっても、ある先行研究を中心に据えれば「Aの議論を継承・批判する研究」になり、別の先行研究を中心に据えれば「Bの方法論を応用する研究」になる、というように、引用する文献の選び方そのものが、自分の研究の輪郭を描く作業になります。Literature Review は、「読んだ文献の感想文」ではなく、自分の研究を学問の地図のうえに位置づけていく営みなのです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.2 「先行研究がない」とはなかなか言えない</p>
+            <p class="text-sm text-gray-600 mb-2">調査を始めたばかりの段階では、「自分のテーマには先行研究がほとんどない」と感じることがあるかもしれません。しかし、<span class="marker marker-pink">先行研究がまったくないということは、ほとんどありません</span>。多くの場合は、検索のスコープが狭すぎる、あるいは隣接する分野のキーワードまで視野に入っていないだけです。</p>
+            <p class="text-sm text-gray-600">研究テーマを少し抽象化したり、関連する概念・方法論・対象地域・時代の研究まで視野を広げてみてください。同じ対象を扱っていなくても、似た問いを別の対象に投げかけている研究、似た方法論で別の問いに迫った研究は、自分の研究を位置づけるうえでの大切な対話相手になります。スコープを広げて、もう一段抽象化した検索語で文献を探してみることが、ここでは何より重要です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.3 文献を読み解く三つの視点</p>
+            <p class="text-sm text-gray-600 mb-3">先行研究をリストアップするときは、論文の本文だけでなく、その文献の「来歴」もあわせて見ておくと、自分の研究のなかでの位置づけがしやすくなります。とくに次の三つの視点を意識すると、文献の重みが立体的に見えてきます。</p>
+            <div class="grid sm:grid-cols-3 gap-3 mb-2">
+              <div class="bg-white/55 rounded-xl p-3.5">
+                <p class="text-sm font-bold text-gray-700 mb-1.5">📚 掲載誌（ジャーナル）</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed">どんなジャーナルに掲載されているか。査読の厳しさ、読者層、当該分野での位置づけがおおよそ読み取れます。</p>
+              </div>
+              <div class="bg-white/55 rounded-xl p-3.5">
+                <p class="text-sm font-bold text-gray-700 mb-1.5">🔁 引用数</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed">どれだけ後続の研究に引用されてきたか。古典として参照され続けているのか、最新動向なのかの目安になります（新しい論文ほど引用数は少ない点に注意）。</p>
+              </div>
+              <div class="bg-white/55 rounded-xl p-3.5">
+                <p class="text-sm font-bold text-gray-700 mb-1.5">👤 著者の仕事</p>
+                <p class="text-[13px] text-gray-600 leading-relaxed">著者がこれまでどのような研究を発表してきたか。一連の仕事の流れを把握すると、当該論文の主張の文脈が立体的に理解できます。</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">これらは論文の中身を「正しい／誤り」と評価するためのものではなく、自分の研究との対話相手としての位置づけを決めるための補助線です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.4 専門ジャーナルの見取り図を持つ</p>
+            <p class="text-sm text-gray-600 mb-2">研究を続けていくうえで、自分が専門とする分野について、<span class="marker marker-blue">国内誌・国際誌の双方を含めて、どのようなジャーナルが存在し、それぞれがどんな特徴を持つのかを整理しておく</span>ことを強くお勧めします。</p>
+            <p class="text-sm text-gray-600">「このテーマならまず A 誌をチェックする」「方法論寄りの議論なら B 誌の特集が手厚い」「英語圏の議論を追うなら C 誌・D 誌」――こうした見取り図を持っているだけで、文献調査の効率も、自分の研究を「どこに向けて書いているのか」という意識の解像度も、大きく変わります。論文を「どこに掲載するか／どこから情報を仕入れるか」を整理しておくことは、研究者としての軸を育てる作業でもあります。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.5.5 先行研究の調査は AI で完全にできるのか？</p>
+            <p class="text-sm text-gray-600 mb-2">最後に立ち止まっておきたいのが、「先行研究の調査は AI に任せきりでよいのか」という問いです。結論から言えば、<span class="marker marker-pink">完全にはできません</span>。Literature Review が研究の中核に位置する作業である以上、ここを丸ごと外注してしまうことは、研究の輪郭そのものを他者に委ねることに近いからです。</p>
+            <p class="text-sm text-gray-600 mb-2">生成AI や AI エージェントが整理した先行研究一覧は、表面的なキーワードの一致や引用数の多さに基づいてピックアップされたものであることが多く、自分の研究がどのように位置づけられるべきかを必ずしも正確にとらえているわけではありません。どの研究を中心に据え、どの研究と「対話」するかによって、自分の研究の輪郭そのものが変わります。だからこそ、<span class="marker marker-yellow">自分で自分の研究を先行研究のなかに位置づけるという営みそれ自体</span>が、研究の中核に位置するのです。</p>
+            <p class="text-sm text-gray-600">AI は、見落としがちな関連分野の文献を提示してくれる「視野の拡張装置」として大いに活用してかまいません。ただし、最終的に「この文献と対話する」と決めるのは、AI ではなく、研究者であるあなた自身です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- まとめ -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-2xl p-6 border-l-4 border-pink-300">
-      <p class="text-sm text-gray-600 leading-relaxed">以上、Google Scholar による文献探索、紙資料のデジタル化、Zotero による文献管理と引用支援、そして AI を用いた「短読」と精読の使い分けについて解説しました。デジタルツールを活用することで、<strong class="text-gray-800">「調べる・集める・引用する」という読解・研究プロセスが飛躍的に効率化</strong>されます。ただし、効率化の先にある<strong class="text-gray-800">原文との深い対話＝精読</strong>こそが、人文学の学びの中核であることも改めて忘れずに、本章で紹介した手法を実践し、学びの質を高めていってください。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">以上、Google Scholar による文献探索、紙資料のデジタル化、Zotero による文献管理と引用支援、AI を用いた「短読」と精読の使い分け、そして Literature Review として自分の研究を先行研究のなかに位置づける考え方について解説しました。デジタルツールは「調べる・集める・引用する」という研究プロセスを大きく効率化してくれますが、その先にあるのは、<span class="marker marker-yellow">原文と深く対話する精読</span>と、<span class="marker marker-blue">先行研究のなかに自分の研究を自ら位置づける営み</span>です。本章で紹介した手法を実践しながら、ツールに任せきりにできない研究の中核を、自分の手と頭で引き受けていってください。</p>
     </div>
   </section>
 
