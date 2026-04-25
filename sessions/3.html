@@ -24,7 +24,7 @@
     .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(139,92,246,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
-    code{background:rgba(139,92,246,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#8b5cf6}
+    code{background:rgba(139,92,246,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#8b5cf6;white-space:nowrap;display:inline-block}
   
     .attendance-card {
       background: linear-gradient(135deg, rgba(243,232,255,0.9), rgba(252,231,243,0.9), rgba(254,242,232,0.9));
@@ -94,7 +94,7 @@
 
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8">
-      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章では、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、そして文献管理ツールを用いた参考文献管理と引用の手法を解説します。それぞれのステップで役立つ具体的なデジタルツールの使い方を、実例やポイントとともに丁寧に紹介します。</p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章では、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、文献管理ツールを用いた参考文献管理と引用の手法、さらに生成AIを補助的に用いた「短読」と精読の使い分けについて解説します。それぞれのステップで役立つ具体的なデジタルツールの使い方を、実例やポイントとともに丁寧に紹介します。</p>
     </div>
   </section>
 
@@ -108,6 +108,7 @@
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Google Scholar による先行研究探索（検索語設計・引用追跡・アラート）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>紙資料のデジタル化と読みやすくする工夫（スキャン・OCR・整理）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Zotero による文献管理と引用（収集・整理・引用出力・PDF管理・同期）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>AI（NotebookLM・Gemini）を用いた「短読」と精読のすすめ（翻訳・要約・解説、ハルシネーションへの注意）</li>
       </ul>
     </div>
   </section>
@@ -250,12 +251,62 @@
         </div>
       </div>
     </div>
+
+    <!-- 3.4 AIを用いた「短読」と精読のすすめ -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.4</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">AIを用いた「短読」と精読のすすめ</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">近年、生成AIを活用して論文や書籍を効率的に読み解く<strong class="text-gray-800">「短読（短縮読書）」</strong>という手法が広がりつつあります。本授業では基本的に<strong class="text-gray-800">精読（close reading）</strong>を推奨しますが、時間に余裕がないとき、文章がどうしても難解すぎるとき、あるいは自分が学習していない言語の文献を扱うときなどには、短読が有効な選択肢となります。ここでは、OCR化したPDFファイルを対象に <strong class="text-gray-800">Gemini</strong> や <strong class="text-gray-800">NotebookLM</strong> を用いて翻訳・要約・解説を行う方法と、その際に必ず押さえておきたい留意点を紹介します。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.1 短読が有効な場面と基本姿勢</p>
+            <p class="text-sm text-gray-600 mb-2">短読はあくまで補助的な手法であり、原文に向き合う精読を置き換えるものではありません。次のような場面では、短読を上手に組み合わせることで読解の負担を軽減できます。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">時間がないとき</strong>：締切が迫っている、複数の文献を短時間で見渡す必要がある、といった状況で全体像を素早くつかみたい場合。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">文章がどうしても難解すぎるとき</strong>：抽象度の高い理論的議論や、専門用語が密集した文章で、まずは要旨を把握してから本文に戻りたい場合。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">自分が学習していない言語のとき</strong>：未習の言語で書かれた文献に当たる必要がある場合に、翻訳と解説を併用して内容に近づくための入り口として活用できます。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">短読を行う前提として、対象のPDFファイルがOCR化されている（テキストとして抽出可能になっている）必要があります。OCR化の方法は <strong>3.2.2</strong> を参照してください。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.2 NotebookLM と Gemini の使い分け</p>
+            <p class="text-sm text-gray-600 mb-2">同じ Google 系のサービスでも、NotebookLM と Gemini では仕組みと向き不向きが異なります。短読の目的に応じて使い分けることが重要です。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">NotebookLM</strong>：<strong class="text-gray-800">RAG（Retrieval-Augmented Generation／検索拡張生成）</strong>というシステムに基づいており、アップロードしたPDFの中身を都度検索しながら回答を生成します。そのため、Gemini に比べて<strong class="text-gray-800">ハルシネーション（事実に基づかない記述の生成）が起きにくい構造</strong>になっています。原文に忠実な要約や訳出を行いたいときに向いています。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">Gemini</strong>：汎用AI であるため、PDFに書かれていない背景知識や関連情報も含めて説明を作成する傾向があります。そのぶん<strong class="text-gray-800">説明文としては NotebookLM よりも分かりやすくなる傾向</strong>がありますが、他方で<strong class="text-gray-800">ハルシネーションの危険があるため、より注意が必要</strong>です。読解に用いる際は、必ず原文との対応関係を確認するようにしましょう。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">原文に忠実さを重視するなら NotebookLM、難解な箇所をかみ砕いて理解したいなら Gemini、というように両者を組み合わせて使うのがおすすめです。Gemini を使う場合でも、出力を鵜呑みにせず、必ず該当箇所の原文を開いて突き合わせる習慣をつけてください。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.3 短読の活用パターン</p>
+            <p class="text-sm text-gray-600 mb-2">AIに対する指示の出し方によって、短読の粒度を変えることができます。目的に応じて以下のような使い方が考えられます。</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">論文全体の要約</strong>：まずは1本の論文の主張・方法・結論を短くまとめてもらう。読むべき文献かどうかの判断や、レビュー作業の入り口に有効です。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">節ごとの要約・解説</strong>：章や節の単位で要約と解説を出してもらう。論の展開を追いやすくなり、難解な節だけを重点的に補強することもできます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">パラグラフごとの訳出＋解説</strong>：全文をパラグラフ単位で丁寧に訳出してもらい、各パラグラフに解説を添えてもらう方法。<strong class="text-gray-800">訳文と原文を見比べながら読み進めることで、精読に近い読書体験</strong>に近づけることができます。</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-2">いずれの場合も、出力された要約・訳・解説と原文を必ず往復しながら読むようにしてください。AIが省略した論点や、誤解した部分が必ず存在しうるという前提で扱うことが大切です。</p>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.4.4 それでも精読をすすめる理由</p>
+            <p class="text-sm text-gray-600 mb-2">ただし、AIを介した短読は、<strong class="text-gray-800">原文から直接味わえる読書体験をかなり薄めた形</strong>になることを忘れてはいけません。基本的には、原文そのものに触れることを強くお勧めします。原文から直接得られる感動や読書体験は、人生や自分の考えを深く形成していくものだからです。</p>
+            <p class="text-sm text-gray-600 mb-2">一方向的・ワンショットの短読は、対象の文章を「処理」して終わりにしてしまいがちです。これに対し、<strong class="text-gray-800">同じ文章を何度も繰り返しながら紙で読み、マーカーを引いたり、書き込みをしたりする精読</strong>は、文章と長く付き合うなかで自分の思考そのものを練り上げていく営みです。</p>
+            <p class="text-sm text-gray-600">短読はあくまで「どうしても」のときの補助線として位置づけ、可能な限り、原文に向き合う精読を学びの中心に据えてください。短読で得たとっかかりを足がかりに、最終的にはもう一度原文に戻り、自分の手と目で読み込むこと――これが本章の到達点でもあります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- まとめ -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-2xl p-6 border-l-4 border-pink-300">
-      <p class="text-sm text-gray-600 leading-relaxed">以上、Google Scholar による文献探索、紙資料のデジタル化、そして Zotero による文献管理と引用支援の方法について解説しました。デジタルツールを活用することで、<strong class="text-gray-800">「調べる・集める・引用する」という読解・研究プロセスが飛躍的に効率化</strong>されます。ぜひ本章で紹介した手法を実践し、学びの質を高めていってください。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">以上、Google Scholar による文献探索、紙資料のデジタル化、Zotero による文献管理と引用支援、そして AI を用いた「短読」と精読の使い分けについて解説しました。デジタルツールを活用することで、<strong class="text-gray-800">「調べる・集める・引用する」という読解・研究プロセスが飛躍的に効率化</strong>されます。ただし、効率化の先にある<strong class="text-gray-800">原文との深い対話＝精読</strong>こそが、人文学の学びの中核であることも改めて忘れずに、本章で紹介した手法を実践し、学びの質を高めていってください。</p>
     </div>
   </section>
 
