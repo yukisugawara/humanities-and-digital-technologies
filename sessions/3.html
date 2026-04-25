@@ -24,7 +24,7 @@
     .topic-card{transition:all .3s ease}.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(139,92,246,.12)}
     html{scroll-behavior:smooth}
     .info-box{background:rgba(255,255,255,.5);border-radius:1rem;padding:1rem 1.25rem}
-    code{background:rgba(139,92,246,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#8b5cf6;white-space:nowrap;display:inline-block}
+    code{background:rgba(139,92,246,.08);padding:.15rem .4rem;border-radius:.375rem;font-size:.8em;font-family:'SF Mono','Fira Code',monospace;color:#8b5cf6;white-space:nowrap}
     /* 手書き風パステルマーカー */
     .marker{padding:0 .15em;background-repeat:no-repeat;background-size:100% .65em;background-position:0 85%;-webkit-box-decoration-break:clone;box-decoration-break:clone}
     .marker-yellow{background-image:linear-gradient(104deg,transparent 1%,rgba(253,224,71,.65) 4%,rgba(253,224,71,.5) 96%,transparent 99%)}
@@ -137,7 +137,7 @@
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">フレーズ検索</strong>：検索語を引用符（" "）で囲みます。例えば "デジタル アーカイブ" のように指定すると、その正確な語句を含む文献のみを検索できます。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">OR 検索</strong>：語と語の間に OR（大文字）を入れます。例：京都 OR 奈良 とすると、京都または奈良のいずれかの語を含む文献を検索します。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">除外検索</strong>：除外したいキーワードの前にマイナス記号 - を付けます。例：平安京 -"平安神宮" とすれば、「平安神宮」を含まない平安京に関する文献を絞り込めます。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">その他オプション</strong>：「詳細検索」画面から特定の著者名や出版年、掲載誌名で絞り込むことも可能です。例えば <code>author:山田</code> と入力すると著者名に「山田」を含む論文に限定できます。また「引用部分を含める」設定を有効にすると、参考文献リストも検索対象に含められます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">その他オプション</strong>：「詳細検索」画面から特定の著者名や出版年、掲載誌名で絞り込むことも可能です。著者名で絞り込みたいときは検索ボックスに <span class="marker marker-yellow font-mono whitespace-nowrap text-gray-700">author:山田</span> のように入力すると、著者名に「山田」を含む論文に限定できます。また「引用部分を含める」設定を有効にすると、参考文献リストも検索対象に含められます。</li>
             </ul>
             <p class="text-xs text-gray-500 mt-2">検索結果が多すぎる場合は、検索結果ページ左側のメニューから「1年以内」等の期間指定や「日本語の文献のみ」などの絞り込みも活用しましょう。</p>
           </div>
