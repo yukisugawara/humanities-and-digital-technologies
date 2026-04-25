@@ -103,7 +103,7 @@
 
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8">
-      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章ではまず、<strong class="text-gray-800">なぜ「読む」のか</strong>というディープ・リーディングの作法を確認し、続いて Literature Review（先行研究レビュー）として自分の研究を位置づける考え方、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、文献管理ツールを用いた参考文献管理と引用の手法、生成AIを補助的に用いた「短読」と精読の使い分けを順に解説します。ツールの使い方だけでなく、その背後にある研究の作法もあわせて学んでいきます。</p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">現代の研究や学習では、デジタル技術を活用することで文献の探索から読解、引用までを効率化できます。本章ではまず、<strong class="text-gray-800">なぜ「読む」のか</strong>というディープ・リーディングの作法を確認し、続いて Literature Review（先行研究レビュー）として自分の研究を位置づける考え方、先行研究を探すための検索ツール、紙の資料をデジタル化して読みやすくする方法、文献管理ツールを用いた参考文献管理と引用の手法、そしてディープ・リーディングと対をなす<strong class="text-gray-800">シャロウ・リーディング（浅い読書）</strong>を AI を補助に用いて使いこなす作法を順に解説します。ツールの使い方だけでなく、その背後にある研究の作法もあわせて学んでいきます。</p>
     </div>
   </section>
 
@@ -119,7 +119,7 @@
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Google Scholar による先行研究探索（検索語設計・引用追跡・アラート）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>紙資料のデジタル化と読みやすくする工夫（スキャン・OCR・整理）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Zotero による文献管理と引用（収集・整理・引用出力・PDF管理・同期）</li>
-        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>AI（NotebookLM・Gemini）を用いた「短読」と精読のすすめ（翻訳・要約・解説、ハルシネーションへの注意）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>シャロウ・リーディング（速読・斜め読み・部分読み）と AI 補助の使い分け ―― ディープ・リーディングとの対比、NotebookLM／Gemini の活用、Wolf 等のリテラシー研究を踏まえた留意点</li>
       </ul>
     </div>
   </section>
@@ -195,7 +195,7 @@
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">環境を整える</strong>：部屋やワーキングスペースの状態は、読書の集中力に直接影響します。第9回でも扱う予定ですが、自分が「ここに座れば読める」と思える机まわりを用意することが、ディープ・リーディングの前提条件です。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><span class="marker marker-blue">ポモドーロ・テクニック</span>：25分集中＋5分休憩を1セットとして繰り返す時間管理術。集中力が続きにくいときの強い味方になります。</li>
             </ul>
-            <p class="text-sm text-gray-600">本章の以降の節では、こうしたディープ・リーディングを支えるためのデジタルツール ―― 先行研究の位置づけ方、文献検索、紙資料のデジタル化、参考文献管理、AI を補助に用いた短読 ―― を順に紹介していきます。ツールはあくまで、深く読むという営みを支えるための装置だということを忘れないでいてください。</p>
+            <p class="text-sm text-gray-600">本章の以降の節では、こうしたディープ・リーディングを支えるためのデジタルツール ―― 先行研究の位置づけ方、文献検索、紙資料のデジタル化、参考文献管理、AI を補助に用いたシャロウ・リーディング ―― を順に紹介していきます。ツールはあくまで、深く読むという営みを支えるための装置だということを忘れないでいてください。</p>
           </div>
         </div>
       </div>
@@ -393,28 +393,41 @@
       </div>
     </div>
 
-    <!-- 3.6 AIを用いた「短読」と精読のすすめ -->
+    <!-- 3.6 シャロウ・リーディング -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
         <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">3.6</div>
         <div class="w-full">
-          <h3 class="font-bold text-gray-800 mb-2">AIを用いた「短読」と精読のすすめ</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">近年、生成AIを活用して論文や書籍を効率的に読み解く<strong class="text-gray-800">「短読（短縮読書）」</strong>という手法が広がりつつあります。本授業では基本的に<strong class="text-gray-800">精読（close reading）</strong>を推奨しますが、時間に余裕がないとき、文章がどうしても難解すぎるとき、あるいは自分が学習していない言語の文献を扱うときなどには、短読が有効な選択肢となります。ここでは、OCR化したPDFファイルを対象に <strong class="text-gray-800">Gemini</strong> や <strong class="text-gray-800">NotebookLM</strong> を用いて翻訳・要約・解説を行う方法と、その際に必ず押さえておきたい留意点を紹介します。</p>
+          <h3 class="font-bold text-gray-800 mb-2">シャロウ・リーディング ―― 浅く読むことの作法（AI を補助に用いて）</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">本章のここまで、3.1 で論じた<strong class="text-gray-700">ディープ・リーディング</strong>を学びの中心に据える、ということを繰り返し強調してきました。一方で、現実の研究や学習の場面では、目に入るすべての文献を深く読むのは時間的に不可能です。そんなときに頼りになるのが、ディープ・リーディングと対をなす<strong class="text-gray-800">「シャロウ・リーディング（shallow reading／浅い読書）」</strong>です。本節では、シャロウ・リーディング全般を見渡したうえで、とくに <strong class="text-gray-800">AI を補助として活用するやり方</strong>に焦点を当てて紹介します。</p>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.6.1 短読が有効な場面と基本姿勢</p>
-            <p class="text-sm text-gray-600 mb-2">短読はあくまで補助的な手法であり、原文に向き合う精読を置き換えるものではありません。次のような場面では、短読を上手に組み合わせることで読解の負担を軽減できます。</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.6.1 シャロウ・リーディングとは ―― 速読・斜め読み・部分読み、そして AI</p>
+            <p class="text-sm text-gray-600 mb-2">シャロウ・リーディングとは、テキストを目的に応じて<strong class="text-gray-700">浅くスキャンしながら読む</strong>幅広い読み方の総称です。歴史的にもさまざまな技法が培われてきました。</p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-2">
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">速読（speed reading）</strong>：本文をできるだけ速く目で追い、全体の概要を短時間でつかむ。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">斜め読み（skimming）</strong>：見出しや段落の冒頭・末尾を中心に流し読みし、論の骨格だけを取り出す。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">部分読み（scanning）</strong>：自分が必要としている情報・キーワードだけをピンポイントに探し当てる。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">要約・解説を介した読書</strong>：レビュー論文、教科書、解説記事 ―― そして近年は <strong class="text-gray-700">AI による要約・訳出・解説</strong> ―― を経由して内容に接近する。</li>
+            </ul>
+            <p class="text-sm text-gray-600 mb-2">こうしたシャロウ・リーディングは、デジタル時代に入って爆発的に増えています。リテラシー研究者の <span class="marker marker-green">Maryanne Wolf</span> は『<em>Reader, Come Home</em>』(2018) などで、スマホ・SNS・短文ニュースに囲まれた現代では、人々の読書がシャロウ・リーディング側に偏り、<span class="marker marker-red">脳のなかで「ディープ・リーディング回路」が痩せ細っていく危険性</span>を指摘しています。</p>
+            <p class="text-sm text-gray-600">大切なのは、シャロウ・リーディングそれ自体を「悪」と決めつけるのではなく、ディープ・リーディングと <span class="marker marker-yellow">意識的に使い分け、読み方を切り替えられる</span>ようになることです。本節では、その使い分けのなかで、AI を補助に用いるやり方に焦点を当てます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">3.6.2 AI 補助のシャロウ・リーディングが有効な場面</p>
+            <p class="text-sm text-gray-600 mb-2">AI を介したシャロウ・リーディングはあくまで補助的な手法であり、ディープ・リーディングを置き換えるものではありません。次のような場面では、上手に組み合わせることで読解の負担を軽減できます。</p>
             <ul class="text-sm text-gray-600 space-y-2">
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">時間がないとき</strong>：締切が迫っている、複数の文献を短時間で見渡す必要がある、といった状況で全体像を素早くつかみたい場合。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">文章がどうしても難解すぎるとき</strong>：抽象度の高い理論的議論や、専門用語が密集した文章で、まずは要旨を把握してから本文に戻りたい場合。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">自分が学習していない言語のとき</strong>：未習の言語で書かれた文献に当たる必要がある場合に、翻訳と解説を併用して内容に近づくための入り口として活用できます。</li>
             </ul>
-            <p class="text-xs text-gray-500 mt-2">短読を行う前提として、対象のPDFファイルがOCR化されている（テキストとして抽出可能になっている）必要があります。OCR化の方法は <strong>3.4.2</strong> を参照してください。</p>
+            <p class="text-xs text-gray-500 mt-2">AI 補助のシャロウ・リーディングを行う前提として、対象の PDF ファイルが OCR 化されている（テキストとして抽出可能になっている）必要があります。OCR 化の方法は <strong>3.4.2</strong> を参照してください。</p>
           </div>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.6.2 NotebookLM と Gemini の使い分け</p>
-            <p class="text-sm text-gray-600 mb-3">同じ Google 系のサービスでも、NotebookLM と Gemini では仕組みも得意分野も異なります。短読の目的に応じて使い分けるのが大切です。</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.6.3 NotebookLM と Gemini の使い分け</p>
+            <p class="text-sm text-gray-600 mb-3">同じ Google 系のサービスでも、NotebookLM と Gemini では仕組みも得意分野も異なります。シャロウ・リーディングの目的に応じて使い分けるのが大切です。</p>
             <div class="grid sm:grid-cols-2 gap-3 mb-2">
               <div class="bg-white/55 rounded-xl p-4">
                 <p class="text-sm font-bold text-gray-700 mb-2">📓 NotebookLM</p>
@@ -431,21 +444,21 @@
           </div>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.6.3 短読の活用パターン</p>
-            <p class="text-sm text-gray-600 mb-2">AIに対する指示の出し方によって、短読の粒度を変えることができます。目的に応じて以下のような使い方が考えられます。</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.6.4 AI を用いたシャロウ・リーディングの活用パターン</p>
+            <p class="text-sm text-gray-600 mb-2">AI に対する指示の出し方によって、シャロウ・リーディングの粒度を変えることができます。目的に応じて以下のような使い方が考えられます。</p>
             <ul class="text-sm text-gray-600 space-y-2">
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">論文全体の要約</strong>：まずは1本の論文の主張・方法・結論を短くまとめてもらう。読むべき文献かどうかの判断や、レビュー作業の入り口に有効です。</li>
               <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">節ごとの要約・解説</strong>：章や節の単位で要約と解説を出してもらう。論の展開を追いやすくなり、難解な節だけを重点的に補強することもできます。</li>
-              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">パラグラフごとの訳出＋解説</strong>：全文をパラグラフ単位で丁寧に訳出してもらい、各パラグラフに解説を添えてもらう方法。訳文と原文を見比べながら読み進めることで、<span class="marker marker-blue">精読に近い読書体験</span>に近づけることができます。</li>
+              <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span><strong class="text-gray-700">パラグラフごとの訳出＋解説</strong>：全文をパラグラフ単位で丁寧に訳出してもらい、各パラグラフに解説を添えてもらう方法。訳文と原文を見比べながら読み進めることで、<span class="marker marker-blue">ディープ・リーディングに近い読書体験</span>に近づけることができます。</li>
             </ul>
-            <p class="text-xs text-gray-500 mt-2">いずれの場合も、出力された要約・訳・解説と原文を必ず往復しながら読むようにしてください。AIが省略した論点や、誤解した部分が必ず存在しうるという前提で扱うことが大切です。</p>
+            <p class="text-xs text-gray-500 mt-2">いずれの場合も、出力された要約・訳・解説と原文を必ず往復しながら読むようにしてください。AI が省略した論点や、誤解した部分が必ず存在しうるという前提で扱うことが大切です。</p>
           </div>
 
           <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">3.6.4 それでも精読をすすめる理由</p>
-            <p class="text-sm text-gray-600 mb-2">ただし、AIを介した短読は、<span class="marker marker-red">原文から直接味わえる読書体験をかなり薄めた形</span>になることを忘れてはいけません。基本的には、原文そのものに触れることを強くお勧めします。原文から直接得られる感動や読書体験は、人生や自分の考えを深く形成していくものだからです。</p>
-            <p class="text-sm text-gray-600 mb-2">一方向的・ワンショットの短読は、対象の文章を「処理」して終わりにしてしまいがちです。これに対し、<span class="marker marker-yellow">同じ文章を何度も繰り返しながら紙で読み、マーカーを引いたり、書き込みをしたりする精読</span>は、文章と長く付き合うなかで自分の思考そのものを練り上げていく営みです。</p>
-            <p class="text-sm text-gray-600">短読はあくまで「どうしても」のときの補助線として位置づけ、可能な限り、原文に向き合う精読を学びの中心に据えてください。短読で得たとっかかりを足がかりに、最終的にはもう一度原文に戻り、自分の手と目で読み込むこと――これが本章の到達点でもあります。</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">3.6.5 それでもディープ・リーディングを中心に置く理由</p>
+            <p class="text-sm text-gray-600 mb-2">ただし、AI を介したシャロウ・リーディングは、<span class="marker marker-red">原文から直接味わえる読書体験をかなり薄めた形</span>になることを忘れてはいけません。基本的には、原文そのものに触れることを強くお勧めします。原文から直接得られる感動や読書体験は、人生や自分の考えを深く形成していくものだからです。</p>
+            <p class="text-sm text-gray-600 mb-2">一方向的・ワンショットのシャロウ・リーディングは、対象の文章を「処理」して終わりにしてしまいがちです。これに対し、<span class="marker marker-yellow">同じ文章を何度も繰り返しながら紙で読み、マーカーを引いたり、書き込みをしたりするディープ・リーディング</span>は、文章と長く付き合うなかで自分の思考そのものを練り上げていく営みです（3.1 で論じた「発酵思考」とつながります）。</p>
+            <p class="text-sm text-gray-600">シャロウ・リーディングはあくまで「どうしても」のときの補助線として位置づけ、可能な限り、原文に向き合うディープ・リーディングを学びの中心に据えてください。シャロウ・リーディングで得たとっかかりを足がかりに、最終的にはもう一度原文に戻り、自分の手と目で読み込むこと――これが本章の到達点でもあります。</p>
           </div>
         </div>
       </div>
@@ -456,7 +469,7 @@
   <!-- まとめ -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-2xl p-6 border-l-4 border-pink-300">
-      <p class="text-sm text-gray-600 leading-relaxed">以上、なぜ「読む」のかというディープ・リーディングの作法から出発し、Literature Review として自分の研究を先行研究のなかに位置づける考え方、Google Scholar による文献探索、紙資料のデジタル化、Zotero による文献管理と引用支援、AI を用いた「短読」と精読の使い分けについて解説しました。デジタルツールは「調べる・集める・引用する」という研究プロセスを大きく効率化してくれますが、その先にあるのは、<span class="marker marker-red">情報を知識へと発酵させていくディープ・リーディング</span>と、<span class="marker marker-red">先行研究のなかに自分の研究を自ら位置づける営み</span>です。本章で紹介した手法を実践しながら、ツールに任せきりにできない研究の中核を、自分の手と頭で引き受けていってください。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">以上、なぜ「読む」のかというディープ・リーディングの作法から出発し、Literature Review として自分の研究を先行研究のなかに位置づける考え方、Google Scholar による文献探索、紙資料のデジタル化、Zotero による文献管理と引用支援、そして AI を補助に用いたシャロウ・リーディングの作法までを解説しました。デジタルツールは「調べる・集める・引用する」という研究プロセスを大きく効率化してくれますが、その先にあるのは、<span class="marker marker-red">情報を知識へと発酵させていくディープ・リーディング</span>と、<span class="marker marker-red">先行研究のなかに自分の研究を自ら位置づける営み</span>です。本章で紹介した手法を実践しながら、ツールに任せきりにできない研究の中核を、自分の手と頭で引き受けていってください。</p>
     </div>
   </section>
 
