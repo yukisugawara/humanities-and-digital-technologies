@@ -309,7 +309,7 @@
         <span class="text-lg">📢</span>
         <h2 class="font-bold text-base text-gray-800">お知らせ</h2>
       </div>
-      <ul class="space-y-2 text-sm text-gray-600">
+      <ul id="news-list" class="space-y-2 text-sm text-gray-600">
         <li class="flex items-start gap-3">
           <span class="text-xs text-gray-400 whitespace-nowrap mt-0.5">2026.04.25</span>
           <span>第3回授業動画を公開しました</span>
@@ -331,8 +331,32 @@
           <span>第1回授業動画を公開しました</span>
         </li>
       </ul>
+      <button type="button" id="news-toggle" onclick="toggleNews()" class="hidden mt-3 text-xs text-violet-500 hover:text-violet-600 font-semibold inline-flex items-center gap-1 transition-colors">
+        <span id="news-toggle-label">過去のお知らせを表示</span>
+        <span id="news-toggle-icon" aria-hidden="true">▾</span>
+      </button>
     </div>
   </section>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('#news-list > li');
+      if (items.length <= 3) return;
+      for (var i = 3; i < items.length; i++) {
+        items[i].classList.add('hidden', 'news-extra');
+      }
+      document.getElementById('news-toggle').classList.remove('hidden');
+    })();
+    function toggleNews() {
+      var extras = document.querySelectorAll('.news-extra');
+      if (!extras.length) return;
+      var willShow = extras[0].classList.contains('hidden');
+      extras.forEach(function (el) {
+        el.classList.toggle('hidden', !willShow);
+      });
+      document.getElementById('news-toggle-label').textContent = willShow ? '閉じる' : '過去のお知らせを表示';
+      document.getElementById('news-toggle-icon').textContent = willShow ? '▴' : '▾';
+    }
+  </script>
 
   <!-- About Section -->
   <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 mb-20">
