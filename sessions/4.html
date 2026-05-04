@@ -121,6 +121,240 @@
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in text-center mb-8"><h2 class="text-2xl sm:text-3xl font-black text-gray-800 mb-2">内容</h2></div>
 
+    <!-- 4.0 私のメモ環境（情報の濾過装置） -->
+    <div class="fade-in glass rounded-2xl p-6 sm:p-8 mb-5">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-base flex-shrink-0">⚗︎</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-1">参考：私のメモ環境のアーキテクチャ</h3>
+          <p class="text-xs sm:text-sm text-gray-500">コンセプト：<strong class="text-gray-700">情報の濾過装置</strong>　— フィルターを通して、薄い情報を「濃い知識」として抽出していく</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-gradient-to-b from-amber-50/70 via-violet-50/60 to-pink-50/70 p-4 sm:p-6 border border-white/60">
+
+        <!-- 入力源 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-white/70 text-gray-500 tracking-wider">SOURCE</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 text-center border border-amber-100">
+            <p class="text-[10px] sm:text-xs font-bold text-amber-600 mb-1">内からの気づき</p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-snug">ひらめき・問い・違和感</p>
+          </div>
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 text-center border border-sky-100">
+            <p class="text-[10px] sm:text-xs font-bold text-sky-600 mb-1">外からの情報</p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-snug">読書・対話・観察・ウェブ</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-3"><span class="text-violet-300 text-xl">↓</span></div>
+
+        <!-- ① キャプチャ層 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-violet-100 text-violet-600">① キャプチャ（瞬間記録）</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-3">
+          <div class="bg-white/85 rounded-xl p-2 sm:p-3 text-center border border-violet-100">
+            <p class="text-base sm:text-lg mb-0.5">📝</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">小さいメモ帳</p>
+          </div>
+          <div class="bg-white/85 rounded-xl p-2 sm:p-3 text-center border border-violet-100">
+            <p class="text-base sm:text-lg mb-0.5">📱</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">Evernote</p>
+          </div>
+          <div class="bg-white/85 rounded-xl p-2 sm:p-3 text-center border border-violet-100">
+            <p class="text-base sm:text-lg mb-0.5">🗂</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">125×75mm カード</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">↓</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">書き写し（自分の言葉で再構成）</p>
+
+        <!-- ② Obsidian -->
+        <div class="text-center mb-2">
+          <span class="pill bg-fuchsia-100 text-fuchsia-600">② 思考の蓄積</span>
+        </div>
+        <div class="bg-white/90 rounded-xl p-3 sm:p-4 mb-3 border border-fuchsia-200 shadow-sm">
+          <div class="flex items-center justify-center gap-2 mb-1">
+            <span class="text-lg">🔮</span>
+            <p class="text-sm font-bold text-fuchsia-700">Obsidian</p>
+          </div>
+          <p class="text-[10px] sm:text-xs text-gray-500 text-center">ツェッテルカステン本体（永久保存メモ・リンク・MOC）</p>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">⇅</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">同期（ツェッテルカステンページとして対応）</p>
+
+        <!-- ③ Notion ハブ + Zotero -->
+        <div class="text-center mb-2">
+          <span class="pill bg-purple-100 text-purple-600">③ プロジェクト・ハブ ／ 文献管理</span>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-3 mb-3 items-stretch">
+          <div class="sm:col-span-2 bg-white/90 rounded-xl p-3 sm:p-4 border border-purple-200 shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🗃</span>
+              <p class="text-sm font-bold text-purple-700">Notion</p>
+            </div>
+            <div class="space-y-1.5">
+              <div class="bg-purple-50/70 rounded-lg px-2.5 py-1.5">
+                <p class="text-[10px] sm:text-xs"><span class="font-bold text-purple-600">ツェッテルカステンページ</span><span class="text-gray-500"> — Obsidian と同期</span></p>
+              </div>
+              <div class="bg-purple-50/70 rounded-lg px-2.5 py-1.5">
+                <p class="text-[10px] sm:text-xs"><span class="font-bold text-purple-600">プロジェクトページ</span><span class="text-gray-500"> — 上記との同期ページとして扱う</span></p>
+                <ul class="mt-1 ml-3 text-[10px] sm:text-xs text-gray-500 leading-snug list-disc list-outside pl-2">
+                  <li>関連リンク（ウェブ・動画・SNSのURL）</li>
+                  <li>関連ファイル（PDF・スプレッドシート等）</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/90 rounded-xl p-3 sm:p-4 border border-rose-200 shadow-sm flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">📚</span>
+              <p class="text-sm font-bold text-rose-600">Zotero</p>
+            </div>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-snug flex-1">本・論文の<strong class="text-gray-700">文献情報</strong>を管理。必要に応じて Notion プロジェクトページに同期。</p>
+            <p class="text-[10px] text-rose-400 mt-2">⇄ Notion / → 執筆環境</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">↓</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">移行（メモ・引用・文献情報を持ち込む）</p>
+
+        <!-- ④ 執筆環境 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-pink-100 text-pink-600">④ 執筆環境</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div class="bg-white/90 rounded-xl p-3 text-center border border-pink-200">
+            <p class="text-base sm:text-lg mb-0.5">📄</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">Microsoft Word</p>
+          </div>
+          <div class="bg-white/90 rounded-xl p-3 text-center border border-pink-200">
+            <p class="text-base sm:text-lg mb-0.5">∑</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">TeX</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">↓</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">コンパイル</p>
+
+        <!-- ⑤ 出力 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-gradient-to-r from-violet-500 to-pink-500 text-white">⑤ 出力</span>
+        </div>
+        <div class="bg-gradient-to-r from-violet-100 via-pink-100 to-amber-100 rounded-xl p-3 sm:p-4 text-center border border-white/70">
+          <p class="text-base sm:text-lg mb-0.5">📕</p>
+          <p class="text-xs sm:text-sm font-bold text-gray-700">PDF（論文・原稿）</p>
+          <p class="text-[10px] sm:text-xs text-gray-500 mt-0.5">＝ 濾過された「濃い知識」</p>
+        </div>
+      </div>
+
+      <p class="text-[11px] sm:text-xs text-gray-400 mt-3 leading-relaxed">各層がフィルターとして働く：キャプチャで取りこぼしを防ぎ、Obsidian で自分の言葉に翻訳し、Notion でプロジェクト文脈に編成し、執筆環境で他者に伝わる形へ仕上げる。下流に行くほど情報量は減るが、密度は上がる。</p>
+    </div>
+
+    <!-- 使っている道具・参考文献 -->
+    <div class="fade-in glass rounded-2xl p-6 sm:p-8 mb-5">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-10 h-10 bg-gradient-to-br from-rose-300 to-amber-300 rounded-xl flex items-center justify-center text-white text-base flex-shrink-0">✎</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-1">参考：私が使っている小さいメモ帳・ノート選びの参考書</h3>
+          <p class="text-xs sm:text-sm text-gray-500">「キャプチャ」を支える物理的な道具についての補足です。</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <!-- ロルバーン -->
+        <div class="info-box">
+          <p class="text-xs font-bold text-rose-600 mb-2">小さいメモ帳：ロルバーン ポケット付メモ（ミニ）</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">デルフォニックスの<strong class="text-gray-700">ロルバーン ポケット付メモ ミニ</strong>を、いつもポケットに入れて持ち歩いています。<strong class="text-gray-700">細いボールペンをリングの部分に差し込んでおく</strong>と、ペンとメモが常に一緒になり、思いついた瞬間にすぐ書き出せます。ひらめきや違和感は数秒で消えてしまうので、「取り出してから書くまで」の摩擦をいかに減らすかが肝心です。</p>
+          <a href="https://shop.delfonics.com/c/notebooks/NRP01" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-rose-500 hover:text-rose-600 hover:underline">
+            <span>デルフォニックス 公式オンラインストアで見る</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- 参考書 -->
+        <div class="info-box">
+          <p class="text-xs font-bold text-amber-600 mb-2">ノート選びの参考に：『時間をもっと大切にするための小さいノート活用術』</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">髙橋拓也氏の<strong class="text-gray-700">『時間をもっと大切にするための小さいノート活用術』</strong>には、さまざまな可愛い小さいノートが紹介されており、自分に合ったノートを選ぶ際の参考になります。「どれを使うか」自体が習慣化のモチベーションを左右するので、最初の1冊をじっくり選ぶ価値はあります。</p>
+          <a href="https://www.genkosha.co.jp/book/b10095412.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 hover:text-amber-700 hover:underline">
+            <span>玄光社 公式ページで見る</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- エッセンシャル・バッグ -->
+    <div class="fade-in glass rounded-2xl p-6 sm:p-8 mb-5">
+      <div class="flex items-start gap-4 mb-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-teal-400 rounded-xl flex items-center justify-center text-white text-base flex-shrink-0">🎒</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-1">参考：持ち歩き方（エッセンシャル・バッグ）</h3>
+          <p class="text-xs sm:text-sm text-gray-500">「常に書ける」を成立させるための物理的なセットアップ。</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">普段はなるべく<strong class="text-gray-700">最小限の荷物</strong>で行動したいと思っています。近所を散歩するときなどは、パタゴニアの小さいヒップパック（私が使っているのはこれよりだいぶ古い型ですが）に、<strong class="text-gray-700">小さいメモ帳・薄い財布・薄い iPhone・鍵</strong>だけを入れて出かけます。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">これだけあれば最低限の行動・生活はできるので、個人的に <strong class="text-gray-700">エッセンシャル・バッグ</strong> と呼んでいます。大きめのバッグを使うときも、この小さいバッグはそのまま中に入れておきます。<strong class="text-gray-700">「いつもの一式」がカプセル化されている</strong>ので、外出のたびに中身を入れ替える必要がなく、メモ帳を持ち忘れることもありません。</p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3 mb-3">
+          <div class="bg-white/70 rounded-lg p-2 text-center"><p class="text-base mb-0.5">📓</p><p class="text-[10px] sm:text-xs font-bold text-sky-700">小さいメモ帳</p></div>
+          <div class="bg-white/70 rounded-lg p-2 text-center"><p class="text-base mb-0.5">💳</p><p class="text-[10px] sm:text-xs font-bold text-sky-700">薄い財布</p></div>
+          <div class="bg-white/70 rounded-lg p-2 text-center"><p class="text-base mb-0.5">📱</p><p class="text-[10px] sm:text-xs font-bold text-sky-700">薄い iPhone</p></div>
+          <div class="bg-white/70 rounded-lg p-2 text-center"><p class="text-base mb-0.5">🔑</p><p class="text-[10px] sm:text-xs font-bold text-sky-700">鍵</p></div>
+        </div>
+        <a href="https://www.patagonia.jp/product/terravia-mini-hip-pack-1-liter/196924922792.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-sky-600 hover:text-sky-700 hover:underline">
+          <span>Patagonia Terravia Mini Hip Pack 1L（参考リンク）</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <!-- 思想的背景：ウルトラライトハイキング -->
+      <div class="info-box mt-4" style="background:rgba(236,253,245,0.6);border:1px solid rgba(167,243,208,0.5)">
+        <p class="text-xs font-bold text-emerald-700 mb-2">🏔 思想的背景：ウルトラライトハイキング</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">この「最小限で十分」という発想は、<strong class="text-gray-700">ウルトラライトハイキング（Ultralight Hiking, UL）</strong>の思想に大きく影響を受けています。長距離ハイキングにおいて持ちものを徹底的に削ぎ落とすことで、かえって<strong class="text-gray-700">自由と機動性が得られる</strong>──不要なものを減らすほど、本当に必要なものとの関係が深まり、行動可能な範囲が広がる、という発想です。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">古典的な原典として、Ray Jardine の <em class="text-gray-700">Beyond Backpacking</em>（1999）があります。彼は登山道具メーカーが大型化させた装備を見直し、自作・軽量化・選択と集中を徹底することで Pacific Crest Trail などの長距離トレイルを驚異的なスピードで踏破しました。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">私はこの<strong class="text-gray-700">概念や実践を生活全般に導入できないか</strong>ということに個人的に関心を持っており、研究テーマとしても関心を持っています。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">背景にあるのは、<strong class="text-gray-700">身軽なほうが思考もはかどる</strong>という感覚です。フィールドワークをするときも、なるべく重い荷物を持たずに、<strong class="text-gray-700">そのまま山を歩いたり、川を歩いたりできるスタイル</strong>を心がけています。装備に縛られず歩ける身体は、観察にも会話にも開かれており、結果として現場で得られる気づきが増えます。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">エッセンシャル・バッグはこの実践のひとつであり、同じ発想を「メモ環境」に適用したのが今回のアーキテクチャ──つまり、<strong class="text-gray-700">情報の濾過装置もまた、知識のウルトラライト化の試み</strong>と捉えられます。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">日本国内で UL 関連の道具を実際に手に取れる場所として、<strong class="text-gray-700">Moonlight Gear</strong> というお店があります。同店は YouTube チャンネルも運営しており、道具の紹介やフィールドでの使い方を見ることができます。</p>
+        <div class="flex flex-col gap-1.5">
+          <a href="https://www.rayjardine.com/ray-way/Books/1999-Beyond-Backpacking/index.php" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 hover:underline">
+            <span>Ray Jardine, Beyond Backpacking（公式サイト）</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="https://moonlight-gear.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 hover:underline">
+            <span>Moonlight Gear（公式サイト）</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@moonlightgear" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 hover:underline">
+            <span>Moonlight Gear（YouTube チャンネル）</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 関連する参考文献 -->
+    <div class="fade-in glass rounded-2xl p-6 sm:p-8 mb-5">
+      <div class="flex items-start gap-4 mb-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-indigo-400 to-violet-400 rounded-xl flex items-center justify-center text-white text-base flex-shrink-0">📖</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-1">参考文献：本章のアプローチに関連する書籍</h3>
+          <p class="text-xs sm:text-sm text-gray-500">これまで紹介してきた発想を、別の角度から体系化した本。</p>
+        </div>
+      </div>
+
+      <div class="info-box" style="background:rgba(238,242,255,0.6);border:1px solid rgba(199,210,254,0.5)">
+        <p class="text-xs font-bold text-indigo-700 mb-2">Tiago Forte『SECOND BRAIN（セカンドブレイン） 時間に追われない「知的生産術」』</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">「セカンドブレイン」（第二の脳）と呼ばれる外部記憶システムを使い、情報を <strong class="text-gray-700">捕捉（Capture）→ 整理（Organize）→ 蒸留（Distill）→ 表現（Express）</strong> という4段階で扱う <strong class="text-gray-700">CODE メソッド</strong> を紹介する本です。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">本章で紹介する<strong class="text-gray-700">情報の濾過装置</strong>のアーキテクチャや、ツェッテルカステンの考え方と、<strong class="text-gray-700">基本的なプロセスは共通しています</strong>。「捕捉 → 整理 → 蒸留 → 表現」という段階を持ち、後段に行くほど情報が濃縮されていく流れは、ルーマンのツェッテルカステンと現代的なノート術が共有する骨格と言えます。</p>
+        <a href="https://str.toyokeizai.net/books/9784492558218/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-700 hover:underline">
+          <span>東洋経済新報社 公式ページで見る</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+
     <!-- 4.1 基本概念 -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1620" width="1100" height="1620" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP','M PLUS Rounded 1c',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="35%" stop-color="#ede9fe"/>
+      <stop offset="70%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#fdf2f8"/>
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ddd6fe"/>
+      <stop offset="50%" stop-color="#fbcfe8"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="pillOut" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect width="1100" height="1620" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1020" height="1540" rx="28" fill="rgba(255,255,255,0.55)" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+
+  <!-- title -->
+  <text x="550" y="92" text-anchor="middle" font-size="30" font-weight="800" fill="#1f2937">私のメモ環境のアーキテクチャ</text>
+  <text x="550" y="124" text-anchor="middle" font-size="16" fill="#6b7280">コンセプト：<tspan font-weight="700" fill="#374151">情報の濾過装置</tspan> — フィルターを通して、薄い情報を「濃い知識」へ抽出する</text>
+
+  <!-- ============ SOURCE ============ -->
+  <g transform="translate(0,160)">
+    <rect x="470" y="0" width="160" height="26" rx="13" fill="rgba(255,255,255,0.85)"/>
+    <text x="550" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#6b7280" letter-spacing="2">SOURCE</text>
+
+    <g filter="url(#soft)">
+      <rect x="120" y="46" width="380" height="80" rx="14" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5"/>
+      <text x="310" y="78" text-anchor="middle" font-size="16" font-weight="700" fill="#d97706">内からの気づき</text>
+      <text x="310" y="104" text-anchor="middle" font-size="13" fill="#6b7280">ひらめき・問い・違和感</text>
+
+      <rect x="600" y="46" width="380" height="80" rx="14" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+      <text x="790" y="78" text-anchor="middle" font-size="16" font-weight="700" fill="#0284c7">外からの情報</text>
+      <text x="790" y="104" text-anchor="middle" font-size="13" fill="#6b7280">読書・対話・観察・ウェブ</text>
+    </g>
+
+    <line x1="550" y1="140" x2="550" y2="180" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- ============ ① キャプチャ ============ -->
+  <g transform="translate(0,360)">
+    <rect x="410" y="0" width="280" height="28" rx="14" fill="#ede9fe"/>
+    <text x="550" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3aed">① キャプチャ（瞬間記録）</text>
+
+    <g filter="url(#soft)">
+      <rect x="120" y="48" width="270" height="100" rx="14" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+      <text x="255" y="86" text-anchor="middle" font-size="28">📝</text>
+      <text x="255" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#374151">小さいメモ帳</text>
+
+      <rect x="415" y="48" width="270" height="100" rx="14" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+      <text x="550" y="86" text-anchor="middle" font-size="28">📱</text>
+      <text x="550" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#374151">Evernote</text>
+
+      <rect x="710" y="48" width="270" height="100" rx="14" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+      <text x="845" y="86" text-anchor="middle" font-size="28">🗂</text>
+      <text x="845" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#374151">125×75mm カード</text>
+    </g>
+
+    <line x1="550" y1="160" x2="550" y2="195" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="550" y="218" text-anchor="middle" font-size="12" fill="#9ca3af">書き写し（自分の言葉で再構成）</text>
+  </g>
+
+  <!-- ============ ② Obsidian ============ -->
+  <g transform="translate(0,610)">
+    <rect x="420" y="0" width="260" height="28" rx="14" fill="#fae8ff"/>
+    <text x="550" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#a21caf">② 思考の蓄積</text>
+
+    <g filter="url(#soft)">
+      <rect x="200" y="48" width="700" height="92" rx="14" fill="#ffffff" stroke="#f0abfc" stroke-width="2"/>
+      <text x="550" y="84" text-anchor="middle" font-size="22" font-weight="800" fill="#a21caf">🔮 Obsidian</text>
+      <text x="550" y="112" text-anchor="middle" font-size="13" fill="#6b7280">ツェッテルカステン本体（永久保存メモ・リンク・MOC）</text>
+    </g>
+
+    <!-- bidirectional sync arrow -->
+    <line x1="550" y1="152" x2="550" y2="195" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)" marker-start="url(#arr)"/>
+    <text x="550" y="218" text-anchor="middle" font-size="12" fill="#9ca3af">同期（ツェッテルカステンページとして対応）</text>
+  </g>
+
+  <!-- ============ ③ Notion + Zotero ============ -->
+  <g transform="translate(0,860)">
+    <rect x="360" y="0" width="380" height="28" rx="14" fill="#f3e8ff"/>
+    <text x="550" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#7e22ce">③ プロジェクト・ハブ ／ 文献管理</text>
+
+    <g filter="url(#soft)">
+      <!-- Notion (left, wider) -->
+      <rect x="80" y="48" width="660" height="220" rx="14" fill="#ffffff" stroke="#d8b4fe" stroke-width="2"/>
+      <text x="110" y="82" text-anchor="start" font-size="22" font-weight="800" fill="#7e22ce">🗃 Notion</text>
+
+      <rect x="100" y="100" width="620" height="50" rx="10" fill="#faf5ff"/>
+      <text x="120" y="124" font-size="14" font-weight="700" fill="#7e22ce">ツェッテルカステンページ</text>
+      <text x="365" y="124" font-size="13" fill="#6b7280">— Obsidian と同期</text>
+
+      <rect x="100" y="160" width="620" height="96" rx="10" fill="#faf5ff"/>
+      <text x="120" y="184" font-size="14" font-weight="700" fill="#7e22ce">プロジェクトページ</text>
+      <text x="295" y="184" font-size="13" fill="#6b7280">— ツェッテルカステンとの同期ページ</text>
+      <text x="135" y="208" font-size="12" fill="#6b7280">• 関連リンク（ウェブ・動画・SNS の URL）</text>
+      <text x="135" y="230" font-size="12" fill="#6b7280">• 関連ファイル（PDF・スプレッドシート など）</text>
+
+      <!-- Zotero (right) -->
+      <rect x="780" y="48" width="240" height="220" rx="14" fill="#ffffff" stroke="#fda4af" stroke-width="2"/>
+      <text x="800" y="82" text-anchor="start" font-size="20" font-weight="800" fill="#e11d48">📚 Zotero</text>
+      <text x="800" y="120" font-size="12" fill="#6b7280">本・論文の</text>
+      <text x="800" y="138" font-size="13" font-weight="700" fill="#374151">文献情報</text>
+      <text x="800" y="158" font-size="12" fill="#6b7280">を管理。</text>
+      <text x="800" y="186" font-size="12" fill="#6b7280">必要に応じて</text>
+      <text x="800" y="204" font-size="12" fill="#6b7280">Notion プロジェクトに同期。</text>
+      <text x="800" y="244" font-size="11" fill="#fb7185">⇄ Notion / → 執筆環境</text>
+    </g>
+
+    <!-- Notion ↔ Zotero connector -->
+    <line x1="740" y1="158" x2="780" y2="158" stroke="#fb7185" stroke-width="2" marker-end="url(#arr)" marker-start="url(#arr)"/>
+
+    <!-- arrow down to writing env -->
+    <line x1="550" y1="282" x2="550" y2="320" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="550" y="343" text-anchor="middle" font-size="12" fill="#9ca3af">移行（メモ・引用・文献情報を持ち込む）</text>
+  </g>
+
+  <!-- ============ ④ 執筆環境 ============ -->
+  <g transform="translate(0,1240)">
+    <rect x="450" y="0" width="200" height="28" rx="14" fill="#fce7f3"/>
+    <text x="550" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#be185d">④ 執筆環境</text>
+
+    <g filter="url(#soft)">
+      <rect x="220" y="48" width="280" height="86" rx="14" fill="#ffffff" stroke="#fbcfe8" stroke-width="1.5"/>
+      <text x="360" y="84" text-anchor="middle" font-size="24">📄</text>
+      <text x="360" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#374151">Microsoft Word</text>
+
+      <rect x="600" y="48" width="280" height="86" rx="14" fill="#ffffff" stroke="#fbcfe8" stroke-width="1.5"/>
+      <text x="740" y="86" text-anchor="middle" font-size="26" font-weight="800" fill="#be185d">∑</text>
+      <text x="740" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#374151">TeX</text>
+    </g>
+
+    <line x1="550" y1="148" x2="550" y2="186" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="550" y="208" text-anchor="middle" font-size="12" fill="#9ca3af">コンパイル</text>
+  </g>
+
+  <!-- ============ ⑤ OUTPUT ============ -->
+  <g transform="translate(0,1470)">
+    <rect x="470" y="0" width="160" height="28" rx="14" fill="url(#pillOut)"/>
+    <text x="550" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">⑤ 出力</text>
+
+    <g filter="url(#soft)">
+      <rect x="280" y="46" width="540" height="92" rx="14" fill="url(#outputGrad)" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+      <text x="550" y="80" text-anchor="middle" font-size="22">📕</text>
+      <text x="550" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#1f2937">PDF（論文・原稿）</text>
+      <text x="550" y="128" text-anchor="middle" font-size="12" fill="#374151">＝ 濾過された「濃い知識」</text>
+    </g>
+  </g>
+</svg>
