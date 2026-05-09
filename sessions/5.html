@@ -75,6 +75,7 @@
       </a>
       <div class="flex items-center gap-3 sm:gap-6 text-sm font-medium text-gray-600">
         <a href="../#sessions" class="hover:text-violet-500 transition-colors hidden sm:block">授業一覧</a>
+        <a href="4.html" class="border border-violet-300 text-violet-500 bg-white/40 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:bg-violet-50 hover:border-violet-400 transition-all">← 前の授業</a>
         <a href="6.html" class="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:shadow-lg hover:shadow-violet-200 transition-all">次の授業 →</a>
       </div>
     </div>
@@ -92,10 +93,46 @@
     </div>
   </header>
 
+  <!-- 書くこととは -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-base flex-shrink-0">✎</div>
+        <div class="w-full">
+          <h2 class="font-bold text-gray-800 text-lg mb-1">書くこととは</h2>
+          <p class="text-xs sm:text-sm text-gray-500">読む・メモする・書くは連続した一つの営み。書くことは思考を形にする行為である。</p>
+        </div>
+      </div>
+
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">「書く」は、突然ゼロから何かを生み出す作業ではありません。むしろ本講義でこれまで扱ってきた <strong class="text-gray-800">読むこと（第3回）</strong> と <strong class="text-gray-800">メモすること（第4回）</strong> と地続きの行為です。この三つは独立した別々の作業ではなく、<strong class="text-gray-800">同じ思考の流れの異なる相</strong>として捉えるのが自然です。</p>
+
+      <div class="grid sm:grid-cols-3 gap-3 mb-4">
+        <div class="info-box">
+          <p class="text-xs font-bold text-violet-600 mb-1">読む</p>
+          <p class="text-xs text-gray-600">他者の思考を追体験し、自分の中に取り込む<strong class="text-gray-700">入口</strong>。</p>
+        </div>
+        <div class="info-box">
+          <p class="text-xs font-bold text-fuchsia-600 mb-1">メモする</p>
+          <p class="text-xs text-gray-600">受け取ったものや内なる気づきを<strong class="text-gray-700">断片として残す通過点</strong>。</p>
+        </div>
+        <div class="info-box">
+          <p class="text-xs font-bold text-pink-600 mb-1">書く</p>
+          <p class="text-xs text-gray-600">蓄積された断片を、再び他者に伝わる形へと<strong class="text-gray-700">組み立てる出口</strong>。</p>
+        </div>
+      </div>
+
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">つまり書くこととは、<strong class="text-gray-800">思考を形にする</strong>ことです。頭の中にぼんやりあるものを、言葉という共有可能なかたちに固めていく営みであり、その過程で<strong class="text-gray-800">考え自体が深まり、輪郭がはっきりしていく</strong>——第4回でも触れたとおり、書くことそのものが考えることでもあります。</p>
+
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">だからこそ、書く段階で「うまく書けない」と感じるとき、その原因の多くは「文章力」の不足ではなく、その手前にある<strong class="text-gray-700">読み込み・断片の蓄積・断片同士の関係づけ</strong>が足りていないことにあります。書くことは独立した一回きりの努力ではなく、<strong class="text-gray-800">日々の読書・対話・観察のなかに執筆の素材を仕込んでいく</strong>連続的な実践です。</p>
+
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">本章で紹介する5つのステップ（断片→整理→統合→ドキュメント化→共有）は、この読む・メモする・書くの連続性を、デジタルツールで支える具体的な手順として理解してください。</p>
+    </div>
+  </section>
+
   <!-- 導入 -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-3xl p-6 sm:p-8">
-      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">本章では、人文学系の大学院生を対象に、デジタル技術を活用した「書く」プロセスを5つのステップに沿って解説します。紙のメモやカードといったアナログ手法と、Obsidian や Scrivener など多機能なデジタルツールを組み合わせ、Notion や Word 等で読みやすいドキュメントを作成して PDF で共有するまでの一連の流れを説明します。</p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">本章では、人文学系の大学院生を対象に、デジタル技術を活用した「書く」プロセスを5つのステップに沿って解説します。紙のメモやカードといったアナログ手法と、Obsidian・Notion・Scrivener などのデジタルツールを組み合わせ、最終的に <strong class="text-gray-800">Word</strong> または <strong class="text-gray-800">TeX</strong> で読みやすいドキュメントを仕上げ、PDF で共有するまでの一連の流れを説明します。</p>
       <p class="text-sm sm:text-base text-gray-700 leading-relaxed">なお、<strong class="text-gray-800">デジタル技術の活用は目的ではなく手段</strong>です。道具に振り回されず、あくまで自分自身の思考と言葉が主役であることを忘れないようにしましょう。</p>
     </div>
   </section>
@@ -109,7 +146,7 @@
       </div>
       <ul class="space-y-2 text-sm text-gray-600">
         <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span>学術的文章作成の5ステップ（断片→整理→統合→ドキュメント化→共有）の理解</li>
-        <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span>各ステップで活用するツール（メモ・Obsidian・Scrivener・Notion/Word/Docs/LaTeX）の使い分け</li>
+        <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span>各ステップで活用するツール（メモ・Obsidian・Notion／Scrivener・Word／TeX）の使い分け</li>
         <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span>読みやすいドキュメント作成のポイントと PDF での共有方法</li>
       </ul>
     </div>
@@ -130,6 +167,142 @@
         <span class="text-orange-300">→</span>
         <div class="bg-orange-50 rounded-xl px-3 py-2 text-center"><p class="text-xs font-bold text-orange-600">5. ファイルを共有する</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- 参考：私のメモ環境のアーキテクチャ（第4回からの再掲） -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="fade-in glass rounded-2xl p-6 sm:p-8">
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-pink-500 rounded-xl flex items-center justify-center text-white text-base flex-shrink-0">⚗︎</div>
+        <div class="w-full">
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <h3 class="font-bold text-gray-800">参考：私のメモ環境のアーキテクチャ</h3>
+            <span class="pill bg-gray-100 text-gray-500">第4回からの再掲</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-500">コンセプト：<strong class="text-gray-700">情報の濾過装置</strong>　— フィルターを通して、薄い情報を「濃い知識」として抽出していく</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-gradient-to-b from-amber-50/70 via-violet-50/60 to-pink-50/70 p-4 sm:p-6 border border-white/60">
+
+        <!-- 入力源 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-white/70 text-gray-500 tracking-wider">SOURCE</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 text-center border border-amber-100">
+            <p class="text-[10px] sm:text-xs font-bold text-amber-600 mb-1">内からの気づき</p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-snug">ひらめき・問い・違和感</p>
+          </div>
+          <div class="bg-white/80 rounded-xl p-3 sm:p-4 text-center border border-sky-100">
+            <p class="text-[10px] sm:text-xs font-bold text-sky-600 mb-1">外からの情報</p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-snug">読書・対話・観察・ウェブ</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-3"><span class="text-violet-300 text-xl">↓</span></div>
+
+        <!-- ① キャプチャ層 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-violet-100 text-violet-600">① キャプチャ（瞬間記録）</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-3">
+          <div class="bg-white/85 rounded-xl p-2 sm:p-3 text-center border border-violet-100">
+            <p class="text-base sm:text-lg mb-0.5">📝</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">小さいメモ帳</p>
+          </div>
+          <div class="bg-white/85 rounded-xl p-2 sm:p-3 text-center border border-violet-100">
+            <p class="text-base sm:text-lg mb-0.5">📱</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">Evernote</p>
+          </div>
+          <div class="bg-white/85 rounded-xl p-2 sm:p-3 text-center border border-violet-100">
+            <p class="text-base sm:text-lg mb-0.5">🗂</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">125×75mm カード</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">↓</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">書き写し（自分の言葉で再構成）</p>
+
+        <!-- ② Obsidian -->
+        <div class="text-center mb-2">
+          <span class="pill bg-fuchsia-100 text-fuchsia-600">② 思考の蓄積</span>
+        </div>
+        <div class="bg-white/90 rounded-xl p-3 sm:p-4 mb-3 border border-fuchsia-200 shadow-sm">
+          <div class="flex items-center justify-center gap-2 mb-1">
+            <span class="text-lg">🔮</span>
+            <p class="text-sm font-bold text-fuchsia-700">Obsidian</p>
+          </div>
+          <p class="text-[10px] sm:text-xs text-gray-500 text-center">ツェッテルカステン本体（永久保存メモ・リンク・MOC）</p>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">⇅</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">同期（ツェッテルカステンページとして対応）</p>
+
+        <!-- ③ Notion ハブ + Zotero -->
+        <div class="text-center mb-2">
+          <span class="pill bg-purple-100 text-purple-600">③ プロジェクト・ハブ ／ 文献管理</span>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-3 mb-3 items-stretch">
+          <div class="sm:col-span-2 bg-white/90 rounded-xl p-3 sm:p-4 border border-purple-200 shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">🗃</span>
+              <p class="text-sm font-bold text-purple-700">Notion</p>
+            </div>
+            <div class="space-y-1.5">
+              <div class="bg-purple-50/70 rounded-lg px-2.5 py-1.5">
+                <p class="text-[10px] sm:text-xs"><span class="font-bold text-purple-600">ツェッテルカステンページ</span><span class="text-gray-500"> — Obsidian と同期</span></p>
+              </div>
+              <div class="bg-purple-50/70 rounded-lg px-2.5 py-1.5">
+                <p class="text-[10px] sm:text-xs"><span class="font-bold text-purple-600">プロジェクトページ</span><span class="text-gray-500"> — 上記との同期ページとして扱う</span></p>
+                <ul class="mt-1 ml-3 text-[10px] sm:text-xs text-gray-500 leading-snug list-disc list-outside pl-2">
+                  <li>関連リンク（ウェブ・動画・SNSのURL）</li>
+                  <li>関連ファイル（PDF・スプレッドシート等）</li>
+                  <li>Zotero の文献情報を双方向同期</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/90 rounded-xl p-3 sm:p-4 border border-rose-200 shadow-sm flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-lg">📚</span>
+              <p class="text-sm font-bold text-rose-600">Zotero</p>
+              <span class="ml-auto text-[9px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-1.5 py-0.5">✓ Notion 同期</span>
+            </div>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-snug flex-1">本・論文の<strong class="text-gray-700">文献情報</strong>を管理。<strong class="text-gray-700">Notion プロジェクトページと双方向で自動同期</strong>するようになり、ノート上から文献を直接参照できる。</p>
+            <p class="text-[10px] text-rose-400 mt-2">⇄ Notion ／ → 執筆環境</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">↓</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">移行（メモ・引用・文献情報を持ち込む）</p>
+
+        <!-- ④ 執筆環境 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-pink-100 text-pink-600">④ 執筆環境</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div class="bg-white/90 rounded-xl p-3 text-center border border-pink-200">
+            <p class="text-base sm:text-lg mb-0.5">📄</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">Microsoft Word</p>
+          </div>
+          <div class="bg-white/90 rounded-xl p-3 text-center border border-pink-200">
+            <p class="text-base sm:text-lg mb-0.5">∑</p>
+            <p class="text-[10px] sm:text-xs font-bold text-gray-700">TeX</p>
+          </div>
+        </div>
+        <div class="flex justify-center mb-1"><span class="text-violet-300 text-xl">↓</span></div>
+        <p class="text-center text-[10px] sm:text-xs text-gray-400 mb-3">コンパイル</p>
+
+        <!-- ⑤ 出力 -->
+        <div class="text-center mb-2">
+          <span class="pill bg-gradient-to-r from-violet-500 to-pink-500 text-white">⑤ 出力</span>
+        </div>
+        <div class="bg-gradient-to-r from-violet-100 via-pink-100 to-amber-100 rounded-xl p-3 sm:p-4 text-center border border-white/70">
+          <p class="text-base sm:text-lg mb-0.5">📕</p>
+          <p class="text-xs sm:text-sm font-bold text-gray-700">PDF（論文・原稿）</p>
+          <p class="text-[10px] sm:text-xs text-gray-500 mt-0.5">＝ 濾過された「濃い知識」</p>
+        </div>
+      </div>
+
+      <p class="text-[11px] sm:text-xs text-gray-400 mt-3 leading-relaxed">各層がフィルターとして働く：キャプチャで取りこぼしを防ぎ、Obsidian で自分の言葉に翻訳し、Notion でプロジェクト文脈に編成し、執筆環境で他者に伝わる形へ仕上げる。下流に行くほど情報量は減るが、密度は上がる。</p>
     </div>
   </section>
 
@@ -171,24 +344,40 @@
       </div>
     </div>
 
-    <!-- 5.2 断片を整理する -->
+    <!-- 5.2 断片を整理する（第4回の復習） -->
     <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
       <div class="flex items-start gap-4">
         <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.2</div>
         <div class="w-full">
-          <h3 class="font-bold text-gray-800 mb-2">断片を整理する（Obsidian）</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">集めた断片メモをそのまま放置すると宝の持ち腐れです。ステップ2では、<strong class="text-gray-800">断片を整理し知識の関連付けを行う</strong>方法を学びます。ここで活用するのが Obsidian というデジタルツールです。</p>
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <h3 class="font-bold text-gray-800">断片を整理する（Obsidian）</h3>
+            <span class="pill bg-gray-100 text-gray-500">第4回の復習</span>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">集めた断片メモをそのまま放置すると宝の持ち腐れです。ステップ2では断片を整理し、知識を関連づけて<strong class="text-gray-800">「自分の考え」のネットワークへと育てていく</strong>段階に入ります。ここで主役になるのが、第4回で扱った<strong class="text-gray-800">ツェッテルカステン</strong>とノートアプリ <strong class="text-gray-800">Obsidian</strong> です。詳細は第4回に譲り、ここでは執筆ステップの観点から押さえておきたい点を簡潔に振り返ります。</p>
 
-          <ul class="text-sm text-gray-600 space-y-3">
-            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ローカルファースト・Markdown ベース</strong>：Obsidian はノートデータを自分の PC やスマホのローカルフォルダに Markdown 形式のテキストファイルで保存します。ネット接続が無くても安心感があります。テキストはシンプルな Markdown 記法で記述するため、基本的な書式はソフト間の互換性が高く保たれます。</div></li>
-            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">リンクとバックリンクによるネットワーク</strong>：Obsidian 最大の特徴は、ノート同士を<strong class="text-gray-800">双方向リンク</strong>で結べることです。ノート内で他のノート名を <code>[[…]]</code> と記述するとハイパーリンクが張られ、リンク先のノートに飛べます。さらに<strong class="text-gray-800">バックリンク</strong>機能により、どのノートから参照されているかも自動で一覧表示されます。リンク構造は<strong class="text-gray-800">グラフビュー</strong>でも視覚化でき、ノート間の繋がりをネットワーク図で確認することもできます。</div></li>
-            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">タグと MOC で体系化</strong>：ノートにはハッシュ記号（#タグ名）でタグ付けすることもできます。また、ノート自体を目次ページとして使う <strong class="text-gray-800">MOC（Map of Content）</strong>という手法も有効です。例えば「文学研究」という MOC ノートを作り、その中に関連ノートへのリンク集を作成します。MOC はいわばカスタム目次であり、特定テーマのノート群を俯瞰・整理するのに役立ちます。</div></li>
-            <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">Evergreen Notes（永続的ノート）の推奨</strong>：Obsidian コミュニティでは Evergreen Notes という考え方も広まっています。これは一度書いたメモを定期的に読み返し、追記・リファクタリングして育てていくノートです。テーマごとに内容を洗練させ続けるノート群を作ることで、時間が経つほど知識が蓄積されます。</div></li>
-          </ul>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">ツェッテルカステン：第二の脳としてのノート体系</p>
+            <p class="text-xs text-gray-600">ニクラス・ルーマンの実践とズンク・アーレンスの整理によれば、ツェッテルカステンは<strong class="text-gray-700">永久保存メモ・文献の箱・索引</strong>の3要素から成る、知識を有機的にリンクする<strong class="text-gray-700">第二の脳</strong>です。重要なのはメモを<strong class="text-gray-700">自分の言葉で書き直し、関連するメモへリンクを張ること</strong>。これによって断片は「貯蔵された情報」から「思考のネットワーク」へと変わります。</p>
+          </div>
 
-          <div class="info-box mt-4">
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-2">Obsidian の主な特徴（おさらい）</p>
+            <ul class="text-xs text-gray-600 space-y-2">
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">ローカルファースト・Markdown ベース</strong>：自分の PC やスマホに <code>.md</code> ファイルとして保存。オフラインで動作し、他ツールとの互換性も高い。</div></li>
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">双方向リンクとバックリンク</strong>：<code>[[ノート名]]</code> でノート同士を繋ぎ、参照元も自動表示。<strong class="text-gray-700">グラフビュー</strong>で全体構造を俯瞰できる。</div></li>
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">タグと MOC（Map of Content）</strong>：ハッシュタグでの分類に加え、目次ノート（MOC）でテーマ別の俯瞰図を作る。</div></li>
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">Evergreen Notes（永続的ノート）</strong>：書きっぱなしにせず、定期的に読み直して書き直す<strong class="text-gray-700">育てるノート</strong>の発想。時間をかけて知識を凝縮していく。</div></li>
+            </ul>
+          </div>
+
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">執筆ステップから見た Obsidian の役割</p>
+            <p class="text-xs text-gray-600">アーキテクチャ図でいう <strong class="text-gray-700">② 思考の蓄積</strong> の層です。第3回・第4回で読み込み・キャプチャした素材を<strong class="text-gray-700">自分の言葉に翻訳</strong>して永久保存メモにし、リンクで関係づけていく。ここで蓄積されたノートが、後の <strong class="text-gray-700">5.3（断片を統合する）</strong>での入力素材になります。執筆中に「何を書くべきか分からない」と止まる原因の多くは、この 5.2 段階の蓄積と関係づけが薄いことに起因します。</p>
+          </div>
+
+          <div class="info-box">
             <p class="text-xs font-bold text-orange-600 mb-1">ワンポイントアドバイス</p>
-            <p class="text-xs text-gray-600">Obsidian を使い始めたら、まずは小さなノートをどんどん作ってみましょう。1ノート1トピック（カード1枚1概念の発想）の粒度で書き、関連しそうな言葉が出てきたら気軽に他のノートへリンクを張ります。最初はノートがバラバラに増えますが、後から MOC ノートでまとめたりタグで分類できます。操作に慣れたら自分なりの運用ルール（命名規則やタグ体系）を整備すると良いでしょう。まずは基本機能で十分なので、焦らず徐々に活用範囲を広げてください。</p>
+            <p class="text-xs text-gray-600">第4回の Obsidian 実装をまだ手元に持っていない人は、<strong class="text-gray-700">まず Vault を作って Daily Notes を毎日1つ書く</strong>ところから始めましょう。完璧な構造を最初から設計する必要はありません。ノートが増えてから MOC やタグ体系を整え、<strong class="text-gray-700">「育てる」感覚で運用</strong>していくのが現実的です。詳しい運用は第4回を参照してください。</p>
           </div>
         </div>
       </div>
@@ -199,8 +388,45 @@
       <div class="flex items-start gap-4">
         <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.3</div>
         <div class="w-full">
-          <h3 class="font-bold text-gray-800 mb-2">断片を統合する（Scrivener）</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ1で収集した断片をステップ2で整理したら、いよいよそれらを組み合わせて一つの文章の骨子を作る段階です。ここでは長文執筆に威力を発揮する <strong class="text-gray-800">Scrivener</strong> というライティングソフトを紹介します。Scrivener は小説家や脚本家にも愛用者が多い<strong class="text-gray-800">プロジェクト指向のエディタ</strong>で、論文・レポート執筆にも有用です。言わば<strong class="text-gray-800">デジタルな原稿バインダー</strong>のように使えるツールです。</p>
+          <h3 class="font-bold text-gray-800 mb-2">断片を統合する</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ1で収集した断片をステップ2で整理したら、いよいよそれらを組み合わせて一つの文章の骨子を作る段階です。ここでは、第4回で「プロジェクト・ハブ」と位置づけた <strong class="text-gray-800">Notion</strong> と、長文執筆に威力を発揮するライティングソフト <strong class="text-gray-800">Scrivener</strong> の二つを紹介します。Notion は共同編集や参照に強く、断片を<strong class="text-gray-800">プロジェクト文脈に編成してアウトラインを組む</strong>段階に向きます。Scrivener は単著の長文を書き切るための<strong class="text-gray-800">プロジェクト指向のエディタ</strong>で、章単位での執筆と体裁整えまでを一気通貫で扱えます。</p>
+
+          <!-- Notion で統合する -->
+          <div class="flex items-center gap-2 mt-5 mb-3">
+            <div class="w-1 h-5 bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-full"></div>
+            <h4 class="text-sm font-bold text-gray-800">Notion で統合する</h4>
+            <span class="pill bg-violet-100 text-violet-600">プロジェクト・ハブ</span>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">Notion はあらゆる要素をブロックとして扱い、データベースとビューを切り替えながら断片を並び替えたり、サブページで章立てしたりできる<strong class="text-gray-800">デジタルなアウトラインボード</strong>のようなツールです。執筆機能そのものは Word や Scrivener ほど成熟していない代わりに、共同編集・Web 共有・他ツール連携に強く、Obsidian と Zotero の情報を持ち寄って論文や章ごとのプロジェクト単位で「組み立てる」段階で活躍します。</p>
+
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">ブロックベースのアウトライン構築</p>
+            <p class="text-xs text-gray-600">Notion では見出し・段落・引用・リスト・トグル・コールアウトなどがすべて<strong class="text-gray-700">ブロック</strong>として扱われます。各ブロックは左端のハンドルからドラッグ＆ドロップで自由に並び替えられ、章節の順序を直感的に組み替えながら原稿の骨子を試行錯誤できます。Obsidian からコピーしてきた Markdown の断片もそのままブロックとして貼り付けられるので、執筆プランを練る段階で重宝します。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">データベースとビューで断片を再構成</p>
+            <p class="text-xs text-gray-600">断片メモを<strong class="text-gray-700">断片データベース</strong>として一元化すれば、テーマ・タグ・優先度・ステータスといったプロパティで分類できます。同じデータベースに対してテーブル／リスト／ボード（Kanban）／ギャラリー／タイムラインなど複数のビューを切り替えながら、論証の流れや章立てを検討できます。フィルターとソートを使えば<strong class="text-gray-700">「この章で使う断片だけ」</strong>を抽出するのも容易で、コルクボード感覚で並びを試せます。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">リンクドビュー・@メンション・シンクドブロック</p>
+            <p class="text-xs text-gray-600">執筆中のページに<strong class="text-gray-700">リンクドビュー（Linked view of database）</strong>を埋め込めば、別ページにある断片データベースの一部だけを呼び出して表示できます。<code>@</code> メンションで他ページや断片を参照すればバックリンクが自動で残ります。さらに<strong class="text-gray-700">シンクドブロック</strong>を使えば、複数の章で共有したい定型文や用語定義を一元管理でき、コピペによる派生コピーの増殖を防げます。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">Notion AI による統合補助</p>
+            <p class="text-xs text-gray-600">集めた断片をブロックに貼り付けたうえで Notion AI に「ここまでの内容から論点を3つ抽出」「アウトライン形式に整える」「節ごとに見出しを付ける」と指示すれば、<strong class="text-gray-700">執筆の足場（スキャフォールド）</strong>を素早く組み立てられます。ただし生成された統合案は叩き台として扱い、引用や解釈は必ず原典に立ち返って自分の言葉で確認しましょう。</p>
+          </div>
+          <div class="info-box mb-5">
+            <p class="text-xs font-bold text-gray-700 mb-1">執筆環境への受け渡し</p>
+            <p class="text-xs text-gray-600">Notion で構成が固まったら、Markdown／Word／PDF などに書き出して Scrivener・Word・TeX に移し、最終的な執筆と体裁整えに進みます。Notion は共同編集と参照には強い反面、脚注・相互参照・厳密な版面指定といった<strong class="text-gray-700">論文としての仕上げ</strong>は苦手です。<strong class="text-gray-700">「断片を統合してアウトラインを作る」までを Notion で担い、その先は執筆専用ツールに渡す</strong>、と役割分担を意識すると効率的です。</p>
+          </div>
+
+          <!-- Scrivener で統合する -->
+          <div class="flex items-center gap-2 mt-6 mb-3">
+            <div class="w-1 h-5 bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-full"></div>
+            <h4 class="text-sm font-bold text-gray-800">Scrivener で統合する</h4>
+            <span class="pill bg-fuchsia-100 text-fuchsia-600">単著向け執筆ツール</span>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">Scrivener は小説家や脚本家にも愛用者が多い<strong class="text-gray-800">プロジェクト指向のエディタ</strong>で、論文・レポート執筆にも有用です。言わば<strong class="text-gray-800">デジタルな原稿バインダー</strong>のように使えるツールで、Notion がアウトラインを組むのに向いているのに対し、Scrivener は<strong class="text-gray-700">アウトラインから本文を書き切る</strong>段階に強みがあります。</p>
 
           <div class="info-box mb-3">
             <p class="text-xs font-bold text-gray-700 mb-1">バインダーによるアウトライン管理</p>
@@ -232,36 +458,141 @@
         <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">5.4</div>
         <div class="w-full">
           <h3 class="font-bold text-gray-800 mb-2">ドキュメントをつくる</h3>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ3までで文章のドラフトや構成が出来上がったら、ステップ4では<strong class="text-gray-800">正式なドキュメント（文書）として仕上げる作業</strong>に入ります。ここでは主に Notion / Word / Google ドキュメント / LaTeX（Overleaf）といったドキュメント作成ツールについて、それぞれの特徴と使い分けを説明します。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">ステップ3までで文章のアウトラインや骨子が出来上がったら、ステップ4では<strong class="text-gray-800">正式なドキュメントとして仕上げる作業</strong>に入ります。ここでは人文系の論文・レポート執筆で実際に最もよく使われる二択である <strong class="text-gray-800">Microsoft Word</strong> と <strong class="text-gray-800">TeX (LaTeX)</strong> に絞って、それぞれの環境構築・基本記法・便利機能を紹介します。どちらも長い歴史を持つ成熟したエコシステムがあり、Zotero など文献管理ツールとの連携も整っています。<strong class="text-gray-700">まずは Word から始め、必要に応じて TeX に挑戦する</strong>、というのが多くの人文系学生にとって現実的な学習順序です。</p>
 
-          <div class="info-box mb-3">
-            <p class="text-xs font-bold text-gray-700 mb-2">主なドキュメント作成ツールの比較</p>
+          <div class="info-box mb-5">
+            <p class="text-xs font-bold text-gray-700 mb-2">Word と TeX の使い分け</p>
             <div class="overflow-x-auto">
               <table class="w-full text-xs text-left border-collapse">
                 <thead><tr class="border-b border-gray-200">
-                  <th class="py-2 pr-3 font-bold text-gray-500 w-24">ツール</th>
+                  <th class="py-2 pr-3 font-bold text-gray-500 w-28">ツール</th>
                   <th class="py-2 pr-3 font-bold text-gray-500">特徴</th>
                   <th class="py-2 font-bold text-gray-500">向き不向き</th>
                 </tr></thead>
                 <tbody class="text-gray-600">
-                  <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">Notion</td><td class="py-2 pr-3">オールインワンの情報管理ツール。ブロック単位でコンテンツを配置できる柔軟性。共同編集もリアルタイムで可能。</td><td class="py-2"><strong class="text-orange-600">○</strong> アイデアの下書きや共同ノート作成。<strong class="text-gray-400">×</strong> 正式な論文原稿（引用管理機能なし）。</td></tr>
-                  <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">Word</td><td class="py-2 pr-3">標準的なワープロソフト。豊富な機能と互換性。Zotero 連携、脚注、目次自動生成、変更履歴機能。オフラインでも快適に動作。</td><td class="py-2"><strong class="text-orange-600">○</strong> <strong class="text-gray-700">人文系の個人執筆には最も無難な選択肢</strong>。ファイル破損リスクには定期的バックアップで対策。</td></tr>
-                  <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">Google Docs</td><td class="py-2 pr-3">ブラウザ上で動くクラウドベースのワープロ。リアルタイム共同編集で、複数人が同じ文書を同時に編集・コメントできる。</td><td class="py-2"><strong class="text-orange-600">○</strong> <strong class="text-gray-700">共同編集のしやすさでは現状トップクラス</strong>。共同研究やグループ課題に最適。インターネット接続が必須（限定的）。</td></tr>
-                  <tr><td class="py-2 pr-3 font-semibold text-gray-700">LaTeX (Overleaf)</td><td class="py-2 pr-3">組版専用の言語・システム。美しい数式や専門書並みの版面を自動で実現。文献リストや引用もスタイルファイル一つで一括整形。</td><td class="py-2"><strong class="text-orange-600">○</strong> 数式を多用する文章、厳密な版面指定が必要な場合、国際誌への投稿。<strong class="text-gray-400">×</strong> 初心者にはハードルが高い。</td></tr>
+                  <tr class="border-b border-gray-100"><td class="py-2 pr-3 font-semibold text-gray-700">Microsoft Word</td><td class="py-2 pr-3">標準的なワープロ。GUI 中心で覚えやすく、共同編集・変更履歴・コメントも扱いやすい。Zotero 連携・脚注・目次・相互参照など研究文書に必要な機能が一通り揃う。</td><td class="py-2"><strong class="text-orange-600">○</strong> 人文系の個人執筆・指導教員との添削往復。<strong class="text-gray-400">×</strong> 厳密な版面指定や数式の多用。</td></tr>
+                  <tr><td class="py-2 pr-3 font-semibold text-gray-700">TeX (LaTeX)</td><td class="py-2 pr-3">組版専用の言語。マークアップから整った版面を自動生成し、数式・引用・相互参照・文献リストを正確に管理できる。Overleaf を使えばブラウザ完結で始められる。</td><td class="py-2"><strong class="text-orange-600">○</strong> 厳密な体裁が要求される投稿論文・卒論／修論、引用や相互参照が多い文書。<strong class="text-gray-400">×</strong> 学習コストがやや高い。</td></tr>
                 </tbody>
               </table>
             </div>
           </div>
 
+          <!-- Microsoft Word で書く -->
+          <div class="flex items-center gap-2 mt-5 mb-3">
+            <div class="w-1 h-5 bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-full"></div>
+            <h4 class="text-sm font-bold text-gray-800">Microsoft Word で書く</h4>
+            <span class="pill bg-violet-100 text-violet-600">王道のワープロ</span>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">Word は GUI 中心のワープロで、ボタン一つで見たまま編集できる「<strong class="text-gray-800">WYSIWYG</strong>」型のツールです。直感的に始められる一方、<strong class="text-gray-700">スタイル・アウトライン・参照</strong>といった機能を使いこなすと、長文でも構造を保ったまま執筆できる本格的な道具になります。</p>
+
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">入手とライセンス（最小限）</p>
+            <p class="text-xs text-gray-600">多くの大学では <strong class="text-gray-700">Microsoft 365 の包括ライセンス</strong>を在学中の学生に提供しており、所属メールアドレスでサインインするだけでデスクトップ版 Word を導入できます。手元に環境がない場合は所属機関の情報基盤センター等の案内を最初に確認しましょう。Mac でも Windows でも同じファイル形式（<code>.docx</code>）が共通で扱え、ブラウザ版（Word for the web）もあります。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">アウトライン機能とナビゲーションウィンドウ</p>
+            <p class="text-xs text-gray-600">長文を書くときは<strong class="text-gray-700">「表示」→「アウトライン」</strong>に切り替えると、見出しレベルだけを表示・折り畳みでき、章節の順序を直接ドラッグで入れ替えられます。通常表示のままなら<strong class="text-gray-700">「表示」→「ナビゲーションウィンドウ」</strong>が便利で、左側に目次が表示され、クリックで該当箇所にジャンプできます。Scrivener のバインダーに近い感覚で構成を扱えるため、長文ほど威力を発揮します。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">スタイル機能と目次・図表番号の自動化</p>
+            <p class="text-xs text-gray-600">見出しや本文には<strong class="text-gray-700">必ずスタイル（見出し1／見出し2／本文 など）を適用</strong>しましょう。スタイルで書いておけば、フォントや行間を一括変更でき、<strong class="text-gray-700">「参考資料」→「目次」</strong>から見出しを元にした目次を自動生成できます。図表番号も<strong class="text-gray-700">「参考資料」→「図表番号の挿入」</strong>と<strong class="text-gray-700">「相互参照」</strong>を組み合わせれば、本文中の「図3」のような番号が自動更新され、追加・削除しても番号がズレません。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">脚注・コメント・変更履歴</p>
+            <p class="text-xs text-gray-600">脚注は<strong class="text-gray-700">「参考資料」→「脚注の挿入」</strong>（または <code>Ctrl + Alt + F</code>）で番号付きの脚注を作れます。指導教員と原稿をやり取りする際は<strong class="text-gray-700">「校閲」→「コメント」</strong>と<strong class="text-gray-700">「変更履歴の記録」</strong>を活用すると、誰がどこを修正したかが残り、提案を「承諾／元に戻す」で一括処理できます。<strong class="text-gray-700">「比較」</strong>機能を使えば、二つの原稿バージョンの差分も視覚化できます。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">Zotero 連携で引用と文献リスト</p>
+            <p class="text-xs text-gray-600">Zotero をインストールすると、Word のリボンに <strong class="text-gray-700">Zotero タブ</strong>が追加されます。「Add/Edit Citation」で文献を選ぶと本文中に引用が挿入され、「Add/Edit Bibliography」で末尾に文献リストが自動生成されます。引用スタイル（APA・Chicago・MLA・SIST02 など）はメニューから切り替え可能で、投稿規定が変わっても再フォーマットが一瞬で済みます。第4回で組み立てた Zotero ライブラリがそのまま執筆フローに直結します。</p>
+          </div>
+          <div class="info-box mb-5">
+            <p class="text-xs font-bold text-gray-700 mb-1">数式と PDF 書き出し</p>
+            <p class="text-xs text-gray-600">数式は<strong class="text-gray-700">「挿入」→「数式」</strong>（または <code>Alt + =</code>）で挿入でき、 <code>\frac{a}{b}</code> のような LaTeX 風記法もある程度通用します。PDF 化は<strong class="text-gray-700">「ファイル」→「名前を付けて保存」</strong>でフォーマットに <code>PDF</code> を選ぶだけです。ただし数式が大量にある、引用や相互参照が多い、複数言語が混在する……といった文書では版面が崩れやすいので、その場合は次に紹介する TeX の検討をおすすめします。</p>
+          </div>
+
+          <!-- TeX (LaTeX) で書く -->
+          <div class="flex items-center gap-2 mt-6 mb-3">
+            <div class="w-1 h-5 bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-full"></div>
+            <h4 class="text-sm font-bold text-gray-800">TeX (LaTeX) で書く</h4>
+            <span class="pill bg-fuchsia-100 text-fuchsia-600">組版言語</span>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">TeX は数学者ドナルド・クヌースが作った組版システムで、現在は <strong class="text-gray-800">LaTeX</strong> という上位記法が一般的です。Word のように画面上で見たまま編集する WYSIWYG 型ではなく、<strong class="text-gray-800">マークアップ（命令を書いたソース）</strong>からコンパイルして PDF を生成する「<strong class="text-gray-800">プログラミング言語に近い文書作成</strong>」スタイルです。最初はとっつきにくいものの、<strong class="text-gray-700">数式・引用・相互参照・文献リストが厳密に管理される</strong>ため、論文や卒論・修論を仕上げる段階で頼りになります。</p>
+
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">環境構築①：Overleaf という近道</p>
+            <p class="text-xs text-gray-600">初めて TeX に触れる場合、<strong class="text-gray-700">Overleaf</strong>（<code>overleaf.com</code>）の利用が圧倒的におすすめです。ブラウザだけで編集・コンパイル・プレビューが完結し、PC へのインストール作業は一切不要です。無料プランでも論文1本を書くには十分。テンプレートも豊富で、<strong class="text-gray-700">和文用には <code>jsarticle</code> や <code>ltjsarticle</code></strong>、英文論文用には学会公式テンプレートが揃っています。リアルタイム共同編集にも対応するため、共著や指導教員との添削にも使えます。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">環境構築②：ローカルでも動かしたい場合</p>
+            <p class="text-xs text-gray-600">オフラインで作業したい場合は、<strong class="text-gray-700">TeX Live</strong>（Linux/Windows）または <strong class="text-gray-700">MacTeX</strong>（macOS）を導入し、<strong class="text-gray-700">VS Code + LaTeX Workshop 拡張</strong>で編集すると快適です。日本語処理を含む場合は <code>upLaTeX + dvipdfmx</code> または <code>LuaLaTeX</code> エンジンを選びます。初学者は Overleaf で記法に慣れてから、必要に応じてローカルへ移行する流れが現実的です。</p>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">基本構造：見出し・章節・目次</p>
+            <p class="text-xs text-gray-600">全体は <code>\documentclass</code> でクラスを宣言し、<code>\begin{document}</code> と <code>\end{document}</code> の間に本文を書きます。見出しは <code>\section{…}</code>、<code>\subsection{…}</code>、書籍なら <code>\chapter{…}</code> を使い、<code>\tableofcontents</code> と書くだけで番号付きの目次が自動生成されます。</p>
+            <pre class="text-[11px] bg-gray-50 rounded-lg p-3 mt-2 overflow-x-auto leading-relaxed text-gray-700" style="font-family:'SF Mono','Fira Code',monospace;">\documentclass{ltjsarticle}
+\title{断片からドキュメントへ}
+\author{受講生}
+\begin{document}
+\maketitle
+\tableofcontents
+\section{はじめに}
+本稿では……
+\subsection{背景}
+\section{方法}
+\end{document}</pre>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">文字装飾・箇条書き・引用・脚注</p>
+            <p class="text-xs text-gray-600">強調や箱書き・箇条書きはコマンドで指定します。代表的なのは <code>\textbf{太字}</code>、<code>\textit{斜体}</code>、<code>\emph{強調}</code>、<code>\underline{下線}</code>、<code>\footnote{脚注}</code>、<code>itemize</code>／<code>enumerate</code> 環境（箇条書き／番号付きリスト）、<code>quote</code> 環境（引用）です。</p>
+            <pre class="text-[11px] bg-gray-50 rounded-lg p-3 mt-2 overflow-x-auto leading-relaxed text-gray-700" style="font-family:'SF Mono','Fira Code',monospace;">\textbf{重要}な議論を\emph{ここで}提示する\footnote{詳細は第3節を参照}。
+
+\begin{itemize}
+  \item 仮説A
+  \item 仮説B
+\end{itemize}
+
+\begin{quote}
+  人文学とデジタル技術の関係は……
+\end{quote></pre>
+          </div>
+          <div class="info-box mb-3">
+            <p class="text-xs font-bold text-gray-700 mb-1">数式・表・図と相互参照</p>
+            <p class="text-xs text-gray-600">数式はインラインなら <code>$E=mc^2$</code>、独立行は <code>\[…\]</code> または <code>equation</code> 環境で書きます。表は <code>tabular</code>、図は <code>figure</code> 環境＋<code>\includegraphics</code> で挿入し、<code>\label{…}</code> と <code>\ref{…}</code> を組み合わせれば本文中の番号が<strong class="text-gray-700">追加・削除しても自動更新</strong>されます。</p>
+            <pre class="text-[11px] bg-gray-50 rounded-lg p-3 mt-2 overflow-x-auto leading-relaxed text-gray-700" style="font-family:'SF Mono','Fira Code',monospace;">\begin{equation}
+  \int_0^{\infty} e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}
+  \label{eq:gauss}
+\end{equation}
+式~\ref{eq:gauss}より……
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{architecture.pdf}
+  \caption{メモ環境のアーキテクチャ}
+  \label{fig:arch}
+\end{figure></pre>
+          </div>
+          <div class="info-box mb-5">
+            <p class="text-xs font-bold text-gray-700 mb-1">文献管理：BibTeX / biblatex と Zotero</p>
+            <p class="text-xs text-gray-600">TeX で文献を管理するには <strong class="text-gray-700"><code>.bib</code> ファイル</strong>に書誌情報を貯めます。Zotero から「右クリック → エクスポート（または Better BibTeX）」で <code>.bib</code> を書き出せるので、第4回で組み立てた文献データベースをそのまま流用できます。現在の主流は <strong class="text-gray-700">biblatex + biber</strong> の組み合わせで、引用は <code>\cite{key}</code> や <code>\parencite{key}</code>、文献リストは末尾の <code>\printbibliography</code> で自動生成されます。引用スタイル（APA・Chicago・Author-Year など）はパッケージオプション一行で切り替え可能です。</p>
+            <pre class="text-[11px] bg-gray-50 rounded-lg p-3 mt-2 overflow-x-auto leading-relaxed text-gray-700" style="font-family:'SF Mono','Fira Code',monospace;">\usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\begin{document}
+\parencite{sugawara2026} の議論を踏まえると……
+\printbibliography
+\end{document></pre>
+          </div>
+
+          <!-- 共通：読みやすいドキュメント作成のポイント -->
           <div class="info-box">
-            <p class="text-xs font-bold text-gray-700 mb-2">読みやすいドキュメント作成のポイント</p>
-            <p class="text-sm text-gray-600 mb-2">どのツールで文書を作成する場合でも、読者にとって読みやすく、管理しやすいドキュメントを心がける必要があります。</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">読みやすいドキュメント作成のポイント（Word・TeX 共通）</p>
+            <p class="text-sm text-gray-600 mb-2">どちらのツールで仕上げる場合でも、読者にとって読みやすく、自分にとっても保守しやすいドキュメントを心がける必要があります。</p>
             <ul class="text-xs text-gray-600 space-y-2">
               <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">読みやすい</strong>：文書の構造が明確で、必要な情報がどこに書かれているか一目で分かること。見出しや段落が論理的に整理され、長すぎる段落や冗長な表現を避ける配慮が必要です。</div></li>
-              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">体裁が整っている</strong>：強調や箇条書きの使い方、フォントや余白の統一など、見た目の整合性が取れていること。Word 等のワープロには<strong class="text-gray-700">スタイル機能やテンプレート</strong>がありますので活用しましょう。これにより自動的に目次を作成したり、後から全体の書式を一括変更することも可能です。</div></li>
-              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">メンテナンス性が高い</strong>：文書を後から更新・修正しやすいこと。適切に段落やセクション分けされていれば、必要な箇所だけ差し替えるのも容易です。段落は Enter キーで改行して区切り、段落間の余白調整はツールの段落設定機能で行いましょう。図表番号を本文中で言及する際は、手打ちではなく参照挿入機能を使えば、番号が自動更新され常に整合性が保てます。</div></li>
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">体裁が整っている</strong>：強調や箇条書きの使い方、フォントや余白の統一など、見た目の整合性が取れていること。Word では<strong class="text-gray-700">スタイル</strong>、TeX では<strong class="text-gray-700">クラスファイル／パッケージ</strong>に体裁を任せ、本文中で個別に書式を指定するのは最低限にしましょう。</div></li>
+              <li class="flex items-start gap-2"><span class="text-orange-400 mt-0.5">&#9679;</span><div><strong class="text-gray-700">メンテナンス性が高い</strong>：文書を後から更新・修正しやすいこと。図表番号や引用は<strong class="text-gray-700">必ず参照機能（Word の相互参照／TeX の <code>\ref</code>・<code>\cite</code>）</strong>を使い、手打ちしないことが鉄則です。これにより追加・削除しても整合性が自動的に保たれます。</div></li>
             </ul>
-            <p class="text-xs text-gray-500 mt-2">さらに、読者に文章を読んでもらう際には<strong class="text-gray-600">親切な表現</strong>を心がけましょう。例えば専門用語には簡単な説明を添える、長い文章は適宜改行して視認性を高める、図や表を活用して直感的に伝えるなどです。きちんと構成されたドキュメントは、読み手にとっても情報を探しやすく、書き手自身にとっても保守しやすい、いわば「コストの低い」ドキュメントになります。</p>
+            <p class="text-xs text-gray-500 mt-2">さらに、読者に読んでもらう際には<strong class="text-gray-600">親切な表現</strong>を心がけましょう。専門用語には簡単な説明を添える、長い文章は適宜改行する、図や表で直感的に伝えるなどです。きちんと構成された文書は、読み手にとって情報を探しやすく、書き手にとって保守しやすい、いわば「コストの低い」ドキュメントになります。</p>
           </div>
         </div>
       </div>
@@ -276,10 +607,10 @@
           <p class="text-sm text-gray-600 leading-relaxed mb-4">執筆が完了した文書は、<strong class="text-gray-800">適切な形式で出力・共有</strong>して初めて役に立ちます。一般的に他者に配布したり提出したりする際は <strong class="text-gray-800">PDF 形式</strong>で保存するのがおすすめです。PDF は<strong class="text-gray-800">閲覧環境によらずレイアウトが崩れない</strong>電子文書フォーマットで、事実上の標準となっています。</p>
 
           <div class="grid sm:grid-cols-2 gap-3 mb-4">
-            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Word / Google Docs</p><p class="text-xs text-gray-600">「名前を付けて保存」や「エクスポート」のメニューから PDF 形式を選択します。Google ドキュメントの場合はメニューから「ダウンロード」→「PDF ドキュメント」を選択すれば OK です。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Notion</p><p class="text-xs text-gray-600">共有したいページを開き、右上のメニュー（…）から「Export」→「PDF」を選択します。ページ全体が1つの PDF ファイルとして出力されます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Microsoft Word</p><p class="text-xs text-gray-600">「ファイル」→「名前を付けて保存」または「エクスポート」のメニューから、フォーマットに <code>PDF</code> を選択します。フォントの埋め込みや画質を細かく指定したい場合は「オプション」も確認しましょう。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">TeX (LaTeX) / Overleaf</p><p class="text-xs text-gray-600">コンパイルを実行すれば PDF が生成されます。Overleaf では右側プレビュー上部の「Download PDF」ボタンから保存できます。ローカル環境では <code>latexmk</code> など標準的なコマンドで <code>.pdf</code> ファイルが出力されます。</p></div>
             <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Scrivener</p><p class="text-xs text-gray-600">「コンパイル」機能を使い、出力フォーマットに PDF を指定してコンパイルします。あらかじめページ設定や用紙サイズを調整しておきましょう。</p></div>
-            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">LaTeX / Overleaf</p><p class="text-xs text-gray-600">Overleaf では右側のプレビュー画面から「Download PDF」ボタンをクリックすれば、生成された PDF をダウンロードできます。</p></div>
+            <div class="info-box"><p class="text-xs font-bold text-gray-700 mb-1">Notion（参考）</p><p class="text-xs text-gray-600">5.3 でアウトラインを組む段階で Notion を使った場合は、ページ右上のメニュー（…）から「Export」→「PDF」で書き出せます。最終的な体裁は Word / TeX 側で整える前提のラフ出力として活用しましょう。</p></div>
           </div>
 
           <p class="text-sm text-gray-600 leading-relaxed mb-3">出力した PDF は必ず自分でも開いてみて、意図した体裁になっているか確認しましょう。特に図や特殊フォントを使用している場合、それらが正しく埋め込まれているか注意が必要です。また、共有時にはファイル名にも気を配ります（例：<code>20251022_人文学とデジタル技術_レポート.pdf</code> のように内容と日付が分かる名前にする）。</p>
@@ -296,7 +627,7 @@
   <!-- まとめ -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-2xl p-6 border-l-4 border-orange-300">
-      <p class="text-sm text-gray-600 leading-relaxed">本章では、以上の5つのステップに沿ってデジタルツールの活用法を解説してきました。断片をつくり（メモ・カード・Evernote）、整理し（Obsidian）、統合し（Scrivener）、ドキュメント化して（Notion や Word など）、共有する（PDF）という一連のプロセスは、皆さんの学術的な文章作成を強力に支援してくれるはずです。それぞれのツールの特徴を理解し、自分のスタイルに合った執筆フローを築いてください。最後に強調しておきたいのは、<strong class="text-gray-800">デジタル技術の活用は目的ではなく手段</strong>だということです。道具に振り回されず、常に皆さん自身の思考と言葉が主役です。デジタルツールはそれを支える脇役として賢く活用し、より豊かな文章表現にぜひ挑戦していってください。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">本章では、以上の5つのステップに沿ってデジタルツールの活用法を解説してきました。断片をつくり（メモ・カード・Evernote）、整理し（Obsidian）、統合し（Notion・Scrivener）、ドキュメント化して（Word・TeX）、共有する（PDF）という一連のプロセスは、皆さんの学術的な文章作成を強力に支援してくれるはずです。それぞれのツールの特徴を理解し、自分のスタイルに合った執筆フローを築いてください。最後に強調しておきたいのは、<strong class="text-gray-800">デジタル技術の活用は目的ではなく手段</strong>だということです。道具に振り回されず、常に皆さん自身の思考と言葉が主役です。デジタルツールはそれを支える脇役として賢く活用し、より豊かな文章表現にぜひ挑戦していってください。</p>
     </div>
   </section>
 
