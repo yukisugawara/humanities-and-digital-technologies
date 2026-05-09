@@ -627,13 +627,31 @@
             </div>
           </div>
 
+          <div class="info-box mb-5">
+            <p class="text-xs font-bold text-gray-700 mb-2">用語ノート：GUI と CLI</p>
+            <p class="text-xs text-gray-600 mb-3">Word と TeX の違いを語る前に、コンピューター操作の二つの基本様式を整理しておきます。多くのアプリは前者、TeX のコンパイルや Git の操作などは後者の代表例です。</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="bg-violet-50/60 rounded-lg p-3">
+                <p class="text-[11px] font-bold text-violet-700 mb-1">GUI（Graphical User Interface）</p>
+                <p class="text-[11px] text-gray-600 leading-relaxed mb-2">画面上のアイコンやボタンを<strong class="text-gray-700">マウスやタッチで操作する</strong>方式。見たままを動かせるので直感的で、覚えやすい。</p>
+                <p class="text-[11px] text-gray-500 leading-snug">例：Word、Notion、Scrivener、Finder／エクスプローラ、ブラウザのメニュー操作など。</p>
+              </div>
+              <div class="bg-fuchsia-50/60 rounded-lg p-3">
+                <p class="text-[11px] font-bold text-fuchsia-700 mb-1">CLI（Command Line Interface）</p>
+                <p class="text-[11px] text-gray-600 leading-relaxed mb-2">キーボードから<strong class="text-gray-700">命令文（コマンド）を打ち込んで操作する</strong>方式。慣れるまで学習コストはあるものの、自動化・複雑な処理に強い。</p>
+                <p class="text-[11px] text-gray-500 leading-snug">例：ターミナル／コマンドプロンプトで実行する <code>git push</code>、<code>latexmk paper.tex</code>、<code>cd ~/Documents</code> など。</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-600 mt-3">Word は完全に GUI のツールです。TeX は本文を <strong class="text-gray-700">マークアップ（命令を含むテキスト）</strong>として書き、コンパイル工程で CLI を使うのが伝統的なスタイルですが、Overleaf を使えばコンパイルもブラウザ上のボタン操作（GUI）で完結します。「<strong class="text-gray-700">GUI 一辺倒の世界から少し CLI に踏み出すと、できることがぐっと広がる</strong>」——TeX の学習はその入口として悪くない選択です。</p>
+          </div>
+
           <!-- Microsoft Word で書く -->
           <div class="flex items-center gap-2 mt-5 mb-3">
             <div class="w-1 h-5 bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-full"></div>
             <h4 class="text-sm font-bold text-gray-800">Microsoft Word で書く</h4>
             <span class="pill bg-violet-100 text-violet-600">王道のワープロ</span>
           </div>
-          <p class="text-sm text-gray-600 leading-relaxed mb-3">Word は GUI 中心のワープロで、ボタン一つで見たまま編集できる「<strong class="text-gray-800">WYSIWYG</strong>」型のツールです。直感的に始められる一方、<strong class="text-gray-700">スタイル・アウトライン・参照</strong>といった機能を使いこなすと、長文でも構造を保ったまま執筆できる本格的な道具になります。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">Word は GUI 中心のワープロで、ボタン一つで見たまま編集できる「<strong class="text-gray-800">WYSIWYG（ウィジウィグ）</strong>」型のツールです。WYSIWYG は <em>What You See Is What You Get</em>（見たままが得られる）の頭文字で、<strong class="text-gray-700">編集画面上の見た目が、最終的な印刷結果や Web ページの表示と一致する編集方式</strong>を指します。直感的に始められる一方、<strong class="text-gray-700">スタイル・アウトライン・参照</strong>といった機能を使いこなすと、長文でも構造を保ったまま執筆できる本格的な道具になります。</p>
 
           <div class="info-box mb-3">
             <p class="text-xs font-bold text-gray-700 mb-1">入手とライセンス（最小限）</p>
@@ -827,11 +845,13 @@
         <h2 class="font-bold text-lg text-gray-800">授業時間外学習（チェックポイント）</h2>
       </div>
       <ul class="space-y-3 text-sm text-gray-600">
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">1</span><span>研究テーマに関する「断片」を最低5件作成し、出典・日付を添えて整理する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">2</span><span>Obsidian でノート2〜3件作成しリンク付け（[[…]]）を行う</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">3</span><span>文章の骨子をアウトラインで作成する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">4</span><span>Notion / Word / Google Docs / LaTeX のうち1つで短い文書を作り PDF 化する</span></li>
-        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">5</span><span><strong class="text-gray-800">今後の執筆フローに取り入れる点と注意点を記述する</strong></span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">1</span><span><strong class="text-gray-800">5.1 断片をつくる</strong>：研究テーマに関する「断片」を最低5件作成し、それぞれを <strong class="text-gray-700">走り書きメモ／文献メモ</strong> のいずれかに分類する（出典・日付を添える）。</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">2</span><span><strong class="text-gray-800">5.2 断片を整理する</strong>：Obsidian でノートを2〜3件作成し、双方向リンク（<code>[[…]]</code>）で結び、少なくとも1つの <strong class="text-gray-700">MOC（Map of Content）</strong> ノートでテーマ別に俯瞰できる形に整える。</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">5.3 断片を統合する</strong>：Notion または Scrivener で、集めた断片からアウトライン（章節構成）を作る。Notion を使う場合は <strong class="text-gray-700">PARA</strong>（Projects／Areas／Resources／Archives）でトップレベルを分類してみる。</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">4</span><span><strong class="text-gray-800">5.4 ドキュメントをつくる</strong>：Word または TeX（Overleaf 推奨）で A4 1〜2 枚程度の短い文書を作成し、<strong class="text-gray-700">見出しスタイル・脚注・図表番号・参考文献</strong>のうち少なくとも2つの機能を実際に使ってみる。</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">5</span><span><strong class="text-gray-800">5.5 ファイルを共有する</strong>：完成した文書を <code>YYMMDD_topic_author.pdf</code> の命名規則で PDF 化し、自分で開いて<strong class="text-gray-700">体裁・フォント埋め込み・図表</strong>が崩れていないか確認する。</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">6</span><span><strong class="text-gray-800">執筆習慣を設計する</strong>：『How to Write a Lot』の主張に倣い、来週のカレンダーに「書く時間」を <strong class="text-gray-700">1〜2 コマ（各 30〜60 分）</strong> 確保する。いつ・どこで・どの素材から書き始めるかを具体的に決めておく。</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">7</span><span><strong class="text-gray-800">ふりかえり</strong>：今後の自分の執筆フローに取り入れたい点と、注意したい点を <strong class="text-gray-700">200 字程度</strong> で記述する。</span></li>
       </ul>
     </div>
   </section>
