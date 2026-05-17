@@ -702,7 +702,18 @@
 
           <div class="info-box mb-4">
             <p class="text-xs font-bold text-gray-700 mb-2">研究の問い</p>
-            <p class="text-sm text-gray-600">「説明する（explain）」とは、自然言語のなかで実際にどのような行為として現れているのか？　科学哲学では Hempel & Oppenheim の演繹的法則的モデル、Salmon の因果機構説、van Fraassen の語用論的説明論、Machamer–Darden–Craver のメカニズム説など多くの理論があるが、それらは現実の言語使用のどの部分を捉えているのか？──この問いに、コーパスデータから定量的に答えようとした研究です。</p>
+            <p class="text-sm text-gray-600">「説明する（explain）」とは、自然言語のなかで実際にどのような行為として現れているのか？　科学哲学では Hempel & Oppenheim (1948) の<strong class="text-gray-700">演繹的法則的モデル（deductive-nomological model）</strong>、Salmon (1984) の<strong class="text-gray-700">因果機構説（causal–mechanistic account）</strong>、van Fraassen (1980) の<strong class="text-gray-700">語用論的説明論（pragmatic theory）</strong>、Machamer–Darden–Craver (2000) の<strong class="text-gray-700">メカニズム説（mechanistic model）</strong>など多くの理論が提案されてきましたが、これらは「説明とは何を説明することか」についての前提が互いに異なり、自然言語のなかで <em>explain</em> がどう現れているかを統一的に捉えていません。Overton (2013) はこの問題意識から「<em>explain</em> in scientific discourse」というコーパス研究を行いましたが、対象は科学論文に限られていました。本研究はその対象を BNC 全体（科学・物語・制度・対話など全ジャンル）に拡張し、コーパスデータから<strong class="text-gray-800">定量的かつ分布的に</strong>説明実践の多様性を明らかにすることを目指します。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">理論的背景：distant reading から cosmic reading へ</p>
+            <p class="text-sm text-gray-600 mb-2">本研究は<strong class="text-gray-700">分布意味論（distributional semantics, Lenci 2018）</strong>に基づき、語の「意味」と「機能」を次のように操作的に定義します：</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-2">
+              <li>・<strong class="text-gray-700">意味（meaning）</strong>＝高次元意味空間における<em>共起分布の総体</em>。すなわち、その語が現れる文脈の全体的なパターン。</li>
+              <li>・<strong class="text-gray-700">機能（function）</strong>＝特定の談話文脈における<em>語用論的・コミュニケーション的役割</em>。文脈化された埋め込みは、語が働く言説環境を構造的にエンコードする。</li>
+            </ul>
+            <p class="text-sm text-gray-600 mb-2">この立場は、Moretti (2013) の <strong class="text-gray-700">distant reading（遠読）</strong>──個々のテキストを精読するのではなく、大規模コーパスの構造的・分布的パターンを観察するアプローチ──の延長線上にあります。ただし distant reading は<strong class="text-gray-700">語の頻度やジャンル分布など表層的な指標</strong>に焦点を当てがちで、より深い「意味的分布」を捉えるには不十分でした。</p>
+            <p class="text-sm text-gray-600">本研究では、文単位の文脈化埋め込み・確率的トピックモデル・LLM を統合することで、語の「意味的地形（semantic topography）」そのものを観察可能にする手法を提案し、これを <strong class="text-gray-800">cosmic reading（宇宙的読解）</strong>と名づけます。テキストを「離れて眺める」だけでなく、テキストが埋め込まれた<strong class="text-gray-800">高次元意味空間を「銀河」として観察し、クラスター・帯・空隙・「星座」を読み解く</strong>──これが distant reading から cosmic reading への方法論的なシフトです。さらに Machery (2016) の <em>experimental philosophy of science</em>（実験的科学哲学）の主張、すなわち「概念使用の多様性は大規模な言語・行動データで実証されるべき」とも理論的に接続します。</p>
           </div>
 
           <div class="info-box mb-4">
@@ -769,8 +780,33 @@
           <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong class="text-gray-800">Figure 6</strong> は、各 constellation に属する CTM トピックの重心を線で結ぶことで、銀河の中の「星座図」を描き出した図です。<strong class="text-gray-700">Theoretical–Mechanistic Modeling of Phenomena</strong>（赤）は右上に、<strong class="text-gray-700">Difference-Making and Cross-Case Variation</strong>（オレンジ）は中央やや右に、<strong class="text-gray-700">Expository and Metadiscursive Framing</strong>（黄緑）は中央に、<strong class="text-gray-700">Interactional and Instructional Clarification</strong>（水色）は下方に、<strong class="text-gray-700">Institutional Attribution and Official Accounts</strong>（マゼンタ）は中央上に、<strong class="text-gray-700">Narrative Reported Explanations</strong>（青）は左に、それぞれ「星座」のような位相をもって配置されます。Figure 5 で見えた<strong class="text-gray-800">「説明の 6 つの様式」</strong>が、互いに関係づけられた星座群として一望できるわけです。</p>
 
           <div class="info-box mb-4">
-            <p class="text-xs font-bold text-gray-700 mb-2">主な発見</p>
-            <p class="text-sm text-gray-600">6 つの図を通して浮かび上がるのは、<em>explain</em> が単一の本質を持つ語ではなく、<strong class="text-gray-800">6 つの説明モードからなる多中心的な意味エコロジー</strong>を形成しているということです。これは伝統的な科学哲学（演繹的法則的モデル、因果機構説、語用論的説明論など）が一語の中に同居していると想定してこなかった、より広い<strong class="text-gray-800">「説明実践のエコロジー」</strong>を可視化するものです。各 constellation は特徴的な語彙・文法・談話パターンをもち、ジャンル・社会的文脈と緊密に結びついていることが、図 4 のヒートマップや図 6 の星座配置から確認できます。</p>
+            <p class="text-xs font-bold text-gray-700 mb-2">主な発見：分離ではなく「浸透性のある連続体」</p>
+            <p class="text-sm text-gray-600 mb-2">6 つの図を通して浮かび上がるのは、<em>explain</em> が単一の本質を持つ語ではなく、<strong class="text-gray-800">6 つの説明モードからなる多中心的な意味エコロジー</strong>を形成しているということです。重要な発見は、6 つの constellation が<strong class="text-gray-800">鋭く分離した離散カテゴリではなく、滑らかに移行しあう「浸透性のある（permeable）連続体」</strong>を形成している点です。論文では次のような「連鎖」が指摘されています：</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-2">
+              <li>・<strong class="text-gray-700">科学的説明</strong> は自然に <strong class="text-gray-700">メタ言説的解説</strong> へとつながる（理論モデル → 教科書的説明）</li>
+              <li>・<strong class="text-gray-700">メタ言説的解説</strong> は <strong class="text-gray-700">制度的帰責</strong> へと移行する（学術的解説 → 公式説明）</li>
+              <li>・<strong class="text-gray-700">制度的帰責</strong> は <strong class="text-gray-700">物語的報告</strong> へと滑り込む（公式発言 → 報道叙述）</li>
+            </ul>
+            <p class="text-sm text-gray-600">この連続性こそが、<em>explain</em> が単なる多義語（polysemy）ではなく、<strong class="text-gray-800">社会的実践に根ざした分布的・多中心的な構造</strong>であることの証拠です。図 4 のヒートマップで象限間にゼロでない「中間値」のセルが多数あること、図 6 の星座が密接に配置されていることが、この「橋渡し」を視覚的に裏付けます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">constellation 別のスタイル特徴</p>
+            <p class="text-sm text-gray-600 mb-2">GPT-5 が各 constellation の代表文を分析して生成した<strong class="text-gray-700">スタイル要約（constellation_styles_gpt5.csv）</strong>からは、各 constellation が<strong class="text-gray-700">特徴的な語彙・文法・談話パターン</strong>をもつことが分かります：</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>・<strong class="text-gray-700">Theoretical–Mechanistic</strong>：因果・モデルベースの語彙で自然・社会現象の根底にあるメカニズムを記述（"This theory <em>explains</em> the correlation between the two variables"）。</li>
+              <li>・<strong class="text-gray-700">Difference-Making</strong>：横断的な比較、説明の十分性、相互作用要因を強調する社会科学的論証。</li>
+              <li>・<strong class="text-gray-700">Expository / Metadiscursive</strong>：<em>define</em> / <em>explain</em> / <em>justify</em> といった<strong class="text-gray-700">談話組織化動詞</strong>を用いて読者を概念的領域に案内する学術・政策的散文。</li>
+              <li>・<strong class="text-gray-700">Interactional / Instructional</strong>：命令形・明確化要求を多用し、対人的に理解を調整する（"Please <em>explain</em> what you mean by that"）。</li>
+              <li>・<strong class="text-gray-700">Institutional Attribution</strong>：<em>explain</em> を<strong class="text-gray-700">報告動詞（reporting verb）</strong>として用い、公的説明責任を演じる（"The minister <em>explained</em> the government's new strategy"）。</li>
+              <li>・<strong class="text-gray-700">Narrative Reported</strong>：過去形・受動・完了相を用いて、物語世界内に登場人物の動機・意図・因果推論を埋め込む（"He <em>explained</em> that he had been waiting for hours"）。</li>
+            </ul>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">含意：「説明」の脱本質主義的再概念化</p>
+            <p class="text-sm text-gray-600 mb-2">これらの結果は、<strong class="text-gray-800">説明（explanation）を単一の論理形式・固定された辞書定義に還元しようとする伝統的な哲学的アプローチへの再考</strong>を促します。<em>explain</em> の自然言語使用は、科学的推論・制度的正当化・対人的調整・物語的意味づけ──いずれも「説明」と呼ばれる行為──を含む多中心的な現象であり、その意味は<strong class="text-gray-800">談話文脈に応じて連続的にシフトする</strong>のです。</p>
+            <p class="text-sm text-gray-600">この知見は、Machery (2016) の「実験的科学哲学」、Overton (2013) のコーパスベース科学的説明研究、そして Moretti (2013) の distant reading を統合的に拡張するものとして、<strong class="text-gray-700">説明研究・コーパス言語学・デジタル人文学・科学技術論（STS）</strong>に方法論的な貢献をもたらすと論文は主張します。今後の展開としては、<em>justify</em> / <em>clarify</em> / <em>describe</em> など他の説明関連動詞への適用、通時的分析、言語横断的比較、constellation 境界の動的遷移の解析などが提案されています。</p>
           </div>
 
           <div class="info-box mb-4">
@@ -783,7 +819,8 @@
             <p class="text-sm text-gray-600 mt-2">両者は対立するものではなく、<strong class="text-gray-800">補完的</strong>です。BP 分析は仮説検証と語義の理論化に強く、DCA は仮説のない探索と大規模データの可視化に強い。研究目的と問いの性質によって使い分けるのが理想です。</p>
           </div>
 
-          <p class="text-sm text-gray-600 leading-relaxed">論文ではこの手法を、Moretti (2013) の <em>distant reading</em>（遠読）を拡張した <em>cosmic reading</em>（宇宙的読解）として位置付けています。テキストを「離れて」読むだけでなく、テキストが埋め込まれた<strong class="text-gray-800">高次元意味空間そのものを「銀河」として観察する</strong>──Figure 1〜6 のような可視化は、デジタル人文学が単なるデータ集計から、データの幾何学的構造を読み解く新しい解釈実践へと進化していることを象徴しています。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">論文ではこの手法を、Moretti (2013) の <em>distant reading</em>（遠読）を拡張した <em>cosmic reading</em>（宇宙的読解）として位置付けています。テキストを「離れて」読むだけでなく、テキストが埋め込まれた<strong class="text-gray-800">高次元意味空間そのものを「銀河」として観察し、そこに浮かぶ「星座」を読み解く</strong>──Figure 1〜6 のような可視化は、デジタル人文学が単なるデータ集計から、データの幾何学的構造を解釈する新しい読解実践へと進化していることを象徴しています。</p>
+          <p class="text-xs text-gray-500 leading-relaxed">📦 <strong>データと再現性</strong>：本研究で用いたコードと中間データ（PCA・CTM・GPT-5 ラベル等）はすべて Open Science Framework（OSF）上で公開されており、誰でも追試可能です：<br><a href="https://osf.io/e95h3/overview?view_only=2bc76853cfb641aeb46161382a4d70e7" class="text-violet-500 hover:underline break-all" target="_blank" rel="noopener">https://osf.io/e95h3/overview?view_only=2bc76853cfb641aeb46161382a4d70e7</a></p>
         </div>
       </div>
     </div>
