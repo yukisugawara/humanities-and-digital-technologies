@@ -316,63 +316,324 @@
           <div class="info-box mb-4">
             <p class="text-xs font-bold text-gray-700 mb-2">Layer 1：形態統語的形式（12 項目、F01–F12）</p>
             <p class="text-sm text-gray-600 mb-2">統語構造から機械的に決まる項目群。LLM でも安定して付与可能で、いわば「土台」となる素性。</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li><strong class="text-gray-700">F01 inflection</strong>：understand の品詞タグ（<code>VVB</code> 原形 / <code>VV0</code> 一般現在 / <code>VVD</code> 過去 / <code>VVN</code> 過去分詞 / <code>VVG</code> 現在分詞 / <code>VVZ</code> 三単現）</li>
-              <li><strong class="text-gray-700">F02 subj_person</strong>：主語の人称と数（<code>1sg</code> / <code>1pl</code> / <code>2</code> / <code>3sg</code> / <code>3pl</code> / <code>generic_one</code> / <code>generic_you</code> / <code>impersonal_it</code> / <code>no_overt_subj</code>）</li>
-              <li><strong class="text-gray-700">F03 subj_animacy</strong>：主語の意味的有生性（<code>human_individual</code> / <code>human_collective</code> / <code>institution</code> / <code>abstract</code> / <code>inanimate</code> / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F04 subj_definiteness</strong>：主語の定性（<code>definite</code> / <code>indefinite</code> / <code>generic</code> / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F05 obj_presence</strong>：直接目的語・補部の有無（<code>yes</code> / <code>no</code>）</li>
-              <li><strong class="text-gray-700">F06 obj_type</strong>：目的語・補部の統語タイプ（<code>NP</code> / <code>that_clause</code> / <code>wh_clause</code> / <code>embedded_Q</code> / <code>PP</code> / <code>so_anaph</code> / <code>it_anaph</code> / <code>nominal_clause</code> / <code>to_inf</code> / <code>other</code> / <code>none</code>）</li>
-              <li><strong class="text-gray-700">F07 tense</strong>：時制（<code>present</code> / <code>past</code> / <code>future</code> / <code>present_perfect</code> / <code>past_perfect</code> / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F08 aspect</strong>：相（<code>simple</code> / <code>progressive</code> / <code>perfect</code> / <code>perfect_progressive</code>）</li>
-              <li><strong class="text-gray-700">F09 mood</strong>：法（<code>declarative</code> 平叙 / <code>interrogative</code> 疑問 / <code>imperative</code> 命令）</li>
-              <li><strong class="text-gray-700">F10 polarity</strong>：極性（<code>positive</code> / <code>negative</code>）</li>
-              <li><strong class="text-gray-700">F11 voice</strong>：態（<code>active</code> / <code>passive</code>）</li>
-              <li><strong class="text-gray-700">F12 clause_role</strong>：主節内の役割（<code>matrix</code> / <code>complement</code> / <code>relative</code> / <code>adverbial</code> / <code>coordinated</code> / <code>parenthetical</code>）</li>
-            </ul>
+                          <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F01 inflection（屈折形）</strong>：understand 動詞の品詞タグ (CLAWS C5)。文中での形態を判定する。CLAWS タグは KWIC ヘッダーに表示されています。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>VVB</code></td><td class="py-1.5 text-gray-600">原形 (定形)。一人称単複・二人称・三人称複数の現在形、命令、仮定、補文位置。例: &quot;I understand&quot; / &quot;we understand&quot; / &quot;Understand my point.&quot;</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>VV0</code></td><td class="py-1.5 text-gray-600">原形 (旧タグ)。VVB と実質同等で、本データでは稀。VVB を選んで問題ないケースが多い。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>VVD</code></td><td class="py-1.5 text-gray-600">過去形 (定形)。例: &quot;I understood the answer&quot; / &quot;She finally understood&quot;. 過去分詞 (have/be + understood) は VVN なので注意。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>VVN</code></td><td class="py-1.5 text-gray-600">過去分詞。完了形 (&quot;have understood&quot;, &quot;had understood&quot;) と受動態 (&quot;is understood&quot;, &quot;was understood&quot;, &quot;to be understood&quot;) の両方を含む。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>VVG</code></td><td class="py-1.5 text-gray-600">-ing 形。動名詞 (&quot;Understanding the problem is the first step&quot;)、進行形 (まれ: &quot;I&#x27;m understanding more and more&quot;)、分詞節 (&quot;Understanding her position, I agreed&quot;) を含む。※ 名詞用法 &quot;an understanding&quot; は本データから除外済み。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>VVZ</code></td><td class="py-1.5 text-gray-600">三人称単数現在。例: &quot;She understands&quot; / &quot;He understands&quot; / &quot;The committee understands&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>VVI</code></td><td class="py-1.5 text-gray-600">不定詞。to 不定詞 (&quot;to understand&quot;, &quot;in order to understand&quot;) とモーダル後の bare infinitive (&quot;can understand&quot;, &quot;must understand&quot;, &quot;should understand&quot;, &quot;will understand&quot;) の両方を含む。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F02 subj_person（主語の人称・数）</strong>：understand の文法的主語の人称・数。命令文や明示的主語のない不定詞では no_overt_subj。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>1sg</code></td><td class="py-1.5 text-gray-600">一人称単数。主語が &quot;I&quot;。例: &quot;I understand the problem&quot; / &quot;I don&#x27;t understand why&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>1pl</code></td><td class="py-1.5 text-gray-600">一人称複数。主語が &quot;we&quot;。例: &quot;We understand the difficulty&quot; / &quot;We hardly understand&quot;. 制度的・学術的な集合視点 (&quot;we, the authors&quot;) を含む。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>2</code></td><td class="py-1.5 text-gray-600">二人称 (特定の対話相手)。例: &quot;Do you understand?&quot; / &quot;You understand French&quot; (相手の能力について述べる)。※ 総称的な you は generic_you を選ぶ。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>3sg</code></td><td class="py-1.5 text-gray-600">三人称単数。代名詞 (he/she/it) や単数名詞句が主語。例: &quot;She understands&quot; / &quot;The committee understands&quot; / &quot;The new policy is understood&quot;. 受動 &quot;is understood&quot; の主語が単数 NP の場合もここ。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>3pl</code></td><td class="py-1.5 text-gray-600">三人称複数。代名詞 (they) や複数名詞句が主語。例: &quot;They understand&quot; / &quot;The members understand&quot; / &quot;Few people understand this&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>generic_one</code></td><td class="py-1.5 text-gray-600">総称代名詞 &quot;one&quot;。書き言葉的・教導的に不特定の人を指す。例: &quot;One can understand his frustration&quot; / &quot;How is one to understand this passage?&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>generic_you</code></td><td class="py-1.5 text-gray-600">総称的 &quot;you&quot; (一般の「あなた」「人々」)。教導文・説明文に多い。例: &quot;You can understand why she left&quot; / &quot;If you know X, you understand Y&quot;. ※ 特定の対話相手を指す &quot;you&quot; (= 2) と区別。文脈で総称読みになっているか確認。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>impersonal_it</code></td><td class="py-1.5 text-gray-600">非人称 &quot;it&quot; の認識構文。例: &quot;It is understood that the meeting is postponed&quot; / &quot;It is widely understood that...&quot;. 受動構文と頻繁に共起。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>no_overt_subj</code></td><td class="py-1.5 text-gray-600">明示的主語なし。命令 (&quot;Understand the rules&quot;)、to 不定詞 (&quot;to understand the meaning&quot;, &quot;easy to understand&quot;)、bare infinitive (&quot;help me understand&quot;)、関係節の隠れた主語など。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F03 subj_animacy（主語の有生性）</strong>：主語の意味的有生性。明示的主語がない場合は NA。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>human_individual</code></td><td class="py-1.5 text-gray-600">個別の人間。例: &quot;John understands&quot; / &quot;Mary doesn&#x27;t understand&quot; / &quot;my mother understood&quot;. 一人称・二人称代名詞 (I, you) もここに分類。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>human_collective</code></td><td class="py-1.5 text-gray-600">人間の集合体 (制度的でない)。例: &quot;the team understands&quot; / &quot;the family understands&quot; / &quot;the audience understands&quot;. 集合的だが institution ほど公式ではないもの。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>institution</code></td><td class="py-1.5 text-gray-600">制度・組織主体。例: &quot;the government understands&quot; / &quot;the company understands&quot; / &quot;Parliament has understood&quot;. 公式・法的・組織的な主体。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>abstract</code></td><td class="py-1.5 text-gray-600">抽象主体 (擬人化的用法)。例: &quot;this theory understands&quot; / &quot;the law assumes / understands&quot; / &quot;common sense understands&quot;. 抽象概念が主語になる用法。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>inanimate</code></td><td class="py-1.5 text-gray-600">無生物 (機械・システム等)。例: &quot;the program understands natural language&quot; / &quot;AI understands the query&quot;. 技術的文脈に多い。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">主語なし (no_overt_subj に対応)。命令・不定詞等。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F04 subj_definiteness（主語の定性）</strong>：主語名詞句の定性。代名詞は通常 definite。総称的なら generic。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>definite</code></td><td class="py-1.5 text-gray-600">定 (特定の指示対象)。代名詞 (I, we, you, he, she, it, they)、固有名詞 (John)、定冠詞付き (the council, the man)、所有格 (my mother) 等。例: &quot;the council understands&quot; / &quot;John understands&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>indefinite</code></td><td class="py-1.5 text-gray-600">不定 (非特定的)。不定冠詞付き (a friend, some people, an expert) 等。例: &quot;a friend would understand&quot; / &quot;some people don&#x27;t understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>generic</code></td><td class="py-1.5 text-gray-600">総称 (種・類全体への言及)。bare plural、generic singular、総称的代名詞。例: &quot;good teachers understand&quot; / &quot;anyone who knows X understands Y&quot; / &quot;one can understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">主語なし。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F05 obj_presence（目的語の有無）</strong>：understand に明示的な目的語または補語があるか。NP・節・前置詞句・代名詞も含む。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>yes</code></td><td class="py-1.5 text-gray-600">目的語・補語あり。例: &quot;understand the problem&quot; (NP) / &quot;understand that he left&quot; (that 節) / &quot;understand what he means&quot; (wh 節) / &quot;understand it&quot; (代名詞) / &quot;understand about him&quot; (前置詞句).</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>no</code></td><td class="py-1.5 text-gray-600">絶対用法 (目的語なし)。例: 単独の &quot;I understand.&quot; / &quot;Yes, I understand.&quot; / 副詞だけで止まる &quot;I fully understand&quot;. 応答トークン的用法に多い。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F06 obj_type（目的語のタイプ）</strong>：目的語・補語の統語タイプ。判定は最も支配的なタイプ一つ。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NP</code></td><td class="py-1.5 text-gray-600">名詞句。例: &quot;understand the problem&quot; / &quot;understand French&quot; / &quot;understand his decision&quot; / &quot;understand her feelings&quot;. 普通名詞・固有名詞・動名詞 NP。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>that_clause</code></td><td class="py-1.5 text-gray-600">that 節 (補文)。例: &quot;understand that he&#x27;s leaving&quot; / &quot;understand that the policy will change&quot;. that が省略されているケースも含む (&quot;I understand he&#x27;ll arrive early&quot;)。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>wh_clause</code></td><td class="py-1.5 text-gray-600">wh 節。what/why/how/where/when を含む。例: &quot;understand what he means&quot; / &quot;understand why she left&quot; / &quot;understand how the engine works&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>embedded_Q</code></td><td class="py-1.5 text-gray-600">埋め込み疑問文 (yes/no 型)。例: &quot;understand whether it works&quot; / &quot;understand if this is correct&quot;. ※ 埋め込み wh は wh_clause へ。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>PP</code></td><td class="py-1.5 text-gray-600">前置詞句が補語。例: &quot;understand about him&quot; / &quot;understand X as Y&quot; (&quot;understand the term as a metaphor&quot;) / &quot;understand from the report that...&quot;. categorization 用法に多い。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>so_anaph</code></td><td class="py-1.5 text-gray-600">so 照応 (まれ)。例: &quot;I understand so&quot; / &quot;I think so, I understand&quot;. 直前命題の参照。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>it_anaph</code></td><td class="py-1.5 text-gray-600">it 照応。例: &quot;I understand it&quot; / &quot;I don&#x27;t understand it&quot; — &quot;it&quot; が直前文・話題を参照。NP に分類しないでここを選ぶ。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>nominal_clause</code></td><td class="py-1.5 text-gray-600">動名詞節 (-ing 節)。例: &quot;understand his leaving early&quot; / &quot;understand the children playing in the rain&quot;. -ing が補文として機能。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>to_inf</code></td><td class="py-1.5 text-gray-600">to 不定詞補語 (慣用的)。例: &quot;give to understand that...&quot; / &quot;be given to understand&quot;. 古風・法律的表現。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>other</code></td><td class="py-1.5 text-gray-600">上記いずれにも該当しない目的語タイプ。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>none</code></td><td class="py-1.5 text-gray-600">目的語なし (絶対用法)。例: &quot;I understand.&quot; / &quot;Yes, I understand.&quot;</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F07 tense（時制）</strong>：understand の時制。定形 (finite) の場合に判定。不定詞や非定形 -ing は NA。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>present</code></td><td class="py-1.5 text-gray-600">現在形。例: &quot;I understand&quot; / &quot;She understands&quot; / &quot;It is understood that...&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>past</code></td><td class="py-1.5 text-gray-600">過去形。例: &quot;I understood&quot; / &quot;She understood the answer&quot; / &quot;It was understood that...&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>future</code></td><td class="py-1.5 text-gray-600">未来形 (will/shall + understand)。例: &quot;You will understand later&quot; / &quot;I shall understand&quot;. ※ &quot;going to understand&quot; もここ。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>present_perfect</code></td><td class="py-1.5 text-gray-600">現在完了。例: &quot;I have understood&quot; / &quot;She has finally understood&quot; / &quot;It has been understood&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>past_perfect</code></td><td class="py-1.5 text-gray-600">過去完了。例: &quot;I had understood&quot; / &quot;By then she had understood&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">非定形 (不定詞・補語位置の -ing 形等)。例: &quot;to understand&quot; / &quot;can understand&quot; / &quot;easy to understand&quot; / 動名詞 &quot;understanding the issue&quot;.</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F08 aspect（相 (アスペクト)）</strong>：動詞形のアスペクト。understand は状態動詞のため進行形は稀。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>simple</code></td><td class="py-1.5 text-gray-600">単純相 (基本)。例: &quot;I understand&quot; / &quot;I understood&quot; / &quot;to understand&quot;. アスペクト標識なし。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>progressive</code></td><td class="py-1.5 text-gray-600">進行相 (be + -ing)。状態動詞のため稀だが、動的読み・段階的理解で出現。例: &quot;I&#x27;m understanding the issue better now&quot; / &quot;He&#x27;s slowly understanding the situation&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>perfect</code></td><td class="py-1.5 text-gray-600">完了相 (have/has/had + understood)。例: &quot;I have understood&quot; / &quot;She had understood by then&quot; / &quot;It has been understood&quot;. 受動完了も含む。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>perfect_progressive</code></td><td class="py-1.5 text-gray-600">完了進行相 (have been + understanding)。極めて稀。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F09 mood（法 (ムード)）</strong>：understand を含む節の文法的ムード (主節レベル)。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>declarative</code></td><td class="py-1.5 text-gray-600">平叙 (基本)。事実・命題を述べる文。例: &quot;I understand&quot; / &quot;She doesn&#x27;t understand&quot; / &quot;It is understood that...&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>interrogative</code></td><td class="py-1.5 text-gray-600">疑問。yes/no 疑問・wh 疑問・付加疑問。例: &quot;Do you understand?&quot; / &quot;Why don&#x27;t you understand?&quot; / &quot;You understand, don&#x27;t you?&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>imperative</code></td><td class="py-1.5 text-gray-600">命令。例: &quot;Understand that...&quot; / &quot;Try to understand!&quot; / &quot;Don&#x27;t misunderstand me&quot;. ※ 主語 you が省略されるのが特徴。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F10 polarity（極性）</strong>：understand の極性 (肯定/否定)。否定標識 (not, n&#x27;t, no, never, hardly, fail to, refuse to 等) で判定。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>positive</code></td><td class="py-1.5 text-gray-600">肯定。例: &quot;I understand&quot; / &quot;She understands the problem&quot; / &quot;It is understood that...&quot;. 否定標識なし。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>negative</code></td><td class="py-1.5 text-gray-600">否定。例: &quot;I don&#x27;t understand&quot; / &quot;can&#x27;t understand&quot; / &quot;failed to understand&quot; / &quot;never understood&quot; / &quot;refuse to understand&quot; / &quot;hardly understand&quot; (※ hardly は否定極性を持つ).</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F11 voice（態）</strong>：態 (能動/受動)。be + understood は受動。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>active</code></td><td class="py-1.5 text-gray-600">能動態 (基本)。例: &quot;I understand the rules&quot; / &quot;She understood&quot; / &quot;can understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>passive</code></td><td class="py-1.5 text-gray-600">受動態 (be/get + understood)。例: &quot;It is understood that the meeting is postponed&quot; / &quot;The term is widely understood as...&quot; / &quot;His point was understood&quot; / &quot;to be understood&quot;. 認識の客観化用法に多い。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F12 clause_role（節の役割）</strong>：understand を含む節が文中で果たす統語的役割。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>matrix</code></td><td class="py-1.5 text-gray-600">主節 (基本)。例: &quot;I understand the problem.&quot; — understand が文の主動詞。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>complement</code></td><td class="py-1.5 text-gray-600">補文位置。例: &quot;She said [I would understand]&quot; / &quot;They believe [people understand the rules]&quot; — 上位節の補文として埋め込まれている。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>relative</code></td><td class="py-1.5 text-gray-600">関係節内。例: &quot;the things [I understand]&quot; / &quot;a person [who understands the law]&quot; — 名詞句を修飾する関係節。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>adverbial</code></td><td class="py-1.5 text-gray-600">副詞節内。例: &quot;if [you understand], let me know&quot; / &quot;because [I understand the issue]&quot; — 副詞的従属節。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>coordinated</code></td><td class="py-1.5 text-gray-600">等位接続節。例: &quot;He listened and [understood]&quot; / &quot;She came in and [understood immediately]&quot; — 等位接続詞 (and/but/or) で他節と接続。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>parenthetical</code></td><td class="py-1.5 text-gray-600">挿入句。例: &quot;He&#x27;s leaving, I understand, next week&quot; / &quot;She knows, you understand, what&#x27;s at stake&quot; — 文中に挿入される独立的なコメント。談話標識化していることが多い。</td></tr>
+                </table>
+              </details>
           </div>
 
           <div class="info-box mb-4">
             <p class="text-xs font-bold text-gray-700 mb-2">Layer 2：モダリティと副詞修飾（4 項目、F13–F16）</p>
             <p class="text-sm text-gray-600 mb-2">understand を修飾する助動詞と副詞の情報。"<em>fully</em> understand"、"can't <em>quite</em> understand" などの違いを捉える。</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li><strong class="text-gray-700">F13 modal</strong>：モダル動詞のタイプ（<code>epistemic</code> 認識的 / <code>deontic</code> 義務的 / <code>ability_can</code> 能力 / <code>volitional</code> 意志 / <code>none</code>）</li>
-              <li><strong class="text-gray-700">F14 pre_adverb_type</strong>：前置副詞のタイプ（<code>degree</code> 程度 / <code>negation_partial</code> 部分否定 / <code>manner</code> 様態 / <code>focus</code> 焦点 / <code>none</code>）</li>
-              <li><strong class="text-gray-700">F15 degree_adv_lex</strong>：程度副詞の語彙（<code>completely</code> / <code>fully</code> / <code>really</code> / <code>well</code> / <code>hardly</code> / <code>barely</code> / <code>quite</code> / <code>sort_of</code> / <code>kind_of</code> / <code>other</code> / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F16 negation_scope</strong>：F10 が negative の場合、否定のスコープ（<code>full</code> 全否定 / <code>partial</code> 部分否定 / <code>NA</code>）</li>
-            </ul>
+                          <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F13 modal（モーダル）</strong>：understand に付くモーダル助動詞のタイプ。意味的に複数解釈可能なら最も支配的なものを。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>epistemic</code></td><td class="py-1.5 text-gray-600">認識的 (推量・確信)。例: &quot;He must understand by now&quot; (= きっと理解しているはず) / &quot;may understand&quot; / &quot;might understand&quot;. 話者の確信度を示す。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>deontic</code></td><td class="py-1.5 text-gray-600">義務的 (命令・必要性)。例: &quot;You should understand the rules&quot; / &quot;must understand (= 理解する必要がある)&quot; / &quot;ought to understand&quot;. 規範的義務。※ epistemic must との区別は文脈で。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>ability_can</code></td><td class="py-1.5 text-gray-600">能力 (can/could)。例: &quot;can understand&quot; / &quot;could understand&quot; / &quot;could not understand&quot;. ※ &quot;I can understand your frustration&quot; のような empathic 用法もここに分類 (形態的には能力モーダル)。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>volitional</code></td><td class="py-1.5 text-gray-600">意志・予測 (will/would/shall)。例: &quot;You will understand later&quot; / &quot;They would understand if we explained&quot; / &quot;I shall understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>none</code></td><td class="py-1.5 text-gray-600">モーダルなし。例: &quot;I understand&quot; / &quot;She understood&quot;. be going to は volitional に含めるか none か文脈で判断、迷ったら none。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F14 pre_adverb_type（前置副詞のタイプ）</strong>：understand の直前または近傍にある副詞のタイプ。複数あれば understand を直接修飾する最も主要なものを選ぶ。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>degree</code></td><td class="py-1.5 text-gray-600">程度副詞。例: &quot;completely understand&quot; / &quot;fully understand&quot; / &quot;partially understand&quot; / &quot;thoroughly understood&quot;. 理解の達成度を表す。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>negation_partial</code></td><td class="py-1.5 text-gray-600">部分否定的副詞。例: &quot;hardly understand&quot; / &quot;barely understand&quot; / &quot;scarcely understood&quot;. 否定極性を持つが完全否定ではない。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>manner</code></td><td class="py-1.5 text-gray-600">様態副詞。例: &quot;well understand&quot; / &quot;poorly understood&quot; / &quot;clearly understand&quot; / &quot;vaguely understand&quot;. 理解の質を表す。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>focus</code></td><td class="py-1.5 text-gray-600">焦点化副詞。例: &quot;just understand&quot; / &quot;only understood&quot; / &quot;even understand&quot;. 命題の焦点を絞る。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>none</code></td><td class="py-1.5 text-gray-600">前置副詞なし。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F15 degree_adv_lex（程度副詞の語彙）</strong>：F14 が degree の場合、その具体語彙を選ぶ。F14 が degree 以外なら NA。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>completely</code></td><td class="py-1.5 text-gray-600">completely (完全に)。例: &quot;I completely understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>fully</code></td><td class="py-1.5 text-gray-600">fully (十分に・完全に)。例: &quot;fully understand&quot; / &quot;fully understood&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>really</code></td><td class="py-1.5 text-gray-600">really (本当に)。例: &quot;I really understand what you mean&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>well</code></td><td class="py-1.5 text-gray-600">well (よく)。例: &quot;I well understand your concern&quot; / &quot;well understood&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>hardly</code></td><td class="py-1.5 text-gray-600">hardly (ほとんど〜ない、部分否定)。例: &quot;hardly understand&quot; / &quot;hardly understood&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>barely</code></td><td class="py-1.5 text-gray-600">barely (かろうじて〜、部分否定)。例: &quot;barely understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>quite</code></td><td class="py-1.5 text-gray-600">quite (かなり)。例: &quot;I quite understand&quot;. (BrE)</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>sort_of</code></td><td class="py-1.5 text-gray-600">sort of (なんとなく、ヘッジ)。例: &quot;I sort of understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>kind_of</code></td><td class="py-1.5 text-gray-600">kind of (なんとなく、ヘッジ)。例: &quot;I kind of understand&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>other</code></td><td class="py-1.5 text-gray-600">上記以外の程度・修飾副詞。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">F14 が degree でない、または前置副詞なし。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F16 negation_scope（否定の作用域）</strong>：極性が否定 (F10=negative) の場合、否定の作用域。否定が動作全体か一部かを判定。F10=positive なら NA。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>full</code></td><td class="py-1.5 text-gray-600">全否定。例: &quot;I don&#x27;t understand&quot; / &quot;I can&#x27;t understand&quot; / &quot;I never understood&quot; / &quot;don&#x27;t understand at all&quot;. understand の動作・状態全体が否定される。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>partial</code></td><td class="py-1.5 text-gray-600">部分否定。例: &quot;I don&#x27;t fully understand&quot; / &quot;don&#x27;t completely understand&quot; / &quot;hardly understand&quot; — 程度副詞・否定極性語彙との組み合わせで一部だけ否定される。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">肯定文 (F10=positive)。</td></tr>
+                </table>
+              </details>
           </div>
 
           <div class="info-box mb-4">
             <p class="text-xs font-bold text-gray-700 mb-2">Layer 3：目的語の意味類型（4 項目、F17–F20、F05=yes のときのみ）</p>
             <p class="text-sm text-gray-600 mb-2">何を understand するのかという「対象」の意味分類。"understand the equation"（メカニズム）と "understand your feelings"（人物の感情）は異なる意味次元に属する。</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li><strong class="text-gray-700">F17 obj_semclass</strong>：目的語内容の意味クラス（<code>proposition</code> 命題 / <code>instructional</code> 指示 / <code>language_code</code> 言語コード / <code>abstract_concept</code> 抽象概念 / <code>mechanism</code> メカニズム / <code>person_feeling</code> 人の感情 / <code>person_situation</code> 人の状況 / <code>event_situation</code> 出来事・状況 / <code>metalinguistic</code> メタ言語 / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F18 obj_referent</strong>：指示対象のタイプ（<code>addressee</code> 聞き手 / <code>self</code> 自己 / <code>third_party</code> 第三者 / <code>generic</code> 総称 / <code>non_human</code> 非人間 / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F19 obj_complexity</strong>：埋め込み節の深さ（<code>simple</code> / <code>complex</code> / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F20 obj_referentiality</strong>：特定性（<code>specific</code> 特定 / <code>generic</code> 総称 / <code>hypothetical</code> 仮想 / <code>NA</code>）</li>
-            </ul>
+                          <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F17 obj_semclass（目的語の意味クラス）</strong>：目的語が指す内容の意味クラス。複数解釈ありうる場合は最も支配的なものを。F05=no なら NA。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>proposition</code></td><td class="py-1.5 text-gray-600">命題的内容 (真偽値を持つ事実・主張)。例: &quot;understand that he&#x27;s leaving&quot; / &quot;understand the fact that...&quot; / &quot;It is understood that...&quot; — that 節や命題的 NP が中心。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>instructional</code></td><td class="py-1.5 text-gray-600">指示・実践的内容。例: &quot;understand the instructions&quot; / &quot;understand the rules&quot; / &quot;understand the procedure&quot; — 行動指針・方法論。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>language_code</code></td><td class="py-1.5 text-gray-600">言語コード。例: &quot;understand French&quot; / &quot;understand the dialect&quot; / &quot;understand sign language&quot; — 言語そのものを理解する。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>abstract_concept</code></td><td class="py-1.5 text-gray-600">抽象概念・主義。例: &quot;understand democracy&quot; / &quot;understand the meaning of life&quot; / &quot;understand the theory&quot; / &quot;understand love&quot; — 抽象的観念。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>mechanism</code></td><td class="py-1.5 text-gray-600">仕組み・原理・プロセス。例: &quot;understand how the engine works&quot; / &quot;understand the process&quot; / &quot;understand the mechanism&quot; — 動的な仕組み。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>person_feeling</code></td><td class="py-1.5 text-gray-600">人の感情。例: &quot;understand your feelings&quot; / &quot;understand how you feel&quot; / &quot;understand his pain&quot; — 感情への共感。empathy 用法の中心。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>person_situation</code></td><td class="py-1.5 text-gray-600">人の状況・境遇。例: &quot;understand your situation&quot; / &quot;understand his predicament&quot; / &quot;understand what you&#x27;re going through&quot; — 個人的境遇への理解。empathy 用法でもある。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>event_situation</code></td><td class="py-1.5 text-gray-600">出来事・事象。例: &quot;understand what happened&quot; / &quot;understand the war&quot; / &quot;understand the crisis&quot; — 客観的な出来事。person_situation と区別: 個人化されていれば person_situation、客観的事象なら event_situation。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>metalinguistic</code></td><td class="py-1.5 text-gray-600">メタ言語的解釈。例: &quot;understand &#x27;tort&#x27; to mean breach of duty&quot; / &quot;understand the term as a metaphor&quot; / &quot;understand X in the sense of Y&quot; — 用語・記号の解釈。categorization 用法。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">目的語なし (F05=no)。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F18 obj_referent（目的語の指示対象）</strong>：目的語が指す対象の指示タイプ。F18 は対人配慮 (Empathy) 用法の検出に重要。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>addressee</code></td><td class="py-1.5 text-gray-600">対話相手 (you/your X)。例: &quot;understand your feelings&quot; / &quot;understand you&quot; / &quot;understand your point&quot; — Empathy / alignment 用法の中心的指標。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>self</code></td><td class="py-1.5 text-gray-600">自己 (me/my X)。例: &quot;understand my own motives&quot; / &quot;understand myself&quot; — 内省的用法。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>third_party</code></td><td class="py-1.5 text-gray-600">第三者 (him/her/their X)。例: &quot;understand his decision&quot; / &quot;understand her feelings&quot; / &quot;understand them&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>generic</code></td><td class="py-1.5 text-gray-600">総称・一般。例: &quot;understand human nature&quot; / &quot;understand people&quot; / &quot;understand anyone in this situation&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>non_human</code></td><td class="py-1.5 text-gray-600">非人間的対象。例: &quot;understand the theory&quot; / &quot;understand the process&quot; / &quot;understand French&quot; — 概念・出来事・物事。person_feeling 等と区別。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">目的語なし。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F19 obj_complexity（目的語の複雑性）</strong>：目的語が単純句か、内部に節を含む複合構造か。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>simple</code></td><td class="py-1.5 text-gray-600">単純句。例: &quot;the problem&quot; / &quot;his decision&quot; / &quot;French&quot; / &quot;that p&quot; (単一補文)。修飾句があっても節を含まない。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>complex</code></td><td class="py-1.5 text-gray-600">複雑構造 (節を含む)。例: &quot;that despite all the difficulties he had faced, the project would succeed&quot; / &quot;how the system she had designed actually worked in practice&quot; — 内部に複数の節・修飾節を含む。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">目的語なし。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F20 obj_referentiality（目的語の指示性）</strong>：目的語の指示の特定度。文脈中の特定の対象か、総称か、仮定の対象か。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>specific</code></td><td class="py-1.5 text-gray-600">特定指示 (文脈中の identifiable な対象)。例: &quot;understand THIS problem&quot; / &quot;understand the answer (we discussed)&quot; / &quot;understand his decision (about the merger)&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>generic</code></td><td class="py-1.5 text-gray-600">総称的 (種・類全般)。例: &quot;understand problems (in general)&quot; / &quot;understand human nature&quot; / &quot;understand languages&quot;. 不定単数や定の総称。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>hypothetical</code></td><td class="py-1.5 text-gray-600">仮想的・条件的。例: &quot;if I were to understand X&quot; / &quot;trying to understand a possible solution&quot; / &quot;to understand any difficulty that might arise&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">目的語なし。</td></tr>
+                </table>
+              </details>
           </div>
 
           <div class="info-box mb-4">
             <p class="text-xs font-bold text-gray-700 mb-2">Layer 4：共起語彙（3 項目、F21–F23）</p>
             <p class="text-sm text-gray-600 mb-2">対象文中で understand の前後 10 語以内に現れる語彙的手がかり。ヘッジ・情意語・証拠性表示がどれくらい一緒に現れるかを観察する。</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li><strong class="text-gray-700">F21 co_hedge</strong>：認識的ヘッジの共起（<code>yes</code>：<em>I think</em>, <em>I suppose</em>, <em>you know</em>, <em>sort of</em> 等 / <code>no</code>）</li>
-              <li><strong class="text-gray-700">F22 co_affective</strong>：情意語の共起（<code>yes</code>：<em>feel</em>, <em>feeling</em>, <em>hurt</em>, <em>pain</em>, <em>frustration</em>, <em>concern</em>, <em>situation</em> 等 / <code>no</code>）</li>
-              <li><strong class="text-gray-700">F23 co_evidential</strong>：証拠性マーカーの共起（<code>yes</code>：<em>apparently</em>, <em>it seems</em>, <em>as far as I know</em>, <em>I gather</em> 等 / <code>no</code>）</li>
-            </ul>
+                          <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F21 co_hedge（ヘッジの共起）</strong>：同一文内 (±10 トークン程度) に認識的ヘッジ表現が共起しているか。話者の確信度を緩和する語句。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>yes</code></td><td class="py-1.5 text-gray-600">ヘッジあり。例: &quot;I think I understand&quot; / &quot;I suppose she understands&quot; / &quot;I sort of understand&quot; / &quot;You know, I understand&quot; / &quot;I guess he understands&quot; / &quot;I mean, do you understand?&quot; / &quot;kind of understand&quot; / 認識動詞 (think, suppose, guess, reckon) 等が共起。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>no</code></td><td class="py-1.5 text-gray-600">ヘッジなし。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F22 co_affective（感情語彙の共起）</strong>：同一文内に感情・情動関連の語彙が共起しているか。Empathy 用法の主要指標。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>yes</code></td><td class="py-1.5 text-gray-600">感情語彙あり。例: &quot;I understand your feelings&quot; (feelings) / &quot;I understand the pain you&#x27;ve been through&quot; (pain) / &quot;I can understand your frustration&quot; (frustration) / &quot;I understand your concerns&quot; (concerns) / &quot;I understand what you&#x27;re going through&quot; (going through, situation as predicament). hurt, sad, angry, worried, anxious 等の感情語も含む。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>no</code></td><td class="py-1.5 text-gray-600">感情語彙なし。例: &quot;I understand the rules&quot; / &quot;He understands French&quot; — 中立的・命題的内容のみ。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F23 co_evidential（証拠標識の共起）</strong>：同一文内に証拠標識 (情報源・伝聞性を示す表現) が共起しているか。認識の根拠を示す。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>yes</code></td><td class="py-1.5 text-gray-600">証拠標識あり。例: &quot;apparently he understands&quot; (apparently) / &quot;It seems she understood&quot; (it seems) / &quot;As far as I know, he understands&quot; (as far as I know) / &quot;I gather they understood&quot; (I gather) / &quot;I&#x27;m told they understand&quot; (I&#x27;m told) / &quot;reportedly understood&quot; (reportedly) / &quot;allegedly understood&quot;.</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>no</code></td><td class="py-1.5 text-gray-600">証拠標識なし。</td></tr>
+                </table>
+              </details>
           </div>
 
           <div class="info-box mb-4">
             <p class="text-xs font-bold text-gray-700 mb-2">Layer 5：談話・語用論（4 項目、F24–F27、最も判定が難しい層）</p>
             <p class="text-sm text-gray-600 mb-2">"<em>I understand.</em>" が独立した応答トークン（response token）として使われる用法と、"<em>Do you understand?</em>" が理解確認（comprehension check）として使われる用法を区別する、もっとも解釈的なレイヤー。前後文脈と組み合わせて判定する。</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li><strong class="text-gray-700">F24 speaker_perspective</strong>：誰の認識状態が焦点化されているか（<code>1st_person</code> / <code>2nd_to_addressee</code> / <code>3rd_person_report</code> / <code>impersonal</code>）</li>
-              <li><strong class="text-gray-700">F25 speech_act_function</strong>：もっとも妥当な発話行為機能（<code>information_report</code> 情報報告 / <code>claim_of_knowledge</code> 知識主張 / <code>alignment</code> 同調 / <code>comprehension_check</code> 理解確認 / <code>response_token</code> 応答トークン / <code>hedge</code> ヘッジ / <code>mitigation</code> 緩和 / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F26 epistemic_stance</strong>：表現される認識的スタンス（<code>assertive</code> 断定的 / <code>hedged</code> ヘッジあり / <code>evidential</code> 証拠性ベース / <code>NA</code>）</li>
-              <li><strong class="text-gray-700">F27 sequential_position</strong>：直前文脈との位置関係（<code>response_to_prior</code> 直前への応答 / <code>initiation</code> 開始 / <code>continuation</code> 継続 / <code>monologic</code> 独話的 / <code>NA</code>）</li>
-            </ul>
+                          <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F24 speaker_perspective（話者視点）</strong>：誰の認識状態が前景化 (foregrounded) されているか — 機能的観点。形態的な F02 主語人称とは区別: F02 は文法形式、F24 は焦点化される認識主体。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>1st_person</code></td><td class="py-1.5 text-gray-600">話者自身の認識を焦点化。例: &quot;I understand X&quot; — 話者の認識が中心。&quot;I think we understand&quot; のような we も話者を含むので一人称的。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>2nd_to_addressee</code></td><td class="py-1.5 text-gray-600">対話相手の認識を焦点化。例: &quot;you understand X&quot; / &quot;do you understand?&quot; / &quot;You will understand later&quot; — 相手の認識が話題。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>3rd_person_report</code></td><td class="py-1.5 text-gray-600">第三者の認識を報告。例: &quot;she understands&quot; / &quot;the committee understands&quot; / &quot;few people understand this&quot; — 観察者視点で他者の認識を述べる。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>impersonal</code></td><td class="py-1.5 text-gray-600">非人称・客観化。例: &quot;It is understood that...&quot; / &quot;It is widely understood&quot; — 認識の主体が消去され、社会的・公的な共有知識として表現される。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F25 speech_act_function（発話行為機能）</strong>：発話行為としての主機能 (相互行為的解釈)。書き言葉のモノローグ・客観的命題報告は通常 information_report または NA。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>information_report</code></td><td class="py-1.5 text-gray-600">情報報告 (基本)。例: &quot;He understands French&quot; / &quot;She didn&#x27;t understand the question&quot; / &quot;It is understood that the meeting is postponed&quot; — 客観的に認識状態を記述。書き言葉散文の大半。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>claim_of_knowledge</code></td><td class="py-1.5 text-gray-600">知識主張。例: &quot;I understand the situation perfectly&quot; / &quot;We fully understand what&#x27;s at stake&quot; / &quot;I understand exactly what you mean&quot; — 自分の理解を強く主張する用法 (情報伝達の枠を超えた知識顕示)。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>alignment</code></td><td class="py-1.5 text-gray-600">同調 (相手への共感・連帯)。例: &quot;I understand how you feel&quot; / &quot;I understand your frustration&quot; / &quot;I can understand your reluctance&quot; — 相手の感情・状況に明示的に寄り添う。Empathy 用法の中核。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>comprehension_check</code></td><td class="py-1.5 text-gray-600">理解確認。例: &quot;Do you understand?&quot; / &quot;Did you understand what I said?&quot; / &quot;You understand, don&#x27;t you?&quot; — 相手の理解度を確認する疑問。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>response_token</code></td><td class="py-1.5 text-gray-600">応答トークン (相槌的)。例: 単独の &quot;I understand.&quot; (相手の発話を受けて) / &quot;Right, I understand.&quot; / &quot;Oh, I understand now.&quot; — 対話の流れで相手への受容を示す短い応答。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>hedge</code></td><td class="py-1.5 text-gray-600">緩和 (parenthetical 的)。例: &quot;He&#x27;s leaving, you understand, next week&quot; / &quot;It was, I understand, a difficult decision&quot; — 文中挿入の &quot;you understand&quot; / &quot;I understand&quot; は談話標識として柔らかさを加える。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>mitigation</code></td><td class="py-1.5 text-gray-600">面子配慮的緩和。例: &quot;I understand if you don&#x27;t want to talk about it&quot; / &quot;I would understand if you refused&quot; — 相手の選択肢を尊重する丁寧表現。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">モノローグ書き言葉等で対人機能が不明・該当しない場合。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F26 epistemic_stance（認識的立場）</strong>：この用法で示される認識的立場 (確信度・情報源)。F21 (ヘッジ共起) と F23 (証拠標識共起) に連動するが、より統合的な判断。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>assertive</code></td><td class="py-1.5 text-gray-600">断定的 (確信ある主張)。例: &quot;I understand the rules&quot; / &quot;She fully understands&quot; — ヘッジなしの直接的認識主張。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>hedged</code></td><td class="py-1.5 text-gray-600">ヘッジ付き (不確実性緩和)。例: &quot;I think I understand&quot; / &quot;I sort of understand&quot; / &quot;I guess he understands&quot; / &quot;I might understand later&quot; — 認識の確実性が緩められる。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>evidential</code></td><td class="py-1.5 text-gray-600">証拠的 (情報源標示)。例: &quot;It is understood that...&quot; / &quot;As I understand it, ...&quot; / &quot;I gather they understand&quot; / &quot;apparently he understands&quot; — 情報源・伝聞性が表に出る。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">該当なし (判定困難な場合)。</td></tr>
+                </table>
+              </details>
+              <p class="text-sm text-gray-600 mb-1"><strong class="text-gray-700">F27 sequential_position（連鎖上の位置）</strong>：前後文脈との関係における発話の位置づけ (連鎖分析的観点)。サイドバーの prev_sent と next_sent を参照して判定。</p>
+              <details class="ml-1 mb-3 rounded-lg bg-white/50 border border-violet-100 px-3 py-1.5">
+                <summary class="cursor-pointer text-xs text-violet-500 font-semibold select-none">💡 選択肢の意味と例（クリックで開閉）</summary>
+                <table class="mt-2 w-full text-xs">
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>response_to_prior</code></td><td class="py-1.5 text-gray-600">直前発話への応答。例: A: &quot;It&#x27;s been hard.&quot; B: &quot;I understand.&quot; / 直前文の主張・問題提起に対する反応。話し言葉のターンのみならず、書き言葉でも直前命題への応答 (&quot;Indeed, I understand his point&quot;) を含む。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>initiation</code></td><td class="py-1.5 text-gray-600">新しい話題・問いの開始。例: &quot;Do you understand the implications?&quot; (会話冒頭) / &quot;To understand this, we must consider...&quot; — 新しいトピックを切り出す。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>continuation</code></td><td class="py-1.5 text-gray-600">自分自身の発話の継続。例: 同一話者の発話内・段落内で連続する命題の一部 — &quot;I see what you mean. I understand the issue. But...&quot; の中央。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>monologic</code></td><td class="py-1.5 text-gray-600">対話文脈なし。例: 書き言葉の散文・論文・物語で、対話のターンが存在しない場合。本データの大半 (書き言葉) は monologic。</td></tr>
+                  <tr><td class="align-top pr-3 py-1.5 whitespace-nowrap"><code>NA</code></td><td class="py-1.5 text-gray-600">文脈が不明・判定困難。</td></tr>
+                </table>
+              </details>
           </div>
 
           <div class="info-box">
