@@ -106,6 +106,9 @@
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>研究目的に応じたコーパス選択のポイント</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>研究アプローチの理解（Corpus-based vs Corpus-driven）</li>
         <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>Sketch Engine・中納言での検索実習（KWIC・頻度・共起分析）</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>ケーススタディ：Behavioral Profile 分析の方法論と 27 項目の素性スキーマ</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>人手アノテーションと AI アノテーションの相補的活用</li>
+        <li class="flex items-start gap-2"><span class="text-pink-400 mt-0.5">&#9679;</span>関連研究：埋め込みベースの Distributional Concept Analysis（explain の例）</li>
       </ul>
     </div>
   </section>
@@ -267,12 +270,268 @@
         </div>
       </div>
     </div>
+
+    <!-- 6.7 Behavioral Profile 分析の手法 -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.7</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">ケーススタディ：Behavioral Profile 分析とは</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">前節までで、コーパスから単語を検索し、KWIC や頻度・共起を観察する基本的な手順を学びました。ここからは一歩進んで、コーパスから得られた用例を <strong class="text-gray-800">多次元的に注釈し、語の意味のあり方そのものをデータから抽出する</strong>本格的な分析手法を紹介します。それが <strong class="text-gray-800">Behavioral Profile（行動プロファイル、以下 BP）分析</strong>です。BP 分析は Stefan Th. Gries（2010）が体系化し、Divjak（2010）、Glynn（2014）らによって発展してきた、認知言語学・コーパス言語学における代表的な定量分析手法のひとつです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">BP 分析の発想：意味は「振る舞いの束」である</p>
+            <p class="text-sm text-gray-600 mb-2">伝統的な辞書編集や意味記述では、語義は研究者の内省や少数の例文に基づいて整理されてきました。たとえば understand の語義は辞書ごとに「理解する／察する／聞き知る／同情する」などと分類されますが、その区切り方は研究者・辞書ごとに異なり、語義の数や境界は一意に定まりません。</p>
+            <p class="text-sm text-gray-600 mb-2">BP 分析はこの状況に対し、「ある語の意味は、その語が現れる文脈の<strong class="text-gray-700">統語的・意味的・談話的な振る舞い（behavior）の総体</strong>として観察可能である」という立場を取ります。すなわち、各用例について「どのような主語と現れるか／どのような目的語を取るか／どの時制で使われるか／どのような副詞と共起するか／どの談話的位置にあるか」といった素性を多次元的に記述し、その素性ベクトルを多変量解析（多重対応分析 MCA や階層クラスター分析 HCA）にかけることで、<strong class="text-gray-700">語義のクラスターをデータからボトムアップに抽出する</strong>のです。</p>
+            <p class="text-sm text-gray-600">この発想は、Wittgenstein 的な「意味は使用にある」という見方をコーパスで定量化するものと言えます。研究者が「この語にはこれだけの語義がある」と先に決めるのではなく、データの中で似た振る舞いをする用例同士が自然にクラスターを形成し、それが「語義」として浮かび上がってくる──これが BP 分析の核となるアイデアです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">分析パイプライン（understand の場合）</p>
+            <p class="text-sm text-gray-600 mb-2">具体的に understand を題材にした BP 分析の流れを示します。これは現在進行中の研究プロジェクト <code>understand/analysis</code> での実際の手順です。</p>
+            <ol class="text-sm text-gray-600 space-y-2 list-decimal pl-5">
+              <li><strong class="text-gray-700">コーパスからの全件抽出</strong>：BNC（British National Corpus、約1億語）から Sketch Engine の API 経由で動詞 understand の用例を<strong class="text-gray-700">全件取得</strong>する。CQL では <code>[lemma="understand"]</code> と指定するだけで、understand / understands / understood / understanding といったすべての活用形が一括で抽出できる。BNC では数万件規模になる。</li>
+              <li><strong class="text-gray-700">前後文脈の収集</strong>：各用例について、当該文（target sentence）と前後 1 文ずつ（合計 3 文）の文脈を収集する。Layer 5 の談話的素性（応答か開始か、誰に対する発話か等）を判定するためには、対象文だけでは情報が不足するためである。</li>
+              <li><strong class="text-gray-700">メタデータの取得</strong>：BNC の文書メタデータからモード（書き言葉／話し言葉）、ジャンル、サブジャンルを取得する。これは BP 分析の素性として組み込まれる。</li>
+              <li><strong class="text-gray-700">多次元アノテーション</strong>：各用例に対して <strong class="text-gray-700">27 個の素性</strong>を分類カテゴリで付与する（次節 6.8 で詳述）。これが BP 分析の中核作業である。</li>
+              <li><strong class="text-gray-700">統計解析</strong>：用例 × 素性の行列に対して <strong class="text-gray-700">多重対応分析（MCA）</strong>を実施して用例を低次元空間に布置し、<strong class="text-gray-700">階層クラスター分析（HCA）</strong>でクラスターを抽出する。</li>
+              <li><strong class="text-gray-700">クラスター解釈</strong>：得られた各クラスターについて、どの素性がどのように偏って分布しているかを観察し、語義タイプとして解釈する。さらに FrameNet、OED、LDOCE など既存の語義分類と対照し、データから浮かび上がった語義構造が伝統的記述とどう一致／乖離するかを検討する。</li>
+            </ol>
+          </div>
+
+          <p class="text-sm text-gray-600 leading-relaxed">このパイプラインの要点は、<strong class="text-gray-800">「研究者の直感で語義を切り分ける」のではなく「データの中で似た振る舞いをする用例を統計的に束ね、結果として現れたクラスターを解釈する」</strong>という方向性にあります。これは前節（6.5）で扱った Corpus-driven アプローチを多変量解析と結びつけた、もっとも徹底したボトムアップ型コーパス研究の一例だと言えます。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6.8 27 項目の素性スキーマ -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.8</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">27 項目の素性スキーマ：何を、どう記述するか</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">BP 分析の心臓部は、用例を記述する<strong class="text-gray-800">素性スキーマ（feature schema）</strong>の設計です。understand プロジェクトでは、各用例に <strong class="text-gray-800">27 個</strong>の素性を付与します。すべての素性は<strong class="text-gray-700">閉じた選択肢を持つカテゴリ変数</strong>で、自由記述は許されません（後続の MCA / HCA に直接投入できるようにするため）。また、素性が当てはまらない場合は一律に <code>NA</code>（適用不能）が割り当てられます。</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">27 個の素性は、判定の難易度と理論的位置づけによって <strong class="text-gray-700">5 つのレイヤー</strong>に整理されています。レイヤー 1 から 5 へと進むにつれて、判定が形式的（統語的）なものから解釈的（語用論的）なものへと移っていきます。なお、これらの 27 項目とは別に、BNC の文書メタデータから取得するモード／ジャンル／サブジャンルの 3 項目（F28–F30）が分析に加わりますが、これらは LLM の判定対象ではなくコーパス側から直接読み込まれます。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Layer 1：形態統語的形式（12 項目、F01–F12）</p>
+            <p class="text-sm text-gray-600 mb-2">統語構造から機械的に決まる項目群。LLM でも安定して付与可能で、いわば「土台」となる素性。</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li><strong class="text-gray-700">F01 inflection</strong>：understand の品詞タグ（<code>VVB</code> 原形 / <code>VV0</code> 一般現在 / <code>VVD</code> 過去 / <code>VVN</code> 過去分詞 / <code>VVG</code> 現在分詞 / <code>VVZ</code> 三単現）</li>
+              <li><strong class="text-gray-700">F02 subj_person</strong>：主語の人称と数（<code>1sg</code> / <code>1pl</code> / <code>2</code> / <code>3sg</code> / <code>3pl</code> / <code>generic_one</code> / <code>generic_you</code> / <code>impersonal_it</code> / <code>no_overt_subj</code>）</li>
+              <li><strong class="text-gray-700">F03 subj_animacy</strong>：主語の意味的有生性（<code>human_individual</code> / <code>human_collective</code> / <code>institution</code> / <code>abstract</code> / <code>inanimate</code> / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F04 subj_definiteness</strong>：主語の定性（<code>definite</code> / <code>indefinite</code> / <code>generic</code> / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F05 obj_presence</strong>：直接目的語・補部の有無（<code>yes</code> / <code>no</code>）</li>
+              <li><strong class="text-gray-700">F06 obj_type</strong>：目的語・補部の統語タイプ（<code>NP</code> / <code>that_clause</code> / <code>wh_clause</code> / <code>embedded_Q</code> / <code>PP</code> / <code>so_anaph</code> / <code>it_anaph</code> / <code>nominal_clause</code> / <code>to_inf</code> / <code>other</code> / <code>none</code>）</li>
+              <li><strong class="text-gray-700">F07 tense</strong>：時制（<code>present</code> / <code>past</code> / <code>future</code> / <code>present_perfect</code> / <code>past_perfect</code> / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F08 aspect</strong>：相（<code>simple</code> / <code>progressive</code> / <code>perfect</code> / <code>perfect_progressive</code>）</li>
+              <li><strong class="text-gray-700">F09 mood</strong>：法（<code>declarative</code> 平叙 / <code>interrogative</code> 疑問 / <code>imperative</code> 命令）</li>
+              <li><strong class="text-gray-700">F10 polarity</strong>：極性（<code>positive</code> / <code>negative</code>）</li>
+              <li><strong class="text-gray-700">F11 voice</strong>：態（<code>active</code> / <code>passive</code>）</li>
+              <li><strong class="text-gray-700">F12 clause_role</strong>：主節内の役割（<code>matrix</code> / <code>complement</code> / <code>relative</code> / <code>adverbial</code> / <code>coordinated</code> / <code>parenthetical</code>）</li>
+            </ul>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Layer 2：モダリティと副詞修飾（4 項目、F13–F16）</p>
+            <p class="text-sm text-gray-600 mb-2">understand を修飾する助動詞と副詞の情報。"<em>fully</em> understand"、"can't <em>quite</em> understand" などの違いを捉える。</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li><strong class="text-gray-700">F13 modal</strong>：モダル動詞のタイプ（<code>epistemic</code> 認識的 / <code>deontic</code> 義務的 / <code>ability_can</code> 能力 / <code>volitional</code> 意志 / <code>none</code>）</li>
+              <li><strong class="text-gray-700">F14 pre_adverb_type</strong>：前置副詞のタイプ（<code>degree</code> 程度 / <code>negation_partial</code> 部分否定 / <code>manner</code> 様態 / <code>focus</code> 焦点 / <code>none</code>）</li>
+              <li><strong class="text-gray-700">F15 degree_adv_lex</strong>：程度副詞の語彙（<code>completely</code> / <code>fully</code> / <code>really</code> / <code>well</code> / <code>hardly</code> / <code>barely</code> / <code>quite</code> / <code>sort_of</code> / <code>kind_of</code> / <code>other</code> / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F16 negation_scope</strong>：F10 が negative の場合、否定のスコープ（<code>full</code> 全否定 / <code>partial</code> 部分否定 / <code>NA</code>）</li>
+            </ul>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Layer 3：目的語の意味類型（4 項目、F17–F20、F05=yes のときのみ）</p>
+            <p class="text-sm text-gray-600 mb-2">何を understand するのかという「対象」の意味分類。"understand the equation"（メカニズム）と "understand your feelings"（人物の感情）は異なる意味次元に属する。</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li><strong class="text-gray-700">F17 obj_semclass</strong>：目的語内容の意味クラス（<code>proposition</code> 命題 / <code>instructional</code> 指示 / <code>language_code</code> 言語コード / <code>abstract_concept</code> 抽象概念 / <code>mechanism</code> メカニズム / <code>person_feeling</code> 人の感情 / <code>person_situation</code> 人の状況 / <code>event_situation</code> 出来事・状況 / <code>metalinguistic</code> メタ言語 / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F18 obj_referent</strong>：指示対象のタイプ（<code>addressee</code> 聞き手 / <code>self</code> 自己 / <code>third_party</code> 第三者 / <code>generic</code> 総称 / <code>non_human</code> 非人間 / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F19 obj_complexity</strong>：埋め込み節の深さ（<code>simple</code> / <code>complex</code> / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F20 obj_referentiality</strong>：特定性（<code>specific</code> 特定 / <code>generic</code> 総称 / <code>hypothetical</code> 仮想 / <code>NA</code>）</li>
+            </ul>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Layer 4：共起語彙（3 項目、F21–F23）</p>
+            <p class="text-sm text-gray-600 mb-2">対象文中で understand の前後 10 語以内に現れる語彙的手がかり。ヘッジ・情意語・証拠性表示がどれくらい一緒に現れるかを観察する。</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li><strong class="text-gray-700">F21 co_hedge</strong>：認識的ヘッジの共起（<code>yes</code>：<em>I think</em>, <em>I suppose</em>, <em>you know</em>, <em>sort of</em> 等 / <code>no</code>）</li>
+              <li><strong class="text-gray-700">F22 co_affective</strong>：情意語の共起（<code>yes</code>：<em>feel</em>, <em>feeling</em>, <em>hurt</em>, <em>pain</em>, <em>frustration</em>, <em>concern</em>, <em>situation</em> 等 / <code>no</code>）</li>
+              <li><strong class="text-gray-700">F23 co_evidential</strong>：証拠性マーカーの共起（<code>yes</code>：<em>apparently</em>, <em>it seems</em>, <em>as far as I know</em>, <em>I gather</em> 等 / <code>no</code>）</li>
+            </ul>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Layer 5：談話・語用論（4 項目、F24–F27、最も判定が難しい層）</p>
+            <p class="text-sm text-gray-600 mb-2">"<em>I understand.</em>" が独立した応答トークン（response token）として使われる用法と、"<em>Do you understand?</em>" が理解確認（comprehension check）として使われる用法を区別する、もっとも解釈的なレイヤー。前後文脈と組み合わせて判定する。</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li><strong class="text-gray-700">F24 speaker_perspective</strong>：誰の認識状態が焦点化されているか（<code>1st_person</code> / <code>2nd_to_addressee</code> / <code>3rd_person_report</code> / <code>impersonal</code>）</li>
+              <li><strong class="text-gray-700">F25 speech_act_function</strong>：もっとも妥当な発話行為機能（<code>information_report</code> 情報報告 / <code>claim_of_knowledge</code> 知識主張 / <code>alignment</code> 同調 / <code>comprehension_check</code> 理解確認 / <code>response_token</code> 応答トークン / <code>hedge</code> ヘッジ / <code>mitigation</code> 緩和 / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F26 epistemic_stance</strong>：表現される認識的スタンス（<code>assertive</code> 断定的 / <code>hedged</code> ヘッジあり / <code>evidential</code> 証拠性ベース / <code>NA</code>）</li>
+              <li><strong class="text-gray-700">F27 sequential_position</strong>：直前文脈との位置関係（<code>response_to_prior</code> 直前への応答 / <code>initiation</code> 開始 / <code>continuation</code> 継続 / <code>monologic</code> 独話的 / <code>NA</code>）</li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <p class="text-xs font-bold text-gray-700 mb-2">判定例（実際のアノテーション・ガイドラインより）</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>・<em>Do you understand?</em>（対話中、単独で）→ F09=interrogative、F25=comprehension_check、F27=initiation</li>
+              <li>・<em>I understand.</em>（単独の応答トークン）→ F05=no、F25=response_token、F27=response_to_prior</li>
+              <li>・<em>I understand your feelings.</em> → F18=addressee、F22=yes、F25=alignment</li>
+              <li>・<em>It is understood that the Minister will resign.</em> → F11=passive、F02=impersonal_it、F26=evidential</li>
+              <li>・<em>She didn't understand the equation.</em> → F10=negative、F17=mechanism or abstract_concept</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6.9 人手アノテーション vs AI アノテーション -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.9</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">人手アノテーションと AI アノテーション</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">27 項目の素性スキーマを設計したあと、実際に各用例にラベルを付けていく作業を<strong class="text-gray-800">アノテーション（注釈付け）</strong>と呼びます。BP 分析の妥当性は、このアノテーションの精度に大きく依存します。アノテーションには大きく二つのやり方があります。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">伝統的な手法：人手アノテーション</p>
+            <p class="text-sm text-gray-600 mb-2">BP 分析が方法論として確立された当初から行われてきた、もっとも標準的なやり方は、<strong class="text-gray-700">訓練を受けた複数のアノテーターによる人手注釈</strong>です。手順は次のようになります：</p>
+            <ol class="text-sm text-gray-600 space-y-1 list-decimal pl-5 mb-2">
+              <li>アノテーター（多くの場合、言語学の大学院生・研究員）に対して、素性スキーマと判定マニュアルを共有する</li>
+              <li>パイロット用例（数十件程度）で訓練と意見すり合わせを行う</li>
+              <li>本番の用例について、<strong class="text-gray-700">二人以上のアノテーターが独立に</strong>すべての素性を付与する</li>
+              <li>項目ごとに <strong class="text-gray-700">Cohen's κ（カッパ係数）</strong>でアノテーター間一致度を算出する</li>
+              <li>κ &lt; 0.6 の項目は定義を見直すか、本分析から除外する（信頼性が確保できないため）</li>
+              <li>不一致用例は協議で最終ラベルを確定する</li>
+            </ol>
+            <p class="text-sm text-gray-600">この方法は妥当性が高い一方、<strong class="text-gray-700">時間とコストが膨大</strong>です。一件あたり 5〜10 分かかるとすれば、1,000 件を 27 項目で二人が独立に注釈するだけで延べ 300 時間以上を要します。BP 研究が長らく数百件規模のサンプルに留まり、コーパス全件規模の分析になかなか踏み出せなかったのはこの制約のためです。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">現代的な手法：LLM（大規模言語モデル）によるアノテーション</p>
+            <p class="text-sm text-gray-600 mb-2">2023 年以降、Claude / GPT / Gemini といった<strong class="text-gray-700">大規模言語モデル（LLM）が言語学的注釈の作業を高い精度でこなせる</strong>ことが分かってきました。これによって BP 分析のスケールが劇的に変わりつつあります。</p>
+            <p class="text-sm text-gray-600 mb-2">understand プロジェクトでは、次のような <strong class="text-gray-700">multi-model + human validation</strong> 方式を採用しています：</p>
+            <ol class="text-sm text-gray-600 space-y-1 list-decimal pl-5 mb-2">
+              <li>同じ素性スキーマと判定マニュアルを<strong class="text-gray-700">プロンプトとして LLM に与える</strong>。Structured Output（tool use）機能を使い、LLM が必ず 27 項目の決められた選択肢から出力するよう制約する</li>
+              <li>各用例について <strong class="text-gray-700">複数の LLM（Claude / GPT / Gemini）</strong>に独立に注釈させる</li>
+              <li>モデル間で一致した項目は信頼度が高いとみなす（self-consistency）</li>
+              <li>200 件程度をサンプリングし、<strong class="text-gray-700">人間の専門家がゴールドスタンダードとして注釈</strong>する</li>
+              <li>項目ごとに <strong class="text-gray-700">LLM–人間の κ</strong> を算出し、各モデル・各項目の信頼性を可視化する</li>
+              <li>信頼性の低い項目はプロンプト改訂・スキーマ改訂・あるいは人手検証の追加投入で補強する</li>
+            </ol>
+            <p class="text-sm text-gray-600">経験的には、Layer 1–2（形態統語・モダリティ）は LLM の判定精度がほぼ人間並み（κ &gt; 0.8）、Layer 3–4（意味・共起）は中程度（κ ≈ 0.6–0.8）、Layer 5（談話・語用）はもっとも難しく、項目によっては LLM 単独では不十分で人手検証を厚くする必要があります。</p>
+          </div>
+
+          <p class="text-sm text-gray-600 leading-relaxed">重要なのは、AI アノテーションは<strong class="text-gray-800">人手アノテーションを完全に置き換えるものではない</strong>という点です。むしろ、<strong class="text-gray-800">人手アノテーションを「検証用ゴールドスタンダード」として残しつつ、LLM で規模を BNC 全件レベルにまで拡大する</strong>──この補完的な役割分担が、現代のコーパス言語学における BP 分析の主流になりつつあります。人文学研究者にとっての含意は明確です。これまでは「興味深いが現実的に手が出ない」と諦めていた規模の言語データに対して、研究者が定義した理論的素性スキーマを忠実に適用しながら定量的に分析することが、はじめて可能になりつつあるのです。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6.10 関連研究：Distributional Concept Analysis -->
+    <div class="fade-in topic-card glass rounded-2xl p-6 mb-5">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-xl flex items-center justify-center text-white text-sm font-black flex-shrink-0">6.10</div>
+        <div class="w-full">
+          <h3 class="font-bold text-gray-800 mb-2">関連研究：explain の Distributional Concept Analysis</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">コーパスを用いた語の意味分析には、BP 分析以外にも様々な手法があります。ここでは関連研究として、英語動詞 <em>explain</em> を対象とした筆者の研究 <strong class="text-gray-800">Sugawara (2026) "Distributional Concept Analysis of <em>Explain</em>: From Distant Reading to Cosmic Reading"</strong>（『英語コーパス研究』第33号）を、論文中の図 1〜6 を実際に見ながら紹介します。BP 分析と対比することで、現代コーパス研究の方法論的な広がりがよく見えるはずです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">研究の問い</p>
+            <p class="text-sm text-gray-600">「説明する（explain）」とは、自然言語のなかで実際にどのような行為として現れているのか？　科学哲学では Hempel & Oppenheim の演繹的法則的モデル、Salmon の因果機構説、van Fraassen の語用論的説明論、Machamer–Darden–Craver のメカニズム説など多くの理論があるが、それらは現実の言語使用のどの部分を捉えているのか？──この問いに、コーパスデータから定量的に答えようとした研究です。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">データと方法</p>
+            <p class="text-sm text-gray-600 mb-2">BNC から Sketch Engine を使って <em>explain</em> の KWIC 用例を 18,664 件抽出し、ランダムサンプリングで 10,000 件を分析対象としました。そこに <strong class="text-gray-700">Distributional Concept Analysis（DCA）</strong>と呼ばれる 5 層パイプラインを適用します：</p>
+            <ol class="text-sm text-gray-600 space-y-1 list-decimal pl-5">
+              <li><strong class="text-gray-700">文埋め込みによる意味空間の構築</strong>：E5-large-v2 モデルで各文を 1,024 次元のベクトルに変換</li>
+              <li><strong class="text-gray-700">UMAP による「意味銀河」の可視化</strong>：高次元空間を 2 次元に投影し、用例の分布を観察</li>
+              <li><strong class="text-gray-700">PCA による意味軸の抽出</strong>：大域的な意味変動軸（科学的↔物語的、制度的↔対人的など）を主成分として抽出</li>
+              <li><strong class="text-gray-700">CTM（Combined Topic Model）による潜在トピック推定</strong>：50 個の意味的に整合的なトピックを抽出</li>
+              <li><strong class="text-gray-700">GPT-5 による概念ラベル付け</strong>：統計的トピックを人間が解釈可能な概念単位に変換</li>
+            </ol>
+          </div>
+
+          <h4 class="font-bold text-gray-800 text-sm mb-2 mt-6">Figure 1：意味銀河（ジャンル色分け）</h4>
+          <figure class="my-3">
+            <img src="imgs/sugawara26/fig1_galaxy_genres.jpg" alt="Figure 1. Semantic Galaxy of Explain across Genres" class="w-full rounded-xl shadow-md border border-violet-100">
+            <figcaption class="text-xs text-gray-500 text-center mt-2">Figure 1. Semantic Galaxy of <em>Explain</em> across Genres（Sugawara 2026 より）</figcaption>
+          </figure>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">explain の用例 10,000 件を文埋め込み + UMAP で 2 次元に投影し、点の色を BNC のジャンル（Imaginative、Social science、Leisure、Arts、Commerce & finance、Belief & thought、World affairs、Applied science、Natural & pure science 等）で塗り分けたものが <strong class="text-gray-800">Figure 1</strong> です。一見ひとつの「雲」のように見えますが、よく観察すると<strong class="text-gray-800">均質な分布ではなく、複数の意味的に整合的な「星雲（nebulae）」からなる銀河構造</strong>が浮かび上がります。左側（x が小さい領域）には Imaginative や Arts といった<strong class="text-gray-700">物語的ジャンル</strong>が広く分布し、報告話法・人物描写・視点描写など物語的説明に典型的な特徴が現れます。一方、右側（x が大きい領域）には Natural & pure science や Applied science といった<strong class="text-gray-700">科学的ジャンル</strong>が密なクラスターを形成し、因果関係・メカニズム記述・モデルベース推論が集中します。中央付近に広く散らばる World affairs / Commerce & finance / Social science は、その両極を橋渡しする「semantic bridge」として機能していると論文は論じます。</p>
+
+          <h4 class="font-bold text-gray-800 text-sm mb-2 mt-6">Figure 2：ジャンル重心を重ねた意味銀河</h4>
+          <figure class="my-3">
+            <img src="imgs/sugawara26/fig2_galaxy_centroids.jpg" alt="Figure 2. Semantic Galaxy with Genre Centroids" class="w-full rounded-xl shadow-md border border-violet-100">
+            <figcaption class="text-xs text-gray-500 text-center mt-2">Figure 2. Semantic Galaxy with Genre Centroids（Sugawara 2026 より）</figcaption>
+          </figure>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong class="text-gray-800">Figure 2</strong> は、各ジャンルの<strong class="text-gray-800">重心（centroid）</strong>を UMAP 平面上に重ねた図です。ジャンルごとに「平均的な意味位置」が異なる──Imaginative は左、Natural & pure science は右下、World affairs は中央上、Social science / Belief & thought / Commerce & finance / Applied science は中央に密集──ことが明示されます。重心同士の重なり具合は、ジャンル間で共有される言語資源の量を反映しています。たとえば Social science と World affairs の重心が近接しているのは、両ジャンルとも「政策が地域に与える影響を <em>explain</em> する」のような<strong class="text-gray-700">因果帰属とメタ言説的フレーミング</strong>を共通の手段として用いているためです。Figure 1 と 2 が示すのは、<strong class="text-gray-800">「説明」は単一の機能ではなく、複数の言説伝統が共有する意味銀河の中で、それぞれ特徴的な領域を占める多中心的なエコロジー</strong>だ、ということです。</p>
+
+          <h4 class="font-bold text-gray-800 text-sm mb-2 mt-6">Figure 3：PCA による大域的な意味軸</h4>
+          <figure class="my-3">
+            <img src="imgs/sugawara26/fig3_pca_axes.jpg" alt="Figure 3. PCA Axes of the Semantic Galaxy" class="w-full rounded-xl shadow-md border border-violet-100">
+            <figcaption class="text-xs text-gray-500 text-center mt-2">Figure 3. PCA Axes of the Semantic Galaxy（Sugawara 2026 より）</figcaption>
+          </figure>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">UMAP は局所的な近傍関係を保つ非線形射影なので、データ全体を貫く「大域的な軸」を見るには別の手法が要ります。そこで論文では同じ埋め込み空間に <strong class="text-gray-800">PCA（主成分分析）</strong>をかけ、最大分散方向を抽出しました。<strong class="text-gray-800">Figure 3</strong> がその第 1・第 2 主成分平面です。PCA1（横軸、説明分散 71%）は<strong class="text-gray-700">「科学的・因果的説明 ↔ 物語的・対人的説明」</strong>の連続体を表し、PCA2（縦軸、説明分散 29%）は<strong class="text-gray-700">「制度的・公的説明 ↔ 個人的・対話的説明」</strong>の連続体を表します。GPT-5 で各象限の代表文を解釈させた結果、(右上)「科学的かつ制度的」（"changes in pH are caused predominantly by the albumin concentration, which <em>explains</em> the lower slope..."）、(左上)「物語的だが制度的」（"...ambulance service spokesman Brian Chambers <em>explains</em> the situation"）、(左下)「物語的・個人的」（"She had <em>explained</em> to him about her mother..."）、(右下)「科学的だが対人的」（"<em>Explain</em> the advantages and drawbacks of organizing a file..."）が見出されました。意味空間は<strong class="text-gray-800">離散的なカテゴリではなく連続的なグラデーション</strong>として組織されているのです。</p>
+
+          <h4 class="font-bold text-gray-800 text-sm mb-2 mt-6">Figure 4：PCA 象限 × CTM トピックのヒートマップ</h4>
+          <figure class="my-3">
+            <img src="imgs/sugawara26/fig4_pca_ctm.jpg" alt="Figure 4. PCA Quadrant x CTM Topic, Top 20 Topics" class="w-full rounded-xl shadow-md border border-violet-100">
+            <figcaption class="text-xs text-gray-500 text-center mt-2">Figure 4. PCA Quadrant × CTM Topic, Top 20 Topics（Sugawara 2026 より）</figcaption>
+          </figure>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">次に、Combined Topic Model（CTM）で抽出した 50 トピックのうち上位 20 トピックを、Figure 3 の <strong class="text-gray-800">4 つの象限（Q1〜Q4）にどう分布するか</strong>をヒートマップで示したのが <strong class="text-gray-800">Figure 4</strong> です。各セルの色が明るいほど、そのトピックがその象限に多く現れることを意味します。PCA1 正方向（右側、Q1・Q4）には <em>Mechanistic Causal Explanations of Social Phenomena</em> のような<strong class="text-gray-700">科学的・メカニズム的トピック</strong>が集中し、PCA1 負方向（左側、Q2・Q3）には <em>Past-tense Narrative with Passives and Perfect Aspect</em> のような<strong class="text-gray-700">物語的・報告話法的トピック</strong>が集まります。一方、PCA2 正方向（上、Q1・Q2）には <em>Official Explanations by Spokespersons and Managers</em> のような<strong class="text-gray-700">制度的・公的トピック</strong>が、PCA2 負方向（下、Q3・Q4）には <em>Explanatory and Clarificatory Speech Acts</em> のような<strong class="text-gray-700">対話的・指示的トピック</strong>が分布します。「右上＝科学・左下＝物語・上＝制度・下＝対話」という<strong class="text-gray-800">驚くほど整然とした構造</strong>が、意味空間の中に潜んでいたわけです。</p>
+
+          <h4 class="font-bold text-gray-800 text-sm mb-2 mt-6">Figure 5：6 つの説明 constellation（星座）で塗り分けた銀河</h4>
+          <figure class="my-3">
+            <img src="imgs/sugawara26/fig5_constellations.jpg" alt="Figure 5. Semantic Galaxy Colored by Constellations" class="w-full rounded-xl shadow-md border border-violet-100">
+            <figcaption class="text-xs text-gray-500 text-center mt-2">Figure 5. Semantic Galaxy Colored by Constellations（Sugawara 2026 より）</figcaption>
+          </figure>
+          <p class="text-sm text-gray-600 leading-relaxed mb-2">さらに GPT-5 は、トピック間の意味的近接性に基づいて、50 個の CTM トピックを <strong class="text-gray-800">6 つの上位「説明 constellation（星座）」</strong>に組織化しました。<strong class="text-gray-800">Figure 5</strong> はその 6 つの constellation でジャンル色分けを置き換えた銀河図です。点の色は次の 6 種類に対応します：</p>
+          <ul class="text-sm text-gray-600 space-y-1 mb-2">
+            <li>・<strong class="text-gray-700">Theoretical–Mechanistic Modeling of Phenomena</strong>（理論的・メカニズム的説明）</li>
+            <li>・<strong class="text-gray-700">Difference-Making and Cross-Case Variation</strong>（差異形成的・横断的説明）</li>
+            <li>・<strong class="text-gray-700">Expository and Metadiscursive Framing</strong>（解説的・メタ言説的説明）</li>
+            <li>・<strong class="text-gray-700">Interactional and Instructional Clarification</strong>（対話的・指示的説明）</li>
+            <li>・<strong class="text-gray-700">Institutional Attribution and Official Accounts</strong>（制度的帰責としての説明）</li>
+            <li>・<strong class="text-gray-700">Narrative Reported Explanations</strong>（物語的・報告的説明）</li>
+          </ul>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">各 constellation は<strong class="text-gray-800">UMAP 平面上で内部的に整合的な領域</strong>を占めており、銀河の中の「星座」のように見える局所的なクラスターを形成しています。境界はシャープでありながら連続的で、説明実践がランダムに散らばっているのでも完全に分離しているのでもなく、共有された語彙・文法・談話特徴に支えられた「ご近所」のようなパターンをなしている──というのが論文の主張です。</p>
+
+          <h4 class="font-bold text-gray-800 text-sm mb-2 mt-6">Figure 6：constellation 内のトピック重心を線で結んだ「星座図」</h4>
+          <figure class="my-3">
+            <img src="imgs/sugawara26/fig6_constellation_map.jpg" alt="Figure 6. UMAP Constellation Map of Explain" class="w-full rounded-xl shadow-md border border-violet-100">
+            <figcaption class="text-xs text-gray-500 text-center mt-2">Figure 6. UMAP Constellation Map of <em>Explain</em>（Sugawara 2026 より）</figcaption>
+          </figure>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong class="text-gray-800">Figure 6</strong> は、各 constellation に属する CTM トピックの重心を線で結ぶことで、銀河の中の「星座図」を描き出した図です。<strong class="text-gray-700">Theoretical–Mechanistic Modeling of Phenomena</strong>（赤）は右上に、<strong class="text-gray-700">Difference-Making and Cross-Case Variation</strong>（オレンジ）は中央やや右に、<strong class="text-gray-700">Expository and Metadiscursive Framing</strong>（黄緑）は中央に、<strong class="text-gray-700">Interactional and Instructional Clarification</strong>（水色）は下方に、<strong class="text-gray-700">Institutional Attribution and Official Accounts</strong>（マゼンタ）は中央上に、<strong class="text-gray-700">Narrative Reported Explanations</strong>（青）は左に、それぞれ「星座」のような位相をもって配置されます。Figure 5 で見えた<strong class="text-gray-800">「説明の 6 つの様式」</strong>が、互いに関係づけられた星座群として一望できるわけです。</p>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">主な発見</p>
+            <p class="text-sm text-gray-600">6 つの図を通して浮かび上がるのは、<em>explain</em> が単一の本質を持つ語ではなく、<strong class="text-gray-800">6 つの説明モードからなる多中心的な意味エコロジー</strong>を形成しているということです。これは伝統的な科学哲学（演繹的法則的モデル、因果機構説、語用論的説明論など）が一語の中に同居していると想定してこなかった、より広い<strong class="text-gray-800">「説明実践のエコロジー」</strong>を可視化するものです。各 constellation は特徴的な語彙・文法・談話パターンをもち、ジャンル・社会的文脈と緊密に結びついていることが、図 4 のヒートマップや図 6 の星座配置から確認できます。</p>
+          </div>
+
+          <div class="info-box mb-4">
+            <p class="text-xs font-bold text-gray-700 mb-2">Behavioral Profile 分析との対比</p>
+            <p class="text-sm text-gray-600 mb-2">同じ BNC を使い、似たような「動詞の語義をボトムアップに抽出する」目的を共有しながら、BP 分析と DCA は方法論的に対照的です：</p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>・<strong class="text-gray-700">BP 分析（understand）</strong>：研究者が理論的に <strong>27 個の素性カテゴリを設計</strong>し、用例にラベルを付与してから多変量解析にかける。<strong class="text-gray-700">記号的・離散的</strong>で、各クラスターの解釈に直接結びつく明確な特徴が得られる。</li>
+              <li>・<strong class="text-gray-700">DCA（explain）</strong>：用例を<strong>そのまま文埋め込みベクトル</strong>に変換し、連続的な高次元意味空間で UMAP・PCA・トピックモデルにかける。<strong class="text-gray-700">分布的・連続的</strong>で、研究者があらかじめ素性を設計しなくてもパターンが浮かび上がる。</li>
+            </ul>
+            <p class="text-sm text-gray-600 mt-2">両者は対立するものではなく、<strong class="text-gray-800">補完的</strong>です。BP 分析は仮説検証と語義の理論化に強く、DCA は仮説のない探索と大規模データの可視化に強い。研究目的と問いの性質によって使い分けるのが理想です。</p>
+          </div>
+
+          <p class="text-sm text-gray-600 leading-relaxed">論文ではこの手法を、Moretti (2013) の <em>distant reading</em>（遠読）を拡張した <em>cosmic reading</em>（宇宙的読解）として位置付けています。テキストを「離れて」読むだけでなく、テキストが埋め込まれた<strong class="text-gray-800">高次元意味空間そのものを「銀河」として観察する</strong>──Figure 1〜6 のような可視化は、デジタル人文学が単なるデータ集計から、データの幾何学的構造を読み解く新しい解釈実践へと進化していることを象徴しています。</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- まとめ -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-8">
     <div class="fade-in glass rounded-2xl p-6 border-l-4 border-pink-300">
-      <p class="text-sm text-gray-600 leading-relaxed">本章では、コーパスの基礎から実践までを概観しました。コーパスは現代の人文学研究になくてはならない強力なツールです。大規模で多様な言語データを用いることで、直感や限られた例に頼った従来の研究に比べ、はるかに客観的で再現性の高い分析が可能になります。ぜひ本章で紹介した Sketch Engine 等のツールを実際に使ってみて、再現性ある言語研究の第一歩を踏み出してみてください。</p>
+      <p class="text-sm text-gray-600 leading-relaxed">本章では、コーパスの基礎から実践、そしてケーススタディとしての Behavioral Profile 分析（understand を題材に 27 項目の素性スキーマと AI アノテーション）と、関連研究としての Distributional Concept Analysis（explain を題材に埋め込みベースの意味空間分析）までを概観しました。コーパスは現代の人文学研究になくてはならない強力なツールです。大規模で多様な言語データを用いることで、直感や限られた例に頼った従来の研究に比べ、はるかに客観的で再現性の高い分析が可能になります。さらに LLM の登場によって、これまで規模の壁で諦められていた多次元アノテーションも現実的になりつつあります。ぜひ本章で紹介したツールと方法論を実際に使ってみて、再現性ある言語研究の第一歩を踏み出してみてください。</p>
     </div>
   </section>
 
@@ -287,6 +546,8 @@
         <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">1</span><span>コーパスに含まれるデータの性質と結果解釈への影響について振り返る</span></li>
         <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">2</span><span>Sketch Engine（または中納言）で自分の関心のある語・表現を検索する</span></li>
         <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">3</span><span><strong class="text-gray-800">選んだ語・表現／使用したコーパス／行った操作（頻度・KWIC・共起等）／観察された傾向／解釈</strong>を具体的に記述する</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">4</span><span>Behavioral Profile 分析の 27 項目（Layer 1–5）のうち、自分が関心を持った語に応用するならどの項目が特に重要になるかを考える</span></li>
+        <li class="flex items-start gap-2"><span class="w-5 h-5 bg-violet-100 rounded-full flex items-center justify-center text-violet-500 text-xs flex-shrink-0 mt-0.5">5</span><span>人手アノテーションと AI アノテーションそれぞれの長所・短所を整理し、自分が研究するならどう組み合わせるかを考える</span></li>
       </ul>
     </div>
   </section>
